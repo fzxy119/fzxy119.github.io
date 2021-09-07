@@ -68,9 +68,6 @@ index_generator:
 # Category & Tag
 default_category: uncategorized
 category_map:
-		技术: tc
-		生活: life
-		其他: other
 tag_map:
 
 # Metadata elements
