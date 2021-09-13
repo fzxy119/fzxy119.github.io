@@ -13,7 +13,9 @@ SpringWebMVC是构建在ServletAPI上的最初的Web框架，从一开始就包�
 
 与许多其他Web框架一样，SpringMVC是围绕前端控制器模式设计的，其中一个中心servlet DispatcherServlet为请求处理提供了一个共享算法，而实际工作则由可配置的委托组件执行。该模型具有灵活性，支持多种工作流。与任何servlet一样，DispatcherServlet需要使用Java配置或web.xml根据servlet规范进行声明和映射。反过来，DispatcherServlet使用Spring配置来发现请求映射、视图解析、异常处理等所需的委托组件。
 
-SpringBoot遵循不同的初始化顺序。SpringBoot没有连接到servlet容器的生命周期，而是使用Spring配置引导自身和嵌入式servlet容器。`Filter`和`Servlet`声明在Spring配置中,容器检测到并在servlet容器中注册.
+SpringBoot遵循不同的初始化顺序。SpringBoot没有连接到servlet容器的生命周期，而是使用Spring配置引导自身和嵌入式servlet容器。`Filter`和`Servlet`声明在Spring配置中,容器检测到并在servlet容器中注册. 
+
+传统的Spring和Springmvc依赖于servlet容器的生命周期，通过org.springframework.web.context.ContextLoaderListener 容器监听器和org.springframework.web.servlet.DispatcherServlet 注册 来完成容器的启动 这与SpringBoot 通过容器初始化，通过工厂方式创建WebServer ，然后监听ServletContext ,并回调
 
 # 上下文层次结构
 
