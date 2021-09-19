@@ -368,6 +368,108 @@ protected AbstractHandlerMapping getHandlerMapping() {
 
 WelcomePageHandlerMapping 未做任何映射，只是设置了AbstractUrlHandlerMapping   "/"   RootHandler 
 
+### Handler处理程序
+
+1. Controller 
+
+   执行适配程序 SimpleControllerHandlerAdapter
+
+   ```java
+   @FunctionalInterface
+   public interface Controller {
+      @Nullable
+      ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception;
+   
+   }
+   
+   public class SimpleControllerHandlerAdapter implements HandlerAdapter {
+   
+   	@Override
+   	public boolean supports(Object handler) {
+   		return (handler instanceof Controller);
+   	}
+   
+   	@Override
+   	@Nullable
+   	public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler)
+   			throws Exception {
+            //返回试图
+   		return ((Controller) handler).handleRequest(request, response);
+   	}
+   
+   	...
+   
+   }
+   ```
+
+2. HandlerFunction (Flux)
+
+   执行适配程序 HandlerFunctionAdapter
+
+   ```java
+   public interface HandlerFunction<T extends ServerResponse> {
+      T handle(ServerRequest request) throws Exception;
+   }
+   ```
+
+3. Servlet 
+
+   执行适配程序SimpleServletHandlerAdapter
+
+   ```java
+   public class SimpleServletHandlerAdapter implements HandlerAdapter {
+   
+      @Override
+      public boolean supports(Object handler) {
+         return (handler instanceof Servlet);
+      }
+   
+      @Override
+      @Nullable
+      public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
+          //未返回试图
+         ((Servlet) handler).service(request, response);
+         return null;
+      }
+   
+    ...
+   
+   }
+   ```
+
+4. HttpRequestHandler
+
+   执行适配程序 HttpRequestHandlerAdapter
+
+   ```java
+   public class HttpRequestHandlerAdapter implements HandlerAdapter {
+   
+      @Override
+      public boolean supports(Object handler) {
+         return (handler instanceof HttpRequestHandler);
+      }
+   
+      @Override
+      @Nullable
+      public ModelAndView handle(HttpServletRequest request, HttpServletResponse response, Object handler)
+            throws Exception {
+         //未返回试图
+         ((HttpRequestHandler) handler).handleRequest(request, response);
+         return null;
+      }
+   
+      ...
+   
+   }
+   ```
+
+5. HandlerMethod
+
+   
+
+
+
 # HandlerMapping接口方法getHandler
 
 ```java
