@@ -182,6 +182,10 @@ protected ModelAndView processHandlerException(HttpServletRequest request, HttpS
 
 # 常用实现以及如何探测
 
+
+
+{% asset_img 3F1EF206-8765-4d0d-8B39-B09305F9A347.png 'ExceptionResolver结构图' %}
+
 - SimpleMappingExceptionResolver
 
   ​    根据异常类和视图之间的映射配置来判断是否处理异常，匹配成功就返回对应的视图和对应的响应吗
@@ -230,10 +234,6 @@ public BasicErrorController basicErrorController(ErrorAttributes errorAttributes
    return new BasicErrorController(errorAttributes, this.serverProperties.getError(),errorViewResolvers.orderedStream().collect(Collectors.toList()));
 }
 ```
-
-
-
-
 
 ### 装配ExceptionHandlerExceptionResolver和ResponseStatusExceptionResolver
 
@@ -320,6 +320,8 @@ java.lang.Exception=500
 #视图对应响应码
 500=500
 ```
+
+{% asset_img DE0925E8-7B94-40e2-8E5B-78EF1C311FBF.png '500视图' %}
 
 ### 自定义实现HandlerExceptionResolver异常处理
 
