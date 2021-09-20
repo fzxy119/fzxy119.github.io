@@ -49,27 +49,39 @@ categories:
 
 2. @ExceptionHandler注解方式。注解方式也有两种用法： 
 
-   1. 使用在`Controller`内部 ，可以在Controller**局部**异常统一处理
+   - 使用在`Controller`内部 ，可以在Controller**局部**异常统一处理
 
-      ```java
-      @RestController
-      public class HalloWordController {
-        //可以对HalloWordController 内部所有映射的处理器进行异常捕获，他只处理HalloWordController内部抛出的异常
-          @ExceptionHandler(Exception.class)
-          public String handlerException(Exception e){
-              return "";
-          }
-      
-      }
-      ```
+   ```java
+   @RestController
+   public class HalloWordController {
+     //可以对HalloWordController 内部所有映射的处理器进行异常捕获，他只处理HalloWordController内部抛出的异常
+       @ExceptionHandler(Exception.class)
+       public String handlerException(Exception e){
+           return "";
+       }
+   
+   }
+   ```
 
-   2. 配置`@ControllerAdvice`一起使用实现**全局**处理
+   - 配置`@ControllerAdvice`一起使用实现**全局**处理,或者**部分区域**异常处理，**取决于扫描包**
 
-      
+   ```java
+   @ControllerAdvice(basePackages={"com.cx.user.controller"})
+   public class HalloWordController {
+       //可以对com.cx.user.controller包 内部所有映射的处理器进行异常捕获，他只处理HalloWordController内部抛出的异常
+       @ExceptionHandler(Exception.class)
+       public String handlerException(Exception e){
+           return "";
+       }
+   
+   }
+   ```
 
-3. 实现`HandlerExceptionResolver`方式实现**全局**处理
+   
 
+3. 实现视图与异常进行映射处理SimpleMappingExceptionResolver
 
+4. 实现`HandlerExceptionResolver`方式实现**全局**处理
 
 # 全局异常处理器HandlerExceptionResolver
 
