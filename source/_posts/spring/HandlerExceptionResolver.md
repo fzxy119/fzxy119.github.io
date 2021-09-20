@@ -194,9 +194,9 @@ protected ModelAndView processHandlerException(HttpServletRequest request, HttpS
 
   ​	对处理器是HandlerMethod类型处理器异常进行处理，只处理一下两种情况
 
-  ​		  1. 内部@ExceptionHandler注解的异常处理器，支持处理器内部区域内异常处理
+  ​		  1. 处理器内部有@ExceptionHandler注解异常处理器，支持处理器内部区域异常处理
 
-  ​		  2. @ControllerAdvice支持全局或者部分区域（包扫描）内@ExceptionHandler注解的异常处理器
+  ​		  2. @ControllerAdvice支持全局或者部分区域（包扫描）内@ExceptionHandler注解异常处理器
 
 - DefaultHandlerExceptionResolver
 
