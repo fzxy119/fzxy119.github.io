@@ -19,15 +19,14 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="选择比努力更重要">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta property="og:type" content="website">
 <meta property="og:title" content="晓">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="晓">
-<meta property="og:description" content="选择比努力更重要">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="会飞的鱼">
+<meta property="article:author" content="川猎">
+<meta property="article:tag" content="技术 生活 hexo 笔记">
 <meta name="twitter:card" content="summary">
 
 
@@ -57,6 +56,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -72,15 +74,51 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
         
@@ -111,29 +149,36 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="会飞的鱼"
-      src="/images/avatar.gif">
-  <p class="site-author-name" itemprop="name">会飞的鱼</p>
-  <div class="site-description" itemprop="description">选择比努力更重要</div>
+    <img class="site-author-image" itemprop="image" alt="川猎"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">川猎</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+          <a href="/categories/">
         <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">标签</span>
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -167,12 +212,655 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/28/docker/imagebuild/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/28/docker/imagebuild/" class="post-title-link" itemprop="url">镜像构建</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-28 18:04:19" itemprop="dateCreated datePublished" datetime="2021-10-28T18:04:19+08:00">2021-10-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-01 18:17:44" itemprop="dateModified" datetime="2021-11-01T18:17:44+08:00">2021-11-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><img src="imagebuild%5C576507-docker1.png" alt="img"></p>
+<p>[TOC]</p>
+<h2 id="Docker镜像的创建方法"><a href="#Docker镜像的创建方法" class="headerlink" title="Docker镜像的创建方法"></a>Docker镜像的创建方法</h2><p>基于Dockerfile进行创建，docker build .</p>
+<p>基于容器进行创建</p>
+<h2 id="基于Dockerfile创建"><a href="#基于Dockerfile创建" class="headerlink" title="基于Dockerfile创建"></a>基于Dockerfile创建</h2><h3 id="Dockerfile构建需要的信息："><a href="#Dockerfile构建需要的信息：" class="headerlink" title="Dockerfile构建需要的信息："></a>Dockerfile构建需要的信息：</h3><p><strong>Dockerfile、Context 和 .dockerignore</strong>，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的目录作为Context,并将Dockerfile文件至于Context目录中</p>
+<p>通常情况下Context下要有一个名称为Dockerfile的文件，可以通过-f 指定任意位置的Dockerfile 文件</p>
+<p>我们可以通过.dockerignore文件忽略上下文环境下的文件和目录</p>
+<p>我们可以通过-t 来指定新的镜像的repository和标签信息,可以指定多个 -t 来对多个repository仓库的镜像image进行打标签</p>
+<p>如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .</p>
+<h3 id="一个Dockerfile例子"><a href="#一个Dockerfile例子" class="headerlink" title="一个Dockerfile例子"></a>一个Dockerfile例子</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> chenxiao@ruiyinxin.com</span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> version=<span class="string">&quot;0.2&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> description=<span class="string">&quot;测试创建sentinel&quot;</span></span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="bash"> [<span class="string">&quot;/home/tomcat/log/&quot;</span>]</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir -p /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> jdk /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> sentinel-dashboard.jar /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> run.sh /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod 777 /app/run.sh</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /app/jdk</span><br><span class="line"><span class="keyword">ENV</span> PATH $PATH:$JAVA_HOME/bin</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8088</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="comment">#CMD [&quot;sh&quot;,&quot;run.sh&quot;]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;./run.sh&quot;</span>]</span></span><br><span class="line"><span class="comment">#ENTRYPOINT [&quot;./run.sh&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/sh</span></span><br><span class="line">java -jar -Dspring.profiles.active=test sentinel-dashboard.jar</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行docker命令来创建docker镜像"><a href="#执行docker命令来创建docker镜像" class="headerlink" title="执行docker命令来创建docker镜像"></a>执行docker命令来创建docker镜像</h3><p>命令格式为 docker build -t ImageName:TagName    Dir</p>
+<ul>
+<li><code>-t</code> − 给镜像加一个Tag</li>
+<li><code>ImageName</code> − 给镜像起的名称</li>
+<li><code>TagName</code> − 给镜像的Tag名</li>
+<li><code>Dir</code> − Dockerfile所在目录</li>
+</ul>
+<p>docker build -t bd/sentineld  .</p>
+<ul>
+<li><code>.</code> 表示当前目录，即Dockerfile所在目录</li>
+</ul>
+<h3 id="dockerignore"><a href="#dockerignore" class="headerlink" title=".dockerignore"></a>.dockerignore</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># comment</span><br><span class="line">*/temp*</span><br><span class="line">*/*/temp*</span><br><span class="line">temp?</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th><code># comment</code></th>
+<th>Ignored.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*/temp*</code></td>
+<td>Exclude files and directories whose names start with <code>temp</code> in any immediate subdirectory of the root. For example, the plain file <code>/somedir/temporary.txt</code> is excluded, as is the directory <code>/somedir/temp</code>.</td>
+</tr>
+<tr>
+<td><code>*/*/temp*</code></td>
+<td>Exclude files and directories starting with <code>temp</code> from any subdirectory that is two levels below the root. For example, <code>/somedir/subdir/temporary.txt</code> is excluded.</td>
+</tr>
+<tr>
+<td><code>temp?</code></td>
+<td>Exclude files and directories in the root directory whose names are a one-character extension of <code>temp</code>. For example, <code>/tempa</code> and <code>/tempb</code>are excluded.</td>
+</tr>
+</tbody></table>
+<h2 id="指令解析"><a href="#指令解析" class="headerlink" title="指令解析"></a>指令解析</h2><h3 id="Dockerfile命令列表"><a href="#Dockerfile命令列表" class="headerlink" title="Dockerfile命令列表"></a>Dockerfile命令列表</h3><table>
+<thead>
+<tr>
+<th><strong>指令</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM 镜像</td>
+<td>指定新镜像所基于的镜像，第一条指令必须为FROM指令，每创建一个镜像就需要一条FROM指令</td>
+</tr>
+<tr>
+<td>MAINTAINER 名字</td>
+<td>说明新镜像的维护人信息</td>
+</tr>
+<tr>
+<td>RUN命令</td>
+<td>在所基于的镜像上执行命令，并提交到新的镜像中</td>
+</tr>
+<tr>
+<td>CMD [“要运行的程序”,“参数1”,“参数2”]</td>
+<td>指令启动容器时要运行的命令或者脚本，Dockerfile只能有一条CMD命令，如果指定多条则只能最后一条被执行，</td>
+</tr>
+<tr>
+<td>EXPOSE 端口号</td>
+<td>指定新镜像加载到Docker时要开启的端口（EXPOSE暴露的是容器内部端口，需要再映射到一个外部端口上）</td>
+</tr>
+<tr>
+<td>ENV 环境变量 变量值</td>
+<td>设置一个环境变量的值，会被后面的RUN使用</td>
+</tr>
+<tr>
+<td>ADD 源文件/目录 目标文件/目录</td>
+<td>将源文件复制到目标文件（与COPY的区别是将本地tar文件解压到镜像中）</td>
+</tr>
+<tr>
+<td>COPY 源文件/目录 目标文件/目录</td>
+<td>将本地主机上的文件/目录复制到目标地点，源文件/目录要与Dockerfile在相同的目录中</td>
+</tr>
+<tr>
+<td>VOLUME [“目录”]</td>
+<td>在容器中创建一个挂载点（VOLUME是宿主机中的某一个目录挂载到容器中）</td>
+</tr>
+<tr>
+<td>USER 用户名/UID</td>
+<td>指定运行容器时的用户</td>
+</tr>
+<tr>
+<td>WORKDIR 路径</td>
+<td>为后续的RUN、CMD、ENTRYPOINT指定工作目录（WORKDIR类似于cd，但是只切换目录一次，后续的RUN命令就可以写相对路径了）</td>
+</tr>
+<tr>
+<td>ONBUILD 命令</td>
+<td>指定所生成的镜像作为一个基础镜像时所要运行的命令</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>健康检查</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>指令和CMD类似，它也是用户指定容器启动时要执行的命令，但如果dockerfile中也有CMD指令，CMD中的参数会被附加到ENTRYPOINT指令的后面。 如果这时docker run命令带了参数，这个参数会覆盖掉CMD指令的参数，并也会附加到ENTRYPOINT 指令的后面。优先级：ENTRYPOINT&gt;CMD&gt;docker run</td>
+</tr>
+</tbody></table>
+<h3 id="启动执行脚本-ENTRYPOINT-CMD"><a href="#启动执行脚本-ENTRYPOINT-CMD" class="headerlink" title="启动执行脚本 ENTRYPOINT CMD"></a>启动执行脚本 ENTRYPOINT CMD</h3><p><img src="https://img.jbzj.com/file_images/article/201803/2018031211363722.png" alt="img"></p>
+<p><strong>shell 模式</strong></p>
+<p>使用 shell 模式时，docker 会以 <code>/bin/sh -c &quot;task command&quot;</code> 的方式执行任务命令</p>
+<p><strong>exec 模式</strong></p>
+<p>使用 exec 模式时，容器中的任务进程就是容器内的 1 号进程</p>
+<p>我们大概可以总结出下面几条规律：</p>
+<p>   • 如果 ENTRYPOINT 使用了 shell 模式，CMD 指令会被忽略。</p>
+<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 指定的内容被追加为 ENTRYPOINT 指定命令的参数。</p>
+<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 也应该使用 exec 模式。</p>
+<h3 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt; [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]</span><br></pre></td></tr></table></figure>
+
+<p> Dockerfile必须是以FROM指令开始</p>
+<p><code>ARG</code> 是唯一一个优先于 地位高于 FROM指令的，</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ARG</span> VERSION=latest</span><br><span class="line"><span class="keyword">FROM</span> busybox:$VERSION</span><br><span class="line"><span class="keyword">ARG</span> VERSION</span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$VERSION</span> &gt; image_version</span></span><br></pre></td></tr></table></figure>
+
+<p>–platform，指定镜像能被使用的平台信息，默认情况下是执行build request的平台信息被作为platform，如：linux/amd64<code>, </code>linux/arm64，windows/amd64</p>
+<p><code>as name</code>通查是可选的，他可以指定自定义构建步骤的名称</p>
+<h3 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h3><p>RUN指令执行有两种形式</p>
+<p>shell形式  RUN  <command>，此指令执行在shell上下文环境中，默认是 /bin/sh -c  ’code‘</p>
+<p>exec 形式 RUN  [“executable”, “param1”, “param2”]，exec 模式会将后续的参数解析成json 数组，也就是说我们的参数需要用双引号包括，而不是单引号。</p>
+<p>run命令的每次执行在当前镜像的最顶层生成新的层，并提交结果，并且将在下一个步骤中使用，也就是说每层之间是独立的，shell环境也是独立的。我们可以使用  <code>\</code> 来使用多行单指令 如：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; \</span></span></span><br><span class="line"><span class="string"><span class="bash">echo $HOME&#x27;</span></span></span><br><span class="line"><span class="comment">#两者含义相同</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; echo $HOME&#x27;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><ul>
+<li><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code> exec模式</li>
+<li><code>CMD [&quot;param1&quot;,&quot;param2&quot;] 作为</code>ENTRYPOINT 的默认参数</li>
+<li><code>CMD command param1 param2</code> <em>shell</em> 模式</li>
+</ul>
+<p>不可将run与cmd指令混淆，run指令会执行命令，并提交结果，cmd并不执行任何东西，在构建的过程当中，他只指定镜像启动预期指令</p>
+<h3 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="bash"> &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="bash"> <span class="string">&quot;com.example.vendor&quot;</span>=<span class="string">&quot;ACME Incorporated&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> com.example.label-with-value=<span class="string">&quot;foo&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> version=<span class="string">&quot;1.0&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> description=<span class="string">&quot;This text illustrates \</span></span></span><br><span class="line"><span class="string"><span class="bash">that label-values can span multiple lines.&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="bash"> multi.label1=<span class="string">&quot;value1&quot;</span> multi.label2=<span class="string">&quot;value2&quot;</span> other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="bash"> multi.label1=<span class="string">&quot;value1&quot;</span> \</span></span><br><span class="line"><span class="bash">      multi.label2=<span class="string">&quot;value2&quot;</span> \</span></span><br><span class="line"><span class="bash">      other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下expose 使用的tcp协议，也可以显示指定</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/tcp</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/udp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="bash"> -p 80:80/tcp -p 80:80/udp ...</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ENV</span> &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
+
+<p>env指令设置环境变量信息，那么环境变量信息，将存在于后续构建的各个阶段，</p>
+<p>可以通过运行镜像，并指定环境变零的方式对镜像中设置的环境变量进行变更<code>docker run --env &lt;key&gt;=&lt;value&gt;</code>.</p>
+<h3 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>–chown指令只支持linux系统上构建的镜像，在windows环境中并不工作，如果不指定用户或者用户组，默认使用 a UID and GID of 0</p>
+<p>src： 可使用通配符，并且路径都是相对于Context的相对路径</p>
+<p>​         网络上的远程文件url，如果url不是以斜线结尾，那么将被报错在dest目录下，如果是以斜线结尾，那么问题名称将被推理出来，</p>
+<p>​          如 ADD <a href="http://example.com/foobar/">http://example.com/foobar/</a>  将创建问文件  /foobar，URL必须有一个非平凡的路径，这样才能找到适当的文件名。<a href="http://example.com/">http://example.com</a> 不会工作</p>
+<p>​          文件必须存在于Context中，不能使用../ 因为build第一步是发送context到docker daemon程 序</p>
+<p>​          如果src是一个目录，那么目录的整个内容将被复制，COPY jdk /app/jdk</p>
+<p>​          如果src是一个压缩文件(identity, gzip, bzip2 or xz) ，那么src将被解压到目标目录</p>
+<p>dest： 目标路径如果不是以 / 开头的话是以WORKDIR为目录的相对路径</p>
+<p>​        如果dest不存在，那么整个路径将被创建</p>
+<p>​        如果dest不是以斜线结尾，那么dest将被认为是一个常规文件，src的内容将被写入到文件</p>
+<p>​        如果src是多个资源，或者使用了通配符，那么dest必须要以斜线结尾</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ADD hom* /mydir/</span><br><span class="line">ADD hom?.txt /mydir/</span><br><span class="line">ADD test.txt relativeDir/</span><br><span class="line">ADD test.txt /absoluteDir/</span><br><span class="line"></span><br><span class="line">ADD --chown=55:mygroup files* /somedir/</span><br><span class="line">ADD --chown=bin files* /somedir/</span><br><span class="line">ADD --chown=1 files* /somedir/</span><br><span class="line">ADD --chown=10:11 files* /somedir/</span><br></pre></td></tr></table></figure>
+
+<h3 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="bash"> [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> [--chown=&lt;user&gt;:&lt;group&gt;] [<span class="string">&quot;&lt;src&gt;&quot;</span>,... <span class="string">&quot;&lt;dest&gt;&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>src : 文件必须存在于Context中</p>
+<p>​        如果src是一个目录，那么他的内容和元数据信息将被拷贝到目标目录 COPY jdk /app/jdk</p>
+<p>​        如果src是一个文件，并且dest 是以斜线结尾，那么文件将被拷贝到目录下，如 dest/src </p>
+<p>dest: 如果目录不存在，那么整个文件目录将被创建</p>
+<p>​         如果dest没有是以斜杠结尾，那么他将被看做事一个普通文件，并且src将被写入到dest</p>
+<p>​          如果src是多资源文件，那么dest必须是以斜杠结尾</p>
+<h3 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a>ENTRYPOINT</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> [<span class="string">&quot;executable&quot;</span>, <span class="string">&quot;param1&quot;</span>, <span class="string">&quot;param2&quot;</span>]   <span class="comment">#exec模式</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="bash"> <span class="built_in">command</span> param1 param2                <span class="comment">#shell模式</span></span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Dockerfile 最少需要制定一个CMD或者ENTRYPOINT指令</li>
+<li>当容器是可执行的情况下，应该定义ENTRYPOINT</li>
+<li>CMD应该被用来定义ENTRYPOINT 的默认参数，</li>
+<li>CMD参数可以在容器运行的时候被替换掉，ENTRYPOINT则不行</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"><strong>No ENTRYPOINT</strong></th>
+<th align="left"><strong>ENTRYPOINT exec_entry p1_entry</strong></th>
+<th><strong>ENTRYPOINT [“exec_entry”, “p1_entry”]</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>No CMD</strong></td>
+<td align="left"><em>error, not allowed</em></td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD [“exec_cmd”, “p1_cmd”]</strong></td>
+<td align="left">exec_cmd p1_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry exec_cmd p1_cmd</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD [“p1_cmd”, “p2_cmd”]</strong></td>
+<td align="left">p1_cmd p2_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry p1_cmd p2_cmd</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD exec_cmd p1_cmd</strong></td>
+<td align="left">/bin/sh -c exec_cmd p1_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd</td>
+</tr>
+</tbody></table>
+<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">VOLUME</span><span class="bash"> [<span class="string">&quot;/data&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>VOLUME指令将从本地主机或者其他的容器创建一个挂载点并使用给定的名称，他的值可以是一个json数组VOLUME [“/var/log/“]，或者是一个字符串 VOLUME /var/log。 或者是多个VOLUME /var/log /var/db。</p>
+<p>如果是基于windows的容器，那么这数据卷必须是一个不存在的或者是一个空的目录，并且是C盘以外的数据驱动</p>
+<p>volume在声明之后，如果在build的过程中的每一个步骤对volume内容的修改都将被忽略，</p>
+<p>声明的时候如果是json数据，必须是以双引号进行包括，而不是单引号</p>
+<p>VOLUME指令挂在的目录，并不能通过host_dir来指定映射到主机那个目录，他是在运行容器的时候才确定的，你必须指定一个挂载点，当你创建或者启动一个容器的时候，</p>
+<h3 id="USER"><a href="#USER" class="headerlink" title="USER"></a>USER</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USER</span> &lt;<span class="keyword">user</span>&gt;[:&lt;group&gt;]</span><br><span class="line"><span class="keyword">USER</span> &lt;UID&gt;[:&lt;GID&gt;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ARG &lt;name&gt;[=&lt;default value&gt;]</span><br></pre></td></tr></table></figure>
+
+<p>ARG指令可以在构建的过程中定义一些参数，并设置一些默认值，并且在build的时候可以指定</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
+
+<p><strong>默认值；</strong>如果build的时候没有指定–build-arg user1=what_user 那么someuser将被作为默认值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">ARG user1=someuser</span><br><span class="line">ARG buildno=1</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用域：</strong>以下示例，第二行将使用some_user来作为值来使用，第四行将使用what_user，ARG指令定义的变量是从他定义的行开始生效的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">USER $&#123;user:-some_user&#125;</span><br><span class="line">ARG user</span><br><span class="line">USER $user</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用ARG变量：</strong>ENV指令将会覆盖ARG同名参数，如下将使用v1.0.0，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu</span><br><span class="line">ARG CONT_IMG_VER</span><br><span class="line">ENV CONT_IMG_VER=v1.0.0</span><br><span class="line">RUN echo $CONT_IMG_VER</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg CONT_IMG_VER=v2.0.1 .</span><br></pre></td></tr></table></figure>
+
+<p><strong>ENV和ARG</strong>：ARG变量并不能像EVN环境变量那样保存在镜像之中</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu</span><br><span class="line"><span class="keyword">ARG</span> CONT_IMG_VER</span><br><span class="line"><span class="keyword">ENV</span> CONT_IMG_VER=$&#123;CONT_IMG_VER:-v1.<span class="number">0.0</span>&#125;   <span class="comment">#可带有默认值</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="built_in">echo</span> <span class="variable">$CONT_IMG_VER</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Docker中包含一些默认的ARG参数，可以不用再Dockerfile中生命</p>
+<ul>
+<li><p><code>HTTP_PROXY</code></p>
+</li>
+<li><p><code>http_proxy</code></p>
+</li>
+<li><p><code>HTTPS_PROXY</code></p>
+</li>
+<li><p><code>https_proxy</code></p>
+</li>
+<li><p><code>FTP_PROXY</code></p>
+</li>
+<li><p><code>ftp_proxy</code></p>
+</li>
+<li><p><code>NO_PROXY</code></p>
+</li>
+<li><p><code>no_proxy</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg HTTPS_PROXY=https://my-proxy.example.com .</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>Docker默认的ARG全局范围内的平台参数，这些参数是在全局范围中定义的，因此在构建阶段或运行命令中不自动可用。要在构建阶段中公开这些参数之一，请在没有值的情况下重新定义它</p>
+<ul>
+<li><p><code>TARGETPLATFORM</code> - platform of the build result. Eg <code>linux/amd64</code>, <code>linux/arm/v7</code>, <code>windows/amd64</code>.</p>
+</li>
+<li><p><code>TARGETOS</code> - OS component of TARGETPLATFORM</p>
+</li>
+<li><p><code>TARGETARCH</code> - architecture component of TARGETPLATFORM</p>
+</li>
+<li><p><code>TARGETVARIANT</code> - variant component of TARGETPLATFORM</p>
+</li>
+<li><p><code>BUILDPLATFORM</code> - platform of the node performing the build.</p>
+</li>
+<li><p><code>BUILDOS</code> - OS component of BUILDPLATFORM</p>
+</li>
+<li><p><code>BUILDARCH</code> - architecture component of BUILDPLATFORM</p>
+</li>
+<li><p><code>BUILDVARIANT</code> - variant component of BUILDPLATFORM</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine</span><br><span class="line">ARG TARGETPLATFORM</span><br><span class="line">RUN echo &quot;I&#x27;m building for $TARGETPLATFORM&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="ONBUILD"><a href="#ONBUILD" class="headerlink" title="ONBUILD"></a>ONBUILD</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ONBUILD &lt;INSTRUCTION&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个触发器指令，镜像构建时候定义，当别的镜像基于当前镜像进行构建的时候 ONBUILD指令将在FROM指令后首先触发基础镜像的ONBUILD指令，</p>
+<p>他注册了一个超前指令，并在之后运行，运行环境是构建容器的Context，如果有一个指令失败，那么FROM指令将是失败的</p>
+<p>他能在docker inspect指令中被观察到</p>
+<p>ONBUILD 只在直接FROM Dockerfile中生效，也就是多级A FROM B FROM C ,那么c的ONBILD 不会再A中生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ONBUILD ADD . /app/src</span><br><span class="line">ONBUILD RUN /usr/local/bin/python-build --dir /app/src</span><br></pre></td></tr></table></figure>
+
+<p>ONBUILD不支持连续使用，ONBUILD ONBUILD</p>
+<p>ONBUILD不会触发FROM 和 MAINTAINER指令</p>
+<h3 id="STOPSIGNAL"><a href="#STOPSIGNAL" class="headerlink" title="STOPSIGNAL"></a>STOPSIGNAL</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STOPSIGNAL signal</span><br></pre></td></tr></table></figure>
+
+<p>默认的STOPSIGNAL 可以使用–stop-signal 标记，在docker run 和docker create 的时候修改掉</p>
+<h3 id="HEALTHCHECK"><a href="#HEALTHCHECK" class="headerlink" title="HEALTHCHECK"></a>HEALTHCHECK</h3><ul>
+<li><p><code>HEALTHCHECK [OPTIONS] CMD command</code> (check container health by running a command inside the container)</p>
+</li>
+<li><p><code>HEALTHCHECK NONE</code> (disable any healthcheck inherited from the base image)</p>
+<p>HEALTHCHECK 指令告诉Docker如何测试容器是否在工作。</p>
+<p>当指定了HEALTHCHECK 那么容器除了正常的状态，会添加一些健康状态，初始化是starting，当健康检查通过，状态为healthy，当经理了一系列的故障之后，将变更为unhealthy</p>
+<ul>
+<li><code>--interval=DURATION</code> (default: <code>30s</code>)</li>
+<li><code>--timeout=DURATION</code> (default: <code>30s</code>)</li>
+<li><code>--start-period=DURATION</code> (default: <code>0s</code>)</li>
+<li><code>--retries=N</code> (default: <code>3</code>)</li>
+</ul>
+</li>
+<li><p>0: success - the container is healthy and ready for use</p>
+</li>
+<li><p>1: unhealthy - the container is not working correctly</p>
+</li>
+<li><p>2: reserved - do not use this exit code 预留的状态</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h3><p>shell指令运行将默认的shell进行调整，默认的linux shell 是[“/bin/sh”, “-c”] Windows 是<code>[&quot;cmd&quot;, &quot;/S&quot;, &quot;/C&quot;]</code></p>
+<p>shell ，在Dockerfile中必须是json模式的</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/22/java/redisha/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/22/java/redisha/" class="post-title-link" itemprop="url">Redis高可用</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-22 21:11:51" itemprop="dateCreated datePublished" datetime="2021-09-22T21:11:51+08:00">2021-09-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-09-26 10:46:50" itemprop="dateModified" datetime="2021-09-26T10:46:50+08:00">2021-09-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Sentinel相关配置"><a href="#Sentinel相关配置" class="headerlink" title="Sentinel相关配置"></a>Sentinel相关配置</h2><p>bind 12.3.10.222</p>
+<p>port 26377</p>
+<p>sentinel monitor mymaster 12.3.10.222 6377 2</p>
+<p>sentinel auth-pass mymaster cx</p>
+<p>sentinel down-after-milliseconds mymaster 30000</p>
+<p>sentinel parallel-syncs mymaster 3</p>
+<p>sentinel failover-timeout mymaster 180000</p>
+<p>loglevel debug    logfile “/usr/redis/log/sentinel-26377.log”     daemonize yes</p>
+<p>启动方式</p>
+<ul>
+<li>```<br>redis-sentinel /path/to/sentinel.conf<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  redis-server /path/to/sentinel.conf --sentinel</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Sentinel及服务状态感知能力"><a href="#Sentinel及服务状态感知能力" class="headerlink" title="Sentinel及服务状态感知能力"></a>Sentinel及服务状态感知能力</h2><p>环境内信息共享，sentinel与主服务从服务之间建立命令链接及频道订阅发布链接，用以感知从服务器加入，新的sentinel加入</p>
+<p>​    1. sentinel每10秒向主服务发送INFO命令收集信息，收集从服务信息，<strong>发现新的服务加入</strong>，并建立从服务数据结构，建立从服务命令及频道链接，</p>
+<p>​    2. 建立好从服务链接后每10秒发送INFO命令收集从服务状态信息，并更新数据结构中从服务的状态信息</p>
+<p>​    3. 向主服务器从服务器发布 __sentinel__:hello  频道  共享sentinel自身状态及主服务信息，所有sentinel发布信息到此频道</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PUBLISH  __sentinel__:hello &quot;s_ip s_port s_runid s_epoch m_name m_ip m_port m_epoch&quot;</span><br><span class="line">s_ip s_port s_runid s_epoch  发送消息的sentinel信息</span><br><span class="line">m_name m_ip m_port m_epoch   发送消息的sentinel监测的master信息</span><br></pre></td></tr></table></figure>
+
+<p>​    4. 订阅主服务器从服务器 __sentinel__:hello  频道  感知其他sentinel信息及主服务信息，所有sentinel订阅此频道，并接受消息</p>
+<h2 id="状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接"><a href="#状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接" class="headerlink" title="状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接"></a>状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接</h2><p>​    sentinel除了和主服务从服务建立命令链接和频道链接外，还与其他sentinel建立命令链接，用于状态监测 PING命令执行</p>
+<h3 id="主观下线状态监测-PING"><a href="#主观下线状态监测-PING" class="headerlink" title="主观下线状态监测 PING"></a>主观下线状态监测 PING</h3><ol>
+<li><p>sentinel 和主从服务及其他sentinel建立连接后会以每秒一次的频率发送PING命令，并根据回复来判断实例是否下线，PING命令有固定的几个有效的回复，有效的回复有+PONG，-LOADING,-MASTERDOWN三种回复，除了三种回复的结果都是无效回复。</p>
+</li>
+<li><p>sentinel配置文件中 down-after-milliseconds 配置是sentinel判断主观下线所需的时间长度，在down-after-milliseconds毫秒内服务连续向sentinel返回无效回复，那么sentinel将实例结构中flags属性中打卡 SRI-S-DOWN标识，以此来表示实例进入主管下线状态。</p>
+</li>
+<li><p>down-after-milliseconds 配置不仅作用在判断主从服务下线检查，也作用在sentinel下线检查时长</p>
+<p>sentinel monitor mymaster host  port  quorum(客观下线所支持的投票数量)</p>
+<p>sentinel down-after-milliseconds mymaster  30000</p>
+</li>
+</ol>
+<h3 id="客观下线状态监测-SENTINEL-is-master-down-by-addr-命令"><a href="#客观下线状态监测-SENTINEL-is-master-down-by-addr-命令" class="headerlink" title="客观下线状态监测 SENTINEL  is-master-down-by-addr 命令:"></a>客观下线状态监测 SENTINEL  is-master-down-by-addr 命令:</h3><p>当sentinel判断主服务器为主观下线的时候，会向别的监视主服务的sentinel进行询问，看他们是否也认为主服务器已进入了下线状态（可已是主观也可以是客观），<strong>当接收到足够数量的下线判断</strong>（quorum）后，sentinel会将服务器判定为客观下线并进行故障转移</p>
+<p>询问是否已下线请求：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">发送：SENTINEL is-master-down-by-addr ip port current_epoch  runid</span><br><span class="line">ip 被sentinel判断为主观下次的主服务ip</span><br><span class="line">port 被sentinel判断为主观下次的主服务端口</span><br><span class="line">current_epoch sentinel当前的配置纪元，用于sentinel领头选举</span><br><span class="line">runid *或者是sentinel运行id</span><br><span class="line"></span><br><span class="line">回复：down_state leader_runid leader_epoch</span><br><span class="line">down_state 1 服务已下线 0 服务未下线</span><br><span class="line">leader_runid  *或者是sentinel运行id，用于sentinel领头选举，询问阶段返回*</span><br><span class="line">leader_epoch  配置纪元，用于sentinel领头选举 询问阶段返回0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="选举领头sentinel"><a href="#选举领头sentinel" class="headerlink" title="选举领头sentinel"></a>选举领头sentinel</h2><ul>
+<li>当sentinel监测到主服务下线会进行leader选举，并由选举出的sentinel负责进行故障转移，选举的命令是通过SENTINEL is-master-down-by-addr 进行发送的，并根据返回结果进行收集，当超过半数的sentinel服务投票决定，那台sentinel将成为leader。</li>
+<li>当客观quorum达到后sentinel会向别的sentinel（目标）发送SENTINEL is-master-down-by-addr ip port current_epoch  runid 命令，并携带current_epoch  ，runid </li>
+<li>目标sentinel接收到is-master-down-by-addr  请求，如果当前sentinel未进行过投票，则返回发送自己的epoch  ，和请求投票的sentinel的runid表示投票，如果已经投过票，就拒绝请求</li>
+<li>源sentinel接受到回复后，会比对leader_epoch 纪元是否和自己的相等，如果相等判断leader_runid是否是自己的runid如果是，表明投票给自己。</li>
+<li>每个sentinel在每个纪元epoch内只能进行一次的投票，并且只能投票一次，根据请求到达的先后顺序，投票遵循先到先得，leader申请的sentinel根据的leader_runid，leader_epoch结果统计投票信息，并在过半后成为leader。</li>
+<li>每个sentinel都有机会成为leader，每次lead选举无论成功或者失败epoch纪元都会增1</li>
+<li>如果给定时限内没有一个sentinel被选举为leader，那么sentinel将在一段时间后再次进行选举，知道选举出leader为止。</li>
+</ul>
+<h2 id="实现故障转移"><a href="#实现故障转移" class="headerlink" title="实现故障转移"></a>实现故障转移</h2><p>在已下线的主服务器的从服务器里挑选一个从服务，并将其转换为主服务</p>
+<ol>
+<li>​     选择从服务规则（主服务中slaves列表）</li>
+<li>​      删除已经下线的从服务</li>
+<li>​      删除最近5秒内没有回复过leader的从服务</li>
+<li>​      删除与主服务断开连接超过 down-after-milliseconds * 10 毫秒的从服务</li>
+<li>​     根据从服务的优先级排序，选择优先级最高的从服务如果有多个，将按照复制偏移量最大的优先，如果优先级复制偏移量都一样，就按照runid进行排序 宣传runid最小的为主服务</li>
+<li><pre><code> 向从服务发送 SLAVEOF no one 命令，调整从服务未主服务
+</code></pre>
+</li>
+</ol>
+<p>将已下线的主服务下的所有从服务，改为复制挑选出的主服务</p>
+<ul>
+<li>​    向未被选择的从服务发送 SLAVEOF new_master new_master_por 进行复制新的主服务命令，并调整配置文件</li>
+</ul>
+<p>将已下线的主服务器设置为新选择的主服务的从服务，当就的主服务重新上线是，他会成为新的主服务的从服务</p>
+<ul>
+<li>调整配置文件</li>
+</ul>
+<!--所有被调整过的服务，redis.conf 复制服务配置将被调整-->
+
+<p>sentinel.c 关于sentinel的状态的数据结构</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Main state. */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sentinelState</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> myid[CONFIG_RUN_ID_SIZE+<span class="number">1</span>]; <span class="comment">/* This sentinel ID. */</span></span><br><span class="line">    <span class="keyword">uint64_t</span> current_epoch;         <span class="comment">/* Current epoch. */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 报错所有被这个sentinel监视的服务 结构是sentinelRedisInstances */</span></span><br><span class="line">    dict *masters;      <span class="comment">/* Dictionary of master sentinelRedisInstances.</span></span><br><span class="line"><span class="comment">                           Key is the instance name, value is the</span></span><br><span class="line"><span class="comment">                           sentinelRedisInstance structure pointer. */</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">int</span> tilt;           <span class="comment">/* Are we in TILT mode? */</span></span><br><span class="line">    <span class="keyword">int</span> running_scripts;    <span class="comment">/* Number of scripts in execution right now. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> tilt_start_time;       <span class="comment">/* When TITL started. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> previous_time;         <span class="comment">/* Last time we ran the time handler. */</span></span><br><span class="line">    <span class="built_in">list</span> *scripts_queue;            <span class="comment">/* Queue of user scripts to execute. */</span></span><br><span class="line">    <span class="keyword">char</span> *announce_ip;  <span class="comment">/* IP addr that is gossiped to other sentinels if</span></span><br><span class="line"><span class="comment">                           not NULL. */</span></span><br><span class="line">    <span class="keyword">int</span> announce_port;  <span class="comment">/* Port that is gossiped to other sentinels if</span></span><br><span class="line"><span class="comment">                           non zero. */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> simfailure_flags; <span class="comment">/* Failures simulation. */</span></span><br><span class="line">&#125; sentinel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sentinelRedisInstance</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> flags;      <span class="comment">/* See SRI_... defines */</span></span><br><span class="line">    <span class="keyword">char</span> *name;     <span class="comment">/* Master name from the point of view of this sentinel. */</span></span><br><span class="line">    <span class="keyword">char</span> *runid;    <span class="comment">/* Run ID of this instance, or unique ID if is a Sentinel.*/</span></span><br><span class="line">    <span class="keyword">uint64_t</span> config_epoch;  <span class="comment">/* Configuration epoch. */</span></span><br><span class="line">    sentinelAddr *addr; <span class="comment">/* Master host. */</span></span><br><span class="line">    instanceLink *link; <span class="comment">/* Link to the instance, may be shared for Sentinels. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> last_pub_time;   <span class="comment">/* Last time we sent hello via Pub/Sub. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> last_hello_time; <span class="comment">/* Only used if SRI_SENTINEL is set. Last time</span></span><br><span class="line"><span class="comment">                                 we received a hello from this Sentinel</span></span><br><span class="line"><span class="comment">                                 via Pub/Sub. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> last_master_down_reply_time; <span class="comment">/* Time of last reply to</span></span><br><span class="line"><span class="comment">                                             SENTINEL is-master-down command. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> s_down_since_time; <span class="comment">/* Subjectively down since time. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> o_down_since_time; <span class="comment">/* Objectively down since time. */</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/* 配置 sentinel down-after-milliseconds mymaster 30000 */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> down_after_period; <span class="comment">/* Consider it down after that period. */</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mstime_t</span> info_refresh;  <span class="comment">/* Time at which we received INFO output from it. */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Role and the first time we observed it.</span></span><br><span class="line"><span class="comment">     * This is useful in order to delay replacing what the instance reports</span></span><br><span class="line"><span class="comment">     * with our own configuration. We need to always wait some time in order</span></span><br><span class="line"><span class="comment">     * to give a chance to the leader to report the new configuration before</span></span><br><span class="line"><span class="comment">     * we do silly things. */</span></span><br><span class="line">    <span class="keyword">int</span> role_reported;</span><br><span class="line">    <span class="keyword">mstime_t</span> role_reported_time;</span><br><span class="line">    <span class="keyword">mstime_t</span> slave_conf_change_time; <span class="comment">/* Last time slave master addr changed. */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Master specific. */</span></span><br><span class="line">    dict *sentinels;    <span class="comment">/* Other sentinels monitoring the same master. */</span></span><br><span class="line">    dict *slaves;       <span class="comment">/* Slaves for this master instance. */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> quorum;<span class="comment">/* Number of sentinels that need to agree on failure. */</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/* 配置 sentinel parallel-syncs mymaster 3 */</span></span><br><span class="line">    <span class="keyword">int</span> parallel_syncs; <span class="comment">/* How many slaves to reconfigure at same time. */</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">char</span> *auth_pass;    <span class="comment">/* Password to use for AUTH against master &amp; slaves. */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Slave specific. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> master_link_down_time; <span class="comment">/* Slave replication link down time. */</span></span><br><span class="line">    <span class="keyword">int</span> slave_priority; <span class="comment">/* Slave priority according to its INFO output. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> slave_reconf_sent_time; <span class="comment">/* Time at which we sent SLAVE OF &lt;new&gt; */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sentinelRedisInstance</span> *<span class="title">master</span>;</span> <span class="comment">/* Master instance if it&#x27;s slave. */</span></span><br><span class="line">    <span class="keyword">char</span> *slave_master_host;    <span class="comment">/* Master host as reported by INFO */</span></span><br><span class="line">    <span class="keyword">int</span> slave_master_port;      <span class="comment">/* Master port as reported by INFO */</span></span><br><span class="line">    <span class="keyword">int</span> slave_master_link_status; <span class="comment">/* Master link status as reported by INFO */</span></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> slave_repl_offset; <span class="comment">/* Slave replication offset. */</span></span><br><span class="line">    <span class="comment">/* Failover */</span></span><br><span class="line">    <span class="keyword">char</span> *leader;       <span class="comment">/* If this is a master instance, this is the runid of</span></span><br><span class="line"><span class="comment">                           the Sentinel that should perform the failover. If</span></span><br><span class="line"><span class="comment">                           this is a Sentinel, this is the runid of the Sentinel</span></span><br><span class="line"><span class="comment">                           that this Sentinel voted as leader. */</span></span><br><span class="line">    <span class="keyword">uint64_t</span> leader_epoch; <span class="comment">/* Epoch of the &#x27;leader&#x27; field. */</span></span><br><span class="line">    <span class="keyword">uint64_t</span> failover_epoch; <span class="comment">/* Epoch of the currently started failover. */</span></span><br><span class="line">    <span class="keyword">int</span> failover_state; <span class="comment">/* See SENTINEL_FAILOVER_STATE_* defines. */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> failover_state_change_time;</span><br><span class="line">    <span class="keyword">mstime_t</span> failover_start_time;   <span class="comment">/* Last failover attempt start time. */</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/*刷新故障迁移状态的最大时限 sentinel failover-timeout mymaster 180000 */</span></span><br><span class="line">    <span class="keyword">mstime_t</span> failover_timeout;      <span class="comment">/* Max time to refresh failover state. */</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">mstime_t</span> failover_delay_logged; <span class="comment">/* For what failover_start_time value we</span></span><br><span class="line"><span class="comment">                                       logged the failover delay. */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sentinelRedisInstance</span> *<span class="title">promoted_slave</span>;</span> <span class="comment">/* Promoted slave instance. */</span></span><br><span class="line">    <span class="comment">/* Scripts executed to notify admin or reconfigure clients: when they</span></span><br><span class="line"><span class="comment">     * are set to NULL no script is executed. */</span></span><br><span class="line">    <span class="keyword">char</span> *notification_script;</span><br><span class="line">    <span class="keyword">char</span> *client_reconfig_script;</span><br><span class="line">    sds info; <span class="comment">/* cached INFO output */</span></span><br><span class="line">&#125; sentinelRedisInstance;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**************************************************************** sentinel可执行的命令*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">redisCommand</span> <span class="title">sentinelcmds</span>[] =</span> &#123;</span><br><span class="line">    &#123;<span class="string">&quot;ping&quot;</span>,pingCommand,<span class="number">1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;sentinel&quot;</span>,sentinelCommand,<span class="number">-2</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;subscribe&quot;</span>,subscribeCommand,<span class="number">-2</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;unsubscribe&quot;</span>,unsubscribeCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;psubscribe&quot;</span>,psubscribeCommand,<span class="number">-2</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;punsubscribe&quot;</span>,punsubscribeCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;publish&quot;</span>,sentinelPublishCommand,<span class="number">3</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;info&quot;</span>,sentinelInfoCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;role&quot;</span>,sentinelRoleCommand,<span class="number">1</span>,<span class="string">&quot;l&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;client&quot;</span>,clientCommand,<span class="number">-2</span>,<span class="string">&quot;rs&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;shutdown&quot;</span>,shutdownCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Lua脚本"><a href="#Lua脚本" class="headerlink" title="Lua脚本"></a>Lua脚本</h1><p>RedisServer中嵌入了Lua环境，Redis客户端可以使用lua脚本在服务器上执行多个redis命令。</p>
+<p>server在启动后初始了lua环境，lua环境初始化中载入了多个lua函数库,并创建redis全局表格（其中就包含了redis.call(),redis.pcall），并且创建给lua环境脚本执行辅助的工具，命令执行伪客户端和脚本字典（脚本字典是实现SCRIPT EXISTS和脚本复制功能根本），</p>
+<p>LUA脚本命令执行步骤： (EVAL)</p>
+<p>​    定义脚本函数( f_SHA1CODE)载入lua环境</p>
+<p>​    保存脚本到脚本字典lua_scripts（key:SHA1CODE,value:script）</p>
+<p>​    执行脚本函数(redis命令会通过，伪客户端来向server发送指令来执行，然后结果返回给伪客户端，伪客户端返回结果到lua环境)</p>
+<p>LUA环境脚本管理：</p>
+<p>​    SCRIPT FLUSH:清空lua环境脚本函数，并销毁并重新构建一个lua环境</p>
+<p>​    SCRIPT EXISTS：判断给定的SHA1值对应的脚本是否存在于lua环境</p>
+<p>​    SCRIPT LOAD：加载一个lua脚本并，创建脚本函数并加载到lua环境，并将脚本加入到脚本字典</p>
+<p>​    SCRIPT KILL：lua-time-limit 超时使用</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/22/linux/userp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="晓">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/22/linux/userp/" class="post-title-link" itemprop="url">linux用户及权限</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-09-22 14:03:27 / 修改时间：14:08:49" itemprop="dateCreated datePublished" datetime="2021-09-22T14:03:27+08:00">2021-09-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>linux 用户管理</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/spring/HandlerExceptionResolver/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="会飞的鱼">
-      <meta itemprop="description" content="选择比努力更重要">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -198,7 +886,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-09-20 15:08:11" itemprop="dateModified" datetime="2021-09-20T15:08:11+08:00">2021-09-20</time>
+        <time title="修改时间：2021-09-20 15:12:16" itemprop="dateModified" datetime="2021-09-20T15:12:16+08:00">2021-09-20</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -263,8 +951,8 @@
 </li>
 <li><p>ExceptionHandlerExceptionResolver</p>
 <p>​    对处理器是HandlerMethod类型处理器异常进行处理，只处理一下两种情况</p>
-<p>​          1. 内部@ExceptionHandler注解的异常处理器，支持处理器内部区域内异常处理</p>
-<p>​          2. @ControllerAdvice支持全局或者部分区域（包扫描）内@ExceptionHandler注解的异常处理器</p>
+<p>​          1. 处理器内部有@ExceptionHandler注解异常处理器，支持处理器内部区域异常处理</p>
+<p>​          2. @ControllerAdvice支持全局或者部分区域（包扫描）内@ExceptionHandler注解异常处理器</p>
 </li>
 <li><p>DefaultHandlerExceptionResolver</p>
 <p>​    处理mvc框架内部异常的处理</p>
@@ -322,9 +1010,9 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/15/java/Interviewquestions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="会飞的鱼">
-      <meta itemprop="description" content="选择比努力更重要">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -445,9 +1133,9 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/15/Knowledge/guihua/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="会飞的鱼">
-      <meta itemprop="description" content="选择比努力更重要">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -554,9 +1242,9 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/13/java/Designprinciples/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="会飞的鱼">
-      <meta itemprop="description" content="选择比努力更重要">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -772,9 +1460,9 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/08/spring/HandlerAdapter/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="会飞的鱼">
-      <meta itemprop="description" content="选择比努力更重要">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -919,9 +1607,9 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/08/spring/HandlerMapping/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="会飞的鱼">
-      <meta itemprop="description" content="选择比努力更重要">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1101,9 +1789,9 @@
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/spring/springWebMvc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="会飞的鱼">
-      <meta itemprop="description" content="选择比努力更重要">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="川猎">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1253,10 +1941,8 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">会飞的鱼</span>
+  <span class="author" itemprop="copyrightHolder">川猎</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
     </div>
   </footer>
@@ -1266,6 +1952,7 @@
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
+<script src="/js/third-party/search/local-search.js"></script>
 
 
 
