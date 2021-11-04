@@ -7,7 +7,7 @@ title: 晓
 subtitle: '选择比努力更重要'
 description: '选择比努力更重要'
 keywords:
-author: 会飞的鱼
+author: 川猎
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -108,4 +108,3 @@ deploy:
   type: 'git'
   repo: https://github.com/fzxy119/fzxy119.github.io.git
   branch: gh-pages
-  message: Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }})
