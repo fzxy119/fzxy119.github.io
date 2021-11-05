@@ -17,6 +17,8 @@ SpringBoot遵循不同的初始化顺序。SpringBoot没有连接到servlet容�
 
 传统的Spring和Springmvc依赖于servlet容器的生命周期，通过org.springframework.web.context.ContextLoaderListener 容器监听器和org.springframework.web.servlet.DispatcherServlet 注册 来完成容器的启动 这与SpringBoot 通过容器初始化，通过工厂方式创建WebServer ，然后监听ServletContext ,并回调
 
+<!-- more -->
+
 # 上下文层次结构
 
 DispatcherServlet 可以直接与 ServletContext 进项关联 xml，或者借助 WebApplicationContext 与 ServletContext 进项关联(JavaConfig) ，如果应用程序想要获取WebApplicationContext，可通过RequestContextUtils 工具类获取到它.通常情况下WebApplicationContext 有一个上下文层次结构，应用程序环境有父子容器关系，根`ApplicationContext`通常包含基础设施bean（扫描service包）,这些bean实际上是继承的，可以在WebApplicationContext （扫描controller包）特定的子级中重写(即重新声明),下图显示了这种关系，

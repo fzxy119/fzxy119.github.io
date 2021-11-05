@@ -27,6 +27,8 @@ public interface HandlerAdapter {
 }
 ```
 
+<!-- more -->
+
 # HandlerAdapter探测
 
 DispatcherServlet 继承自FrameworkServlet ，并且实现了onRefresh 监听WebApplicationContext刷新方法，完成MVC各个处理节点处理策略的初始化，其中HandlerAdapter就是其中之一，

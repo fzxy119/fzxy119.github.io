@@ -12,6 +12,8 @@ categories:
 
    HandlerMapping 将请求映射到具体的处理程序（如HandlerMethod Controller HandlerFunction Servlet HttpRequestHandler等），并缓存映射关系，当请求进入DispatcherServlet后，DispatcherServlet 遍历 注册 HandlerMapping 根据请求情况获取HandlerExecutionChain，HandlerExecutionChain中包含了具体的处理程序和拦截器列表**，后续的执行中就直接使用了HandlerExecutionChain来处理，**此时HandlerMapping  就完成了任务，就是构建HandlerExecutionChain。
 
+<!-- more -->
+
    请求是通过DispatcherServlet 来进行统一处理的，那么DispatcherServlet  是如何探测到HandlerMapping的呢，我们如何才能注册自己的HandlerMapping呢
 
    HandlerMapping 只定义了根据请求获取处理链的接口方法，那么HandlerMapping 主要目的就是构建处理链，提供具体的处理器和拦截器链，那么拦截器是如何注册，处理器是如何注册的，并且是如何通过url匹配到拦截器和处理器，并封装成HandlerExecutionChain 就是HandlerMapping 要做的事

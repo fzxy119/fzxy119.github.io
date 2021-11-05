@@ -35,7 +35,7 @@ categories:
 
 如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .
 
-
+<!-- more -->
 
 ### 一个Dockerfile例子
 
