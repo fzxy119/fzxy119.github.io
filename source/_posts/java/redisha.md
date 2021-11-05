@@ -27,17 +27,15 @@ loglevel debug    logfile "/usr/redis/log/sentinel-26377.log"     daemonize yes
 
 启动方式
 
-- ```
-  redis-sentinel /path/to/sentinel.conf
-  ```
+1. redis-sentinel /path/to/sentinel.conf
 
-- ```
-  redis-server /path/to/sentinel.conf --sentinel
-  ```
+2. redis-server /path/to/sentinel.conf --sentinel
 
-  
+
 
 <!-- more -->
+
+
 
 ## Sentinel及服务状态感知能力
 
