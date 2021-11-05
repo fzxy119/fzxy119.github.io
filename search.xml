@@ -624,9 +624,9 @@
   <entry>
     <title>镜像构建</title>
     <url>/2021/10/28/docker/imagebuild/</url>
-    <content><![CDATA[<img class="576507-docker1.png &quot;docker架构&quot; &quot;docker&quot;">
+    <content><![CDATA[<p>[TOC]</p>
+<img class="576507.png &quot;docker架构&quot; &quot;docker&quot;">
 
-<p>[TOC]</p>
 <h2 id="Docker镜像的创建方法"><a href="#Docker镜像的创建方法" class="headerlink" title="Docker镜像的创建方法"></a>Docker镜像的创建方法</h2><p>基于Dockerfile进行创建，docker build .</p>
 <p>基于容器进行创建</p>
 <h2 id="基于Dockerfile创建"><a href="#基于Dockerfile创建" class="headerlink" title="基于Dockerfile创建"></a>基于Dockerfile创建</h2><h3 id="Dockerfile构建需要的信息："><a href="#Dockerfile构建需要的信息：" class="headerlink" title="Dockerfile构建需要的信息："></a>Dockerfile构建需要的信息：</h3><p><strong>Dockerfile、Context 和 .dockerignore</strong>，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的目录作为Context,并将Dockerfile文件至于Context目录中</p>
