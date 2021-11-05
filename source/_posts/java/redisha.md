@@ -37,6 +37,8 @@ loglevel debug    logfile "/usr/redis/log/sentinel-26377.log"     daemonize yes
 
   
 
+<!-- more -->
+
 ## Sentinel及服务状态感知能力
 
 环境内信息共享，sentinel与主服务从服务之间建立命令链接及频道订阅发布链接，用以感知从服务器加入，新的sentinel加入

@@ -21,6 +21,8 @@ categories:
 
 基于容器进行创建
 
+<!-- more -->
+
 ## 基于Dockerfile创建
 
 ### Dockerfile构建需要的信息：
@@ -34,8 +36,6 @@ categories:
 我们可以通过-t 来指定新的镜像的repository和标签信息,可以指定多个 -t 来对多个repository仓库的镜像image进行打标签
 
 如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .
-
-<!-- more -->
 
 ### 一个Dockerfile例子
 

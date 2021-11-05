@@ -19,7 +19,7 @@ volatile变量和atomic变量有什么区别
 
 线程优先级的理解
 
-
+<!-- more -->
 
 ## jvm
 
