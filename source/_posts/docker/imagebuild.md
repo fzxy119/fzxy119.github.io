@@ -7,9 +7,11 @@ categories:
 - 技术
 ---
 
-{% img  576507-docker1.png  '"docker架构" "docker"' %}
-
 [TOC]
+
+
+
+{% asset_img 576507.png docker架构图 %}
 
 
 
