@@ -20,17 +20,17 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="[TOC]   Docker镜像的创建方法基于Dockerfile进行创建，docker build . 基于容器进行创建 基于Dockerfile创建Dockerfile构建需要的信息：Dockerfile、Context 和 .dockerignore，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的">
+<meta name="description" content="[TOC]   Docker镜像的创建方法基于Dockerfile进行创建，docker build . 基于容器进行创建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="镜像构建">
 <meta property="og:url" content="http://example.com/2021/10/28/docker/imagebuild/index.html">
 <meta property="og:site_name" content="晓">
-<meta property="og:description" content="[TOC]   Docker镜像的创建方法基于Dockerfile进行创建，docker build . 基于容器进行创建 基于Dockerfile创建Dockerfile构建需要的信息：Dockerfile、Context 和 .dockerignore，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的">
+<meta property="og:description" content="[TOC]   Docker镜像的创建方法基于Dockerfile进行创建，docker build . 基于容器进行创建">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2021/10/28/docker/imagebuild/576507.png">
 <meta property="og:image" content="https://img.jbzj.com/file_images/article/201803/2018031211363722.png">
 <meta property="article:published_time" content="2021-10-28T10:04:19.000Z">
-<meta property="article:modified_time" content="2021-11-05T14:48:04.687Z">
+<meta property="article:modified_time" content="2021-11-05T15:05:44.686Z">
 <meta property="article:author" content="川猎">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary">
@@ -252,7 +252,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-05 22:48:04" itemprop="dateModified" datetime="2021-11-05T22:48:04+08:00">2021-11-05</time>
+        <time title="修改时间：2021-11-05 23:05:44" itemprop="dateModified" datetime="2021-11-05T23:05:44+08:00">2021-11-05</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -279,13 +279,13 @@
 
 <h2 id="Docker镜像的创建方法"><a href="#Docker镜像的创建方法" class="headerlink" title="Docker镜像的创建方法"></a>Docker镜像的创建方法</h2><p>基于Dockerfile进行创建，docker build .</p>
 <p>基于容器进行创建</p>
+<span id="more"></span>
+
 <h2 id="基于Dockerfile创建"><a href="#基于Dockerfile创建" class="headerlink" title="基于Dockerfile创建"></a>基于Dockerfile创建</h2><h3 id="Dockerfile构建需要的信息："><a href="#Dockerfile构建需要的信息：" class="headerlink" title="Dockerfile构建需要的信息："></a>Dockerfile构建需要的信息：</h3><p><strong>Dockerfile、Context 和 .dockerignore</strong>，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的目录作为Context,并将Dockerfile文件至于Context目录中</p>
 <p>通常情况下Context下要有一个名称为Dockerfile的文件，可以通过-f 指定任意位置的Dockerfile 文件</p>
 <p>我们可以通过.dockerignore文件忽略上下文环境下的文件和目录</p>
 <p>我们可以通过-t 来指定新的镜像的repository和标签信息,可以指定多个 -t 来对多个repository仓库的镜像image进行打标签</p>
 <p>如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .</p>
-<span id="more"></span>
-
 <h3 id="一个Dockerfile例子"><a href="#一个Dockerfile例子" class="headerlink" title="一个Dockerfile例子"></a>一个Dockerfile例子</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> chenxiao@ruiyinxin.com</span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> version=<span class="string">&quot;0.2&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> description=<span class="string">&quot;测试创建sentinel&quot;</span></span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="bash"> [<span class="string">&quot;/home/tomcat/log/&quot;</span>]</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir -p /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> jdk /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> sentinel-dashboard.jar /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> run.sh /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod 777 /app/run.sh</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /app/jdk</span><br><span class="line"><span class="keyword">ENV</span> PATH $PATH:$JAVA_HOME/bin</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8088</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="comment">#CMD [&quot;sh&quot;,&quot;run.sh&quot;]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;./run.sh&quot;</span>]</span></span><br><span class="line"><span class="comment">#ENTRYPOINT [&quot;./run.sh&quot;]</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/sh</span></span><br><span class="line">java -jar -Dspring.profiles.active=test sentinel-dashboard.jar</span><br></pre></td></tr></table></figure>
@@ -616,8 +616,25 @@
     
 
     <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
           <div class="post-tags">
-              <a href="/tags/Docker/" rel="tag"># Docker</a>
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
           </div>
 
         
