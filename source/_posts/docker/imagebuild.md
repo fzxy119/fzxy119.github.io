@@ -7,7 +7,7 @@ categories:
 - 技术
 ---
 
-{% img  imagebuild\576507-docker1.png  '"docker架构" "docker"' %}
+{% img  576507-docker1.png  '"docker架构" "docker"' %}
 
 [TOC]
 
