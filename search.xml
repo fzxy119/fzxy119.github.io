@@ -625,7 +625,7 @@
     <title>镜像构建</title>
     <url>/2021/10/28/docker/imagebuild/</url>
     <content><![CDATA[<p>[TOC]</p>
-<img class="576507.png &quot;docker架构&quot; &quot;docker&quot;">
+<img src="/2021/10/28/docker/imagebuild/576507.png" class="" title="docker架构图">
 
 <h2 id="Docker镜像的创建方法"><a href="#Docker镜像的创建方法" class="headerlink" title="Docker镜像的创建方法"></a>Docker镜像的创建方法</h2><p>基于Dockerfile进行创建，docker build .</p>
 <p>基于容器进行创建</p>
@@ -634,6 +634,8 @@
 <p>我们可以通过.dockerignore文件忽略上下文环境下的文件和目录</p>
 <p>我们可以通过-t 来指定新的镜像的repository和标签信息,可以指定多个 -t 来对多个repository仓库的镜像image进行打标签</p>
 <p>如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .</p>
+<span id="more"></span>
+
 <h3 id="一个Dockerfile例子"><a href="#一个Dockerfile例子" class="headerlink" title="一个Dockerfile例子"></a>一个Dockerfile例子</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> chenxiao@ruiyinxin.com</span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> version=<span class="string">&quot;0.2&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> description=<span class="string">&quot;测试创建sentinel&quot;</span></span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="bash"> [<span class="string">&quot;/home/tomcat/log/&quot;</span>]</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir -p /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> jdk /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> sentinel-dashboard.jar /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> run.sh /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod 777 /app/run.sh</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /app/jdk</span><br><span class="line"><span class="keyword">ENV</span> PATH $PATH:$JAVA_HOME/bin</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8088</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /app</span></span><br><span class="line"><span class="comment">#CMD [&quot;sh&quot;,&quot;run.sh&quot;]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;./run.sh&quot;</span>]</span></span><br><span class="line"><span class="comment">#ENTRYPOINT [&quot;./run.sh&quot;]</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">! /bin/sh</span></span><br><span class="line">java -jar -Dspring.profiles.active=test sentinel-dashboard.jar</span><br></pre></td></tr></table></figure>
