@@ -6,8 +6,8 @@
 title: 晓
 subtitle: '选择比努力更重要'
 description: ''
-keywords: 技术 生活 hexo 笔记
-author: 川猎
+keywords: 技术 生活 hexo 笔记 晓
+author: 二哥关羽
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -109,8 +109,8 @@ deploy:
   repo: https://github.com/fzxy119/fzxy119.github.io.git
   branch: gh-pages
   
-#search:
-#  path: search.xml
-#  field: post
-#  content: true
-#  format: html
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
