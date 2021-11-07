@@ -9,6 +9,8 @@ categories:
 
 ## Sentinel相关配置
 
+<!-- more -->
+
 bind 12.3.10.222
 
 port 26377
@@ -33,7 +35,7 @@ loglevel debug    logfile "/usr/redis/log/sentinel-26377.log"     daemonize yes
 
 
 
-<!-- more -->
+
 
 
 
