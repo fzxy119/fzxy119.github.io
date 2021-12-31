@@ -52,6 +52,7 @@ COPY jdk /app/jdk
 COPY sentinel-dashboard.jar /app/
 COPY run.sh /app
 RUN chmod 777 /app/run.sh
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
 ENV JAVA_HOME /app/jdk
 ENV PATH $PATH:$JAVA_HOME/bin
 ENV CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
