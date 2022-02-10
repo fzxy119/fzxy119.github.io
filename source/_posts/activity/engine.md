@@ -236,7 +236,7 @@ l 全局表单：新建流程时或活动元素上未设置表单标识时调用
 l 活动表单：当前步骤使用的表单，使用活动节点属性“表单标识”字段。
 ```
 
-设置流程参与者
+### 设置流程参与者
 
 ```
 assignee：任务执行人，设置系统中的“登录名”（loginName）。            参与人类型ACT_IDENTITYLINK： participant， 发起人类型:starter
@@ -280,7 +280,7 @@ try {
 签收人执行处理任务
 ```
 
-api
+### api
 
 ```
 //设置部署记录类型，将联动部署相关的流程定义一并更新类型
@@ -294,7 +294,9 @@ repositoryService.changeDeploymentTenantId("10001","AGENT");
 
 ```
 
-Activity与spring集成:
+### Activity与spring集成:
+
+#### 相关依赖
 
 ```
 <dependency>
@@ -327,6 +329,8 @@ Activity与spring集成:
 
 ```
 
+#### 相关配置
+
 ```properties
 server.port=80
 spring.datasource.type=com.alibaba.druid.pool.DruidDataSource
@@ -335,9 +339,10 @@ spring.datasource.username=root
 spring.datasource.password=CHENxiao1989119
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
-spring.activiti.database-schema=mysql
-spring.activiti.database-schema-update=false
+activity.deployment.deploymentResources[0]=processes/*.bpmn20.xml
 ```
+
+#### 相关BEAN初始化
 
 ```java
 @Bean
@@ -416,4 +421,65 @@ public IdentityService identityService(ProcessEngine processEngine){
         throw exception;
     }
 }
+
+
+
 ```
+
+#### 自动资源部署
+
+##### deploymentResources：
+
+```
+<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+<property name="deploymentResources"
+    value="classpath*:/org/activiti/spring/test/autodeployment/autodeploy.*.bpmn20.xml" />
+</bean>
+```
+
+```
+@Data
+@Component
+@ConfigurationProperties("activity.deployment")
+public class DeploymentResourceConfig {
+
+    private String[] deploymentResources;
+
+    public Resource[] getDeploymentResources() {
+        PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();
+        List<Resource> resources = new ArrayList<>();
+        for (String deploymentResource : deploymentResources) {
+            try {
+                Resource[] search_res =  pathMatchingResourcePatternResolver.getResources(deploymentResource);
+                resources.addAll(Arrays.asList(search_res));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return resources.toArray(new Resource[]{});
+    }
+
+    public void setDeploymentResources(String[] deploymentResources) {
+        this.deploymentResources = deploymentResources;
+    }
+}
+
+```
+
+默认情况下，上面的配置将匹配筛选的所有资源分组到Activiti引擎的单个部署中。防止重新部署未更改资源的重复筛选适用于整个部署。在某些情况下，这可能不是你想要的。例如，如果您以这种方式部署了一组流程资源，并且这些资源中只有一个流程定义已经更改，则整个部署将被视为新的，而部署中的所有流程定义都将被重新部署，从而生成每个流程定义的新版本，即使实际上只有一个被更改。
+
+为了能够自定义确定部署的方式，您可以在SpringProcessEngineConfiguration，DeploymentMode中指定一个附加属性。此属性定义从匹配筛选器的一组资源中确定部署的方式。对于此属性，默认情况下支持3个值。
+
+##### deploymentMode：
+
+- default:将所有资源分组到单个部署中，并对该部署应用重复筛选。这是默认值，如果不指定值，将使用它
+- single-resource:为每个单独的资源创建一个单独的部署，并对该部署应用重复筛选。此值用于将每个流程定义分别部署，并仅在更改后创建一个新的流程定义版本
+- resource-parent-folder:为共享同一个父文件夹的资源创建单独的部署，并对该部署应用重复筛选。此值可用于为大多数资源创建单独的部署，但仍可以通过将它们放置在共享文件夹中对某些资源进行分组。下面是如何为部署模式指定单资源配置的示例
+
+```
+<bean id="processEngineConfiguration" class="org.activiti.spring.SpringProcessEngineConfiguration">
+  <property name="deploymentResources" value="classpath*:/activiti/*.bpmn" />
+  <property name="deploymentMode" value="single-resource" />
+</bean>
+```
+
