@@ -1,9 +1,11 @@
 ---
-title: StarUmlV4激活
+title: StarUml 激活
 date: 2022-02-10 15:16:35
-tags:uml
+tags:
+- uml
+categories:
+- 工具
 ---
-
 ### 第一步，解包
 
 `app.asar` 文件是 `Electron` 程序的主业务文件，是一种压缩格式的文件。我们需要修改的部分就被压缩在这里，具体文件位置为：
