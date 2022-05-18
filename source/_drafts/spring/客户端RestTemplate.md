@@ -1,8 +1,8 @@
 ---
-title: SpringCloud负载均衡-springweb-客户端RestTemplate
+title: 客户端RestTemplate
 date: 2022-05-15 18:47:55
 tags:
-- SpringCloud
+- SpringCloud负载均衡
 categories:
 - 技术
 ---
@@ -352,8 +352,8 @@ class InterceptingClientHttpRequest extends AbstractBufferingClientHttpRequest {
 
 1. RestTemplate 通过模板方法来控制整个执行过程
 2. RestTemplate 包含了 父类 HttpAccessor (创建基础HTTP请求能力-SimpleClientHttpRequestFactory) 和 父类InterceptingHttpAccessor（创建带有拦截器功能的HTTP请求的能力-InterceptingClientHttpRequestFactory)
-3. RestTemplate createRequest 使用 InterceptingClientHttpRequestFactory 创建了 InterceptingClientHttpRequest。InterceptingClientHttpRequestFactory 是一个装饰类 里边装饰了 SimpleClientHttpRequestFactory，并且持有拦截器列表，并创建 InterceptingClientHttpRequest 请求，InterceptingClientHttpRequest中持有了SimpleClientHttpRequestFactory，这使得InterceptingClientHttpRequest 完成处理拦截器链的请求执行完成后可执行基础的HTTP请求。
-4. InterceptingClientHttpRequest 内部类 InterceptingRequestExecution 使用 拦截器列表迭代器，顺序执行拦截器列表，并在最后完成基础HTTP请求
+3. RestTemplate createRequest 使用 InterceptingClientHttpRequestFactory 创建了 InterceptingClientHttpRequest。InterceptingClientHttpRequestFactory 是一个装饰类 里边装饰了 SimpleClientHttpRequestFactory，并且持有拦截器列表，并创建InterceptingClientHttpRequest请求，InterceptingClientHttpRequest中持有了SimpleClientHttpRequestFactory，这使得InterceptingClientHttpRequest完成处理拦截器链的请求执行完成后可执行基础的HTTP请求。
+4. InterceptingClientHttpRequest 内部类 InterceptingRequestExecution 使用拦截器列表迭代器，顺序执行拦截器列表，并在最后使用SimpleClientHttpRequestFactory创建请求完成基础HTTP请求
 
 ### spring-cloud-commons 包负载均衡自动化配置
 
