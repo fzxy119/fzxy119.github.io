@@ -1,10 +1,10 @@
 ---
-title: 客户端RestTemplate
+title: SpringCloud负载均衡之客户端RestTemplate
 date: 2022-05-15 18:47:55
 tags:
 - SpringCloud负载均衡
 categories:
-- 技术
+- SpringCloud
 ---
 # Spring Cloud 负载均衡框架描述
 
