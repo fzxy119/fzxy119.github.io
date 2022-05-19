@@ -19,9 +19,13 @@ categories:
 
 # 客户端调用服务端模板工具 spring-web包 RestTemplate
 
-RestTemplate 是同步调用HTTP请求的模板方法工具类，是通过底层HTTP客户端库实现，他定义了我们请求的通用过程，是一个模板工具。支持POST GET PUT等http请求方法。并提供了不同的结构类型。
-如 getForEntity 返回http请求结果对象，其中包含了响应的头，响应状态等请求相关数据 getForObject 返回指定的数据类型，既将结果转化为给定的对象。
-其底层都调用了模板方法 doExecute
+RestTemplate 是同步调用HTTP请求的模板方法工具类，是通过底层HTTP客户端库实现，他定义了我们请求的通用过程，是一个模板工具。支持POST GET PUT等http请求方法。并提供了不同的结构类型。如 getForEntity 返回http请求结果对象，其中包含了响应的头，响应状态等请求相关数据 getForObject 返回指定的数据类型，既将结果转化为给定的对象。其底层都调用了模板方法 doExecute.
+执行流程为（主要分析请求创建过程及请求处理过程）
+1. 完成请求创建 主要分析请求创建过程
+2. 请求设置
+3. 请求执行
+4. 异常处理
+5. 响应结果提取
 
 {% asset_img RestTemplate.png 类图结构 %}
 
@@ -89,6 +93,8 @@ public abstract class InterceptingHttpAccessor extends HttpAccessor {
 3. RestTemplate 继承http访问器InterceptingHttpAccessor ，RestTemplate默认具有拦截器能力，创建请求的能力***重写了父类的能力***，初始化请求的能力，
    自带 消息转换 messageConverters 异常处理 errorHandler 结果提取能力 headersExtractor。
 
+
+
 ```java
 public class RestTemplate extends InterceptingHttpAccessor implements RestOperations{
 //消息转换器列表
@@ -132,8 +138,9 @@ protected <T> T doExecute(URI url, @Nullable HttpMethod method, @Nullable Reques
 ```
 
 RestTemplate类及父类都是通过ClientHttpRequestFactory工厂来创建请求，并在不同的父类中，工厂类有所不同，InterceptingHttpAccessor 中有ClientHttpRequestFactory (InterceptingClientHttpRequestFactory) 创建 InterceptingClientHttpRequest 有了拦截器能力，HttpAccessor中有ClientHttpRequestFactory （SimpleClientHttpRequestFactory)有通过HttpURLConnection发送http请求发送能力
-
+{% asset_img RestTemplate创建Request过程.jpg RestTemplate创建Request过程 %}
 > 那么 ClientHttpRequestFactory 如何创建 request 并且ClientHttpRequest 是如何在执行的时候，执行拦截器，并完成最后的http请求的呢？
+>
 
 {% asset_img ClientHttpRequestFactory.png 类图结构 %}
 
@@ -306,7 +313,7 @@ class InterceptingClientHttpRequest extends AbstractBufferingClientHttpRequest {
 	@Override
 	protected final ClientHttpResponse executeInternal(HttpHeaders headers, byte[] bufferedOutput) throws IOException {
 		InterceptingRequestExecution requestExecution = new InterceptingRequestExecution();
-		//拦截器链执行
+		//拦截器链执行 拦截器列表以此执行并最终发返回 InterceptingRequestExecution 最终的HTTP最终请求
 		return requestExecution.execute(this, bufferedOutput);
 	}
 
@@ -346,8 +353,16 @@ class InterceptingClientHttpRequest extends AbstractBufferingClientHttpRequest {
 		}
 	}
 }
-```
 
+
+//拦截器
+@FunctionalInterface
+public interface ClientHttpRequestInterceptor {
+	ClientHttpResponse intercept(HttpRequest request, byte[] body, ClientHttpRequestExecution execution)throws IOException;
+}
+```
+Request 执行过程
+{% asset_img InterceptingClientHttpRequestexec.jpg Request执行过程 %}
 # 总 结
 
 1. RestTemplate 通过模板方法来控制整个执行过程
