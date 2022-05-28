@@ -146,6 +146,33 @@ zkServer.sh
 
 {% asset_img zk.png ACL相关命令 %}
 
+### 权限扩展体系
+
+[](https://zookeeper.apache.org/doc/r3.8.0/zookeeperProgrammers.html#sc_ZooKeeperPluggableAuthentication)
+
+1: zookeeper支持自定义权限扩展，只需要集成通用的标准接口
+
+```java
+public interface AuthenticationProvider {
+    String getScheme();
+    KeeperException.Code handleAuthentication(ServerCnxn cnxn, byte authData[]);
+    boolean isValid(String id);
+    boolean matches(String id, String aclExpr);
+    boolean isAuthenticated();
+}
+```
+2: 插件配置 (两种方式只有一个起作用)
+方式1 系统变量
+
+-Dzookeeeper.authProvider.X=com.f.MyAuth
+
+方式2 配置文件
+
+```properties
+authProvider.1=com.f.MyAuth
+authProvider.2=com.f.MyAuth2
+```
+
 ## 实操ACL
 
 ### 生成授权ID
@@ -212,3 +239,6 @@ setAcl /node-ip ip:192.168.11.123:cdwra
 ```
 
 {% asset_img zk5.png %}
+
+## Zookeeper应用场景
+
