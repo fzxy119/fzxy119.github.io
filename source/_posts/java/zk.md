@@ -25,6 +25,8 @@ maxClientCnxns=60
 
 peerType=observer  #observer配置
 
+#dataDir目录中新增myid文件，myid配置范围1-255，端口1leader进行通信和数据同步的端口，端口2位选举投票接口
+
 server.1=10.3.60.151:2888:3888
 
 server.2=10.3.60.152:2888:3888
@@ -33,6 +35,7 @@ server.3=10.3.60.153:2888:3888
 
 server.x=host:port1:port2:observer #observer配置
 ```
+
 
 
 ## ZK中Leader选举
