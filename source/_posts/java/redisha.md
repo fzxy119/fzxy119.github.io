@@ -10,23 +10,50 @@ categories:
 ## Sentinel相关配置
 
 <!-- more -->
+```editorconfig
 
+#绑定ip
 bind 12.3.10.222
-
+#sentinel 端口配置
 port 26377
+#默认情况下，Redis Sentinel不作为守护程序运行。 如果需要，可以设置为 yes。
+daemonize yes
+# 启用守护进程运行后，Redis将在/var/run/redis-sentinel.pid中写入一个pid文件
+pidfile /var/run/redis-sentinel.pid
 
+# sentinel monitor <master-name> <ip> <redis-port> <quorum>
+#
+# 告诉Sentinel监听指定主节点，并且只有在至少<quorum>哨兵达成一致的情况下才会判断它 O_DOWN 状态。
+#
+# 副本是自动发现的，因此您无需指定副本。
+# Sentinel本身将重写此配置文件，使用其他配置选项添加副本。另请注意，当副本升级为主副本时，将重写配置文件。
+#
+# 注意：主节点（master）名称不能包含特殊字符或空格。
+# 有效字符可以是 A-z 0-9 和这三个字符 ".-_".
 sentinel monitor mymaster 12.3.10.222 6377 2
-
+# 如果redis配置了密码，那这里必须配置认证，否则不能自动切换
 sentinel auth-pass mymaster cx
-
+# 主节点或副本在指定时间内没有回复PING，便认为该节点为主观下线 S_DOWN 状态。
+# sentinel down-after-milliseconds <master-name> <milliseconds>
 sentinel down-after-milliseconds mymaster 30000
-
+# 在故障转移期间，多少个副本节点进行数据同步
+# sentinel parallel-syncs <master-name> <numreplicas>
 sentinel parallel-syncs mymaster 3
-
+# 指定故障转移超时（以毫秒为单位）。 默认3分钟
 sentinel failover-timeout mymaster 180000
+# 指定日志文件名。 如果值为空，将强制Sentinel日志标准输出。守护进程下，如果使用标准输出进行日志记录，则日志将发送到/dev/null
+loglevel debug    
+logfile "/usr/redis/log/sentinel-26377.log"
 
-loglevel debug    logfile "/usr/redis/log/sentinel-26377.log"     daemonize yes
 
+# sentinel announce-ip <ip>
+# sentinel announce-port <port>
+
+# dir <working-directory>
+# 每个长时间运行的进程都应该有一个明确定义的工作目录。对于Redis Sentinel来说，/tmp就是自己的工作目录。
+dir /tmp
+
+```
 启动方式
 
 1. redis-sentinel /path/to/sentinel.conf
