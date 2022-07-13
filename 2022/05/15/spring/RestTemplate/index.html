@@ -22,7 +22,7 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="Spring Cloud 负载均衡框架描述服务的治理： 服务治理的参与方有 服务提供方，服务消费方，注册中心，服务提供方将自己作为服务提供者注册到注册中心，服务消费方从注册中心获取订阅的服务列表，注册中心完成服务的健康检查服务停止注册中心就停止租约，服务启动重新在注册中心续租。 客服端服务端调用： 客户端服务调用是在客户端持有服务列表并与注册中心保持通信，并获取注册中心的服务对应主机列表，然后通过">
 <meta property="og:type" content="article">
-<meta property="og:title" content="客户端RestTemplate">
+<meta property="og:title" content="SpringCloud负载均衡之客户端RestTemplate">
 <meta property="og:url" content="http://example.com/2022/05/15/spring/RestTemplate/index.html">
 <meta property="og:site_name" content="别来无恙">
 <meta property="og:description" content="Spring Cloud 负载均衡框架描述服务的治理： 服务治理的参与方有 服务提供方，服务消费方，注册中心，服务提供方将自己作为服务提供者注册到注册中心，服务消费方从注册中心获取订阅的服务列表，注册中心完成服务的健康检查服务停止注册中心就停止租约，服务启动重新在注册中心续租。 客服端服务端调用： 客户端服务调用是在客户端持有服务列表并与注册中心保持通信，并获取注册中心的服务对应主机列表，然后通过">
@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://example.com/2022/05/15/spring/RestTemplate/HttpRequest.png">
 <meta property="og:image" content="http://example.com/2022/05/15/spring/RestTemplate/InterceptingClientHttpRequestexec.jpg">
 <meta property="article:published_time" content="2022-05-15T10:47:55.000Z">
-<meta property="article:modified_time" content="2022-05-19T11:29:20.343Z">
+<meta property="article:modified_time" content="2022-05-19T11:39:36.207Z">
 <meta property="article:author" content="二哥关羽">
 <meta property="article:tag" content="SpringCloud负载均衡">
 <meta name="twitter:card" content="summary">
@@ -46,10 +46,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/05/15/spring/RestTemplate/","path":"2022/05/15/spring/RestTemplate/","title":"客户端RestTemplate"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/05/15/spring/RestTemplate/","path":"2022/05/15/spring/RestTemplate/","title":"SpringCloud负载均衡之客户端RestTemplate"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>客户端RestTemplate | 别来无恙</title>
+<title>SpringCloud负载均衡之客户端RestTemplate | 别来无恙</title>
   
 
 
@@ -171,18 +171,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -239,7 +239,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          客户端RestTemplate
+          SpringCloud负载均衡之客户端RestTemplate
         </h1>
 
         <div class="post-meta-container">
@@ -257,7 +257,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-05-19 19:29:20" itemprop="dateModified" datetime="2022-05-19T19:29:20+08:00">2022-05-19</time>
+        <time title="修改时间：2022-05-19 19:39:36" itemprop="dateModified" datetime="2022-05-19T19:39:36+08:00">2022-05-19</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -265,7 +265,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+          <a href="/categories/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a>
         </span>
     </span>
 
@@ -283,7 +283,14 @@
 <p>服务治理的参与方有 服务提供方，服务消费方，注册中心，服务提供方将自己作为服务提供者注册到注册中心，服务消费方从注册中心获取订阅的服务列表，注册中心完成服务的健康检查<br>服务停止注册中心就停止租约，服务启动重新在注册中心续租。</p>
 <p>客服端服务端调用：</p>
 <p>客户端服务调用是在客户端持有服务列表并与注册中心保持通信，并获取注册中心的服务对应主机列表，<em><strong>然后通过请求的过程中完成客户单请求的信息重写</strong></em>，完成负载均衡功能。</p>
-<h1 id="客户端调用服务端模板工具-spring-web包-RestTemplate"><a href="#客户端调用服务端模板工具-spring-web包-RestTemplate" class="headerlink" title="客户端调用服务端模板工具 spring-web包 RestTemplate"></a>客户端调用服务端模板工具 spring-web包 RestTemplate</h1><p>RestTemplate 是同步调用HTTP请求的模板方法工具类，是通过底层HTTP客户端库实现，他定义了我们请求的通用过程，是一个模板工具。支持POST GET PUT等http请求方法。并提供了不同的结构类型。<br>如 getForEntity 返回http请求结果对象，其中包含了响应的头，响应状态等请求相关数据 getForObject 返回指定的数据类型，既将结果转化为给定的对象。<br>其底层都调用了模板方法 doExecute</p>
+<h1 id="客户端调用服务端模板工具-spring-web包-RestTemplate"><a href="#客户端调用服务端模板工具-spring-web包-RestTemplate" class="headerlink" title="客户端调用服务端模板工具 spring-web包 RestTemplate"></a>客户端调用服务端模板工具 spring-web包 RestTemplate</h1><p>RestTemplate 是同步调用HTTP请求的模板方法工具类，是通过底层HTTP客户端库实现，他定义了我们请求的通用过程，是一个模板工具。支持POST GET PUT等http请求方法。并提供了不同的结构类型。如 getForEntity 返回http请求结果对象，其中包含了响应的头，响应状态等请求相关数据 getForObject 返回指定的数据类型，既将结果转化为给定的对象。其底层都调用了模板方法 doExecute.<br>执行流程为（主要分析请求创建过程及请求处理过程）</p>
+<ol>
+<li>完成请求创建 主要分析请求创建过程</li>
+<li>请求设置</li>
+<li>请求执行</li>
+<li>异常处理</li>
+<li>响应结果提取</li>
+</ol>
 <img src="/2022/05/15/spring/RestTemplate/RestTemplate.png" class="" title="类图结构">
 
 <ol>
@@ -393,6 +400,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/05/19/db/es/" rel="next" title="ES安装">
+                  ES安装 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
