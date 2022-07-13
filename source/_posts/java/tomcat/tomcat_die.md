@@ -15,11 +15,18 @@ categories:
 1. JVM内存使用情况查看 
 > jmap -heap pid
 
-> jstat -gcutil pid 1000 3
->> 监控gc 状态
+> jmap -dump:live,format=b,file=/home/xxxx.hprof pid
 
-> jinfo -flags pid
->> 查看tomcatJVM配置参数
+> jmap -histo:live 27151
+
+> jmap -histo 18230 | sort -n -r -k 2 | head -10  //统计实例最多的类 前十位有哪些
+
+> jmap -histo 18230 | sort -n -r -k 3 | head -10  //统计合计容量前十的类有哪些  
+
+> jstat -gcutil pid 1000 3 //监控gc 状态
+
+> jinfo -flags pid // 查看tomcatJVM配置参数
+
 
 2. 线程栈问题提取 检查是否有锁问题
 > ./jstack 32727 |grep http-nio-8090-exec （请求处理线程，可以检查处理线程卡在了哪里）
