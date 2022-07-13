@@ -29,7 +29,7 @@ categories:
 
 
 2. 线程栈问题提取 检查是否有锁问题
-> ./jstack 32727 |grep http-nio-8090-exec （请求处理线程，可以检查处理线程卡在了哪里）
+> ./jstack pid |grep http-nio-8090-exec （请求处理线程，可以检查处理线程卡在了哪里）
 > ./jstack -l pid
 >>打印关于锁的其他信息，比如拥有的java.util.concurrent ownable同步器的列表。
 
@@ -130,8 +130,6 @@ APR：<br/>
 即Apache Portable Runtime，从操作系统层面解决io阻塞问题。<br/>
 Tomcat7或Tomcat8在Win7或以上的系统中启动默认使用这种方式。<br/>
 Linux如果安装了apr和native，Tomcat直接启动就支持apr。（安装方法：http://www.cnblogs.com/nb-blog/p/5278502.html）
-
-
 
 + URIEncoding：<br/>
 This specifies the character encoding used to decode the URI bytes, after %xx decoding the URL. If not specified, ISO-8859-1 will be used.
