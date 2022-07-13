@@ -13,6 +13,7 @@ categories:
 
 
 1. JVM内存使用情况查看 
+
 > jmap -heap pid
 
 > jmap -dump:live,format=b,file=/home/xxxx.hprof pid
@@ -29,6 +30,7 @@ categories:
 
 
 2. 线程栈问题提取 检查是否有锁问题
+
 > ./jstack pid |grep http-nio-8090-exec （请求处理线程，可以检查处理线程卡在了哪里）
 > ./jstack -l pid
 >>打印关于锁的其他信息，比如拥有的java.util.concurrent ownable同步器的列表。
@@ -45,14 +47,17 @@ categories:
 >> 统计该tomcat进程内的线程个数 
 
 4. 查看进程打开的TCP链接的连接数
+
 > netstat -anpt|grep pid  -c
 
 5. 查看端口的TCP连接数
+
 >   netstat -anpt|grep port -c
 
 
 ### Tomcat相关配置
 1. catalina.sh 相关配置
+
 ```properties
 JAVA_OPTS="-server 
 -Dfile.encoding=UTF-8 
@@ -74,6 +79,7 @@ JAVA_OPTS="-server
 
 
 2. 垃圾回收器
+
 ```java
 -XX:+UseConcMarkSweepGC
 -XX:CMSInitiatingOccupancyFraction=75
@@ -113,20 +119,20 @@ JAVA_OPTS="-server
 
 +  protocol：
 
-org.apache.coyote.http11.Http11Protocol - blocking Java connector <br/>
-BIO：<br/>
+*一：BIO org.apache.coyote.http11.Http11Protocol - blocking Java connector* <br/>
+<br/>
 一个线程处理一个请求。缺点：并发量高时，线程数较多，浪费资源。<br/>
 Tomcat7或以下，在Linux系统中默认使用这种方式。
 
-org.apache.coyote.http11.Http11NioProtocol - non blocking Java connector<br/>
-NIO：<br/>
+*二：NIO  org.apache.coyote.http11.Http11NioProtocol - non blocking Java connector*<br/>
+<br/>
 利用Java的异步IO处理，可以通过少量的线程处理大量的请求。<br/>
 Tomcat8在Linux系统中默认使用这种方式。<br/>
 Tomcat7必须修改Connector配置来启动：<br/>
 <Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol" connectionTimeout="20000" redirectPort="8443"/> 
 
-org.apache.coyote.http11.Http11AprProtocol - the APR/native connector.<br/>
-APR：<br/>
+*三：APR org.apache.coyote.http11.Http11AprProtocol - the APR/native connector.*<br/>
+<br/>
 即Apache Portable Runtime，从操作系统层面解决io阻塞问题。<br/>
 Tomcat7或Tomcat8在Win7或以上的系统中启动默认使用这种方式。<br/>
 Linux如果安装了apr和native，Tomcat直接启动就支持apr。（安装方法：http://www.cnblogs.com/nb-blog/p/5278502.html）
