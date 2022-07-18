@@ -459,3 +459,21 @@ options：
 ## 七. 安全
 
 ## 八. 脚本工具
+
+jrunscript是一个命令行脚本shell。jrunscript支持交互式(读取-评估-打印)模式和批处理(-f选项)模式的脚本执行。这是一个脚本语言独立的外壳。默认情况下，JavaScript是使用的语言，但是-l选项可以用于指定不同的语言。通过Java到脚本语言的通信，jrunscript支持“探索性编程”风格
+
+```
+jrunscript
+js> print('Hello World\n');
+Hello World
+js> 34 + 55
+89.0
+js> t = new java.lang.Thread(function() { print('Hello World\n'); })
+Thread[Thread-0,5,main]
+js> t.start()
+js> Hello World
+
+js>
+```
+
+ [参考文档](https://docs.oracle.com/javase/7/docs/technotes/tools/share/jrunscript.html)
