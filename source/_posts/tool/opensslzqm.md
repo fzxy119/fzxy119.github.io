@@ -3,7 +3,7 @@ title: 自签名证书
 date: 2022-05-30 13:36:38
 tags:
 - openssl
-  categories:
+categories:
 - 工具
 ---
 
