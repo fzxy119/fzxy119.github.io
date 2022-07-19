@@ -19,10 +19,13 @@ categories:
 
 # JVM 使用命令行启动飞行器
 
-UnlockCommercialFeatures 解锁商业功能 FlightRecorder 使JFR可用 ，StartFlightRecording 启动飞行器，持续时间60s 并保持到文件myrecording.jfr
+UnlockCommercialFeatures 解锁商业功能 FlightRecorder 使JFR可用 ，短暂监控 StartFlightRecording 启动飞行器，持续时间60s 并保持到文件myrecording.jfr
+
 ```
-java -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -XX:StartFlightRecording=duration=60s,filename=myrecording.jfr -XX:FlightRecorderOptions=defaultrecording=true MyApp
+java -XX:+UnlockCommercialFeatures -XX:+FlightRecorder -XX:StartFlightRecording=duration=10min,filename=myrecording.jfr -XX:FlightRecorderOptions=defaultrecording=true MyApp
 ```
+
+
 
 # 使用动态命令
 [官方参考文档](https://docs.oracle.com/javacomponents/jmc-5-4/jfr-runtime-guide/run.htm#JFRUH164)
