@@ -122,6 +122,4 @@ GUI模式(与 JProfiler GUI Attach) [1, 回车(Enter)]
 
 [参考文档](https://zhuanlan.zhihu.com/p/54274894)
 
-
-
 [官方帮助文档](https://www.ej-technologies.com/resources/jprofiler/help_zh_CN/doc/main/architecture.html)
