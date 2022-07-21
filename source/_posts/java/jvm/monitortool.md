@@ -38,6 +38,7 @@ JMX，是Java Management Extensions(Java管理扩展)的缩写，是一个为应
 |:---|:---|:---|
 |-Dcom.sun.management.jmxremote=true|相关 JMX 代理侦听开关|true / false. Default is true.|
 |-Djava.rmi.server.hostname|服务器端的IP|服务ip|
+|-Dcom.sun.management.jmxremote.rmi.port=1000|rmi端口|默认随机|
 |-Dcom.sun.management.jmxremote.port=29094|相关 JMX 代理侦听请求的端口|Port number. No default.|
 |-Dcom.sun.management.jmxremote.authenticate=false|指定是否需要密码验证|
 |-Dcom.sun.management.jmxremote.password.file=JRE_HOME/lib/management/jmxremote.password | 密码认证文件，可自行指定，不指定在默认位置 | JRE_HOME/lib/management/ jmxremote.password|
