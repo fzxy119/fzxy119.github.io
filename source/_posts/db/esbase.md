@@ -1,5 +1,5 @@
 ---
-title: 'ES:基础'
+title: ES基础
 date: 2022-07-26 14:11:34
 tags:
 - ES

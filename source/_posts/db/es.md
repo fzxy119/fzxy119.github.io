@@ -81,7 +81,7 @@ CPU:
 
 &nbsp;&nbsp;&nbsp;&nbsp;即使数据中心们近在咫尺，也要避免集群跨越多个数据中心。绝对要避免集群跨越大的地理距离。
 
-&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 假定所有节点都是平等的—​并不会因为有一半的节点在150ms 外的另一数据中心而有所不同。更大的延时会加重分布式系统中的问题而且使得调试和排错更困难
+&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 假定所有节点都是平等的—并不会因为有一半的节点在150ms 外的另一数据中心而有所不同。更大的延时会加重分布式系统中的问题而且使得调试和排错更困难
 
 ###  文件描述符和MMAP
 
@@ -118,6 +118,29 @@ bin/elasticsearch-keystore add xpack.security.transport.ssl.truststore.secure_pa
 ```
 
 .bin/elasticsearch-setup-passwords interactive    
+
+Initiating the setup of passwords for reserved users elastic,kibana,logstash_system,beats_system.
+You will be prompted to enter passwords as the process progresses.
+Please confirm that you would like to continue [y/N]y
+Enter password for [elastic]: 
+passwords must be at least [6] characters long
+Try again.
+Enter password for [elastic]: 
+Reenter password for [elastic]: 
+Passwords do not match.
+Try again.
+Enter password for [elastic]: 
+Reenter password for [elastic]: 
+Enter password for [kibana]: 
+Reenter password for [kibana]: 
+Enter password for [logstash_system]: 
+Reenter password for [logstash_system]: 
+Enter password for [beats_system]: 
+Reenter password for [beats_system]: 
+Changed password for user [kibana]
+Changed password for user [logstash_system]
+Changed password for user [beats_system]
+Changed password for user [elastic]
 
 ```
 
