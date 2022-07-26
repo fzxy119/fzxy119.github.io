@@ -28,3 +28,8 @@ Elasticsearch 也是使用 Java 编写的，它的内部使用 Lucene 做索引�
 * 能胜任上百个服务节点的扩展，并支持 PB 级别的结构化或者非结构化数据
 
 Elasticsearch 将所有的功能打包成一个单独的服务，这样你可以通过程序与它提供的简单的 RESTful API 进行通信， 可以使用自己喜欢的编程语言充当 web 客户端，甚至可以使用命令行（去充当这个客户端）
+
+
+### Elasticsearch 面向文档
+
+Elasticsearch 是 面向文档 的，意味着它存储整个对象或 文档。Elasticsearch 不仅存储文档，而且 索引 每个文档的内容，使之可以被检索。在 Elasticsearch 中，我们对文档进行索引、检索、排序和过滤—​而不是对行列数据。这是一种完全不同的思考数据的方式，也是 Elasticsearch 能支持复杂全文检索的原因

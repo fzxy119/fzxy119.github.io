@@ -192,3 +192,90 @@ xpack.security.transport.ssl.truststore.password: 123456
 ```
 
 
+### 重要的配置项
+
+* 集群名称
+&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 默认启动的集群名字叫 elasticsearch 。你最好给你的生产环境的集群改个名字，改名字的目的很简单， 就是防止某人的笔记本电脑加入了集群这种意外
+```
+#elasticsearch.yml
+cluster.name: elasticsearch_production
+```
+* 节点名称
+&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 会在你的节点启动的时候随机给它指定一个名字。你可能会觉得这很有趣，但是当凌晨 3 点钟的时候， 你还在尝试回忆哪台物理机是 Tagak the Leopard Lord 的时候，你就不觉得有趣了。
+
+&nbsp;&nbsp;&nbsp;&nbsp;更重要的是，这些名字是在启动的时候产生的，每次启动节点， 它都会得到一个新的名字。这会使日志变得很混乱，因为所有节点的名称都是不断变化的
+
+```
+#elasticsearch.yml
+node.name: elasticsearch_005_data
+```
+
+
+* 路径
+
+&nbsp;&nbsp;&nbsp;&nbsp;默认情况下，Elasticsearch 会把插件、日志以及你最重要的数据放在安装目录下。这会带来不幸的事故， 如果你重新安装 Elasticsearch 的时候不小心把安装目录覆盖了。如果你不小心，你就可能把你的全部数据删掉了
+
+&nbsp;&nbsp;&nbsp;&nbsp;最好的选择就是把你的数据目录配置到安装目录以外的地方， 同样你也可以选择转移你的插件和日志目录。
+```
+#elasticsearch.yml
+#数据目录
+path.data: /path/to/data1,/path/to/data2 
+
+#日志目录
+path.logs: /path/to/logs
+
+# 插件目录
+path.plugins: /path/to/plugins
+```
+* 最小节点数
+
+&nbsp;&nbsp;&nbsp;&nbsp;minimum_master_nodes  设定对你的集群的稳定 极其 重要。 当你的集群中有两个 masters（注：主节点）的时候，这个配置有助于防止 脑裂 ，一种两个主节点同时存在于一个集群的现象。
+                      
+&nbsp;&nbsp;&nbsp;&nbsp;如果你的集群发生了脑裂，那么你的集群就会处在丢失数据的危险中，因为主节点被认为是这个集群的最高统治者，它决定了什么时候新的索引可以创建，分片是如何移动的等等。如果你有 两个 masters 节点， 你的数据的完整性将得不到保证，因为你有两个节点认为他们有集群的控制权。
+
+&nbsp;&nbsp;&nbsp;&nbsp;这个配置就是告诉 Elasticsearch 当没有足够 master 候选节点的时候，就不要进行 master 节点选举，等 master 候选节点足够了才进行选举
+
+&nbsp;&nbsp;&nbsp;&nbsp;此设置应该始终被配置为 master 候选节点的法定个数（大多数个）。法定个数就是 ( master 候选节点个数 / 2) + 1
+
+```
+#elasticsearch.yml
+discovery.zen.minimum_master_nodes: 2
+
+
+#PUT /_cluster/settings
+{
+    "persistent" : {
+        "discovery.zen.minimum_master_nodes" : 2
+    }
+}
+```
+
+* 集群恢复相关的配置
+
+&nbsp;&nbsp;&nbsp;&nbsp;这三个设置可以在集群重启的时候避免过多的分片交换。这可能会让数据恢复从数个小时缩短为几秒钟
+
+```
+#config/elasticsearch.yml
+# Elasticsearch 在存在至少 8 个节点（数据节点或者 master 节点）之前进行数据恢复。 这个值的设定取决于个人喜好：整个集群提供服务之前你希望有多少个节点在线？这种情况下，我们设置为 8，这意味着至少要有 8 个节点，该集群才可用
+gateway.recover_after_nodes: 8
+
+# 现在我们要告诉 Elasticsearch 集群中 应该 有多少个节点，以及我们愿意为这些节点等待多长时间
+gateway.expected_nodes: 10
+gateway.recover_after_time: 5m
+#这意味着 Elasticsearch 会采取如下操作：
+    #等待集群至少存在 8 个节点
+    #等待 5 分钟，或者10 个节点上线后，才进行数据恢复，这取决于哪个条件先达到。
+```
+
+* 使用单播代替组播
+
+&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 默认被配置为使用单播发现，以防止节点无意中加入集群。只有在同一台机器上运行的节点才会自动组成集群。
+
+&nbsp;&nbsp;&nbsp;&nbsp;虽然组播仍然 作为插件提供， 但它应该永远不被使用在生产环境了，否则你得到的结果就是一个节点意外的加入到了你的生产环境，仅仅是因为他们收到了一个错误的组播信号。 对于组播 本身 并没有错，组播会导致一些愚蠢的问题，并且导致集群变的脆弱（比如，一个网络工程师正在捣鼓网络，而没有告诉你，你会发现所有的节点突然发现不了对方了）。
+
+&nbsp;&nbsp;&nbsp;&nbsp;使用单播，你可以为 Elasticsearch 提供一些它应该去尝试连接的节点列表。 当一个节点联系到单播列表中的成员时，它就会得到整个集群所有节点的状态，然后它会联系 master 节点，并加入集群。
+
+&nbsp;&nbsp;&nbsp;&nbsp;这意味着你的单播列表不需要包含你的集群中的所有节点， 它只是需要足够的节点，当一个新节点联系上其中一个并且说上话就可以了。如果你使用 master 候选节点作为单播列表，你只要列出三个就可以了。 这个配置在 elasticsearch.yml 文件中
+```
+discovery.zen.ping.unicast.hosts: ["host1", "host2:port"]
+```
