@@ -9,6 +9,17 @@ categories:
 
 {% asset_img jvmmap.png jvmmap %}
 
+```
+-XX:+UseConcMarkSweepGC
+-Xms1g
+-Xmx2g
+-XX:+UseCMSInitiatingOccupancyOnly
+-XX:CMSInitiatingOccupancyFraction=70
+-XX:CMSFullGCsBeforeCompaction=0
+-XX:+UseCMSCompactAtFullCollection
+-XX:ParallelGCThreads=4
+```
+
 ---
 Serial垃圾收集器（新生代） 新生代使用Serial  老年代则使用SerialOld     
 > 开启：-XX:+UseSerialGC 关闭：-XX:-UseSerialGC
@@ -33,6 +44,8 @@ CMS垃圾收集器（老年代）  新生代使用功能ParNew 老年代则使�
 ---
 
 ### 对象的一些配置
+ * -XX:+UseTLAB  开启本地线程预分配
+ 
  * -XX:InitialTenuringThreshol=7  年轻代对象转换为老年代对象最小年龄值，默认值7
  
  * -XX:MaxTenuringThreshold=15 进入老年代最大的GC年龄 年轻代对象转换为老年代对象最大年龄值，默认值15
@@ -44,10 +57,10 @@ CMS垃圾收集器（老年代）  新生代使用功能ParNew 老年代则使�
  
  ### 内存空间的配置
  
-  * -Xms=2g：初始堆空间内存 （默认为物理内存的1/64）
-  * -Xmx=2g：最大堆空间内存（默认为物理内存的1/4）
-  * -Xmn=512m：设置新生代的大小。(初始值及最大值)
-  * -Xss=512k：线程堆栈大小
+  * -Xms2g：初始堆空间内存 （默认为物理内存的1/64）
+  * -Xmx2g：最大堆空间内存（默认为物理内存的1/4）
+  * -Xmn512m：设置新生代的大小。(初始值及最大值)
+  * -Xss512k：线程堆栈大小
   * -XX:MetaspaceSize ：初始化的Metaspace大小
   * -XX:MaxMetaspaceSize：Metaspace最大值
   * -XX:NewRatio=2：配置新生代与老年代在堆结构的占比 老年代:新生代 = 2:1 ，新生代占整个堆的1/3

@@ -11,7 +11,7 @@ categories:
 ### 环境变量设置：
 
  ES_HOME=/usr/local/src/elasticsearch-7.15.2
-		ES_JAVA_HOME=/usr/local/src/elasticsearch-7.15.2/jdk
+ ES_JAVA_HOME=/usr/local/src/elasticsearch-7.15.2/jdk
 
 ### 用户组准备
 
@@ -30,9 +30,9 @@ max number of threads [1024] for user [es] is too low, increase to at least [409
 elasticsearch用户拥有的可创建文件描述的权限太低，至少需要65536
 
 vi /etc/security/limits.conf   # 在最后面追加下面内容
-		es soft nproc 4096
-        es hard nofile 65536
-		es soft nofile 65536
+    es soft nproc 4096
+    es hard nofile 65536
+    es soft nofile 65536
 
 max_map_count文件包含限制一个进程可以拥有的VMA(虚拟内存区域)的数量 
 
