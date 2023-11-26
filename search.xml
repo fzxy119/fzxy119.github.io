@@ -1,6 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ISO8601标准时间格式</title>
+    <url>/2022/01/13/Knowledge/iso8601date/</url>
+    <content><![CDATA[<p>国际标准化组织的国际标准ISO8601是日期和时间的表示方法，全称为《数据存储和交换形式·信息交换·日期和时间的表示方法》。目前是第二版ISO8601:2000以替代第一版ISO8601:1988。</p>
+<p><strong>日期表示法</strong></p>
+<p>年由4位数组成，以公历公元1年为0001年，以公元前1年为0000年，公元前2年为-0001年，其他以此类推。应用其他纪年法要换算成公历，但如果发送和接受信息的双方有共同一致同意的其他纪年法，可以自行应用。</p>
+<p><strong>日历日期表示法</strong></p>
+<p>年为4位数，月为2位数，月中的日为2位数，例如2004年5月3日可写成2004-05-03或20040503。</p>
+<p><strong>顺序日期表示法</strong></p>
+<p>可以将一年内的天数直接表示，平年365天，闰年366天。如2004年5月3日可以表示为2004-157或2004157</p>
+<p><strong>日历星期和日表示法</strong></p>
+<p>可以用2位数表示本年内第几个日历星期，再加上一位数表示日历星期内第几天，但日历星期前要加上一个大写字母W，如2004年5月3日可写成2004-W17-3或2004W173。但2004-W011是从2004年1月5日开始的，前几天属于上年的第54个日历星期，每个日历星期从星期一开始，星期日为第7天。</p>
+<p><strong>日的时间表示法</strong></p>
+<p>小时、分和秒都用2位数表示，对UTC时间最后加一个大写字母Z，其他时区用实际时间加时差表示。如UTC时间下午2点30分5秒表示为14:30:05Z或143005Z，当时的北京时间表示为22:30:05+08:00或223005+0800，也可以简化成223005+08。</p>
+<p><strong>日期和时间的组合表示法</strong></p>
+<p>合并表示时，要在时间前面加一大写字母T，如要表示北京时间2004年5月3日下午5点30分8秒，可以写成2004-05-03T17:30:08+08:00或20040503T093008+08。</p>
+<p><strong>时间段表示法</strong></p>
+<p>如果要表示某一作为一段时间的时间期间，前面加一大写字母P，但时间段后都要加上相应的代表时间的大写字母。如在一年三个月五天六小时七分三十秒内，可以写成P1Y3M5DT6H7M30S。</p>
+<p><strong>重复时间表示法</strong></p>
+<p>前面加上一大写字母R，如要从2004年5月6日北京时间下午1点起重复半年零5天3小时，要重复3次，可以表示为R3/20040506T130000+08/P0Y6M5DT3H0M0S。</p>
+]]></content>
+      <categories>
+        <category>知识</category>
+      </categories>
+      <tags>
+        <tag>标准</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何做规划</title>
+    <url>/2021/09/15/Knowledge/guihua/</url>
+    <content><![CDATA[<p><u><em><strong>做事先规划是做事的一种方式</strong></em></u></p>
+<h2 id="应该学会规划"><a href="#应该学会规划" class="headerlink" title="应该学会规划"></a>应该学会规划</h2><p style="text-indent:2em">
+由于早起工作的态度问题，在接到任务后就总是凑齐技术要素，知道别人要什么就着手开始做，并能很快的完成并交付任务，这是一种被动接受的心态，有时也做规划，但是规划的层次比较低，面向的都是结果。时间如梭，多年后发现，高层次规划是提升和锻炼自己很有效的方法，思考问题的方式从如何完成目标任务，到了解事件背景，解决什么问题，再到深层次目标，输入的问题更多，你做的规划方案也就不一样，技术选型也不一样，架构设计也不一样。
+</p>
+<p style="text-indent:2em">
+规划是输入问题经过思考后并给出解决问题实行方案的过程的结果，这个过程是通用的，是需要经过低层次规划到高层次规划锻炼才能熟练的，并且可以适用到大事小事，个人或者团队的事。
+</p>
+<span id="more"></span>
+
+<h2 id="规划具有重要的意义"><a href="#规划具有重要的意义" class="headerlink" title="规划具有重要的意义"></a>规划具有重要的意义</h2><h4 id="聚焦目标"><a href="#聚焦目标" class="headerlink" title="聚焦目标"></a>聚焦目标</h4><p style="text-indent:2em">
+规划的一个最为重要的作用就是让目标更清晰。团队里的人知道要做什么，有一部分人觉得迷茫，很大程度是目标不清楚，好像知道要做什么事，又不知道如何下手。这个目标可大可小，小的方面就是要完成一个项目或一个需求，大的方面就是要建立一套体系。笔者曾经就有这样的切身经历，有一段时间显得非常迷茫，不知道自己要做什么，人一迷茫就会焦虑。一旦有这样的状态，就要思考是不是目标不够清晰，目标度量是不是不够细。当目标明确之后，大家"心向一处想，劲往一处使"，这样的工作状态效率是非常高的，团队的氛围也是非常好的。
+</p>
+
+<h4 id="洞察背后逻辑"><a href="#洞察背后逻辑" class="headerlink" title="洞察背后逻辑"></a>洞察背后逻辑</h4><p style="text-indent:2em">
+规划出来的内容是结果，最为重要的是思考为什么要做这些事，背后的逻辑才是核心。分析当前的现状、痛点、业界发展状况……结合业务本身，去做一些决策、取舍。不同的人思考出发点不一样，大家在一起碰撞时，会有一些想法闪现出来，也是思想的交流。我们做事不仅仅要懂得how，更要懂得why，当把why讲清楚之后，how也就是水到渠成的事，往往我们的一个困惑是不知道why。
+</p>
+
+<h4 id="知晓未来方向"><a href="#知晓未来方向" class="headerlink" title="知晓未来方向"></a>知晓未来方向</h4><p style="text-indent:2em">
+规划有短期规划，也有长期规划，一般笔者是先思考长期规划，思考3年之后，我们要具备怎样的能力，再回到短期上，我们当下这个阶段要做到怎样的程度。有些事不紧急，但很重要，可以放晚一点做；有的事非常重要，又非常紧急，优先级就要提高。当我们知道了方向之后，即使当下没有去做一些事，也知道将来我们要做成什么样。以笔者的过往经历，一个团队有一两年的长远规划，团队里的成员达成共识之后，这个团队在一两年内是稳定的，因为大家知道两年之后我们会做成什么样，远方一直有一个目标在照亮着我们，大家一起努力不断逼近那个目标。
+</p>
+<img src="/2021/09/15/Knowledge/guihua/640.webp" class="" title="规划">
+
+
+<h2 id="规划的两种思维"><a href="#规划的两种思维" class="headerlink" title="规划的两种思维"></a>规划的两种思维</h2><h4 id="归纳思维"><a href="#归纳思维" class="headerlink" title="归纳思维"></a>归纳思维</h4><p style="text-indent:2em">规划使用的第一种思维是归纳法。这是大家最常用的方法，一般是从现状出发，思考当下有哪些问题、业界是怎么做的，从这些输入中去归纳我们需要去做什么。比如当下工单咨询比较多，那么就需要对工单进行分类，如归纳成产品设计问题、程序代码问题、依赖方问题、交互设计问题，针对每类问题，再去思考我们应该要做到哪些工作。在店铺平台建设中的规划中，我们就梳理了当下的一些痛点问题，如平台只有一些基础的能力，没有给业务方提供强大的能力支撑，那么接下来就要加强店铺能力建设，丰富店铺能力。</p>
+<p style="text-indent:2em">归纳思维有一个缺点就是就事论事，解决了表层的问题，比如竞品有什么，我们没有该项能力，是不是我们就要去做同样的事。归纳思维要配合深度思考一起做规划设计，真正挖掘出我们当下的痛点是什么，比如一个工单，用户只会提出他遇到了什么问题，此时就要深入分析它的root cause，有的时候只需要一个清晰的提示文案就可能解决用户的问题。</p>
+
+<h4 id="演绎思维"><a href="#演绎思维" class="headerlink" title="演绎思维"></a>演绎思维</h4><p style="text-indent:2em">规划使用的第二种思维是演绎思维。演绎思维是一种更高级的思维模式，它需要一个人对事物有非常深刻的认识，当洞察出了底层的规律之后，再去思考我们要做什么。一般的人并不习惯用这种思维模式，它对人的要求非常高，一旦掌握之后，规划也就容易得多，很多科学家更偏向使用演绎思维。</p>
+<p style="text-indent:2em">在店铺规划中，笔者就运用了演绎的思维。比如在规划之前，笔者就思考两个问题：店铺的本质是什么、店铺要提供的商业价值是什么。当把这两个问题想清楚之后，沿着价值方向去思考我们应该要给用户提供怎样的能力，这是一步一步推导出来的。店铺的本质是一个"场"，它连接了卖家和买家。针对这两种角色，卖家最为关注的是怎么使用得好店铺，包含使用得爽、店铺转化好；买家最为关注的是怎么通过最少的钱、最少的时间买到心仪的商品。沿着卖家和买家关注点，继续思考我们怎么让卖家用得爽、用得好呢？其中一个点是我们要知道卖家现在有哪些不好的体验，一定要能度量得出来，而不是定性地去分析，当定量地度量出体验指标之后，这样就可以非常有针对性地去做一些体验优化工作。站在买家的角度，可以给买家一些优惠，让他更愿意购物，这也即是我们规划店铺营销的初衷。</p>
+
+<img src="/2021/09/15/Knowledge/guihua/641.webp" class="" title="规划">
+
+
+
+
+
+<blockquote><footer><strong>阿里技术</strong><cite><a href="https://mp.weixin.qq.com/s/LILm--w9vj_K7qjI4EakBw">如何做规划？分享2种思维和4个方法</a></cite></footer></blockquote>
+]]></content>
+      <categories>
+        <category>知识</category>
+      </categories>
+      <tags>
+        <tag>Design</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>软件过程模型之RUP</title>
     <url>/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/</url>
     <content><![CDATA[<p>&emsp;&emsp; RUP (Rational Unified Process).Rational 公司提出的统一软件过程，Unified 说RUP是最佳开发经验总结，Process说明 RUP是一个软件开发过程。</p>
@@ -45,6 +120,119 @@
       </categories>
       <tags>
         <tag>过程模型</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理相关文件</title>
+    <url>/2022/01/06/Knowledge/xmglwenjian/</url>
+    <content><![CDATA[<h3 id="项目章程"><a href="#项目章程" class="headerlink" title="项目章程"></a>项目章程</h3><ul>
+<li><p>项目目的</p>
+</li>
+<li><p>可测量的项目目标和相关成功标准</p>
+</li>
+<li><p>高层及需求</p>
+</li>
+<li><p>高层级项目描述，边界定义及主要可交付成果</p>
+</li>
+<li><p>整体项目风险</p>
+</li>
+<li><p>总体里程碑进度计划</p>
+</li>
+<li><p>预算批准的财务资源</p>
+</li>
+<li><p>主要相关方名单</p>
+</li>
+<li><p>项目审计要求（用什么标准评价成功，由谁对项目成功下结论，有谁签署项目结束）</p>
+</li>
+<li><p>项目退出标准（比如，结束或取消项目或阶段前应满足的条件）</p>
+</li>
+<li><p>委派项目经理及其职责和职权</p>
+</li>
+<li><p>发起人或其他批准项目章程的人员姓名和职权</p>
+</li>
+</ul>
+<h3 id="项目范围说明书："><a href="#项目范围说明书：" class="headerlink" title="项目范围说明书："></a>项目范围说明书：</h3><ul>
+<li>项目范围描述（渐进明细）</li>
+<li>项目可交付成功</li>
+<li>验收标准</li>
+<li>项目排除项</li>
+</ul>
+<h3 id="项目文件："><a href="#项目文件：" class="headerlink" title="项目文件："></a>项目文件：</h3><p>经验教训登记册</p>
+<p>需求跟踪矩阵</p>
+<p>需求文件</p>
+<h2 id="计划类"><a href="#计划类" class="headerlink" title="计划类"></a>计划类</h2><p>项目管理计划：包含各个组件计划</p>
+<p>需求管理计划：需求管理计划记录了如何管理项目需求</p>
+<p>范围管理计划：范围管理计划记录了如何控制项目和产品范围 如何根据 项目范围说明书创建 WBS</p>
+<p>变更管理计划：变更管理计划定义了管理项目变更的过程</p>
+<p>配置管理计划：配置管理计划定义了哪些是配置项，哪些配置项需要正式变更控制，以及针对这些配置项的变更控制过程</p>
+<p>进度管理计划：是项目管理计划的组成部分，为编制、监督和控制项目进度建立准则和明确活动</p>
+]]></content>
+      <categories>
+        <category>知识</category>
+      </categories>
+      <tags>
+        <tag>项目管理相关文件</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理相关词</title>
+    <url>/2021/12/25/Knowledge/xmglword/</url>
+    <content><![CDATA[<h3 id="PMO：-项目管理办公室"><a href="#PMO：-项目管理办公室" class="headerlink" title="PMO： 项目管理办公室"></a>PMO： 项目管理办公室</h3><p>Project Management Office 项目管理办公室，项目管理办公室是企业设立的一个职能机构名称，也有的称作项目管理部、项目办公室或项目管理中心等，英文为： Project Management Office ，缩写简称：PMO。</p>
+<p>PMO是在组织内部将实践、过程、运作形式化和标准化的部门，是提高组织管理成熟度的核心部门，它根据业界最佳实践和公认的项目管理知识体系，并结合企业自身的业务和行业特点，以此确保项目成功率的提高和组织战略的有效贯彻执行。</p>
+<h3 id="PMI：项目管理协会"><a href="#PMI：项目管理协会" class="headerlink" title="PMI：项目管理协会"></a>PMI：项目管理协会</h3><p>PMI（<strong>Project Management Institute</strong>）中文名是项目管理协会，是世界领先的非盈利会员协会的项目管理专业机构 ，1969年成立，在全球185个国家有70多万会员和证书持有人。此外，PMI还是多个英文短语的缩写，较为著名的是采购经理指数PMI。</p>
+<h3 id="PMIS-项目管理信息系统"><a href="#PMIS-项目管理信息系统" class="headerlink" title="PMIS:项目管理信息系统"></a>PMIS:项目管理信息系统</h3><p>项目管理信息系统（project management information system，PMIS）是计算机辅助项目管理的工具，为项目目标的实现提供了强有力的帮助</p>
+<h3 id="CCB：变更控制委员-会"><a href="#CCB：变更控制委员-会" class="headerlink" title="CCB：变更控制委员 会"></a>CCB：变更控制委员 会</h3><p>CCB(Change Control Board) 在<a href="https://baike.baidu.com/item/CMMI">CMMI</a>(Capability Maturity Model Integration)中，是“<a href="https://baike.baidu.com/item/%E5%8F%98%E6%9B%B4%E6%8E%A7%E5%88%B6%E5%A7%94%E5%91%98%E4%BC%9A/5875484">变更控制委员会</a>”的含义，同时具有配置控制<a href="https://baike.baidu.com/item/%E5%A7%94%E5%91%98%E4%BC%9A/290784">委员会</a>（Configuration Control Board）的含义。</p>
+<p>CCB可以由一个小组担任，也可以由多个不同的组担任，负责做出决定究竟将哪些已建议需求变更或新产品特性付诸应用。典型的<a href="https://baike.baidu.com/item/%E5%8F%98%E6%9B%B4%E6%8E%A7%E5%88%B6%E5%A7%94%E5%91%98%E4%BC%9A/5875484">变更控制委员会</a>会同样决定在哪一些版本中纠正哪些错误。</p>
+<p>CCB的成员应当能代表变更涉及的团体。其可能包括如下方面的代表：</p>
+<p>1.产品或计划管理部门</p>
+<p>2.项目管理部门</p>
+<p>3.开发部门</p>
+<p>4.测试或质量保证部门</p>
+<p>5.市场部或客户代表</p>
+<p>6.制作用户文档的部门</p>
+<p>7.技术支持部门</p>
+<p>8.帮助桌面或用户支持热线部门</p>
+<p>9.配置管理部门</p>
+<h3 id="PMCD：项目经理能力发展框架"><a href="#PMCD：项目经理能力发展框架" class="headerlink" title="PMCD：项目经理能力发展框架"></a>PMCD：项目经理能力发展框架</h3><p>《项目经理能力发展框架》是由美国项目管理协会开发制定，已成为国际标准。它为定义、评估和发展项目经理能力提供了通用指南，构建了项目管理能力的三个关键维度，定义了影响项目经理绩效的关键能力元素。不管项目的属性、类型、规模和复杂度有什么不同，这些能力将使项目经理可以进行跨行业的交流，而且各行业、各组织可以在PMCD框架的基础上建立具有自己特色的能力模型。该标准还对组织能力发展过程的创建提供了指导，帮助组织对其员工的项目管理能力进行持续评估和提升。</p>
+<h3 id="SME：领域或主题的专家"><a href="#SME：领域或主题的专家" class="headerlink" title="SME：领域或主题的专家"></a>SME：领域或主题的专家</h3><p>SME，是Subject Matter Expert的缩写，意思是精通某一领域或主题的专家。</p>
+<h3 id="WBS-工作分解结构-WBS-实施标准"><a href="#WBS-工作分解结构-WBS-实施标准" class="headerlink" title="WBS:工作分解结构(WBS)实施标准"></a>WBS:工作分解结构(WBS)实施标准</h3><p>定义项目目标以及把工作委派给项目成员是项目经理最重要的工作之一。成功的项目管理要求项目经理完成这项工作。工作分解结构（WBS）就是定义工作并使其符合特定的项目目标的指南。WBS的应用范围可涉及各行各业，它是项目经理的无价工具，可以帮助项目经理完成整个项目生命周期中的众多关键步骤。本书表述了作为项目管理工具的WBS的标准定义及应用方法，包括项目范围定义、构建项目状态和进展报告的基础框架、方便项目经理与项目干系人沟通等内容.</p>
+<p>《工作分解结构（WBS）实施标准（第2版）》是2015年10月电子工业出版社出版的图书，作者是强茂山、陈平。</p>
+<h3 id="PPP经理："><a href="#PPP经理：" class="headerlink" title="PPP经理："></a>PPP经理：</h3><p>PPP（Public-Private Partnership），又称PPP模式，即政府和社会资本合作，是公共基础设施中的一种项目运作模式。在该模式下，鼓励私营企业、民营资本与政府进行合作，参与公共基础设施的建设。</p>
+<p>项目管理7宗罪：</p>
+<p>肉包子打狗有去无回，需求给出去，就不再有后续监控跟踪，如何形成闭环，完成任务自行运行</p>
+<p>项目任务千丝万缕，如何管理</p>
+<p>沟通隔靴搔痒，大部分时间花在了沟通上</p>
+<p>需求变换莫测，多变环境如何适应</p>
+<p>传统项目管理软件太高冷，普及应用困难。</p>
+<p>日志，记录，报告，总结，不堪重负</p>
+<p>教训不断重演，经验教训无法形成知识（组织过程资产）   项目结束后经验难以总结，项目过程当中就要进行经验总结</p>
+]]></content>
+      <categories>
+        <category>知识</category>
+      </categories>
+      <tags>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>项目管理-项目整合管理</title>
+    <url>/2021/12/25/Knowledge/xmglxmzh/</url>
+    <content><![CDATA[<h3 id="制定项目章程"><a href="#制定项目章程" class="headerlink" title="制定项目章程:"></a>制定项目章程:</h3><p>制定项目章程是编写<u>一份正式批准项目并授权项目经理在项目活动中使用组织资源</u>的文件的过 程。<strong>本过程的主要作用是，明确项目与组织战略目标之间的直接联系，确立项目的正式地位，并展 示组织对项目的承诺。</strong>项目章程在项目执行组织与需求组织之间建立起伙伴关系。在执行外部项目时，通常需要用正式 的合同来达成合作协议。这种情况下，可能仍要用项目章程来建立组织内部的合作关系，以确保正确 交付合同内容。项目章程一旦被批准，就标志着项目的正式启动。在项目中，应尽早确认并任命项目 经理，最好在制定项目章程时就任命，且总应在规划开始之前任命。项目章程可由发起人编制，或者 由项目经理与发起机构合作编制。通过这种合作，项目经理可以更好地了解项目目的、目标和预期效 益，以便更有效地向项目活动分配资源。项目章程授权项目经理规划、执行和控制项目。</p>
+<h3 id="制定项目计划"><a href="#制定项目计划" class="headerlink" title="制定项目计划:"></a>制定项目计划:</h3><h3 id="管理项目知识："><a href="#管理项目知识：" class="headerlink" title="管理项目知识："></a>管理项目知识：</h3><p>知识通常分为“<strong>显性知识</strong>”（易使用文字、图片和数字进行编撰的知识）和“<strong>隐性知识</strong>”（个体 知识以及难以明确表达的知识，如信念、洞察力、经验和“诀窍”）两种。知识管理指管理显性和 隐性知识，旨在重复使用现有知识并生成新知识。<strong>有助于达成这两个目的的关键活动是知识分享和 知识集成</strong>（不同领域的知识、情境知识和项目管理知识）。 </p>
+<p>一个常见误解是，知识管理只是将知识记录下来用于分享；另一种常见误解是，知识管理只是在 项目结束时总结经验教训，以供未来项目使用。这样的话，只有经编撰的显性知识可以得到分享。 因为显性知识缺乏情境，可作不同解读，所以，虽易分享，但无法确保正确理解或应用。隐性知识 虽蕴含情境，却很难编撰。它存在于专家个人的思想中，或者存在于社会团体和情境中，通常经由 人际交流和互动来分享。 </p>
+<p>从组织的角度来看，知识管理指的是确保项目团队和其他相关方的技能、经验和专业知识在项目 开始之前、开展期间和结束之后得到运用。<em>因为知识存在于人们的思想中，且无法强迫人们分享自 己的知识或关注他人的知识</em>，所以，<strong>知识管理最重要的环节就是营造一种相互信任的氛围，激励人 们分享知识或关注他人的知识。如果不激励人们分享知识或关注他人的知识，即便最好的知识管理 工具和技术也无法发挥作用</strong>。在实践中，联合使用**<u>知识管理工具和技术（用于人际互动）以及信息 管理工具和技术</u>**（用于编撰显性知识）来分享知识</p>
+<h3 id="监控项目工作："><a href="#监控项目工作：" class="headerlink" title="监控项目工作："></a>监控项目工作：</h3><p>&nbsp; &nbsp; 监控项目工作是跟踪、审查和报告整体项目进展，以实现项目管理计划中确定的绩效目标的过程。本过程的主要作用是，<strong>让相关方了解项目的当前状态并认可<u>为处理绩效问题而采取的行动</u>，以及通过成本和进度预测，让相关方了解未来项目状态</strong>。本过程需要在整个项目期间开展。<br>&nbsp; &nbsp; 监督是贯穿于整个项目的项目管理活动之一，包括收集、测量和分析测量结果，以及预测趋势，以便推动过程改进。<strong>持续的监督使项目管理团队能洞察项目的健康状况，并识别须特别关注的任何方面。控制包括制定纠正或预防措施或重新规划，并跟踪行动计划的实施过程，以确保它们能有效解决问题</strong>。</p>
+<p>滚动式规划</p>
+<p>滚动式规划是一种迭代式的规划技术，即详细规划近期要完成的工作，同时在较高层级上粗略规 划远期工作。它是一种渐进明细的规划方式，适用于工作包、规划包以及采用敏捷或瀑布式方法的 发布规划。因此，在项目生命周期的不同阶段，工作的详细程度会有所不同。在早期的战略规划阶 段，信息尚不够明确，工作包只能分解到已知的详细水平；而后，随着了解到更多的信息，近期即 将实施的工作包就可以分解到具体的活动</p>
+<p>敏捷技术</p>
+<p>紧前关系绘图法（PDM）是创建进度模型的一种技术</p>
+<p>项目进度网络图</p>
+<h5 id=""><a href="#" class="headerlink" title=""></a></h5>]]></content>
+      <categories>
+        <category>知识</category>
+      </categories>
+      <tags>
+        <tag>项目管理</tag>
       </tags>
   </entry>
   <entry>
@@ -301,6 +489,63 @@
       </tags>
   </entry>
   <entry>
+    <title>Es RESTful Api</title>
+    <url>/2022/07/26/db/esapi/</url>
+    <content><![CDATA[<h3 id="查询所有索引信息"><a href="#查询所有索引信息" class="headerlink" title="查询所有索引信息"></a>查询所有索引信息</h3><ul>
+<li>http:///_cat/indices</li>
+</ul>
+<h3 id="索引映射查看"><a href="#索引映射查看" class="headerlink" title="索引映射查看"></a>索引映射查看</h3><ul>
+<li>get http:///agent-info</li>
+</ul>
+<h3 id="索引设置查看"><a href="#索引设置查看" class="headerlink" title="索引设置查看"></a>索引设置查看</h3><ul>
+<li>get http:///agent-info/_settings</li>
+</ul>
+<h3 id="索引删除"><a href="#索引删除" class="headerlink" title="索引删除"></a>索引删除</h3><ul>
+<li>delete  http:///agent-info</li>
+</ul>
+<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><ul>
+<li>get  http:///agent-info/_search</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;:&#123;</span><br><span class="line">        &quot;match&quot;:&#123;</span><br><span class="line">            &quot;ag_name&quot;: &quot;大石桥市旺达水果蔬菜便利店&quot;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="索引全文检索"><a href="#索引全文检索" class="headerlink" title="索引全文检索"></a>索引全文检索</h3><ul>
+<li>get  http:///agent-info/_search</li>
+</ul>
+<h3 id="关键词分析"><a href="#关键词分析" class="headerlink" title="关键词分析"></a>关键词分析</h3><ul>
+<li>get http:///_analyze<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;739183800@qq.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="cat操作类表"><a href="#cat操作类表" class="headerlink" title="_cat操作类表"></a>_cat操作类表</h3><ul>
+<li>get http:///_cat</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=^.^=</span><br><span class="line">/_cat/allocation</span><br><span class="line">/_cat/shards</span><br><span class="line">/_cat/shards/&#123;index&#125;</span><br><span class="line">/_cat/master</span><br><span class="line">/_cat/nodes</span><br><span class="line">/_cat/tasks</span><br><span class="line">/_cat/indices</span><br><span class="line">/_cat/indices/&#123;index&#125;</span><br><span class="line">/_cat/segments</span><br><span class="line">/_cat/segments/&#123;index&#125;</span><br><span class="line">/_cat/count</span><br><span class="line">/_cat/count/&#123;index&#125;</span><br><span class="line">/_cat/recovery</span><br><span class="line">/_cat/recovery/&#123;index&#125;</span><br><span class="line">/_cat/health</span><br><span class="line">/_cat/pending_tasks</span><br><span class="line">/_cat/aliases</span><br><span class="line">/_cat/aliases/&#123;alias&#125;</span><br><span class="line">/_cat/thread_pool</span><br><span class="line">/_cat/thread_pool/&#123;thread_pools&#125;</span><br><span class="line">/_cat/plugins</span><br><span class="line">/_cat/fielddata</span><br><span class="line">/_cat/fielddata/&#123;fields&#125;</span><br><span class="line">/_cat/nodeattrs</span><br><span class="line">/_cat/repositories</span><br><span class="line">/_cat/snapshots/&#123;repository&#125;</span><br><span class="line">/_cat/templates</span><br><span class="line">/_cat/ml/anomaly_detectors</span><br><span class="line">/_cat/ml/anomaly_detectors/&#123;job_id&#125;</span><br><span class="line">/_cat/ml/trained_models</span><br><span class="line">/_cat/ml/trained_models/&#123;model_id&#125;</span><br><span class="line">/_cat/ml/datafeeds</span><br><span class="line">/_cat/ml/datafeeds/&#123;datafeed_id&#125;</span><br><span class="line">/_cat/ml/data_frame/analytics</span><br><span class="line">/_cat/ml/data_frame/analytics/&#123;id&#125;</span><br><span class="line">/_cat/transforms</span><br><span class="line">/_cat/transforms/&#123;transform_id&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="健康检查"><a href="#健康检查" class="headerlink" title="健康检查"></a>健康检查</h3><ul>
+<li><p>get http:///_cat/health</p>
+<blockquote>
+<p>1658815275 06:01:15 ryx green 3 3 10 8 0 0 0 0 - 100.0%</p>
+</blockquote>
+<h3 id="查看集群信息"><a href="#查看集群信息" class="headerlink" title="查看集群信息"></a>查看集群信息</h3></li>
+<li><p>get http:///_cluster/health</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;cluster_name&quot;: &quot;ryx&quot;,</span><br><span class="line">    &quot;status&quot;: &quot;green&quot;,</span><br><span class="line">    &quot;timed_out&quot;: false,</span><br><span class="line">    &quot;number_of_nodes&quot;: 3,</span><br><span class="line">    &quot;number_of_data_nodes&quot;: 3,</span><br><span class="line">    &quot;active_primary_shards&quot;: 8,</span><br><span class="line">    &quot;active_shards&quot;: 10,</span><br><span class="line">    &quot;relocating_shards&quot;: 0,</span><br><span class="line">    &quot;initializing_shards&quot;: 0,</span><br><span class="line">    &quot;unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;delayed_unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;number_of_pending_tasks&quot;: 0,</span><br><span class="line">    &quot;number_of_in_flight_fetch&quot;: 0,</span><br><span class="line">    &quot;task_max_waiting_in_queue_millis&quot;: 0,</span><br><span class="line">    &quot;active_shards_percent_as_number&quot;: 100.0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群master"><a href="#查看集群master" class="headerlink" title="查看集群master"></a>查看集群master</h3></li>
+<li><p>get http:///_cat/master</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TzHcEWPTRW-D8vFqj0lTUQ 12.3.10.105 12.3.10.105 node-105</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群节点信息"><a href="#查看集群节点信息" class="headerlink" title="查看集群节点信息"></a>查看集群节点信息</h3></li>
+<li><p>get http:///_cat/nodes</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">12.3.10.205 65 97 3 0.02 0.11 0.17 cdfhilmrstw - node-205</span><br><span class="line">12.3.10.222 15 94 3 0.03 0.07 0.06 cdfhilmrstw - node-222</span><br><span class="line">12.3.10.105 51 98 2 0.06 0.08 0.02 cdfhilmrstw * node-105</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群分片信息"><a href="#查看集群分片信息" class="headerlink" title="查看集群分片信息"></a>查看集群分片信息</h3></li>
+<li><p>get http:///_cat/shards</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">agent-info       2 p STARTED 13569   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       1 p STARTED 13104   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       0 p STARTED 13476   1.8mb 12.3.10.222 node-222</span><br><span class="line">.security-7      0 r STARTED     7  25.7kb 12.3.10.205 node-205</span><br><span class="line">.security-7      0 p STARTED     7  25.7kb 12.3.10.222 node-222</span><br><span class="line">.geoip_databases 0 r STARTED     4     4mb 12.3.10.205 node-205</span><br><span class="line">.geoip_databases 0 p STARTED     4     4mb 12.3.10.222 node-222</span><br><span class="line">order-info       2 p STARTED   570 266.7kb 12.3.10.222 node-222</span><br><span class="line">order-info       1 p STARTED   508 249.2kb 12.3.10.205 node-205</span><br><span class="line">order-info       0 p STARTED   521   259kb 12.3.10.222 node-222</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>DB</category>
+      </categories>
+      <tags>
+        <tag>ES</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES安装与运行</title>
     <url>/2022/05/19/db/es/</url>
     <content><![CDATA[<h2 id="ES安装："><a href="#ES安装：" class="headerlink" title="ES安装："></a>ES安装：</h2><p>安装 Elasticsearch 之前，你需要先安装一个较新的版本的 Java</p>
@@ -390,6 +635,30 @@
       </tags>
   </entry>
   <entry>
+    <title>ES基础</title>
+    <url>/2022/07/26/db/esbase/</url>
+    <content><![CDATA[<h2 id="Elasticsearch-是做什么的"><a href="#Elasticsearch-是做什么的" class="headerlink" title="Elasticsearch  是做什么的"></a>Elasticsearch  是做什么的</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 是一个实时的分布式搜索分析引擎，它能让你以前所未有的速度和规模，去探索你的数据。 它被用作全文检索、结构化搜索、分析以及这三个功能的组合</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;通常情况下，我们从数据库中提取可用的知识出乎意料的低效，当然，你可以通过时间戳或精确值进行过滤，但是它们能够全文检索、处理同义词、通过相关性给文档评分么？ 它们能从同样的数据中生成分析与聚合数据吗？最重要的是，它们能实时地做到上述操作，而不经过大型批处理的任务么？</p>
+<h2 id="Elasticsearch-是用什么实现的"><a href="#Elasticsearch-是用什么实现的" class="headerlink" title="Elasticsearch  是用什么实现的"></a>Elasticsearch  是用什么实现的</h2><p>Elasticsearch 是一个开源的搜索引擎，建立在一个全文搜索引擎库 Apache Lucene™ 基础之上。 Lucene 可以说是当下最先进、高性能、全功能的搜索引擎库—​无论是开源还是私有。</p>
+<p>但是 Lucene 仅仅只是一个库。为了充分发挥其功能，你需要使用 Java 并将 Lucene 直接集成到应用程序中。 更糟糕的是，您可能需要获得信息检索学位才能了解其工作原理。Lucene 非常 复杂。</p>
+<p>Elasticsearch 也是使用 Java 编写的，它的内部使用 Lucene 做索引与搜索，但是它的目的是使全文检索变得简单， 通过隐藏 Lucene 的复杂性，取而代之的提供一套简单一致的 RESTful API。</p>
+<p>然而，Elasticsearch 不仅仅是 Lucene，并且也不仅仅只是一个全文搜索引擎。 它可以被下面这样准确的形容：</p>
+<ul>
+<li>一个分布式的实时文档存储，每个字段 可以被索引与搜索</li>
+<li>一个分布式实时分析搜索引擎</li>
+<li>能胜任上百个服务节点的扩展，并支持 PB 级别的结构化或者非结构化数据</li>
+</ul>
+<p>Elasticsearch 将所有的功能打包成一个单独的服务，这样你可以通过程序与它提供的简单的 RESTful API 进行通信， 可以使用自己喜欢的编程语言充当 web 客户端，甚至可以使用命令行（去充当这个客户端）</p>
+<h3 id="Elasticsearch-面向文档"><a href="#Elasticsearch-面向文档" class="headerlink" title="Elasticsearch 面向文档"></a>Elasticsearch 面向文档</h3><p>Elasticsearch 是 面向文档 的，意味着它存储整个对象或 文档。Elasticsearch 不仅存储文档，而且 索引 每个文档的内容，使之可以被检索。在 Elasticsearch 中，我们对文档进行索引、检索、排序和过滤—​而不是对行列数据。这是一种完全不同的思考数据的方式，也是 Elasticsearch 能支持复杂全文检索的原因</p>
+]]></content>
+      <categories>
+        <category>DB</category>
+      </categories>
+      <tags>
+        <tag>ES</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Mysql数据类型</title>
     <url>/2022/07/26/db/mysql/</url>
     <content><![CDATA[<h1 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h1><img src="/2022/07/26/db/mysql/mysqlint.png" class="" title="jvmmap">
@@ -437,134 +706,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES基础</title>
-    <url>/2022/07/26/db/esbase/</url>
-    <content><![CDATA[<h2 id="Elasticsearch-是做什么的"><a href="#Elasticsearch-是做什么的" class="headerlink" title="Elasticsearch  是做什么的"></a>Elasticsearch  是做什么的</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 是一个实时的分布式搜索分析引擎，它能让你以前所未有的速度和规模，去探索你的数据。 它被用作全文检索、结构化搜索、分析以及这三个功能的组合</p>
-<p>&nbsp;&nbsp;&nbsp;&nbsp;通常情况下，我们从数据库中提取可用的知识出乎意料的低效，当然，你可以通过时间戳或精确值进行过滤，但是它们能够全文检索、处理同义词、通过相关性给文档评分么？ 它们能从同样的数据中生成分析与聚合数据吗？最重要的是，它们能实时地做到上述操作，而不经过大型批处理的任务么？</p>
-<h2 id="Elasticsearch-是用什么实现的"><a href="#Elasticsearch-是用什么实现的" class="headerlink" title="Elasticsearch  是用什么实现的"></a>Elasticsearch  是用什么实现的</h2><p>Elasticsearch 是一个开源的搜索引擎，建立在一个全文搜索引擎库 Apache Lucene™ 基础之上。 Lucene 可以说是当下最先进、高性能、全功能的搜索引擎库—​无论是开源还是私有。</p>
-<p>但是 Lucene 仅仅只是一个库。为了充分发挥其功能，你需要使用 Java 并将 Lucene 直接集成到应用程序中。 更糟糕的是，您可能需要获得信息检索学位才能了解其工作原理。Lucene 非常 复杂。</p>
-<p>Elasticsearch 也是使用 Java 编写的，它的内部使用 Lucene 做索引与搜索，但是它的目的是使全文检索变得简单， 通过隐藏 Lucene 的复杂性，取而代之的提供一套简单一致的 RESTful API。</p>
-<p>然而，Elasticsearch 不仅仅是 Lucene，并且也不仅仅只是一个全文搜索引擎。 它可以被下面这样准确的形容：</p>
-<ul>
-<li>一个分布式的实时文档存储，每个字段 可以被索引与搜索</li>
-<li>一个分布式实时分析搜索引擎</li>
-<li>能胜任上百个服务节点的扩展，并支持 PB 级别的结构化或者非结构化数据</li>
-</ul>
-<p>Elasticsearch 将所有的功能打包成一个单独的服务，这样你可以通过程序与它提供的简单的 RESTful API 进行通信， 可以使用自己喜欢的编程语言充当 web 客户端，甚至可以使用命令行（去充当这个客户端）</p>
-<h3 id="Elasticsearch-面向文档"><a href="#Elasticsearch-面向文档" class="headerlink" title="Elasticsearch 面向文档"></a>Elasticsearch 面向文档</h3><p>Elasticsearch 是 面向文档 的，意味着它存储整个对象或 文档。Elasticsearch 不仅存储文档，而且 索引 每个文档的内容，使之可以被检索。在 Elasticsearch 中，我们对文档进行索引、检索、排序和过滤—​而不是对行列数据。这是一种完全不同的思考数据的方式，也是 Elasticsearch 能支持复杂全文检索的原因</p>
-]]></content>
-      <categories>
-        <category>DB</category>
-      </categories>
-      <tags>
-        <tag>ES</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Es RESTful Api</title>
-    <url>/2022/07/26/db/esapi/</url>
-    <content><![CDATA[<h3 id="查询所有索引信息"><a href="#查询所有索引信息" class="headerlink" title="查询所有索引信息"></a>查询所有索引信息</h3><ul>
-<li>http:///_cat/indices</li>
-</ul>
-<h3 id="索引映射查看"><a href="#索引映射查看" class="headerlink" title="索引映射查看"></a>索引映射查看</h3><ul>
-<li>get http:///agent-info</li>
-</ul>
-<h3 id="索引设置查看"><a href="#索引设置查看" class="headerlink" title="索引设置查看"></a>索引设置查看</h3><ul>
-<li>get http:///agent-info/_settings</li>
-</ul>
-<h3 id="索引删除"><a href="#索引删除" class="headerlink" title="索引删除"></a>索引删除</h3><ul>
-<li>delete  http:///agent-info</li>
-</ul>
-<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><ul>
-<li>get  http:///agent-info/_search</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;:&#123;</span><br><span class="line">        &quot;match&quot;:&#123;</span><br><span class="line">            &quot;ag_name&quot;: &quot;大石桥市旺达水果蔬菜便利店&quot;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="索引全文检索"><a href="#索引全文检索" class="headerlink" title="索引全文检索"></a>索引全文检索</h3><ul>
-<li>get  http:///agent-info/_search</li>
-</ul>
-<h3 id="关键词分析"><a href="#关键词分析" class="headerlink" title="关键词分析"></a>关键词分析</h3><ul>
-<li>get http:///_analyze<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;739183800@qq.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="cat操作类表"><a href="#cat操作类表" class="headerlink" title="_cat操作类表"></a>_cat操作类表</h3><ul>
-<li>get http:///_cat</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">=^.^=</span><br><span class="line">/_cat/allocation</span><br><span class="line">/_cat/shards</span><br><span class="line">/_cat/shards/&#123;index&#125;</span><br><span class="line">/_cat/master</span><br><span class="line">/_cat/nodes</span><br><span class="line">/_cat/tasks</span><br><span class="line">/_cat/indices</span><br><span class="line">/_cat/indices/&#123;index&#125;</span><br><span class="line">/_cat/segments</span><br><span class="line">/_cat/segments/&#123;index&#125;</span><br><span class="line">/_cat/count</span><br><span class="line">/_cat/count/&#123;index&#125;</span><br><span class="line">/_cat/recovery</span><br><span class="line">/_cat/recovery/&#123;index&#125;</span><br><span class="line">/_cat/health</span><br><span class="line">/_cat/pending_tasks</span><br><span class="line">/_cat/aliases</span><br><span class="line">/_cat/aliases/&#123;alias&#125;</span><br><span class="line">/_cat/thread_pool</span><br><span class="line">/_cat/thread_pool/&#123;thread_pools&#125;</span><br><span class="line">/_cat/plugins</span><br><span class="line">/_cat/fielddata</span><br><span class="line">/_cat/fielddata/&#123;fields&#125;</span><br><span class="line">/_cat/nodeattrs</span><br><span class="line">/_cat/repositories</span><br><span class="line">/_cat/snapshots/&#123;repository&#125;</span><br><span class="line">/_cat/templates</span><br><span class="line">/_cat/ml/anomaly_detectors</span><br><span class="line">/_cat/ml/anomaly_detectors/&#123;job_id&#125;</span><br><span class="line">/_cat/ml/trained_models</span><br><span class="line">/_cat/ml/trained_models/&#123;model_id&#125;</span><br><span class="line">/_cat/ml/datafeeds</span><br><span class="line">/_cat/ml/datafeeds/&#123;datafeed_id&#125;</span><br><span class="line">/_cat/ml/data_frame/analytics</span><br><span class="line">/_cat/ml/data_frame/analytics/&#123;id&#125;</span><br><span class="line">/_cat/transforms</span><br><span class="line">/_cat/transforms/&#123;transform_id&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="健康检查"><a href="#健康检查" class="headerlink" title="健康检查"></a>健康检查</h3><ul>
-<li><p>get http:///_cat/health</p>
-<blockquote>
-<p>1658815275 06:01:15 ryx green 3 3 10 8 0 0 0 0 - 100.0%</p>
-</blockquote>
-<h3 id="查看集群信息"><a href="#查看集群信息" class="headerlink" title="查看集群信息"></a>查看集群信息</h3></li>
-<li><p>get http:///_cluster/health</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;cluster_name&quot;: &quot;ryx&quot;,</span><br><span class="line">    &quot;status&quot;: &quot;green&quot;,</span><br><span class="line">    &quot;timed_out&quot;: false,</span><br><span class="line">    &quot;number_of_nodes&quot;: 3,</span><br><span class="line">    &quot;number_of_data_nodes&quot;: 3,</span><br><span class="line">    &quot;active_primary_shards&quot;: 8,</span><br><span class="line">    &quot;active_shards&quot;: 10,</span><br><span class="line">    &quot;relocating_shards&quot;: 0,</span><br><span class="line">    &quot;initializing_shards&quot;: 0,</span><br><span class="line">    &quot;unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;delayed_unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;number_of_pending_tasks&quot;: 0,</span><br><span class="line">    &quot;number_of_in_flight_fetch&quot;: 0,</span><br><span class="line">    &quot;task_max_waiting_in_queue_millis&quot;: 0,</span><br><span class="line">    &quot;active_shards_percent_as_number&quot;: 100.0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="查看集群master"><a href="#查看集群master" class="headerlink" title="查看集群master"></a>查看集群master</h3></li>
-<li><p>get http:///_cat/master</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TzHcEWPTRW-D8vFqj0lTUQ 12.3.10.105 12.3.10.105 node-105</span><br></pre></td></tr></table></figure>
-<h3 id="查看集群节点信息"><a href="#查看集群节点信息" class="headerlink" title="查看集群节点信息"></a>查看集群节点信息</h3></li>
-<li><p>get http:///_cat/nodes</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">12.3.10.205 65 97 3 0.02 0.11 0.17 cdfhilmrstw - node-205</span><br><span class="line">12.3.10.222 15 94 3 0.03 0.07 0.06 cdfhilmrstw - node-222</span><br><span class="line">12.3.10.105 51 98 2 0.06 0.08 0.02 cdfhilmrstw * node-105</span><br></pre></td></tr></table></figure>
-<h3 id="查看集群分片信息"><a href="#查看集群分片信息" class="headerlink" title="查看集群分片信息"></a>查看集群分片信息</h3></li>
-<li><p>get http:///_cat/shards</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">agent-info       2 p STARTED 13569   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       1 p STARTED 13104   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       0 p STARTED 13476   1.8mb 12.3.10.222 node-222</span><br><span class="line">.security-7      0 r STARTED     7  25.7kb 12.3.10.205 node-205</span><br><span class="line">.security-7      0 p STARTED     7  25.7kb 12.3.10.222 node-222</span><br><span class="line">.geoip_databases 0 r STARTED     4     4mb 12.3.10.205 node-205</span><br><span class="line">.geoip_databases 0 p STARTED     4     4mb 12.3.10.222 node-222</span><br><span class="line">order-info       2 p STARTED   570 266.7kb 12.3.10.222 node-222</span><br><span class="line">order-info       1 p STARTED   508 249.2kb 12.3.10.205 node-205</span><br><span class="line">order-info       0 p STARTED   521   259kb 12.3.10.222 node-222</span><br></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-      <categories>
-        <category>DB</category>
-      </categories>
-      <tags>
-        <tag>ES</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何做规划</title>
-    <url>/2021/09/15/Knowledge/guihua/</url>
-    <content><![CDATA[<p><u><em><strong>做事先规划是做事的一种方式</strong></em></u></p>
-<h2 id="应该学会规划"><a href="#应该学会规划" class="headerlink" title="应该学会规划"></a>应该学会规划</h2><p style="text-indent:2em">
-由于早起工作的态度问题，在接到任务后就总是凑齐技术要素，知道别人要什么就着手开始做，并能很快的完成并交付任务，这是一种被动接受的心态，有时也做规划，但是规划的层次比较低，面向的都是结果。时间如梭，多年后发现，高层次规划是提升和锻炼自己很有效的方法，思考问题的方式从如何完成目标任务，到了解事件背景，解决什么问题，再到深层次目标，输入的问题更多，你做的规划方案也就不一样，技术选型也不一样，架构设计也不一样。
-</p>
-<p style="text-indent:2em">
-规划是输入问题经过思考后并给出解决问题实行方案的过程的结果，这个过程是通用的，是需要经过低层次规划到高层次规划锻炼才能熟练的，并且可以适用到大事小事，个人或者团队的事。
-</p>
-<span id="more"></span>
-
-<h2 id="规划具有重要的意义"><a href="#规划具有重要的意义" class="headerlink" title="规划具有重要的意义"></a>规划具有重要的意义</h2><h4 id="聚焦目标"><a href="#聚焦目标" class="headerlink" title="聚焦目标"></a>聚焦目标</h4><p style="text-indent:2em">
-规划的一个最为重要的作用就是让目标更清晰。团队里的人知道要做什么，有一部分人觉得迷茫，很大程度是目标不清楚，好像知道要做什么事，又不知道如何下手。这个目标可大可小，小的方面就是要完成一个项目或一个需求，大的方面就是要建立一套体系。笔者曾经就有这样的切身经历，有一段时间显得非常迷茫，不知道自己要做什么，人一迷茫就会焦虑。一旦有这样的状态，就要思考是不是目标不够清晰，目标度量是不是不够细。当目标明确之后，大家"心向一处想，劲往一处使"，这样的工作状态效率是非常高的，团队的氛围也是非常好的。
-</p>
-
-<h4 id="洞察背后逻辑"><a href="#洞察背后逻辑" class="headerlink" title="洞察背后逻辑"></a>洞察背后逻辑</h4><p style="text-indent:2em">
-规划出来的内容是结果，最为重要的是思考为什么要做这些事，背后的逻辑才是核心。分析当前的现状、痛点、业界发展状况……结合业务本身，去做一些决策、取舍。不同的人思考出发点不一样，大家在一起碰撞时，会有一些想法闪现出来，也是思想的交流。我们做事不仅仅要懂得how，更要懂得why，当把why讲清楚之后，how也就是水到渠成的事，往往我们的一个困惑是不知道why。
-</p>
-
-<h4 id="知晓未来方向"><a href="#知晓未来方向" class="headerlink" title="知晓未来方向"></a>知晓未来方向</h4><p style="text-indent:2em">
-规划有短期规划，也有长期规划，一般笔者是先思考长期规划，思考3年之后，我们要具备怎样的能力，再回到短期上，我们当下这个阶段要做到怎样的程度。有些事不紧急，但很重要，可以放晚一点做；有的事非常重要，又非常紧急，优先级就要提高。当我们知道了方向之后，即使当下没有去做一些事，也知道将来我们要做成什么样。以笔者的过往经历，一个团队有一两年的长远规划，团队里的成员达成共识之后，这个团队在一两年内是稳定的，因为大家知道两年之后我们会做成什么样，远方一直有一个目标在照亮着我们，大家一起努力不断逼近那个目标。
-</p>
-<img src="/2021/09/15/Knowledge/guihua/640.webp" class="" title="规划">
-
-
-<h2 id="规划的两种思维"><a href="#规划的两种思维" class="headerlink" title="规划的两种思维"></a>规划的两种思维</h2><h4 id="归纳思维"><a href="#归纳思维" class="headerlink" title="归纳思维"></a>归纳思维</h4><p style="text-indent:2em">规划使用的第一种思维是归纳法。这是大家最常用的方法，一般是从现状出发，思考当下有哪些问题、业界是怎么做的，从这些输入中去归纳我们需要去做什么。比如当下工单咨询比较多，那么就需要对工单进行分类，如归纳成产品设计问题、程序代码问题、依赖方问题、交互设计问题，针对每类问题，再去思考我们应该要做到哪些工作。在店铺平台建设中的规划中，我们就梳理了当下的一些痛点问题，如平台只有一些基础的能力，没有给业务方提供强大的能力支撑，那么接下来就要加强店铺能力建设，丰富店铺能力。</p>
-<p style="text-indent:2em">归纳思维有一个缺点就是就事论事，解决了表层的问题，比如竞品有什么，我们没有该项能力，是不是我们就要去做同样的事。归纳思维要配合深度思考一起做规划设计，真正挖掘出我们当下的痛点是什么，比如一个工单，用户只会提出他遇到了什么问题，此时就要深入分析它的root cause，有的时候只需要一个清晰的提示文案就可能解决用户的问题。</p>
-
-<h4 id="演绎思维"><a href="#演绎思维" class="headerlink" title="演绎思维"></a>演绎思维</h4><p style="text-indent:2em">规划使用的第二种思维是演绎思维。演绎思维是一种更高级的思维模式，它需要一个人对事物有非常深刻的认识，当洞察出了底层的规律之后，再去思考我们要做什么。一般的人并不习惯用这种思维模式，它对人的要求非常高，一旦掌握之后，规划也就容易得多，很多科学家更偏向使用演绎思维。</p>
-<p style="text-indent:2em">在店铺规划中，笔者就运用了演绎的思维。比如在规划之前，笔者就思考两个问题：店铺的本质是什么、店铺要提供的商业价值是什么。当把这两个问题想清楚之后，沿着价值方向去思考我们应该要给用户提供怎样的能力，这是一步一步推导出来的。店铺的本质是一个"场"，它连接了卖家和买家。针对这两种角色，卖家最为关注的是怎么使用得好店铺，包含使用得爽、店铺转化好；买家最为关注的是怎么通过最少的钱、最少的时间买到心仪的商品。沿着卖家和买家关注点，继续思考我们怎么让卖家用得爽、用得好呢？其中一个点是我们要知道卖家现在有哪些不好的体验，一定要能度量得出来，而不是定性地去分析，当定量地度量出体验指标之后，这样就可以非常有针对性地去做一些体验优化工作。站在买家的角度，可以给买家一些优惠，让他更愿意购物，这也即是我们规划店铺营销的初衷。</p>
-
-<img src="/2021/09/15/Knowledge/guihua/641.webp" class="" title="规划">
-
-
-
-
-
-<blockquote><footer><strong>阿里技术</strong><cite><a href="https://mp.weixin.qq.com/s/LILm--w9vj_K7qjI4EakBw">如何做规划？分享2种思维和4个方法</a></cite></footer></blockquote>
-]]></content>
-      <categories>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>Design</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Redis集群</title>
     <url>/2022/07/26/db/redis/</url>
     <content><![CDATA[<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>cd redis/src<br>make MALLOC=libc</p>
@@ -581,207 +722,365 @@
       </tags>
   </entry>
   <entry>
-    <title>ISO8601标准时间格式</title>
-    <url>/2022/01/13/Knowledge/iso8601date/</url>
-    <content><![CDATA[<p>国际标准化组织的国际标准ISO8601是日期和时间的表示方法，全称为《数据存储和交换形式·信息交换·日期和时间的表示方法》。目前是第二版ISO8601:2000以替代第一版ISO8601:1988。</p>
-<p><strong>日期表示法</strong></p>
-<p>年由4位数组成，以公历公元1年为0001年，以公元前1年为0000年，公元前2年为-0001年，其他以此类推。应用其他纪年法要换算成公历，但如果发送和接受信息的双方有共同一致同意的其他纪年法，可以自行应用。</p>
-<p><strong>日历日期表示法</strong></p>
-<p>年为4位数，月为2位数，月中的日为2位数，例如2004年5月3日可写成2004-05-03或20040503。</p>
-<p><strong>顺序日期表示法</strong></p>
-<p>可以将一年内的天数直接表示，平年365天，闰年366天。如2004年5月3日可以表示为2004-157或2004157</p>
-<p><strong>日历星期和日表示法</strong></p>
-<p>可以用2位数表示本年内第几个日历星期，再加上一位数表示日历星期内第几天，但日历星期前要加上一个大写字母W，如2004年5月3日可写成2004-W17-3或2004W173。但2004-W011是从2004年1月5日开始的，前几天属于上年的第54个日历星期，每个日历星期从星期一开始，星期日为第7天。</p>
-<p><strong>日的时间表示法</strong></p>
-<p>小时、分和秒都用2位数表示，对UTC时间最后加一个大写字母Z，其他时区用实际时间加时差表示。如UTC时间下午2点30分5秒表示为14:30:05Z或143005Z，当时的北京时间表示为22:30:05+08:00或223005+0800，也可以简化成223005+08。</p>
-<p><strong>日期和时间的组合表示法</strong></p>
-<p>合并表示时，要在时间前面加一大写字母T，如要表示北京时间2004年5月3日下午5点30分8秒，可以写成2004-05-03T17:30:08+08:00或20040503T093008+08。</p>
-<p><strong>时间段表示法</strong></p>
-<p>如果要表示某一作为一段时间的时间期间，前面加一大写字母P，但时间段后都要加上相应的代表时间的大写字母。如在一年三个月五天六小时七分三十秒内，可以写成P1Y3M5DT6H7M30S。</p>
-<p><strong>重复时间表示法</strong></p>
-<p>前面加上一大写字母R，如要从2004年5月6日北京时间下午1点起重复半年零5天3小时，要重复3次，可以表示为R3/20040506T130000+08/P0Y6M5DT3H0M0S。</p>
-]]></content>
-      <categories>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>标准</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>项目管理相关词</title>
-    <url>/2021/12/25/Knowledge/xmglword/</url>
-    <content><![CDATA[<h3 id="PMO：-项目管理办公室"><a href="#PMO：-项目管理办公室" class="headerlink" title="PMO： 项目管理办公室"></a>PMO： 项目管理办公室</h3><p>Project Management Office 项目管理办公室，项目管理办公室是企业设立的一个职能机构名称，也有的称作项目管理部、项目办公室或项目管理中心等，英文为： Project Management Office ，缩写简称：PMO。</p>
-<p>PMO是在组织内部将实践、过程、运作形式化和标准化的部门，是提高组织管理成熟度的核心部门，它根据业界最佳实践和公认的项目管理知识体系，并结合企业自身的业务和行业特点，以此确保项目成功率的提高和组织战略的有效贯彻执行。</p>
-<h3 id="PMI：项目管理协会"><a href="#PMI：项目管理协会" class="headerlink" title="PMI：项目管理协会"></a>PMI：项目管理协会</h3><p>PMI（<strong>Project Management Institute</strong>）中文名是项目管理协会，是世界领先的非盈利会员协会的项目管理专业机构 ，1969年成立，在全球185个国家有70多万会员和证书持有人。此外，PMI还是多个英文短语的缩写，较为著名的是采购经理指数PMI。</p>
-<h3 id="PMIS-项目管理信息系统"><a href="#PMIS-项目管理信息系统" class="headerlink" title="PMIS:项目管理信息系统"></a>PMIS:项目管理信息系统</h3><p>项目管理信息系统（project management information system，PMIS）是计算机辅助项目管理的工具，为项目目标的实现提供了强有力的帮助</p>
-<h3 id="CCB：变更控制委员-会"><a href="#CCB：变更控制委员-会" class="headerlink" title="CCB：变更控制委员 会"></a>CCB：变更控制委员 会</h3><p>CCB(Change Control Board) 在<a href="https://baike.baidu.com/item/CMMI">CMMI</a>(Capability Maturity Model Integration)中，是“<a href="https://baike.baidu.com/item/%E5%8F%98%E6%9B%B4%E6%8E%A7%E5%88%B6%E5%A7%94%E5%91%98%E4%BC%9A/5875484">变更控制委员会</a>”的含义，同时具有配置控制<a href="https://baike.baidu.com/item/%E5%A7%94%E5%91%98%E4%BC%9A/290784">委员会</a>（Configuration Control Board）的含义。</p>
-<p>CCB可以由一个小组担任，也可以由多个不同的组担任，负责做出决定究竟将哪些已建议需求变更或新产品特性付诸应用。典型的<a href="https://baike.baidu.com/item/%E5%8F%98%E6%9B%B4%E6%8E%A7%E5%88%B6%E5%A7%94%E5%91%98%E4%BC%9A/5875484">变更控制委员会</a>会同样决定在哪一些版本中纠正哪些错误。</p>
-<p>CCB的成员应当能代表变更涉及的团体。其可能包括如下方面的代表：</p>
-<p>1.产品或计划管理部门</p>
-<p>2.项目管理部门</p>
-<p>3.开发部门</p>
-<p>4.测试或质量保证部门</p>
-<p>5.市场部或客户代表</p>
-<p>6.制作用户文档的部门</p>
-<p>7.技术支持部门</p>
-<p>8.帮助桌面或用户支持热线部门</p>
-<p>9.配置管理部门</p>
-<h3 id="PMCD：项目经理能力发展框架"><a href="#PMCD：项目经理能力发展框架" class="headerlink" title="PMCD：项目经理能力发展框架"></a>PMCD：项目经理能力发展框架</h3><p>《项目经理能力发展框架》是由美国项目管理协会开发制定，已成为国际标准。它为定义、评估和发展项目经理能力提供了通用指南，构建了项目管理能力的三个关键维度，定义了影响项目经理绩效的关键能力元素。不管项目的属性、类型、规模和复杂度有什么不同，这些能力将使项目经理可以进行跨行业的交流，而且各行业、各组织可以在PMCD框架的基础上建立具有自己特色的能力模型。该标准还对组织能力发展过程的创建提供了指导，帮助组织对其员工的项目管理能力进行持续评估和提升。</p>
-<h3 id="SME：领域或主题的专家"><a href="#SME：领域或主题的专家" class="headerlink" title="SME：领域或主题的专家"></a>SME：领域或主题的专家</h3><p>SME，是Subject Matter Expert的缩写，意思是精通某一领域或主题的专家。</p>
-<h3 id="WBS-工作分解结构-WBS-实施标准"><a href="#WBS-工作分解结构-WBS-实施标准" class="headerlink" title="WBS:工作分解结构(WBS)实施标准"></a>WBS:工作分解结构(WBS)实施标准</h3><p>定义项目目标以及把工作委派给项目成员是项目经理最重要的工作之一。成功的项目管理要求项目经理完成这项工作。工作分解结构（WBS）就是定义工作并使其符合特定的项目目标的指南。WBS的应用范围可涉及各行各业，它是项目经理的无价工具，可以帮助项目经理完成整个项目生命周期中的众多关键步骤。本书表述了作为项目管理工具的WBS的标准定义及应用方法，包括项目范围定义、构建项目状态和进展报告的基础框架、方便项目经理与项目干系人沟通等内容.</p>
-<p>《工作分解结构（WBS）实施标准（第2版）》是2015年10月电子工业出版社出版的图书，作者是强茂山、陈平。</p>
-<h3 id="PPP经理："><a href="#PPP经理：" class="headerlink" title="PPP经理："></a>PPP经理：</h3><p>PPP（Public-Private Partnership），又称PPP模式，即政府和社会资本合作，是公共基础设施中的一种项目运作模式。在该模式下，鼓励私营企业、民营资本与政府进行合作，参与公共基础设施的建设。</p>
-<p>项目管理7宗罪：</p>
-<p>肉包子打狗有去无回，需求给出去，就不再有后续监控跟踪，如何形成闭环，完成任务自行运行</p>
-<p>项目任务千丝万缕，如何管理</p>
-<p>沟通隔靴搔痒，大部分时间花在了沟通上</p>
-<p>需求变换莫测，多变环境如何适应</p>
-<p>传统项目管理软件太高冷，普及应用困难。</p>
-<p>日志，记录，报告，总结，不堪重负</p>
-<p>教训不断重演，经验教训无法形成知识（组织过程资产）   项目结束后经验难以总结，项目过程当中就要进行经验总结</p>
-]]></content>
-      <categories>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>项目管理-项目整合管理</title>
-    <url>/2021/12/25/Knowledge/xmglxmzh/</url>
-    <content><![CDATA[<h3 id="制定项目章程"><a href="#制定项目章程" class="headerlink" title="制定项目章程:"></a>制定项目章程:</h3><p>制定项目章程是编写<u>一份正式批准项目并授权项目经理在项目活动中使用组织资源</u>的文件的过 程。<strong>本过程的主要作用是，明确项目与组织战略目标之间的直接联系，确立项目的正式地位，并展 示组织对项目的承诺。</strong>项目章程在项目执行组织与需求组织之间建立起伙伴关系。在执行外部项目时，通常需要用正式 的合同来达成合作协议。这种情况下，可能仍要用项目章程来建立组织内部的合作关系，以确保正确 交付合同内容。项目章程一旦被批准，就标志着项目的正式启动。在项目中，应尽早确认并任命项目 经理，最好在制定项目章程时就任命，且总应在规划开始之前任命。项目章程可由发起人编制，或者 由项目经理与发起机构合作编制。通过这种合作，项目经理可以更好地了解项目目的、目标和预期效 益，以便更有效地向项目活动分配资源。项目章程授权项目经理规划、执行和控制项目。</p>
-<h3 id="制定项目计划"><a href="#制定项目计划" class="headerlink" title="制定项目计划:"></a>制定项目计划:</h3><h3 id="管理项目知识："><a href="#管理项目知识：" class="headerlink" title="管理项目知识："></a>管理项目知识：</h3><p>知识通常分为“<strong>显性知识</strong>”（易使用文字、图片和数字进行编撰的知识）和“<strong>隐性知识</strong>”（个体 知识以及难以明确表达的知识，如信念、洞察力、经验和“诀窍”）两种。知识管理指管理显性和 隐性知识，旨在重复使用现有知识并生成新知识。<strong>有助于达成这两个目的的关键活动是知识分享和 知识集成</strong>（不同领域的知识、情境知识和项目管理知识）。 </p>
-<p>一个常见误解是，知识管理只是将知识记录下来用于分享；另一种常见误解是，知识管理只是在 项目结束时总结经验教训，以供未来项目使用。这样的话，只有经编撰的显性知识可以得到分享。 因为显性知识缺乏情境，可作不同解读，所以，虽易分享，但无法确保正确理解或应用。隐性知识 虽蕴含情境，却很难编撰。它存在于专家个人的思想中，或者存在于社会团体和情境中，通常经由 人际交流和互动来分享。 </p>
-<p>从组织的角度来看，知识管理指的是确保项目团队和其他相关方的技能、经验和专业知识在项目 开始之前、开展期间和结束之后得到运用。<em>因为知识存在于人们的思想中，且无法强迫人们分享自 己的知识或关注他人的知识</em>，所以，<strong>知识管理最重要的环节就是营造一种相互信任的氛围，激励人 们分享知识或关注他人的知识。如果不激励人们分享知识或关注他人的知识，即便最好的知识管理 工具和技术也无法发挥作用</strong>。在实践中，联合使用**<u>知识管理工具和技术（用于人际互动）以及信息 管理工具和技术</u>**（用于编撰显性知识）来分享知识</p>
-<h3 id="监控项目工作："><a href="#监控项目工作：" class="headerlink" title="监控项目工作："></a>监控项目工作：</h3><p>&nbsp; &nbsp; 监控项目工作是跟踪、审查和报告整体项目进展，以实现项目管理计划中确定的绩效目标的过程。本过程的主要作用是，<strong>让相关方了解项目的当前状态并认可<u>为处理绩效问题而采取的行动</u>，以及通过成本和进度预测，让相关方了解未来项目状态</strong>。本过程需要在整个项目期间开展。<br>&nbsp; &nbsp; 监督是贯穿于整个项目的项目管理活动之一，包括收集、测量和分析测量结果，以及预测趋势，以便推动过程改进。<strong>持续的监督使项目管理团队能洞察项目的健康状况，并识别须特别关注的任何方面。控制包括制定纠正或预防措施或重新规划，并跟踪行动计划的实施过程，以确保它们能有效解决问题</strong>。</p>
-<p>滚动式规划</p>
-<p>滚动式规划是一种迭代式的规划技术，即详细规划近期要完成的工作，同时在较高层级上粗略规 划远期工作。它是一种渐进明细的规划方式，适用于工作包、规划包以及采用敏捷或瀑布式方法的 发布规划。因此，在项目生命周期的不同阶段，工作的详细程度会有所不同。在早期的战略规划阶 段，信息尚不够明确，工作包只能分解到已知的详细水平；而后，随着了解到更多的信息，近期即 将实施的工作包就可以分解到具体的活动</p>
-<p>敏捷技术</p>
-<p>紧前关系绘图法（PDM）是创建进度模型的一种技术</p>
-<p>项目进度网络图</p>
-<h5 id=""><a href="#" class="headerlink" title=""></a></h5>]]></content>
-      <categories>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>项目管理相关文件</title>
-    <url>/2022/01/06/Knowledge/xmglwenjian/</url>
-    <content><![CDATA[<h3 id="项目章程"><a href="#项目章程" class="headerlink" title="项目章程"></a>项目章程</h3><ul>
-<li><p>项目目的</p>
-</li>
-<li><p>可测量的项目目标和相关成功标准</p>
-</li>
-<li><p>高层及需求</p>
-</li>
-<li><p>高层级项目描述，边界定义及主要可交付成果</p>
-</li>
-<li><p>整体项目风险</p>
-</li>
-<li><p>总体里程碑进度计划</p>
-</li>
-<li><p>预算批准的财务资源</p>
-</li>
-<li><p>主要相关方名单</p>
-</li>
-<li><p>项目审计要求（用什么标准评价成功，由谁对项目成功下结论，有谁签署项目结束）</p>
-</li>
-<li><p>项目退出标准（比如，结束或取消项目或阶段前应满足的条件）</p>
-</li>
-<li><p>委派项目经理及其职责和职权</p>
-</li>
-<li><p>发起人或其他批准项目章程的人员姓名和职权</p>
-</li>
-</ul>
-<h3 id="项目范围说明书："><a href="#项目范围说明书：" class="headerlink" title="项目范围说明书："></a>项目范围说明书：</h3><ul>
-<li>项目范围描述（渐进明细）</li>
-<li>项目可交付成功</li>
-<li>验收标准</li>
-<li>项目排除项</li>
-</ul>
-<h3 id="项目文件："><a href="#项目文件：" class="headerlink" title="项目文件："></a>项目文件：</h3><p>经验教训登记册</p>
-<p>需求跟踪矩阵</p>
-<p>需求文件</p>
-<h2 id="计划类"><a href="#计划类" class="headerlink" title="计划类"></a>计划类</h2><p>项目管理计划：包含各个组件计划</p>
-<p>需求管理计划：需求管理计划记录了如何管理项目需求</p>
-<p>范围管理计划：范围管理计划记录了如何控制项目和产品范围 如何根据 项目范围说明书创建 WBS</p>
-<p>变更管理计划：变更管理计划定义了管理项目变更的过程</p>
-<p>配置管理计划：配置管理计划定义了哪些是配置项，哪些配置项需要正式变更控制，以及针对这些配置项的变更控制过程</p>
-<p>进度管理计划：是项目管理计划的组成部分，为编制、监督和控制项目进度建立准则和明确活动</p>
-]]></content>
-      <categories>
-        <category>知识</category>
-      </categories>
-      <tags>
-        <tag>项目管理相关文件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>问题归类</title>
-    <url>/2021/09/15/java/Interviewquestions/</url>
-    <content><![CDATA[<h1 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h1><h2 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h2><p>java中守护线程和本地线程的区别</p>
-<p>java中ReadWriteLock是什么</p>
-<p>volatile变量和atomic变量有什么区别</p>
-<p>线程优先级的理解</p>
+    <title>镜像构建</title>
+    <url>/2021/10/28/docker/imagebuild/</url>
+    <content><![CDATA[<p>[TOC]</p>
+<img src="/2021/10/28/docker/imagebuild/576507.png" class="" title="docker架构图">
+
+<h2 id="Docker镜像的创建方法"><a href="#Docker镜像的创建方法" class="headerlink" title="Docker镜像的创建方法"></a>Docker镜像的创建方法</h2><p>基于Dockerfile进行创建，docker build .</p>
+<p>基于容器进行创建</p>
 <span id="more"></span>
 
-<h2 id="jvm"><a href="#jvm" class="headerlink" title="jvm"></a>jvm</h2><p>可达性分析算法中根节点有哪些</p>
-<p>CMS和G1区别有哪些</p>
-<p>怎样GC调优</p>
-<p>怎样排查CPU彪高内存彪高</p>
-<p>逃逸分析</p>
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h1 id="框架类"><a href="#框架类" class="headerlink" title="框架类"></a>框架类</h1><h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><h3 id="spring-1"><a href="#spring-1" class="headerlink" title="spring"></a>spring</h3><p>spring循环依赖怎么解决</p>
-<p>spring aop原理及相关的概念</p>
-<p>springbean生命周期，设计思路及扩展</p>
-<p>有哪些不同类型的IOC方式</p>
-<h3 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h3><h3 id="springcloud"><a href="#springcloud" class="headerlink" title="springcloud"></a>springcloud</h3><h3 id="springmvc"><a href="#springmvc" class="headerlink" title="springmvc"></a>springmvc</h3><h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>mybatis框架的缺点是什么</p>
-<p>mybatis与hibernate有哪些不同</p>
-<p>mybatis是如何进行分页的分页插件的原理是什么</p>
-<h1 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h1><h2 id="分布式一致性问题"><a href="#分布式一致性问题" class="headerlink" title="分布式一致性问题"></a>分布式一致性问题</h2><h2 id="缓存及缓存一致性问题"><a href="#缓存及缓存一致性问题" class="headerlink" title="缓存及缓存一致性问题"></a>缓存及缓存一致性问题</h2><h2 id="分布式事务问题"><a href="#分布式事务问题" class="headerlink" title="分布式事务问题"></a>分布式事务问题</h2><h2 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h2><p>应用场景有哪些</p>
-<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="reids"><a href="#reids" class="headerlink" title="reids"></a>reids</h2><p>redis数据类型</p>
-<p>redisqps能上多少，怎么知道的</p>
-<p>redis单线程为什么快</p>
-<p>本地缓存需要高时效性怎么办</p>
-<p>redis同步机制</p>
-<p>redis如何实现分布式锁，他是怎么回事</p>
-<h2 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h2><h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><h2 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h2><p>tomcat的缺省端口是多少，怎么改</p>
-<p>tomcat有哪几种connector运行模式（优化）？</p>
-<p>tomcat有哪几种部署方式</p>
-<p>tomca容器如何创建servlet类实例的，用了什么原理</p>
-<p>tomcat如何优化</p>
-<p>tomcat内存调优</p>
-<p>垃圾回收策略调优</p>
-<p>添加jms远程监控</p>
-<p>专业点的分析工具有哪些</p>
-<p>关于tomcat的session数目</p>
-<p>监视tomcat的内存使用情况</p>
-<p>tomcat的一个请求的完整过程</p>
-<p>tomcat的工作模式</p>
-<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><h1 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h1><h1 id="设计模式类"><a href="#设计模式类" class="headerlink" title="设计模式类"></a>设计模式类</h1><h1 id="场景类"><a href="#场景类" class="headerlink" title="场景类"></a>场景类</h1><h1 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h1><h2 id="mavne"><a href="#mavne" class="headerlink" title="mavne"></a>mavne</h2><p>maven有哪些优点和缺点</p>
-<p>maven坐标</p>
-<p>maven常见的依赖范围有哪些</p>
-<p>maven的生命周期</p>
-<p>依赖解析机制</p>
-<p>插件解析机制</p>
-<p>多模块如何聚合</p>
-<p>对于一个多模块项目如何管理依赖版本</p>
-<p>如何保证传递依赖不起冲突</p>
-<p>常见的maven私服仓库类型</p>
-<p>如何查询一个插件有哪些目标</p>
-<p>maven和ant有什么区别</p>
-<p>maven的工程类型有哪些</p>
-<p>maven的常用命令有哪些</p>
-<h1 id="管理类"><a href="#管理类" class="headerlink" title="管理类"></a>管理类</h1>]]></content>
+
+
+<h2 id="基于Dockerfile创建"><a href="#基于Dockerfile创建" class="headerlink" title="基于Dockerfile创建"></a>基于Dockerfile创建</h2><h3 id="Dockerfile构建需要的信息："><a href="#Dockerfile构建需要的信息：" class="headerlink" title="Dockerfile构建需要的信息："></a>Dockerfile构建需要的信息：</h3><p><strong>Dockerfile、Context 和 .dockerignore</strong>，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的目录作为Context,并将Dockerfile文件至于Context目录中</p>
+<p>通常情况下Context下要有一个名称为Dockerfile的文件，可以通过-f 指定任意位置的Dockerfile 文件</p>
+<p>我们可以通过.dockerignore文件忽略上下文环境下的文件和目录</p>
+<p>我们可以通过-t 来指定新的镜像的repository和标签信息,可以指定多个 -t 来对多个repository仓库的镜像image进行打标签</p>
+<p>如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .</p>
+<h3 id="一个Dockerfile例子"><a href="#一个Dockerfile例子" class="headerlink" title="一个Dockerfile例子"></a>一个Dockerfile例子</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> chenxiao@ruiyinxin.com</span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;0.2&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;测试创建sentinel&quot;</span></span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="language-bash"> [<span class="string">&quot;/home/tomcat/log/&quot;</span>]</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> jdk /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> sentinel-dashboard.jar /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> run.sh /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">chmod</span> 777 /app/run.sh</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span> &gt;/etc/timezone</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /app/jdk</span><br><span class="line"><span class="keyword">ENV</span> PATH $PATH:$JAVA_HOME/bin</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8088</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="comment">#CMD [&quot;sh&quot;,&quot;run.sh&quot;]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;./run.sh&quot;</span>]</span></span><br><span class="line"><span class="comment">#ENTRYPOINT [&quot;./run.sh&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/sh</span></span><br><span class="line">java -jar -Dspring.profiles.active=test sentinel-dashboard.jar</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行docker命令来创建docker镜像"><a href="#执行docker命令来创建docker镜像" class="headerlink" title="执行docker命令来创建docker镜像"></a>执行docker命令来创建docker镜像</h3><p>命令格式为 docker build -t ImageName:TagName    Dir</p>
+<ul>
+<li><code>-t</code> − 给镜像加一个Tag</li>
+<li><code>ImageName</code> − 给镜像起的名称</li>
+<li><code>TagName</code> − 给镜像的Tag名</li>
+<li><code>Dir</code> − Dockerfile所在目录</li>
+</ul>
+<p>docker build -t bd/sentineld  .</p>
+<ul>
+<li><code>.</code> 表示当前目录，即Dockerfile所在目录</li>
+</ul>
+<h3 id="dockerignore"><a href="#dockerignore" class="headerlink" title=".dockerignore"></a>.dockerignore</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># comment</span><br><span class="line">*/temp*</span><br><span class="line">*/*/temp*</span><br><span class="line">temp?</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th><code># comment</code></th>
+<th>Ignored.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*/temp*</code></td>
+<td>Exclude files and directories whose names start with <code>temp</code> in any immediate subdirectory of the root. For example, the plain file <code>/somedir/temporary.txt</code> is excluded, as is the directory <code>/somedir/temp</code>.</td>
+</tr>
+<tr>
+<td><code>*/*/temp*</code></td>
+<td>Exclude files and directories starting with <code>temp</code> from any subdirectory that is two levels below the root. For example, <code>/somedir/subdir/temporary.txt</code> is excluded.</td>
+</tr>
+<tr>
+<td><code>temp?</code></td>
+<td>Exclude files and directories in the root directory whose names are a one-character extension of <code>temp</code>. For example, <code>/tempa</code> and <code>/tempb</code>are excluded.</td>
+</tr>
+</tbody></table>
+<h2 id="指令解析"><a href="#指令解析" class="headerlink" title="指令解析"></a>指令解析</h2><h3 id="Dockerfile命令列表"><a href="#Dockerfile命令列表" class="headerlink" title="Dockerfile命令列表"></a>Dockerfile命令列表</h3><table>
+<thead>
+<tr>
+<th><strong>指令</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM 镜像</td>
+<td>指定新镜像所基于的镜像，第一条指令必须为FROM指令，每创建一个镜像就需要一条FROM指令</td>
+</tr>
+<tr>
+<td>MAINTAINER 名字</td>
+<td>说明新镜像的维护人信息</td>
+</tr>
+<tr>
+<td>RUN命令</td>
+<td>在所基于的镜像上执行命令，并提交到新的镜像中</td>
+</tr>
+<tr>
+<td>CMD [“要运行的程序”,“参数1”,“参数2”]</td>
+<td>指令启动容器时要运行的命令或者脚本，Dockerfile只能有一条CMD命令，如果指定多条则只能最后一条被执行，</td>
+</tr>
+<tr>
+<td>EXPOSE 端口号</td>
+<td>指定新镜像加载到Docker时要开启的端口（EXPOSE暴露的是容器内部端口，需要再映射到一个外部端口上）</td>
+</tr>
+<tr>
+<td>ENV 环境变量 变量值</td>
+<td>设置一个环境变量的值，会被后面的RUN使用</td>
+</tr>
+<tr>
+<td>ADD 源文件/目录 目标文件/目录</td>
+<td>将源文件复制到目标文件（与COPY的区别是将本地tar文件解压到镜像中）</td>
+</tr>
+<tr>
+<td>COPY 源文件/目录 目标文件/目录</td>
+<td>将本地主机上的文件/目录复制到目标地点，源文件/目录要与Dockerfile在相同的目录中</td>
+</tr>
+<tr>
+<td>VOLUME [“目录”]</td>
+<td>在容器中创建一个挂载点（VOLUME是宿主机中的某一个目录挂载到容器中）</td>
+</tr>
+<tr>
+<td>USER 用户名/UID</td>
+<td>指定运行容器时的用户</td>
+</tr>
+<tr>
+<td>WORKDIR 路径</td>
+<td>为后续的RUN、CMD、ENTRYPOINT指定工作目录（WORKDIR类似于cd，但是只切换目录一次，后续的RUN命令就可以写相对路径了）</td>
+</tr>
+<tr>
+<td>ONBUILD 命令</td>
+<td>指定所生成的镜像作为一个基础镜像时所要运行的命令</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>健康检查</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>指令和CMD类似，它也是用户指定容器启动时要执行的命令，但如果dockerfile中也有CMD指令，CMD中的参数会被附加到ENTRYPOINT指令的后面。 如果这时docker run命令带了参数，这个参数会覆盖掉CMD指令的参数，并也会附加到ENTRYPOINT 指令的后面。优先级：ENTRYPOINT&gt;CMD&gt;docker run</td>
+</tr>
+</tbody></table>
+<h3 id="启动执行脚本-ENTRYPOINT-CMD"><a href="#启动执行脚本-ENTRYPOINT-CMD" class="headerlink" title="启动执行脚本 ENTRYPOINT CMD"></a>启动执行脚本 ENTRYPOINT CMD</h3><p><img src="https://img.jbzj.com/file_images/article/201803/2018031211363722.png" alt="img"></p>
+<p><strong>shell 模式</strong></p>
+<p>使用 shell 模式时，docker 会以 <code>/bin/sh -c &quot;task command&quot;</code> 的方式执行任务命令</p>
+<p><strong>exec 模式</strong></p>
+<p>使用 exec 模式时，容器中的任务进程就是容器内的 1 号进程</p>
+<p>我们大概可以总结出下面几条规律：</p>
+<p>   • 如果 ENTRYPOINT 使用了 shell 模式，CMD 指令会被忽略。</p>
+<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 指定的内容被追加为 ENTRYPOINT 指定命令的参数。</p>
+<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 也应该使用 exec 模式。</p>
+<h3 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt; [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]</span><br></pre></td></tr></table></figure>
+
+<p> Dockerfile必须是以FROM指令开始</p>
+<p><code>ARG</code> 是唯一一个优先于 地位高于 FROM指令的，</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ARG</span> VERSION=latest</span><br><span class="line"><span class="keyword">FROM</span> busybox:$VERSION</span><br><span class="line"><span class="keyword">ARG</span> VERSION</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="variable">$VERSION</span> &gt; image_version</span></span><br></pre></td></tr></table></figure>
+
+<p>–platform，指定镜像能被使用的平台信息，默认情况下是执行build request的平台信息被作为platform，如：linux/amd64<code>, </code>linux/arm64，windows/amd64</p>
+<p><code>as name</code>通查是可选的，他可以指定自定义构建步骤的名称</p>
+<h3 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h3><p>RUN指令执行有两种形式</p>
+<p>shell形式  RUN  <command>，此指令执行在shell上下文环境中，默认是 /bin/sh -c  ’code‘</p>
+<p>exec 形式 RUN  [“executable”, “param1”, “param2”]，exec 模式会将后续的参数解析成json 数组，也就是说我们的参数需要用双引号包括，而不是单引号。</p>
+<p>run命令的每次执行在当前镜像的最顶层生成新的层，并提交结果，并且将在下一个步骤中使用，也就是说每层之间是独立的，shell环境也是独立的。我们可以使用  <code>\</code> 来使用多行单指令 如：</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; \</span></span></span><br><span class="line"><span class="string"><span class="language-bash">echo $HOME&#x27;</span></span></span><br><span class="line"><span class="comment">#两者含义相同</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; echo $HOME&#x27;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><ul>
+<li><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code> exec模式</li>
+<li><code>CMD [&quot;param1&quot;,&quot;param2&quot;] 作为</code>ENTRYPOINT 的默认参数</li>
+<li><code>CMD command param1 param2</code> <em>shell</em> 模式</li>
+</ul>
+<p>不可将run与cmd指令混淆，run指令会执行命令，并提交结果，cmd并不执行任何东西，在构建的过程当中，他只指定镜像启动预期指令</p>
+<h3 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> <span class="string">&quot;com.example.vendor&quot;</span>=<span class="string">&quot;ACME Incorporated&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> com.example.label-with-value=<span class="string">&quot;foo&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;1.0&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;This text illustrates \</span></span></span><br><span class="line"><span class="string"><span class="language-bash">that label-values can span multiple lines.&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> multi.label1=<span class="string">&quot;value1&quot;</span> multi.label2=<span class="string">&quot;value2&quot;</span> other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> multi.label1=<span class="string">&quot;value1&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      multi.label2=<span class="string">&quot;value2&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下expose 使用的tcp协议，也可以显示指定</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/tcp</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/udp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="language-bash"> -p 80:80/tcp -p 80:80/udp ...</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ENV</span> &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
+
+<p>env指令设置环境变量信息，那么环境变量信息，将存在于后续构建的各个阶段，</p>
+<p>可以通过运行镜像，并指定环境变零的方式对镜像中设置的环境变量进行变更<code>docker run --env &lt;key&gt;=&lt;value&gt;</code>.</p>
+<h3 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>–chown指令只支持linux系统上构建的镜像，在windows环境中并不工作，如果不指定用户或者用户组，默认使用 a UID and GID of 0</p>
+<p>src： 可使用通配符，并且路径都是相对于Context的相对路径</p>
+<p>​         网络上的远程文件url，如果url不是以斜线结尾，那么将被报错在dest目录下，如果是以斜线结尾，那么问题名称将被推理出来，</p>
+<p>​          如 ADD <a href="http://example.com/foobar/">http://example.com/foobar/</a>  将创建问文件  /foobar，URL必须有一个非平凡的路径，这样才能找到适当的文件名。<a href="http://example.com/">http://example.com</a> 不会工作</p>
+<p>​          文件必须存在于Context中，不能使用../ 因为build第一步是发送context到docker daemon程 序</p>
+<p>​          如果src是一个目录，那么目录的整个内容将被复制，COPY jdk /app/jdk</p>
+<p>​          如果src是一个压缩文件(identity, gzip, bzip2 or xz) ，那么src将被解压到目标目录</p>
+<p>dest： 目标路径如果不是以 / 开头的话是以WORKDIR为目录的相对路径</p>
+<p>​        如果dest不存在，那么整个路径将被创建</p>
+<p>​        如果dest不是以斜线结尾，那么dest将被认为是一个常规文件，src的内容将被写入到文件</p>
+<p>​        如果src是多个资源，或者使用了通配符，那么dest必须要以斜线结尾</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ADD hom* /mydir/</span><br><span class="line">ADD hom?.txt /mydir/</span><br><span class="line">ADD test.txt relativeDir/</span><br><span class="line">ADD test.txt /absoluteDir/</span><br><span class="line"></span><br><span class="line">ADD --chown=55:mygroup files* /somedir/</span><br><span class="line">ADD --chown=bin files* /somedir/</span><br><span class="line">ADD --chown=1 files* /somedir/</span><br><span class="line">ADD --chown=10:11 files* /somedir/</span><br></pre></td></tr></table></figure>
+
+<h3 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="language-bash"> [--<span class="built_in">chown</span>=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> [--<span class="built_in">chown</span>=&lt;user&gt;:&lt;group&gt;] [<span class="string">&quot;&lt;src&gt;&quot;</span>,... <span class="string">&quot;&lt;dest&gt;&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>src : 文件必须存在于Context中</p>
+<p>​        如果src是一个目录，那么他的内容和元数据信息将被拷贝到目标目录 COPY jdk /app/jdk</p>
+<p>​        如果src是一个文件，并且dest 是以斜线结尾，那么文件将被拷贝到目录下，如 dest/src </p>
+<p>dest: 如果目录不存在，那么整个文件目录将被创建</p>
+<p>​         如果dest没有是以斜杠结尾，那么他将被看做事一个普通文件，并且src将被写入到dest</p>
+<p>​          如果src是多资源文件，那么dest必须是以斜杠结尾</p>
+<h3 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a>ENTRYPOINT</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;executable&quot;</span>, <span class="string">&quot;param1&quot;</span>, <span class="string">&quot;param2&quot;</span>]   <span class="comment">#exec模式</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> <span class="built_in">command</span> param1 param2                <span class="comment">#shell模式</span></span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Dockerfile 最少需要制定一个CMD或者ENTRYPOINT指令</li>
+<li>当容器是可执行的情况下，应该定义ENTRYPOINT</li>
+<li>CMD应该被用来定义ENTRYPOINT 的默认参数，</li>
+<li>CMD参数可以在容器运行的时候被替换掉，ENTRYPOINT则不行</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"><strong>No ENTRYPOINT</strong></th>
+<th align="left"><strong>ENTRYPOINT exec_entry p1_entry</strong></th>
+<th><strong>ENTRYPOINT [“exec_entry”, “p1_entry”]</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>No CMD</strong></td>
+<td align="left"><em>error, not allowed</em></td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD [“exec_cmd”, “p1_cmd”]</strong></td>
+<td align="left">exec_cmd p1_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry exec_cmd p1_cmd</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD [“p1_cmd”, “p2_cmd”]</strong></td>
+<td align="left">p1_cmd p2_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry p1_cmd p2_cmd</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD exec_cmd p1_cmd</strong></td>
+<td align="left">/bin/sh -c exec_cmd p1_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd</td>
+</tr>
+</tbody></table>
+<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">VOLUME</span><span class="language-bash"> [<span class="string">&quot;/data&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>VOLUME指令将从本地主机或者其他的容器创建一个挂载点并使用给定的名称，他的值可以是一个json数组VOLUME [“/var/log/“]，或者是一个字符串 VOLUME /var/log。 或者是多个VOLUME /var/log /var/db。</p>
+<p>如果是基于windows的容器，那么这数据卷必须是一个不存在的或者是一个空的目录，并且是C盘以外的数据驱动</p>
+<p>volume在声明之后，如果在build的过程中的每一个步骤对volume内容的修改都将被忽略，</p>
+<p>声明的时候如果是json数据，必须是以双引号进行包括，而不是单引号</p>
+<p>VOLUME指令挂在的目录，并不能通过host_dir来指定映射到主机那个目录，他是在运行容器的时候才确定的，你必须指定一个挂载点，当你创建或者启动一个容器的时候，</p>
+<h3 id="USER"><a href="#USER" class="headerlink" title="USER"></a>USER</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">USER</span> &lt;<span class="keyword">user</span>&gt;[:&lt;group&gt;]</span><br><span class="line"><span class="keyword">USER</span> &lt;UID&gt;[:&lt;GID&gt;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ARG &lt;name&gt;[=&lt;default value&gt;]</span><br></pre></td></tr></table></figure>
+
+<p>ARG指令可以在构建的过程中定义一些参数，并设置一些默认值，并且在build的时候可以指定</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
+
+<p><strong>默认值；</strong>如果build的时候没有指定–build-arg user1=what_user 那么someuser将被作为默认值</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">ARG user1=someuser</span><br><span class="line">ARG buildno=1</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用域：</strong>以下示例，第二行将使用some_user来作为值来使用，第四行将使用what_user，ARG指令定义的变量是从他定义的行开始生效的</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">USER $&#123;user:-some_user&#125;</span><br><span class="line">ARG user</span><br><span class="line">USER $user</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用ARG变量：</strong>ENV指令将会覆盖ARG同名参数，如下将使用v1.0.0，</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM ubuntu</span><br><span class="line">ARG CONT_IMG_VER</span><br><span class="line">ENV CONT_IMG_VER=v1.0.0</span><br><span class="line">RUN echo $CONT_IMG_VER</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg CONT_IMG_VER=v2.0.1 .</span><br></pre></td></tr></table></figure>
+
+<p><strong>ENV和ARG</strong>：ARG变量并不能像EVN环境变量那样保存在镜像之中</p>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu</span><br><span class="line"><span class="keyword">ARG</span> CONT_IMG_VER</span><br><span class="line"><span class="keyword">ENV</span> CONT_IMG_VER=$&#123;CONT_IMG_VER:-v1.<span class="number">0.0</span>&#125;   <span class="comment">#可带有默认值</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="variable">$CONT_IMG_VER</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Docker中包含一些默认的ARG参数，可以不用再Dockerfile中生命</p>
+<ul>
+<li><p><code>HTTP_PROXY</code></p>
+</li>
+<li><p><code>http_proxy</code></p>
+</li>
+<li><p><code>HTTPS_PROXY</code></p>
+</li>
+<li><p><code>https_proxy</code></p>
+</li>
+<li><p><code>FTP_PROXY</code></p>
+</li>
+<li><p><code>ftp_proxy</code></p>
+</li>
+<li><p><code>NO_PROXY</code></p>
+</li>
+<li><p><code>no_proxy</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg HTTPS_PROXY=https://my-proxy.example.com .</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>Docker默认的ARG全局范围内的平台参数，这些参数是在全局范围中定义的，因此在构建阶段或运行命令中不自动可用。要在构建阶段中公开这些参数之一，请在没有值的情况下重新定义它</p>
+<ul>
+<li><p><code>TARGETPLATFORM</code> - platform of the build result. Eg <code>linux/amd64</code>, <code>linux/arm/v7</code>, <code>windows/amd64</code>.</p>
+</li>
+<li><p><code>TARGETOS</code> - OS component of TARGETPLATFORM</p>
+</li>
+<li><p><code>TARGETARCH</code> - architecture component of TARGETPLATFORM</p>
+</li>
+<li><p><code>TARGETVARIANT</code> - variant component of TARGETPLATFORM</p>
+</li>
+<li><p><code>BUILDPLATFORM</code> - platform of the node performing the build.</p>
+</li>
+<li><p><code>BUILDOS</code> - OS component of BUILDPLATFORM</p>
+</li>
+<li><p><code>BUILDARCH</code> - architecture component of BUILDPLATFORM</p>
+</li>
+<li><p><code>BUILDVARIANT</code> - variant component of BUILDPLATFORM</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM alpine</span><br><span class="line">ARG TARGETPLATFORM</span><br><span class="line">RUN echo &quot;I&#x27;m building for $TARGETPLATFORM&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="ONBUILD"><a href="#ONBUILD" class="headerlink" title="ONBUILD"></a>ONBUILD</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ONBUILD &lt;INSTRUCTION&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个触发器指令，镜像构建时候定义，当别的镜像基于当前镜像进行构建的时候 ONBUILD指令将在FROM指令后首先触发基础镜像的ONBUILD指令，</p>
+<p>他注册了一个超前指令，并在之后运行，运行环境是构建容器的Context，如果有一个指令失败，那么FROM指令将是失败的</p>
+<p>他能在docker inspect指令中被观察到</p>
+<p>ONBUILD 只在直接FROM Dockerfile中生效，也就是多级A FROM B FROM C ,那么c的ONBILD 不会再A中生效</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ONBUILD ADD . /app/src</span><br><span class="line">ONBUILD RUN /usr/local/bin/python-build --dir /app/src</span><br></pre></td></tr></table></figure>
+
+<p>ONBUILD不支持连续使用，ONBUILD ONBUILD</p>
+<p>ONBUILD不会触发FROM 和 MAINTAINER指令</p>
+<h3 id="STOPSIGNAL"><a href="#STOPSIGNAL" class="headerlink" title="STOPSIGNAL"></a>STOPSIGNAL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">STOPSIGNAL signal</span><br></pre></td></tr></table></figure>
+
+<p>默认的STOPSIGNAL 可以使用–stop-signal 标记，在docker run 和docker create 的时候修改掉</p>
+<h3 id="HEALTHCHECK"><a href="#HEALTHCHECK" class="headerlink" title="HEALTHCHECK"></a>HEALTHCHECK</h3><ul>
+<li><p><code>HEALTHCHECK [OPTIONS] CMD command</code> (check container health by running a command inside the container)</p>
+</li>
+<li><p><code>HEALTHCHECK NONE</code> (disable any healthcheck inherited from the base image)</p>
+<p>HEALTHCHECK 指令告诉Docker如何测试容器是否在工作。</p>
+<p>当指定了HEALTHCHECK 那么容器除了正常的状态，会添加一些健康状态，初始化是starting，当健康检查通过，状态为healthy，当经理了一系列的故障之后，将变更为unhealthy</p>
+<ul>
+<li><code>--interval=DURATION</code> (default: <code>30s</code>)</li>
+<li><code>--timeout=DURATION</code> (default: <code>30s</code>)</li>
+<li><code>--start-period=DURATION</code> (default: <code>0s</code>)</li>
+<li><code>--retries=N</code> (default: <code>3</code>)</li>
+</ul>
+</li>
+<li><p>0: success - the container is healthy and ready for use</p>
+</li>
+<li><p>1: unhealthy - the container is not working correctly</p>
+</li>
+<li><p>2: reserved - do not use this exit code 预留的状态</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h3><p>shell指令运行将默认的shell进行调整，默认的linux shell 是[“/bin/sh”, “-c”] Windows 是<code>[&quot;cmd&quot;, &quot;/S&quot;, &quot;/C&quot;]</code></p>
+<p>shell ，在Dockerfile中必须是json模式的</p>
+]]></content>
       <categories>
         <category>技术</category>
       </categories>
       <tags>
-        <tag>questions</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>链接Docker守护进程认证</title>
+    <url>/2021/11/07/docker/logindmauth/</url>
+    <content><![CDATA[<p><a href="https://docs.docker.com/engine/security/protect-access/">https://docs.docker.com/engine/security/protect-access/</a></p>
+<p>SSH保护</p>
+<p>TLS保护</p>
+<p>CA,SERVER和client keys</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -934,6 +1233,69 @@
       </categories>
       <tags>
         <tag>Design</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>问题归类</title>
+    <url>/2021/09/15/java/Interviewquestions/</url>
+    <content><![CDATA[<h1 id="语言基础"><a href="#语言基础" class="headerlink" title="语言基础"></a>语言基础</h1><h2 id="并发编程"><a href="#并发编程" class="headerlink" title="并发编程"></a>并发编程</h2><p>java中守护线程和本地线程的区别</p>
+<p>java中ReadWriteLock是什么</p>
+<p>volatile变量和atomic变量有什么区别</p>
+<p>线程优先级的理解</p>
+<span id="more"></span>
+
+<h2 id="jvm"><a href="#jvm" class="headerlink" title="jvm"></a>jvm</h2><p>可达性分析算法中根节点有哪些</p>
+<p>CMS和G1区别有哪些</p>
+<p>怎样GC调优</p>
+<p>怎样排查CPU彪高内存彪高</p>
+<p>逃逸分析</p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h1 id="框架类"><a href="#框架类" class="headerlink" title="框架类"></a>框架类</h1><h2 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h2><h3 id="spring-1"><a href="#spring-1" class="headerlink" title="spring"></a>spring</h3><p>spring循环依赖怎么解决</p>
+<p>spring aop原理及相关的概念</p>
+<p>springbean生命周期，设计思路及扩展</p>
+<p>有哪些不同类型的IOC方式</p>
+<h3 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h3><h3 id="springcloud"><a href="#springcloud" class="headerlink" title="springcloud"></a>springcloud</h3><h3 id="springmvc"><a href="#springmvc" class="headerlink" title="springmvc"></a>springmvc</h3><h2 id="Mybatis"><a href="#Mybatis" class="headerlink" title="Mybatis"></a>Mybatis</h2><p>mybatis框架的缺点是什么</p>
+<p>mybatis与hibernate有哪些不同</p>
+<p>mybatis是如何进行分页的分页插件的原理是什么</p>
+<h1 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h1><h2 id="分布式一致性问题"><a href="#分布式一致性问题" class="headerlink" title="分布式一致性问题"></a>分布式一致性问题</h2><h2 id="缓存及缓存一致性问题"><a href="#缓存及缓存一致性问题" class="headerlink" title="缓存及缓存一致性问题"></a>缓存及缓存一致性问题</h2><h2 id="分布式事务问题"><a href="#分布式事务问题" class="headerlink" title="分布式事务问题"></a>分布式事务问题</h2><h2 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h2><p>应用场景有哪些</p>
+<h1 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h1><h2 id="reids"><a href="#reids" class="headerlink" title="reids"></a>reids</h2><p>redis数据类型</p>
+<p>redisqps能上多少，怎么知道的</p>
+<p>redis单线程为什么快</p>
+<p>本地缓存需要高时效性怎么办</p>
+<p>redis同步机制</p>
+<p>redis如何实现分布式锁，他是怎么回事</p>
+<h2 id="数据库锁"><a href="#数据库锁" class="headerlink" title="数据库锁"></a>数据库锁</h2><h1 id="中间件"><a href="#中间件" class="headerlink" title="中间件"></a>中间件</h1><h2 id="tomcat"><a href="#tomcat" class="headerlink" title="tomcat"></a>tomcat</h2><p>tomcat的缺省端口是多少，怎么改</p>
+<p>tomcat有哪几种connector运行模式（优化）？</p>
+<p>tomcat有哪几种部署方式</p>
+<p>tomca容器如何创建servlet类实例的，用了什么原理</p>
+<p>tomcat如何优化</p>
+<p>tomcat内存调优</p>
+<p>垃圾回收策略调优</p>
+<p>添加jms远程监控</p>
+<p>专业点的分析工具有哪些</p>
+<p>关于tomcat的session数目</p>
+<p>监视tomcat的内存使用情况</p>
+<p>tomcat的一个请求的完整过程</p>
+<p>tomcat的工作模式</p>
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><h1 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h1><h1 id="设计模式类"><a href="#设计模式类" class="headerlink" title="设计模式类"></a>设计模式类</h1><h1 id="场景类"><a href="#场景类" class="headerlink" title="场景类"></a>场景类</h1><h1 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h1><h2 id="mavne"><a href="#mavne" class="headerlink" title="mavne"></a>mavne</h2><p>maven有哪些优点和缺点</p>
+<p>maven坐标</p>
+<p>maven常见的依赖范围有哪些</p>
+<p>maven的生命周期</p>
+<p>依赖解析机制</p>
+<p>插件解析机制</p>
+<p>多模块如何聚合</p>
+<p>对于一个多模块项目如何管理依赖版本</p>
+<p>如何保证传递依赖不起冲突</p>
+<p>常见的maven私服仓库类型</p>
+<p>如何查询一个插件有哪些目标</p>
+<p>maven和ant有什么区别</p>
+<p>maven的工程类型有哪些</p>
+<p>maven的常用命令有哪些</p>
+<h1 id="管理类"><a href="#管理类" class="headerlink" title="管理类"></a>管理类</h1>]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>questions</tag>
       </tags>
   </entry>
   <entry>
@@ -1165,170 +1527,6 @@
       </tags>
   </entry>
   <entry>
-    <title>zookeeper</title>
-    <url>/2022/05/28/java/zk/</url>
-    <content><![CDATA[<h1 id="ZK集群"><a href="#ZK集群" class="headerlink" title="ZK集群"></a>ZK集群</h1><h2 id="ZK相关配置"><a href="#ZK相关配置" class="headerlink" title="ZK相关配置"></a>ZK相关配置</h2><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">tickTime</span>=<span class="string">2000</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dataDir</span>=<span class="string">/var/lib/zookeeper/data</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dataLogDir</span>=<span class="string">/var/lib/zookeeper/datalog</span></span><br><span class="line"></span><br><span class="line"><span class="attr">clientPort</span>=<span class="string">2181</span></span><br><span class="line"></span><br><span class="line"><span class="attr">initLimit</span>=<span class="string">5</span></span><br><span class="line"></span><br><span class="line"><span class="attr">syncLimit</span>=<span class="string">2</span></span><br><span class="line"></span><br><span class="line"><span class="attr">maxClientCnxns</span>=<span class="string">60</span></span><br><span class="line"></span><br><span class="line"><span class="attr">peerType</span>=<span class="string">observer  #observer配置</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#dataDir目录中新增myid文件，myid配置范围1-255，端口1leader进行通信和数据同步的端口，端口2位选举投票接口</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.1</span>=<span class="string">10.3.60.151:2888:3888</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.2</span>=<span class="string">10.3.60.152:2888:3888</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.3</span>=<span class="string">10.3.60.153:2888:3888</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.x</span>=<span class="string">host:port1:port2:observer #observer配置</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="ZK中Leader选举"><a href="#ZK中Leader选举" class="headerlink" title="ZK中Leader选举"></a>ZK中Leader选举</h2><p><strong>集群中节点角色</strong></p>
-<table>
-<thead>
-<tr>
-<th>角色</th>
-<th>读写</th>
-<th>选举</th>
-<th>过半写</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Leader</td>
-<td>负责客户端读写</td>
-<td>参与leader选举</td>
-<td>参与过半写成功</td>
-</tr>
-<tr>
-<td>Follower</td>
-<td>负责客户端读</td>
-<td>参与leader选举</td>
-<td>参与过半写成功</td>
-</tr>
-<tr>
-<td>Observer</td>
-<td>负责客户端读</td>
-<td>不参与leader选举</td>
-<td>不参与过半写成功</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>Observer 在不影响写性能的条件下，提升集群的读性能</p>
-</blockquote>
-<p><strong>相关属性：</strong></p>
-<p>SID:服务编号，及dataDir目录下myid编号</p>
-<p>ZXID：事务编号，改变zookeeper几圈状态的操作，数据节点创建及删除，数据变更，客户单建立链接，及链接失效等变更都会产生新的事务编号。一般情况先会选ZXID大的节点为Leader ,如果都一样会选择SID大的节点为Leader</p>
-<p>QUORUM：过半计数器</p>
-<p>EPOCH：每个leader的纪元，生成新的leader都会生成一个新的增长的纪元。</p>
-<h2 id="脑裂问题"><a href="#脑裂问题" class="headerlink" title="脑裂问题"></a>脑裂问题</h2><p><strong>脑裂问题描述：</strong><br>对于一个集群，想要提高这个集群的可用性，通常会采用多机房部署，比如现在有一个由6台zkServer所组成的一个集群，部署在了两个机房：</p>
-<img src="/2022/05/28/java/zk/zk1.png" class="" title="脑裂问题">
-
-<p>&emsp;&emsp;正常情况下，此集群只会有一个Leader，那么如果机房之间的网络断了之后，两个机房内的zkServer还是可以相互通信的，如果不考虑过半机制，那么就会出现每个机房内部都将选出一个Leader。</p>
-<img src="/2022/05/28/java/zk/zk2.png" class="" title="脑裂问题">
-
-<p>&emsp;&emsp;这就相当于原本一个集群，被分成了两个集群，出现了两个”大脑”，这就是所谓的”脑裂”现象。对于这种情况，其实也可以看出来，原本应该是统一的一个集群对外提供服务的，现在变成了两个集群同时对外提供服务，如果过了一会，断了的网络突然联通了，那么此时就会出现问题了，两个集群刚刚都对外提供服务了，数据该怎么合并，数据冲突怎么解决等等问题。刚刚在说明脑裂场景时有一个前提条件就是没有考虑过半机制.所以实际上Zookeeper集群中是不会轻易出现脑裂问题的，原因在于过半机制.</p>
-<img src="/2022/05/28/java/zk/zk3.png" class="" title="脑裂问题">
-
-<p>&emsp;&emsp;zookeeper的过半机制（Quorums (法定人数) 方式）：在领导者选举的过程中，如果某台zkServer获得了超过半数的选票，则此zkServer就可以成为Leader了。举个简单的例子：如果现在集群中有5台zkServer，那么half=5/2=2，那么也就是说，领导者选举的过程中至少要有三台zkServer投了同一个zkServer，才会符合过半机制，才能选出来一个Leader。</p>
-<blockquote>
-<p>过半机制很好的杜绝了脑列的问题</p>
-</blockquote>
-<h2 id="ZK作为master选举脑裂导致数据一致性问题："><a href="#ZK作为master选举脑裂导致数据一致性问题：" class="headerlink" title="ZK作为master选举脑裂导致数据一致性问题："></a>ZK作为master选举脑裂导致数据一致性问题：</h2><p>&emsp;&emsp;kafka将数据以主题划分，并且每个主题可以有多个分片，每个分片可以有多个副本，在多个副本中需要选择出主副本和副本，有主副本完成数据的操作，副本分片完成数据同步。<br>那么当出现主副本与zk因为网络问题，导致zk认为主副本掉线，重新选举主副本，但是此时主副本没有死掉，所以导致了主副本的假死现象。<br>&emsp;&emsp;如果客户端还未完成副本列表切换，那么会导致数据写入假死的副本，而完成了切换的节点数会写入到新的主副本，那么就导致了数据不一致,<br>&emsp;&emsp;Epoch leader纪元或者版本号或者叫做leader周期，当产生新的Leader后纪元会随之增加，那么老的leader数据不会同步到新的集群范围内，通过Epoch来控制集群的数据不一致性，及通过集群状态的版本号</p>
-<h2 id="过半机制"><a href="#过半机制" class="headerlink" title="过半机制:"></a>过半机制:</h2><p>&emsp;&emsp;过半机制很好的杜绝了脑列的问题,过半验证还提高了系统效率，在写操作或者投票过程中不需要所有节点都完成，只要过半就完成投票或者写操作。</p>
-<p><strong>容忍度问题：容忍度为n,那么集群建议的部署节点为2N+1</strong></p>
-<p>&emsp;&emsp;一般情况下我们建议集群部署的节点为奇数个节点。至于为什么最好为奇数个节点？这样是为了以最大容错服务器个数的条件下，能节省资源。比如，最大容错为2的情况下，对应的zookeeper服务数，奇数为5，而偶数为6，也就是6个zookeeper服务的情况下最多能宕掉2个服务，所以从节约资源的角度看，没必要部署6（偶数）个zookeeper服务节点</p>
-<h2 id="ZK权限认证方式"><a href="#ZK权限认证方式" class="headerlink" title="ZK权限认证方式"></a>ZK权限认证方式</h2><p>ACL全称为Access Control List（访问控制列表），用于控制资源的访问权限,可以控制节点的读写操作,保证数据的安全性 。</p>
-<p>ZooKeeper使用ACL来控制对其znode的防问。</p>
-<p>Zookeeper ACL 权限设置分为 3 部分组成，分别是：权限模式（Scheme）、授权对象（ID）、权限信息（Permission）</p>
-<p>基于scheme:id:permission的方式进行权限控制： scheme表示授权模式、id模式对应值、permission即具体的增删改权限位。</p>
-<h3 id="权限模式（Scheme）"><a href="#权限模式（Scheme）" class="headerlink" title="权限模式（Scheme）"></a>权限模式（Scheme）</h3><table>
-<thead>
-<tr>
-<th>方案</th>
-<th>描述</th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>world</td>
-<td>开放模式，world表示全世界都可以访问（这是默认设置）</td>
-<td></td>
-</tr>
-<tr>
-<td>ip</td>
-<td>ip模式，限定客户端IP防问</td>
-<td></td>
-</tr>
-<tr>
-<td>auth</td>
-<td>用户密码认证模式，只有在会话中添加了认证才可以防问</td>
-<td></td>
-</tr>
-<tr>
-<td>digest</td>
-<td>与auth类似，区别在于auth用明文密码，而digest 用sha-1+base64加密后的密码。在实际使用中digest 更常见。</td>
-<td></td>
-</tr>
-<tr>
-<td>super</td>
-<td>管理员</td>
-<td></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>范围验证 范围验证就是说 ZooKeeper 可以针对一个 IP 或者一段 IP 地址授予某种权限。我们可以让一个 IP 地址为“ip：192.168.11.123”的机器对服务器上的某个数据节点具有写入的权限。或者也可以通过“ip:192.168.0.1/24”给一段 IP 地址的机器赋权。</p>
-</blockquote>
-<h3 id="授权对象（ID）"><a href="#授权对象（ID）" class="headerlink" title="授权对象（ID）"></a>授权对象（ID）</h3><p>授权对象就是说我们要把权限赋予谁，而对应于 4 种不同的权限模式来说，</p>
-<ol>
-<li><p>如果我们 选择采用 IP 方式，使用的授权对象可以是一个 IP 地址或 IP 地址段</p>
-</li>
-<li><p>使用 Digest 或 Super 方式，则对应于一个用户名</p>
-</li>
-<li><p>World 模式，是授权系统中所有的用户</p>
-</li>
-</ol>
-<h3 id="权限信息（Permission）"><a href="#权限信息（Permission）" class="headerlink" title="权限信息（Permission）"></a>权限信息（Permission）</h3><p>权限就是指我们可以在数据节点上执行的操作种类，如下所示：在 ZooKeeper 中已经定义好的权限有 5 种：</p>
-<ul>
-<li>数据节点（c: create）创建权限，授予权限的对象可以在数据节点下创建子节点；</li>
-<li>数据节点（w: wirte）更新权限，授予权限的对象可以更新该数据节点；</li>
-<li>数据节点（r: read）读取权限，授予权限的对象可以读取该节点的内容以及子节点的列表信息；</li>
-<li>数据节点（d: delete）删除权限，授予权限的对象可以删除该数据节点的子节点；</li>
-<li>数据节点（a: admin）管理者权限，授予权限的对象可以对该数据节点体进行 ACL 权限设置。</li>
-</ul>
-<h3 id="ACL相关命令"><a href="#ACL相关命令" class="headerlink" title="ACL相关命令"></a>ACL相关命令</h3><table><thead><tr><th style="text-align:left"><div><div class="table-header"><p>命令</p></div></div></th><th style="text-align:left"><div><div class="table-header"><p>使用方式</p></div></div></th><th style="text-align:left"><div><div class="table-header"><p>描述</p></div></div></th></tr></thead><tbody><tr><td style="text-align:left"><div><div class="table-cell"><p>getAcl</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>getAcl path</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>读取ACL权限</p></div></div></td></tr><tr><td style="text-align:left"><div><div class="table-cell"><p>setAcl</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>setAcl path acl</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>设置ACL权限</p></div></div></td></tr><tr><td style="text-align:left"><div><div class="table-cell"><p>addauth</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>addauth scheme auth</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>添加认证用户</p></div></div></td></tr></tbody></table>
-
-<img src="/2022/05/28/java/zk/zk4.png" class="" title="ACL相关命令">
-
-<h3 id="跳过ACL检测"><a href="#跳过ACL检测" class="headerlink" title="跳过ACL检测"></a>跳过ACL检测</h3><p>可以通过系统参数zookeeper.skipACL=yes进行配置，默认是no,可以配置为true, 则配置过的ACL将不再进行权限检测</p>
-<p>zkServer.sh</p>
-<img src="/2022/05/28/java/zk/zk.png" class="" title="ACL相关命令">
-
-<h3 id="权限扩展体系"><a href="#权限扩展体系" class="headerlink" title="权限扩展体系"></a>权限扩展体系</h3><p><a href="https://zookeeper.apache.org/doc/r3.8.0/zookeeperProgrammers.html#sc_ZooKeeperPluggableAuthentication"></a></p>
-<p>1: zookeeper支持自定义权限扩展，只需要集成通用的标准接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AuthenticationProvider</span> &#123;</span><br><span class="line">    String <span class="title function_">getScheme</span><span class="params">()</span>;</span><br><span class="line">    KeeperException.Code <span class="title function_">handleAuthentication</span><span class="params">(ServerCnxn cnxn, <span class="type">byte</span> authData[])</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">isValid</span><span class="params">(String id)</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">matches</span><span class="params">(String id, String aclExpr)</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">isAuthenticated</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2: 插件配置 (两种方式只有一个起作用)<br>方式1 系统变量</p>
-<p>-Dzookeeeper.authProvider.X=com.f.MyAuth</p>
-<p>方式2 配置文件</p>
-<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">authProvider.1</span>=<span class="string">com.f.MyAuth</span></span><br><span class="line"><span class="attr">authProvider.2</span>=<span class="string">com.f.MyAuth2</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="实操ACL"><a href="#实操ACL" class="headerlink" title="实操ACL"></a>实操ACL</h2><h3 id="生成授权ID"><a href="#生成授权ID" class="headerlink" title="生成授权ID"></a>生成授权ID</h3><ul>
-<li>方式一 Code<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">generateSuperDigest</span><span class="params">()</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">sId</span> <span class="operator">=</span> DigestAuthenticationProvider.generateDigest(<span class="string">&quot;artisan:xgj&quot;</span>);</span><br><span class="line">    System.out.println(sId); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>方式二 shell命令<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo -n &lt;user&gt;:&lt;password&gt; | openssl dgst -binary -sha1 | openssl base64</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost bin]# echo -n artisan:xgj | openssl dgst -binary -sha1 | openssl base64</span><br><span class="line">Xe7+HMYId2eNV48821ZrcFwIqIE=</span><br><span class="line">[root@localhost bin]# </span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="方式一-digest-密文授权"><a href="#方式一-digest-密文授权" class="headerlink" title="方式一 digest 密文授权"></a>方式一 digest 密文授权</h3><p>创建Node的时候 设置acl</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 10] create /artisan_node artisan_value digest:artisan:Xe7+HMYId2eNV48821ZrcFwIqIE=:cdrwa</span><br><span class="line">Created /artisan_node</span><br><span class="line">[zk: localhost:2181(CONNECTED) 11] get /artisan_node  # 直接查看没有访问权限的 </span><br><span class="line">org.apache.zookeeper.KeeperException$NoAuthException: KeeperErrorCode = NoAuth for /artisan_node</span><br><span class="line">[zk: localhost:2181(CONNECTED) 12] </span><br></pre></td></tr></table></figure>
-<p>创建node的时候不指定acl ,然后用setAcl 设置</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">setAcl /artisan_node digest:artisan:Xe7+HMYId2eNV48821ZrcFwIqIE=:cdrwa</span><br></pre></td></tr></table></figure>
-<p>如何才能有访问权限呢？ 因为是给artisan这个用户赋权的<br>【访问前需要添加授权信息】addauth</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 12] addauth digest artisan:xgj</span><br><span class="line">[zk: localhost:2181(CONNECTED) 13] get /artisan_node</span><br><span class="line">artisan_value</span><br><span class="line">[zk: localhost:2181(CONNECTED) 14] </span><br></pre></td></tr></table></figure>
-<h3 id="方式二-auth-明文授权"><a href="#方式二-auth-明文授权" class="headerlink" title="方式二 auth 明文授权"></a>方式二 auth 明文授权</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 14] addauth digest aaa:passwddd</span><br><span class="line">[zk: localhost:2181(CONNECTED) 15] create /artisanNNN  nodeValue auth:aaa:passwddd:cdwra   # 这是aaa用户授权信息会被zk保存，可以认为当前的授权用户为aaa</span><br><span class="line">Created /artisanNNN</span><br><span class="line">[zk: localhost:2181(CONNECTED) 16] get /artisanNNN</span><br><span class="line">nodeValue</span><br><span class="line">[zk: localhost:2181(CONNECTED) 17] </span><br></pre></td></tr></table></figure>
-<h3 id="方式三-IP授权模式"><a href="#方式三-IP授权模式" class="headerlink" title="方式三 IP授权模式"></a>方式三 IP授权模式</h3><p>创建时设置ip的权限</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">create /node-ip  data  ip:192.168.11.123:cdwra</span><br></pre></td></tr></table></figure>
-<p>或者创建完成以后 手工调用setAcl</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">setAcl /node-ip ip:192.168.11.123:cdwra</span><br></pre></td></tr></table></figure>
-<h3 id="方式四-Super-超级管理员模式"><a href="#方式四-Super-超级管理员模式" class="headerlink" title="方式四 Super 超级管理员模式"></a>方式四 Super 超级管理员模式</h3><p>是一种特殊的Digest模式， 在Super模式下超级管理员用户可以对Zookeeper上的节点进行任何的操作.</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-Dzookeeper.DigestAuthenticationProvider.superDigest=super:&lt;base64encoded(SHA1(password))</span><br></pre></td></tr></table></figure>
-
-<img src="/2022/05/28/java/zk/zk5.png" class="">
-
-<h2 id="Zookeeper应用场景"><a href="#Zookeeper应用场景" class="headerlink" title="Zookeeper应用场景"></a>Zookeeper应用场景</h2>]]></content>
-      <categories>
-        <category>分布式</category>
-      </categories>
-      <tags>
-        <tag>zookeeper</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Linux limit</title>
     <url>/2022/07/14/linux/limit/</url>
     <content><![CDATA[<h1 id="Linux-limit-系统资源限制相关配置信息及其含义介绍"><a href="#Linux-limit-系统资源限制相关配置信息及其含义介绍" class="headerlink" title="Linux limit 系统资源限制相关配置信息及其含义介绍"></a>Linux limit 系统资源限制相关配置信息及其含义介绍</h1><h2 id="资源限制范围"><a href="#资源限制范围" class="headerlink" title="资源限制范围"></a>资源限制范围</h2><p>资源限制分为系统级别和用户界别</p>
@@ -1505,19 +1703,6 @@
       </tags>
   </entry>
   <entry>
-    <title>软件开发方法学</title>
-    <url>/2022/06/05/softwareeng/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E5%AD%A6/</url>
-    <content><![CDATA[<p>(1)生命周期法。软件开发严格按系统调查与分析、系统设计、系统实现、系统调试、运行维护和废弃等阶段进行。这种方法要求系统说明书应准确地表达用户的要求，并且在以后阶段不会发生变化。<br>　　<br>生命周期法采用结构化系统分析与设计的思想，其突出优点是强调系统开发过程的整体性和全局性，避免了开发过程中的混乱状态。其主要缺陷是开发周期长，工作效率低，难以适应新型开发工具的发展，但其基本思想在其他开发方法仍然适用。<br>　　<br>(2)原型法。开发人员首先构造系统初步模型，运行这个模型并根据用户的要求不断修改、补充，直到取得一个用户完全满意的原型为止，最后实现系统。  </p>
-<p>原型法的主要优点是开发周期短、见效快，可以边开发边使用，比较适合于管理体制和结构不稳定，需要经常变化的环境。其缺点是初始原型设计比较困难，容易陷入软件危机，对于大型复杂的应用系统一般不宜采用。<br>　　<br>(3)面向对象法。简称OO，其基本思想是：客观事物都是由对象组成的，对象具有属性和方法，属性反映对象的特征，方法则是改变属性的各种动作；对象之间的联系主要通过传递消息来实现；对象可以按属性归为类，类有一定的结构，而且可以有子类，对象与类之间的层次关系是通过继承来维持的。<br>　　<br>按照上述思想，OO方法分为四个阶段：系统调查和需求分析，解决系统干什么；面向对象分析，识别出对象及其行为、结构、属性和方法，简称OOA；面向对象设计，对分析结果进一步抽象、归类和整理，最终以范式的形式确定下来，简称OOD；面向对象编程，利用面向对象程序设计语言编制应用程序，简称OOP。  </p>
-]]></content>
-      <categories>
-        <category>软件工程</category>
-      </categories>
-      <tags>
-        <tag>开发方法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Markdown基本语法</title>
     <url>/2021/11/09/markdown/jibenyufa/</url>
     <content><![CDATA[<h1 id="一、标题"><a href="#一、标题" class="headerlink" title="一、标题"></a>一、标题</h1><p>一个#是一级标题，二个#是二级标题，以此类推。支持六级标题。</p>
@@ -1563,6 +1748,213 @@
       </categories>
       <tags>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>保持模型的完整性</title>
+    <url>/2023/11/26/softwareeng/DDD/</url>
+    <content><![CDATA[<h2 id="界限上下文之间的集成策略（界限上下文之间的关系）"><a href="#界限上下文之间的集成策略（界限上下文之间的关系）" class="headerlink" title="界限上下文之间的集成策略（界限上下文之间的关系）"></a>界限上下文之间的集成策略（界限上下文之间的关系）</h2><p>限界上下文定义领域边界，以确保每个上下文含义在它特定的边界内都具有唯一的含义，领域模型则存在于这个边界之内。<br>不同的上下文之间出现相同含义的领域模型该如何保持每个上下文中的模型完整？新系统与老系统之间的集成该如何保证模型的完成？多个子系统集成该用那种策略？</p>
+<h3 id="1-共享内核模式-Shared-Kernel"><a href="#1-共享内核模式-Shared-Kernel" class="headerlink" title="1. 共享内核模式(Shared Kernel)"></a>1. 共享内核模式(Shared Kernel)</h3><p>   提高服用能力，减少持续集成和模型转换所带来的开销，是共享内核模式主要目的</p>
+<p>   当不同的团队开发一些紧密相关的应用程序时，如果团队之间不进行协调，即使短时间内能够有快速的进展，但是他们开发出来的产品可能也无法结合到一起，最后可能不得不耗费大量精力进行模型转换，这也是持续集成的必要性。</p>
+<p>   在很多项目中，不同的团队能够共享基础设施，领域工作也可以采用类似的方式，以得到很好的效果。因为保持模型和代码的完全同步的开销可能太高了，但从系统中仔细挑选出一部分保持同步，就能以较小的代价获得较大的收益。</p>
+<p>   因此<br>   从领域模型中挑选出两个团队都同意共享的子集，除了模型还有代码子集，数据库设计子集，来作为共享的基础设施，这部分明确共享的内容具有特殊的地位，团队之间如果没有商量好的情况下事不应擅自更改。<br>   这要求两个团队之间需要紧密的合作关系</p>
+<h3 id="2-客户供应商模式（Customer-Supplier）"><a href="#2-客户供应商模式（Customer-Supplier）" class="headerlink" title="2. 客户供应商模式（Customer/Supplier）"></a>2. 客户供应商模式（Customer/Supplier）</h3><p>   明确客户供应商关系是关键</p>
+<p>   在很多项目中，如果下游团队对比变更具有否决权，或请求并更的程序爱太复杂，那么上游团队的开发自由度就会很受限制。由于担心破坏下系统，上游团队甚至会受到抑制。同时由于上游团队掌握优先权，下游团队有时候也无能为力。（下游团队依赖上游团队，但是上游团队却不负责下游团队的产品交付）</p>
+<p>   因此<br>   在两个团队之间建立一个明确的客户供应商关系，在计划会议中，下游团队相当于上游团队的客户。根据下游团队的需求来协商需要执行的任务。<br>   两个团队需要归属于同一个管理者指挥</p>
+<h3 id="3-追随者模式（Conformist）"><a href="#3-追随者模式（Conformist）" class="headerlink" title="3. 追随者模式（Conformist）"></a>3. 追随者模式（Conformist）</h3><p>   当两个团队并不归属于同一管理者指挥，两个团队在管理层次中相各很远，或者主管不关心两个团队之间的关系，客户供应商模式将无法达到其效果。<br>   也许上游团队成员做出承诺，但他们可能不会履行承诺。下游团队项目只能被搁置，直到最终学会利用现有条件自力更生。</p>
+<p>   有三种解决途径<br>   1). 完全放弃上游，<br>       做这种选择时候，绝不要假定上游会满足下游系统需求，有时候我们会高估这种依赖的价值，低估他的成本。<br>   2). 上游模型设计难用，自行设计模型，并负责模型转换<br>   3). 上游设计质量不是很差，而且风格也能兼容，最好不要再次开发独立模型，可采用追随者模式</p>
+<p>   因此<br>   通过严格遵从上游团队的模型，可以消除在上下文之间进行转换的复杂性，尽管这会限制下游设计人员的风格，而且不会得到很理想的模型，但他简化了集成。</p>
+<h3 id="4-防腐层模式（Anti-corruption-layer）"><a href="#4-防腐层模式（Anti-corruption-layer）" class="headerlink" title="4. 防腐层模式（Anti-corruption layer）"></a>4. 防腐层模式（Anti-corruption layer）</h3><p>   新系统集成遗留系统或与其他系统集成，这些系统都有自己的模型，当把参与集成的界限上下文实际完善并且团队相互合作时，转换层可能很简单，甚至很优雅。而且当边界那侧发生渗透<br>   时，转换层就要承担起更多的防护职责。</p>
+<blockquote>
+<p>①遗留系统模型偏弱，②模型转换简单，③团队相互配合，防腐层还有防止模型侵入的优点</p>
+</blockquote>
+<p>   因此<br>   创建一个隔离层，以便根据客户自己的领域模型为客户相关功能，这个层通过另一个系统现有接口与其进行对话，而只需要对那个系统做出少量修改甚至无需修改。在内部这个层在两个模型之间进行必要的双向转换。</p>
+<p>   实现：门面模式（Facade） 适配器模式(Adapter)</p>
+<h3 id="5-开放主机模式-（OPENHOST）"><a href="#5-开放主机模式-（OPENHOST）" class="headerlink" title="5. 开放主机模式 （OPENHOST）"></a>5. 开放主机模式 （OPENHOST）</h3><p>   一次性集成可以采用防腐层的方式开发对应的模型转换，但是当遇到子系统要与大量的其他系统集成的时候，为每个集成都定制一个转换层可能会减慢团队的工作进度。<br>   团队可能正在反复坐着同样的事情，如果一个子系统有某种内聚性，那么或者可以把他描述为一组Service,这组Service满足了其他子系统的公共需求。</p>
+<p>   因此<br>   定义一个协议，把子系统作为一组service供其他系统访问（可通过某种配置定位服务），开放协议，以便所有需要与你的子系统集成的人都可以使用它。</p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>DDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>软件开发方法学</title>
+    <url>/2022/06/05/softwareeng/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E5%AD%A6/</url>
+    <content><![CDATA[<p>(1)生命周期法。软件开发严格按系统调查与分析、系统设计、系统实现、系统调试、运行维护和废弃等阶段进行。这种方法要求系统说明书应准确地表达用户的要求，并且在以后阶段不会发生变化。<br>　　<br>生命周期法采用结构化系统分析与设计的思想，其突出优点是强调系统开发过程的整体性和全局性，避免了开发过程中的混乱状态。其主要缺陷是开发周期长，工作效率低，难以适应新型开发工具的发展，但其基本思想在其他开发方法仍然适用。<br>　　<br>(2)原型法。开发人员首先构造系统初步模型，运行这个模型并根据用户的要求不断修改、补充，直到取得一个用户完全满意的原型为止，最后实现系统。  </p>
+<p>原型法的主要优点是开发周期短、见效快，可以边开发边使用，比较适合于管理体制和结构不稳定，需要经常变化的环境。其缺点是初始原型设计比较困难，容易陷入软件危机，对于大型复杂的应用系统一般不宜采用。<br>　　<br>(3)面向对象法。简称OO，其基本思想是：客观事物都是由对象组成的，对象具有属性和方法，属性反映对象的特征，方法则是改变属性的各种动作；对象之间的联系主要通过传递消息来实现；对象可以按属性归为类，类有一定的结构，而且可以有子类，对象与类之间的层次关系是通过继承来维持的。<br>　　<br>按照上述思想，OO方法分为四个阶段：系统调查和需求分析，解决系统干什么；面向对象分析，识别出对象及其行为、结构、属性和方法，简称OOA；面向对象设计，对分析结果进一步抽象、归类和整理，最终以范式的形式确定下来，简称OOD；面向对象编程，利用面向对象程序设计语言编制应用程序，简称OOP。  </p>
+]]></content>
+      <categories>
+        <category>软件工程</category>
+      </categories>
+      <tags>
+        <tag>开发方法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>zookeeper</title>
+    <url>/2022/05/28/java/zk/</url>
+    <content><![CDATA[<h1 id="ZK集群"><a href="#ZK集群" class="headerlink" title="ZK集群"></a>ZK集群</h1><h2 id="ZK相关配置"><a href="#ZK相关配置" class="headerlink" title="ZK相关配置"></a>ZK相关配置</h2><figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">tickTime</span>=<span class="string">2000</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dataDir</span>=<span class="string">/var/lib/zookeeper/data</span></span><br><span class="line"></span><br><span class="line"><span class="attr">dataLogDir</span>=<span class="string">/var/lib/zookeeper/datalog</span></span><br><span class="line"></span><br><span class="line"><span class="attr">clientPort</span>=<span class="string">2181</span></span><br><span class="line"></span><br><span class="line"><span class="attr">initLimit</span>=<span class="string">5</span></span><br><span class="line"></span><br><span class="line"><span class="attr">syncLimit</span>=<span class="string">2</span></span><br><span class="line"></span><br><span class="line"><span class="attr">maxClientCnxns</span>=<span class="string">60</span></span><br><span class="line"></span><br><span class="line"><span class="attr">peerType</span>=<span class="string">observer  #observer配置</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">#dataDir目录中新增myid文件，myid配置范围1-255，端口1leader进行通信和数据同步的端口，端口2位选举投票接口</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.1</span>=<span class="string">10.3.60.151:2888:3888</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.2</span>=<span class="string">10.3.60.152:2888:3888</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.3</span>=<span class="string">10.3.60.153:2888:3888</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server.x</span>=<span class="string">host:port1:port2:observer #observer配置</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ZK中Leader选举"><a href="#ZK中Leader选举" class="headerlink" title="ZK中Leader选举"></a>ZK中Leader选举</h2><p><strong>集群中节点角色</strong></p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>读写</th>
+<th>选举</th>
+<th>过半写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Leader</td>
+<td>负责客户端读写</td>
+<td>参与leader选举</td>
+<td>参与过半写成功</td>
+</tr>
+<tr>
+<td>Follower</td>
+<td>负责客户端读</td>
+<td>参与leader选举</td>
+<td>参与过半写成功</td>
+</tr>
+<tr>
+<td>Observer</td>
+<td>负责客户端读</td>
+<td>不参与leader选举</td>
+<td>不参与过半写成功</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Observer 在不影响写性能的条件下，提升集群的读性能</p>
+</blockquote>
+<p><strong>相关属性：</strong></p>
+<p>SID:服务编号，及dataDir目录下myid编号</p>
+<p>ZXID：事务编号，改变zookeeper几圈状态的操作，数据节点创建及删除，数据变更，客户单建立链接，及链接失效等变更都会产生新的事务编号。一般情况先会选ZXID大的节点为Leader ,如果都一样会选择SID大的节点为Leader</p>
+<p>QUORUM：过半计数器</p>
+<p>EPOCH：每个leader的纪元，生成新的leader都会生成一个新的增长的纪元。</p>
+<h2 id="脑裂问题"><a href="#脑裂问题" class="headerlink" title="脑裂问题"></a>脑裂问题</h2><p><strong>脑裂问题描述：</strong><br>对于一个集群，想要提高这个集群的可用性，通常会采用多机房部署，比如现在有一个由6台zkServer所组成的一个集群，部署在了两个机房：</p>
+<img src="/2022/05/28/java/zk/zk1.png" class="" title="脑裂问题">
+
+<p>&emsp;&emsp;正常情况下，此集群只会有一个Leader，那么如果机房之间的网络断了之后，两个机房内的zkServer还是可以相互通信的，如果不考虑过半机制，那么就会出现每个机房内部都将选出一个Leader。</p>
+<img src="/2022/05/28/java/zk/zk2.png" class="" title="脑裂问题">
+
+<p>&emsp;&emsp;这就相当于原本一个集群，被分成了两个集群，出现了两个”大脑”，这就是所谓的”脑裂”现象。对于这种情况，其实也可以看出来，原本应该是统一的一个集群对外提供服务的，现在变成了两个集群同时对外提供服务，如果过了一会，断了的网络突然联通了，那么此时就会出现问题了，两个集群刚刚都对外提供服务了，数据该怎么合并，数据冲突怎么解决等等问题。刚刚在说明脑裂场景时有一个前提条件就是没有考虑过半机制.所以实际上Zookeeper集群中是不会轻易出现脑裂问题的，原因在于过半机制.</p>
+<img src="/2022/05/28/java/zk/zk3.png" class="" title="脑裂问题">
+
+<p>&emsp;&emsp;zookeeper的过半机制（Quorums (法定人数) 方式）：在领导者选举的过程中，如果某台zkServer获得了超过半数的选票，则此zkServer就可以成为Leader了。举个简单的例子：如果现在集群中有5台zkServer，那么half=5/2=2，那么也就是说，领导者选举的过程中至少要有三台zkServer投了同一个zkServer，才会符合过半机制，才能选出来一个Leader。</p>
+<blockquote>
+<p>过半机制很好的杜绝了脑列的问题</p>
+</blockquote>
+<h2 id="ZK作为master选举脑裂导致数据一致性问题："><a href="#ZK作为master选举脑裂导致数据一致性问题：" class="headerlink" title="ZK作为master选举脑裂导致数据一致性问题："></a>ZK作为master选举脑裂导致数据一致性问题：</h2><p>&emsp;&emsp;kafka将数据以主题划分，并且每个主题可以有多个分片，每个分片可以有多个副本，在多个副本中需要选择出主副本和副本，有主副本完成数据的操作，副本分片完成数据同步。<br>那么当出现主副本与zk因为网络问题，导致zk认为主副本掉线，重新选举主副本，但是此时主副本没有死掉，所以导致了主副本的假死现象。<br>&emsp;&emsp;如果客户端还未完成副本列表切换，那么会导致数据写入假死的副本，而完成了切换的节点数会写入到新的主副本，那么就导致了数据不一致,<br>&emsp;&emsp;Epoch leader纪元或者版本号或者叫做leader周期，当产生新的Leader后纪元会随之增加，那么老的leader数据不会同步到新的集群范围内，通过Epoch来控制集群的数据不一致性，及通过集群状态的版本号</p>
+<h2 id="过半机制"><a href="#过半机制" class="headerlink" title="过半机制:"></a>过半机制:</h2><p>&emsp;&emsp;过半机制很好的杜绝了脑列的问题,过半验证还提高了系统效率，在写操作或者投票过程中不需要所有节点都完成，只要过半就完成投票或者写操作。</p>
+<p><strong>容忍度问题：容忍度为n,那么集群建议的部署节点为2N+1</strong></p>
+<p>&emsp;&emsp;一般情况下我们建议集群部署的节点为奇数个节点。至于为什么最好为奇数个节点？这样是为了以最大容错服务器个数的条件下，能节省资源。比如，最大容错为2的情况下，对应的zookeeper服务数，奇数为5，而偶数为6，也就是6个zookeeper服务的情况下最多能宕掉2个服务，所以从节约资源的角度看，没必要部署6（偶数）个zookeeper服务节点</p>
+<h2 id="ZK权限认证方式"><a href="#ZK权限认证方式" class="headerlink" title="ZK权限认证方式"></a>ZK权限认证方式</h2><p>ACL全称为Access Control List（访问控制列表），用于控制资源的访问权限,可以控制节点的读写操作,保证数据的安全性 。</p>
+<p>ZooKeeper使用ACL来控制对其znode的防问。</p>
+<p>Zookeeper ACL 权限设置分为 3 部分组成，分别是：权限模式（Scheme）、授权对象（ID）、权限信息（Permission）</p>
+<p>基于scheme:id:permission的方式进行权限控制： scheme表示授权模式、id模式对应值、permission即具体的增删改权限位。</p>
+<h3 id="权限模式（Scheme）"><a href="#权限模式（Scheme）" class="headerlink" title="权限模式（Scheme）"></a>权限模式（Scheme）</h3><table>
+<thead>
+<tr>
+<th>方案</th>
+<th>描述</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>world</td>
+<td>开放模式，world表示全世界都可以访问（这是默认设置）</td>
+<td></td>
+</tr>
+<tr>
+<td>ip</td>
+<td>ip模式，限定客户端IP防问</td>
+<td></td>
+</tr>
+<tr>
+<td>auth</td>
+<td>用户密码认证模式，只有在会话中添加了认证才可以防问</td>
+<td></td>
+</tr>
+<tr>
+<td>digest</td>
+<td>与auth类似，区别在于auth用明文密码，而digest 用sha-1+base64加密后的密码。在实际使用中digest 更常见。</td>
+<td></td>
+</tr>
+<tr>
+<td>super</td>
+<td>管理员</td>
+<td></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>范围验证 范围验证就是说 ZooKeeper 可以针对一个 IP 或者一段 IP 地址授予某种权限。我们可以让一个 IP 地址为“ip：192.168.11.123”的机器对服务器上的某个数据节点具有写入的权限。或者也可以通过“ip:192.168.0.1/24”给一段 IP 地址的机器赋权。</p>
+</blockquote>
+<h3 id="授权对象（ID）"><a href="#授权对象（ID）" class="headerlink" title="授权对象（ID）"></a>授权对象（ID）</h3><p>授权对象就是说我们要把权限赋予谁，而对应于 4 种不同的权限模式来说，</p>
+<ol>
+<li><p>如果我们 选择采用 IP 方式，使用的授权对象可以是一个 IP 地址或 IP 地址段</p>
+</li>
+<li><p>使用 Digest 或 Super 方式，则对应于一个用户名</p>
+</li>
+<li><p>World 模式，是授权系统中所有的用户</p>
+</li>
+</ol>
+<h3 id="权限信息（Permission）"><a href="#权限信息（Permission）" class="headerlink" title="权限信息（Permission）"></a>权限信息（Permission）</h3><p>权限就是指我们可以在数据节点上执行的操作种类，如下所示：在 ZooKeeper 中已经定义好的权限有 5 种：</p>
+<ul>
+<li>数据节点（c: create）创建权限，授予权限的对象可以在数据节点下创建子节点；</li>
+<li>数据节点（w: wirte）更新权限，授予权限的对象可以更新该数据节点；</li>
+<li>数据节点（r: read）读取权限，授予权限的对象可以读取该节点的内容以及子节点的列表信息；</li>
+<li>数据节点（d: delete）删除权限，授予权限的对象可以删除该数据节点的子节点；</li>
+<li>数据节点（a: admin）管理者权限，授予权限的对象可以对该数据节点体进行 ACL 权限设置。</li>
+</ul>
+<h3 id="ACL相关命令"><a href="#ACL相关命令" class="headerlink" title="ACL相关命令"></a>ACL相关命令</h3><table><thead><tr><th style="text-align:left"><div><div class="table-header"><p>命令</p></div></div></th><th style="text-align:left"><div><div class="table-header"><p>使用方式</p></div></div></th><th style="text-align:left"><div><div class="table-header"><p>描述</p></div></div></th></tr></thead><tbody><tr><td style="text-align:left"><div><div class="table-cell"><p>getAcl</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>getAcl path</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>读取ACL权限</p></div></div></td></tr><tr><td style="text-align:left"><div><div class="table-cell"><p>setAcl</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>setAcl path acl</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>设置ACL权限</p></div></div></td></tr><tr><td style="text-align:left"><div><div class="table-cell"><p>addauth</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>addauth scheme auth</p></div></div></td><td style="text-align:left"><div><div class="table-cell"><p>添加认证用户</p></div></div></td></tr></tbody></table>
+
+<img src="/2022/05/28/java/zk/zk4.png" class="" title="ACL相关命令">
+
+<h3 id="跳过ACL检测"><a href="#跳过ACL检测" class="headerlink" title="跳过ACL检测"></a>跳过ACL检测</h3><p>可以通过系统参数zookeeper.skipACL=yes进行配置，默认是no,可以配置为true, 则配置过的ACL将不再进行权限检测</p>
+<p>zkServer.sh</p>
+<img src="/2022/05/28/java/zk/zk.png" class="" title="ACL相关命令">
+
+<h3 id="权限扩展体系"><a href="#权限扩展体系" class="headerlink" title="权限扩展体系"></a>权限扩展体系</h3><p><a href="https://zookeeper.apache.org/doc/r3.8.0/zookeeperProgrammers.html#sc_ZooKeeperPluggableAuthentication"></a></p>
+<p>1: zookeeper支持自定义权限扩展，只需要集成通用的标准接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AuthenticationProvider</span> &#123;</span><br><span class="line">    String <span class="title function_">getScheme</span><span class="params">()</span>;</span><br><span class="line">    KeeperException.Code <span class="title function_">handleAuthentication</span><span class="params">(ServerCnxn cnxn, <span class="type">byte</span> authData[])</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">isValid</span><span class="params">(String id)</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">matches</span><span class="params">(String id, String aclExpr)</span>;</span><br><span class="line">    <span class="type">boolean</span> <span class="title function_">isAuthenticated</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2: 插件配置 (两种方式只有一个起作用)<br>方式1 系统变量</p>
+<p>-Dzookeeeper.authProvider.X=com.f.MyAuth</p>
+<p>方式2 配置文件</p>
+<figure class="highlight properties"><table><tr><td class="code"><pre><span class="line"><span class="attr">authProvider.1</span>=<span class="string">com.f.MyAuth</span></span><br><span class="line"><span class="attr">authProvider.2</span>=<span class="string">com.f.MyAuth2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="实操ACL"><a href="#实操ACL" class="headerlink" title="实操ACL"></a>实操ACL</h2><h3 id="生成授权ID"><a href="#生成授权ID" class="headerlink" title="生成授权ID"></a>生成授权ID</h3><ul>
+<li>方式一 Code<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">generateSuperDigest</span><span class="params">()</span> <span class="keyword">throws</span> NoSuchAlgorithmException &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">sId</span> <span class="operator">=</span> DigestAuthenticationProvider.generateDigest(<span class="string">&quot;artisan:xgj&quot;</span>);</span><br><span class="line">    System.out.println(sId); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>方式二 shell命令<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">echo -n &lt;user&gt;:&lt;password&gt; | openssl dgst -binary -sha1 | openssl base64</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[root@localhost bin]# echo -n artisan:xgj | openssl dgst -binary -sha1 | openssl base64</span><br><span class="line">Xe7+HMYId2eNV48821ZrcFwIqIE=</span><br><span class="line">[root@localhost bin]# </span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="方式一-digest-密文授权"><a href="#方式一-digest-密文授权" class="headerlink" title="方式一 digest 密文授权"></a>方式一 digest 密文授权</h3><p>创建Node的时候 设置acl</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 10] create /artisan_node artisan_value digest:artisan:Xe7+HMYId2eNV48821ZrcFwIqIE=:cdrwa</span><br><span class="line">Created /artisan_node</span><br><span class="line">[zk: localhost:2181(CONNECTED) 11] get /artisan_node  # 直接查看没有访问权限的 </span><br><span class="line">org.apache.zookeeper.KeeperException$NoAuthException: KeeperErrorCode = NoAuth for /artisan_node</span><br><span class="line">[zk: localhost:2181(CONNECTED) 12] </span><br></pre></td></tr></table></figure>
+<p>创建node的时候不指定acl ,然后用setAcl 设置</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">setAcl /artisan_node digest:artisan:Xe7+HMYId2eNV48821ZrcFwIqIE=:cdrwa</span><br></pre></td></tr></table></figure>
+<p>如何才能有访问权限呢？ 因为是给artisan这个用户赋权的<br>【访问前需要添加授权信息】addauth</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 12] addauth digest artisan:xgj</span><br><span class="line">[zk: localhost:2181(CONNECTED) 13] get /artisan_node</span><br><span class="line">artisan_value</span><br><span class="line">[zk: localhost:2181(CONNECTED) 14] </span><br></pre></td></tr></table></figure>
+<h3 id="方式二-auth-明文授权"><a href="#方式二-auth-明文授权" class="headerlink" title="方式二 auth 明文授权"></a>方式二 auth 明文授权</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[zk: localhost:2181(CONNECTED) 14] addauth digest aaa:passwddd</span><br><span class="line">[zk: localhost:2181(CONNECTED) 15] create /artisanNNN  nodeValue auth:aaa:passwddd:cdwra   # 这是aaa用户授权信息会被zk保存，可以认为当前的授权用户为aaa</span><br><span class="line">Created /artisanNNN</span><br><span class="line">[zk: localhost:2181(CONNECTED) 16] get /artisanNNN</span><br><span class="line">nodeValue</span><br><span class="line">[zk: localhost:2181(CONNECTED) 17] </span><br></pre></td></tr></table></figure>
+<h3 id="方式三-IP授权模式"><a href="#方式三-IP授权模式" class="headerlink" title="方式三 IP授权模式"></a>方式三 IP授权模式</h3><p>创建时设置ip的权限</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">create /node-ip  data  ip:192.168.11.123:cdwra</span><br></pre></td></tr></table></figure>
+<p>或者创建完成以后 手工调用setAcl</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">setAcl /node-ip ip:192.168.11.123:cdwra</span><br></pre></td></tr></table></figure>
+<h3 id="方式四-Super-超级管理员模式"><a href="#方式四-Super-超级管理员模式" class="headerlink" title="方式四 Super 超级管理员模式"></a>方式四 Super 超级管理员模式</h3><p>是一种特殊的Digest模式， 在Super模式下超级管理员用户可以对Zookeeper上的节点进行任何的操作.</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">-Dzookeeper.DigestAuthenticationProvider.superDigest=super:&lt;base64encoded(SHA1(password))</span><br></pre></td></tr></table></figure>
+
+<img src="/2022/05/28/java/zk/zk5.png" class="">
+
+<h2 id="Zookeeper应用场景"><a href="#Zookeeper应用场景" class="headerlink" title="Zookeeper应用场景"></a>Zookeeper应用场景</h2>]]></content>
+      <categories>
+        <category>分布式</category>
+      </categories>
+      <tags>
+        <tag>zookeeper</tag>
       </tags>
   </entry>
   <entry>
@@ -1946,48 +2338,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Seata-AT</title>
-    <url>/2022/05/19/spring/seataat/</url>
-    <content><![CDATA[<h2 id="AT模式两阶段提交"><a href="#AT模式两阶段提交" class="headerlink" title="AT模式两阶段提交"></a>AT模式两阶段提交</h2><ul>
-<li>基于支持本地 ACID 事务的关系型数据库。</li>
-<li>Java 应用，通过 JDBC 访问数据库。</li>
-</ul>
-<p>两阶段提交协议的演变：</p>
-<ul>
-<li>一阶段：业务数据和回滚日志记录在同一个本地事务中提交，释放本地锁和连接资源。</li>
-<li>二阶段：<ul>
-<li>提交异步化，非常快速地完成。</li>
-<li>回滚通过一阶段的回滚日志进行反向补偿。</li>
-</ul>
-</li>
-</ul>
-<p>隔离级别：全局事务隔离级别为读未提交</p>
-<h2 id="如何解决脏读脏写"><a href="#如何解决脏读脏写" class="headerlink" title="如何解决脏读脏写:"></a>如何解决脏读脏写:</h2><p>1：脏写因为出现在分支事务中，可使用<code>@GlobalTransactional</code> 升级分支事务请求全局事务锁，来解决脏写问题。</p>
-<p>2：脏写因为出现在分支事务中，可使用<code>@GlobalLock + select for update</code> 升级分支事务请求全局事务锁，来解决脏写问题。</p>
-<p>3：脏读因为全局事务有可能回滚，导致事务外查询数据会读取到脏数据，可使用<code>@GlobalLock + select for update</code> 升级分支事务请求全局事务锁，来解决脏读问题。</p>
-<p><strong>允许空回滚：</strong></p>
-<p>事务协调器在调用TCC服务的一阶段Try操作时，可能会出现因为丢包而导致的网络超时，此时事务协调器会触发二阶段回滚，调用TCC服务的Cancel操作；</p>
-<p>TCC服务在未收到Try请求的情况下收到Cancel请求，这种场景被称为空回滚；TCC服务在实现时应当允许空回滚的执行；</p>
-<p><strong>防悬挂控制:</strong></p>
-<p>事务协调器在调用TCC服务的一阶段Try操作时，可能会出现因网络拥堵而导致的超时，此时事务协调器会触发二阶段回滚，调用TCC服务的Cancel操作；在此之后，拥堵在网络上的一阶段Try数据包被TCC服务收到，出现了二阶段Cancel请求比一阶段Try请求先执行的情况；</p>
-<p>用户在实现TCC服务时，应当允许空回滚，但是要拒绝执行空回滚之后到来的一阶段Try请求。</p>
-<p><strong>幂等控制</strong>:<br>        无论是网络数据包重传，还是异常事务的补偿执行，都会导致TCC服务的Try、Confirm或者Cancel操作被重复执行；用户在实现TCC服务时，需要考虑幂等控制，即Try、Confirm、Cancel 执行次和执行多次的业务结果是一样的</p>
-<p><strong>业务数据可见性控制:</strong></p>
-<p>TCC服务的一阶段Try操作会做资源的预留，在二阶段操作执行之前，如果其他事务需要读取被预留的资源数据，那么处于中间状态的业务数据该如何向用户展示，需要业务在实现时考虑清楚；通常的设计原则是“宁可不展示、少展示，也不多展示、错展示”</p>
-<p><strong>业务数据并发访问控制:</strong><br>        TCC服务的一阶段Try操作预留资源之后，在二阶段操作执行之前，预留的资源都不会被释放；如果此时其他分布式事务修改这些业务资源，会出现分布式事务的并发问题；</p>
-<p>用户在实现TCC服务时，需要考虑业务数据的并发控制，尽量将逻辑锁粒度降到最低，以最大限度的提高分布式事务的并发性</p>
-<h2 id="全局事务锁"><a href="#全局事务锁" class="headerlink" title="全局事务锁"></a>全局事务锁</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//io.seata.rm.datasource.exec.BaseTransactionalExecutor类</span></span><br><span class="line"><span class="comment">//全局锁key构建 及锁请求检查</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">prepareUndoLog</span><span class="params">(TableRecords beforeImage, TableRecords afterImage)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="keyword">if</span> (beforeImage.getRows().isEmpty() &amp;&amp; afterImage.getRows().isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ConnectionProxy</span> <span class="variable">connectionProxy</span> <span class="operator">=</span> statementProxy.getConnectionProxy();</span><br><span class="line">        <span class="type">TableRecords</span> <span class="variable">lockKeyRecords</span> <span class="operator">=</span> sqlRecognizer.getSQLType() == SQLType.DELETE ? beforeImage : afterImage;</span><br><span class="line">    	<span class="comment">//构建全局事务锁key</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">lockKeys</span> <span class="operator">=</span> buildLockKey(lockKeyRecords);</span><br><span class="line">        connectionProxy.appendLockKey(lockKeys);</span><br><span class="line">        <span class="type">SQLUndoLog</span> <span class="variable">sqlUndoLog</span> <span class="operator">=</span> buildUndoItem(beforeImage, afterImage);</span><br><span class="line">        connectionProxy.appendUndoLog(sqlUndoLog);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//io.seata.rm.datasource.exec.SelectForUpdateExecutor</span></span><br><span class="line"><span class="comment">//全局锁key构建 及锁请求检查</span></span><br><span class="line"><span class="keyword">public</span> T <span class="title function_">doExecute</span><span class="params">(Object... args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">                    <span class="comment">// Try to get global lock of those rows selected</span></span><br><span class="line">    <span class="type">TableRecords</span> <span class="variable">selectPKRows</span> <span class="operator">=</span> buildTableRecords(getTableMeta(), selectPKSQL, paramAppenderList);</span><br><span class="line">    <span class="comment">//构建全局事务锁key</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">lockKeys</span> <span class="operator">=</span> buildLockKey(selectPKRows);</span><br><span class="line">    <span class="keyword">if</span> (RootContext.inGlobalTransaction()) &#123;</span><br><span class="line">        <span class="comment">//do as usual</span></span><br><span class="line">        statementProxy.getConnectionProxy().checkLock(lockKeys);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (RootContext.requireGlobalLock()) &#123;</span><br><span class="line">        <span class="comment">//check lock key before commit just like DML to avoid reentrant lock problem(no xid thus ca</span></span><br><span class="line">        <span class="comment">// not reentrant)</span></span><br><span class="line">        statementProxy.getConnectionProxy().appendLockKey(lockKeys);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Unknown situation!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">                  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//io.seata.rm.datasource.ConnectionProxy类</span></span><br><span class="line"><span class="comment">//提交前注册分支并申请及检查全局锁</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">doCommit</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">    <span class="keyword">if</span> (context.inGlobalTransaction()) &#123;</span><br><span class="line">        <span class="comment">//@GlobalTransaction</span></span><br><span class="line">        processGlobalTransactionCommit();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (context.isGlobalLockRequire()) &#123;</span><br><span class="line">        <span class="comment">//@GlobalLocks</span></span><br><span class="line">        processLocalCommitWithGlobalLocks();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        targetConnection.commit();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">//@GlobalTransaction</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">processGlobalTransactionCommit</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">                <span class="comment">//注册分支并获取全局锁</span></span><br><span class="line">                register();</span><br><span class="line">          ...</span><br><span class="line">        &#125;</span><br><span class="line">     <span class="comment">//@GlobalLocks</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">processLocalCommitWithGlobalLocks</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">            checkLock(context.buildLockKeys());</span><br><span class="line">          ...</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">//事务分支注册并获取全局锁</span></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">register</span><span class="params">()</span> <span class="keyword">throws</span> TransactionException &#123;</span><br><span class="line">         ...	</span><br><span class="line">            <span class="type">Long</span> <span class="variable">branchId</span> <span class="operator">=</span> 				       DefaultResourceManager.get().branchRegister(BranchType.AT,getDataSourceProxy().getResourceId(),</span><br><span class="line">                <span class="literal">null</span>, context.getXid(), <span class="literal">null</span>, context.buildLockKeys());</span><br><span class="line">		...</span><br><span class="line">        &#125;</span><br><span class="line">	<span class="comment">//全局锁检查</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">checkLock</span><span class="params">(String lockKeys)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="comment">// Just check lock without requiring lock by now.</span></span><br><span class="line">            <span class="type">boolean</span> <span class="variable">lockable</span> <span class="operator">=</span> DefaultResourceManager.get().lockQuery(BranchType.AT,</span><br><span class="line">                getDataSourceProxy().getResourceId(), context.getXid(), lockKeys);</span><br><span class="line">            <span class="keyword">if</span> (!lockable) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">LockConflictException</span>();</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://seata.io/zh-cn/blog/seata-tcc.html">深度剖析 Seata TCC 模式（一）</a></p>
-]]></content>
-      <categories>
-        <category>SpringCloud</category>
-      </categories>
-      <tags>
-        <tag>Seata</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Seata安装</title>
     <url>/2022/05/19/spring/seata/</url>
     <content><![CDATA[<p>Seata 是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata 将为用户提供了 AT、TCC、SAGA 和 XA 事务模式，为用户打造一站式的分布式解决方案,</p>
@@ -2076,6 +2426,48 @@
       </tags>
   </entry>
   <entry>
+    <title>Seata-AT</title>
+    <url>/2022/05/19/spring/seataat/</url>
+    <content><![CDATA[<h2 id="AT模式两阶段提交"><a href="#AT模式两阶段提交" class="headerlink" title="AT模式两阶段提交"></a>AT模式两阶段提交</h2><ul>
+<li>基于支持本地 ACID 事务的关系型数据库。</li>
+<li>Java 应用，通过 JDBC 访问数据库。</li>
+</ul>
+<p>两阶段提交协议的演变：</p>
+<ul>
+<li>一阶段：业务数据和回滚日志记录在同一个本地事务中提交，释放本地锁和连接资源。</li>
+<li>二阶段：<ul>
+<li>提交异步化，非常快速地完成。</li>
+<li>回滚通过一阶段的回滚日志进行反向补偿。</li>
+</ul>
+</li>
+</ul>
+<p>隔离级别：全局事务隔离级别为读未提交</p>
+<h2 id="如何解决脏读脏写"><a href="#如何解决脏读脏写" class="headerlink" title="如何解决脏读脏写:"></a>如何解决脏读脏写:</h2><p>1：脏写因为出现在分支事务中，可使用<code>@GlobalTransactional</code> 升级分支事务请求全局事务锁，来解决脏写问题。</p>
+<p>2：脏写因为出现在分支事务中，可使用<code>@GlobalLock + select for update</code> 升级分支事务请求全局事务锁，来解决脏写问题。</p>
+<p>3：脏读因为全局事务有可能回滚，导致事务外查询数据会读取到脏数据，可使用<code>@GlobalLock + select for update</code> 升级分支事务请求全局事务锁，来解决脏读问题。</p>
+<p><strong>允许空回滚：</strong></p>
+<p>事务协调器在调用TCC服务的一阶段Try操作时，可能会出现因为丢包而导致的网络超时，此时事务协调器会触发二阶段回滚，调用TCC服务的Cancel操作；</p>
+<p>TCC服务在未收到Try请求的情况下收到Cancel请求，这种场景被称为空回滚；TCC服务在实现时应当允许空回滚的执行；</p>
+<p><strong>防悬挂控制:</strong></p>
+<p>事务协调器在调用TCC服务的一阶段Try操作时，可能会出现因网络拥堵而导致的超时，此时事务协调器会触发二阶段回滚，调用TCC服务的Cancel操作；在此之后，拥堵在网络上的一阶段Try数据包被TCC服务收到，出现了二阶段Cancel请求比一阶段Try请求先执行的情况；</p>
+<p>用户在实现TCC服务时，应当允许空回滚，但是要拒绝执行空回滚之后到来的一阶段Try请求。</p>
+<p><strong>幂等控制</strong>:<br>        无论是网络数据包重传，还是异常事务的补偿执行，都会导致TCC服务的Try、Confirm或者Cancel操作被重复执行；用户在实现TCC服务时，需要考虑幂等控制，即Try、Confirm、Cancel 执行次和执行多次的业务结果是一样的</p>
+<p><strong>业务数据可见性控制:</strong></p>
+<p>TCC服务的一阶段Try操作会做资源的预留，在二阶段操作执行之前，如果其他事务需要读取被预留的资源数据，那么处于中间状态的业务数据该如何向用户展示，需要业务在实现时考虑清楚；通常的设计原则是“宁可不展示、少展示，也不多展示、错展示”</p>
+<p><strong>业务数据并发访问控制:</strong><br>        TCC服务的一阶段Try操作预留资源之后，在二阶段操作执行之前，预留的资源都不会被释放；如果此时其他分布式事务修改这些业务资源，会出现分布式事务的并发问题；</p>
+<p>用户在实现TCC服务时，需要考虑业务数据的并发控制，尽量将逻辑锁粒度降到最低，以最大限度的提高分布式事务的并发性</p>
+<h2 id="全局事务锁"><a href="#全局事务锁" class="headerlink" title="全局事务锁"></a>全局事务锁</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//io.seata.rm.datasource.exec.BaseTransactionalExecutor类</span></span><br><span class="line"><span class="comment">//全局锁key构建 及锁请求检查</span></span><br><span class="line"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">prepareUndoLog</span><span class="params">(TableRecords beforeImage, TableRecords afterImage)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="keyword">if</span> (beforeImage.getRows().isEmpty() &amp;&amp; afterImage.getRows().isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">ConnectionProxy</span> <span class="variable">connectionProxy</span> <span class="operator">=</span> statementProxy.getConnectionProxy();</span><br><span class="line">        <span class="type">TableRecords</span> <span class="variable">lockKeyRecords</span> <span class="operator">=</span> sqlRecognizer.getSQLType() == SQLType.DELETE ? beforeImage : afterImage;</span><br><span class="line">    	<span class="comment">//构建全局事务锁key</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">lockKeys</span> <span class="operator">=</span> buildLockKey(lockKeyRecords);</span><br><span class="line">        connectionProxy.appendLockKey(lockKeys);</span><br><span class="line">        <span class="type">SQLUndoLog</span> <span class="variable">sqlUndoLog</span> <span class="operator">=</span> buildUndoItem(beforeImage, afterImage);</span><br><span class="line">        connectionProxy.appendUndoLog(sqlUndoLog);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//io.seata.rm.datasource.exec.SelectForUpdateExecutor</span></span><br><span class="line"><span class="comment">//全局锁key构建 及锁请求检查</span></span><br><span class="line"><span class="keyword">public</span> T <span class="title function_">doExecute</span><span class="params">(Object... args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">                    <span class="comment">// Try to get global lock of those rows selected</span></span><br><span class="line">    <span class="type">TableRecords</span> <span class="variable">selectPKRows</span> <span class="operator">=</span> buildTableRecords(getTableMeta(), selectPKSQL, paramAppenderList);</span><br><span class="line">    <span class="comment">//构建全局事务锁key</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">lockKeys</span> <span class="operator">=</span> buildLockKey(selectPKRows);</span><br><span class="line">    <span class="keyword">if</span> (RootContext.inGlobalTransaction()) &#123;</span><br><span class="line">        <span class="comment">//do as usual</span></span><br><span class="line">        statementProxy.getConnectionProxy().checkLock(lockKeys);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (RootContext.requireGlobalLock()) &#123;</span><br><span class="line">        <span class="comment">//check lock key before commit just like DML to avoid reentrant lock problem(no xid thus ca</span></span><br><span class="line">        <span class="comment">// not reentrant)</span></span><br><span class="line">        statementProxy.getConnectionProxy().appendLockKey(lockKeys);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Unknown situation!&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">                  </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//io.seata.rm.datasource.ConnectionProxy类</span></span><br><span class="line"><span class="comment">//提交前注册分支并申请及检查全局锁</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">doCommit</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">    <span class="keyword">if</span> (context.inGlobalTransaction()) &#123;</span><br><span class="line">        <span class="comment">//@GlobalTransaction</span></span><br><span class="line">        processGlobalTransactionCommit();</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (context.isGlobalLockRequire()) &#123;</span><br><span class="line">        <span class="comment">//@GlobalLocks</span></span><br><span class="line">        processLocalCommitWithGlobalLocks();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        targetConnection.commit();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">//@GlobalTransaction</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">processGlobalTransactionCommit</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">                <span class="comment">//注册分支并获取全局锁</span></span><br><span class="line">                register();</span><br><span class="line">          ...</span><br><span class="line">        &#125;</span><br><span class="line">     <span class="comment">//@GlobalLocks</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">processLocalCommitWithGlobalLocks</span><span class="params">()</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">            checkLock(context.buildLockKeys());</span><br><span class="line">          ...</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="comment">//事务分支注册并获取全局锁</span></span><br><span class="line">     <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">register</span><span class="params">()</span> <span class="keyword">throws</span> TransactionException &#123;</span><br><span class="line">         ...	</span><br><span class="line">            <span class="type">Long</span> <span class="variable">branchId</span> <span class="operator">=</span> 				       DefaultResourceManager.get().branchRegister(BranchType.AT,getDataSourceProxy().getResourceId(),</span><br><span class="line">                <span class="literal">null</span>, context.getXid(), <span class="literal">null</span>, context.buildLockKeys());</span><br><span class="line">		...</span><br><span class="line">        &#125;</span><br><span class="line">	<span class="comment">//全局锁检查</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">checkLock</span><span class="params">(String lockKeys)</span> <span class="keyword">throws</span> SQLException &#123;</span><br><span class="line">        <span class="comment">// Just check lock without requiring lock by now.</span></span><br><span class="line">            <span class="type">boolean</span> <span class="variable">lockable</span> <span class="operator">=</span> DefaultResourceManager.get().lockQuery(BranchType.AT,</span><br><span class="line">                getDataSourceProxy().getResourceId(), context.getXid(), lockKeys);</span><br><span class="line">            <span class="keyword">if</span> (!lockable) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">LockConflictException</span>();</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://seata.io/zh-cn/blog/seata-tcc.html">深度剖析 Seata TCC 模式（一）</a></p>
+]]></content>
+      <categories>
+        <category>SpringCloud</category>
+      </categories>
+      <tags>
+        <tag>Seata</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Sentinel</title>
     <url>/2021/11/05/spring/sentinel/</url>
     <content><![CDATA[]]></content>
@@ -2084,6 +2476,57 @@
       </categories>
       <tags>
         <tag>SpringCloud</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>OpenSSL命令</title>
+    <url>/2022/05/30/tool/opensslcommon/</url>
+    <content><![CDATA[<p>查看ca证书的内容<br>openssl x509 -in ca.crt -noout -text</p>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>openssl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自签名证书</title>
+    <url>/2022/05/30/tool/opensslzqm/</url>
+    <content><![CDATA[<h1 id="Centos7-环境下生成自签名SSL证书的具体过程："><a href="#Centos7-环境下生成自签名SSL证书的具体过程：" class="headerlink" title="Centos7 环境下生成自签名SSL证书的具体过程："></a>Centos7 环境下生成自签名SSL证书的具体过程：</h1><ol>
+<li><p>修改 openssl 配置文件<br>vi /etc/pki/tls/openssl.cnf<br>match 表示后续生成的子证书的对应项必须和创建根证书时填的值一样，否则报错。以下配置只规定子证书的 countryName 必须和根证书一致。<br>[policy_match] 段配置改成如下：<br>countryName = match<br>stateOrProvinceName = optional<br>organizationName = optional<br>organizationalUnitName = optional<br>commonName = supplied<br>emailAddress = optional</p>
+</li>
+<li><p>在服务器 pki 的 CA 目录下新建两个文件<br>cd /etc/pki/CA &amp;&amp; touch index.txt serial &amp;&amp; echo 01 &gt; serial</p>
+</li>
+<li><p>生成CA根证书密钥<br>cd /etc/pki/CA/ &amp;&amp; openssl genrsa -out private/cakey.pem 2048 &amp;&amp; chmod 400 private/cakey.pem</p>
+</li>
+<li><p>生成根证书（根据提示输入信息，除了 Country Name 选项需要记住的，后面的随便填）<br>openssl req -new -x509 -key private/cakey.pem -out cacert.pem</p>
+</li>
+<li><p>生成密钥文件<br>openssl genrsa -out nginx.key 2048</p>
+</li>
+<li><p>生成证书请求文件（CSR）:<br>A.根据提示输入信息，除了 Country Name 与前面根证书一致外，其他随便填写<br>B.Common Name 填写要保护的域名，比如：*.qhh.me<br>openssl req -new -key nginx.key -out nginx.csr</p>
+</li>
+<li><p>使用 openssl 签署 CSR 请求，生成证书<br>openssl ca -in nginx.csr -cert /etc/pki/CA/cacert.pem -keyfile /etc/pki/CA/private/cakey.pem -days 365 -out nginx.crt</p>
+</li>
+</ol>
+<blockquote>
+<p>参数项说明：</p>
+</blockquote>
+<ol>
+<li>-in: CSR 请求文件</li>
+<li>-cert: 用于签发的根 CA 证书</li>
+<li>-keyfile: 根 CA 的私钥文件</li>
+<li>-days: 生成的证书的有效天数</li>
+<li>-out: 生成证书的文件名</li>
+</ol>
+<p>至此自签名证书生成完成，最终需要：nginx.key 和 nginx.crt<br>8. 配置Nginx使用自签名证书</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen  80;</span><br><span class="line">  server_name     domain;</span><br><span class="line">  return  301     https://$host$request_uri;  # 表示强制将http请求重定向到https端口</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen  443 ssl;</span><br><span class="line">    ssl_certificate       ssl/nginx.crt; # 前面生成的 crt 证书文件</span><br><span class="line">    ssl_certificate_key   ssl/nginx.key; # 前面生成的证书私钥</span><br><span class="line">    server_name     domain;</span><br><span class="line">    location / &#123;</span><br><span class="line">    root /var/www-html;</span><br><span class="line">    index  index.html;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>openssl</tag>
       </tags>
   </entry>
   <entry>
@@ -2169,419 +2612,6 @@
         <tag>java</tag>
         <tag>springmvc</tag>
         <tag>spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>镜像构建</title>
-    <url>/2021/10/28/docker/imagebuild/</url>
-    <content><![CDATA[<p>[TOC]</p>
-<img src="/2021/10/28/docker/imagebuild/576507.png" class="" title="docker架构图">
-
-<h2 id="Docker镜像的创建方法"><a href="#Docker镜像的创建方法" class="headerlink" title="Docker镜像的创建方法"></a>Docker镜像的创建方法</h2><p>基于Dockerfile进行创建，docker build .</p>
-<p>基于容器进行创建</p>
-<span id="more"></span>
-
-
-
-<h2 id="基于Dockerfile创建"><a href="#基于Dockerfile创建" class="headerlink" title="基于Dockerfile创建"></a>基于Dockerfile创建</h2><h3 id="Dockerfile构建需要的信息："><a href="#Dockerfile构建需要的信息：" class="headerlink" title="Dockerfile构建需要的信息："></a>Dockerfile构建需要的信息：</h3><p><strong>Dockerfile、Context 和 .dockerignore</strong>，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的目录作为Context,并将Dockerfile文件至于Context目录中</p>
-<p>通常情况下Context下要有一个名称为Dockerfile的文件，可以通过-f 指定任意位置的Dockerfile 文件</p>
-<p>我们可以通过.dockerignore文件忽略上下文环境下的文件和目录</p>
-<p>我们可以通过-t 来指定新的镜像的repository和标签信息,可以指定多个 -t 来对多个repository仓库的镜像image进行打标签</p>
-<p>如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .</p>
-<h3 id="一个Dockerfile例子"><a href="#一个Dockerfile例子" class="headerlink" title="一个Dockerfile例子"></a>一个Dockerfile例子</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> chenxiao@ruiyinxin.com</span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;0.2&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;测试创建sentinel&quot;</span></span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="language-bash"> [<span class="string">&quot;/home/tomcat/log/&quot;</span>]</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> jdk /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> sentinel-dashboard.jar /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> run.sh /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">chmod</span> 777 /app/run.sh</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span> &gt;/etc/timezone</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /app/jdk</span><br><span class="line"><span class="keyword">ENV</span> PATH $PATH:$JAVA_HOME/bin</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8088</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="comment">#CMD [&quot;sh&quot;,&quot;run.sh&quot;]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;./run.sh&quot;</span>]</span></span><br><span class="line"><span class="comment">#ENTRYPOINT [&quot;./run.sh&quot;]</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/sh</span></span><br><span class="line">java -jar -Dspring.profiles.active=test sentinel-dashboard.jar</span><br></pre></td></tr></table></figure>
-
-<h3 id="执行docker命令来创建docker镜像"><a href="#执行docker命令来创建docker镜像" class="headerlink" title="执行docker命令来创建docker镜像"></a>执行docker命令来创建docker镜像</h3><p>命令格式为 docker build -t ImageName:TagName    Dir</p>
-<ul>
-<li><code>-t</code> − 给镜像加一个Tag</li>
-<li><code>ImageName</code> − 给镜像起的名称</li>
-<li><code>TagName</code> − 给镜像的Tag名</li>
-<li><code>Dir</code> − Dockerfile所在目录</li>
-</ul>
-<p>docker build -t bd/sentineld  .</p>
-<ul>
-<li><code>.</code> 表示当前目录，即Dockerfile所在目录</li>
-</ul>
-<h3 id="dockerignore"><a href="#dockerignore" class="headerlink" title=".dockerignore"></a>.dockerignore</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># comment</span><br><span class="line">*/temp*</span><br><span class="line">*/*/temp*</span><br><span class="line">temp?</span><br></pre></td></tr></table></figure>
-
-
-
-<table>
-<thead>
-<tr>
-<th><code># comment</code></th>
-<th>Ignored.</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>*/temp*</code></td>
-<td>Exclude files and directories whose names start with <code>temp</code> in any immediate subdirectory of the root. For example, the plain file <code>/somedir/temporary.txt</code> is excluded, as is the directory <code>/somedir/temp</code>.</td>
-</tr>
-<tr>
-<td><code>*/*/temp*</code></td>
-<td>Exclude files and directories starting with <code>temp</code> from any subdirectory that is two levels below the root. For example, <code>/somedir/subdir/temporary.txt</code> is excluded.</td>
-</tr>
-<tr>
-<td><code>temp?</code></td>
-<td>Exclude files and directories in the root directory whose names are a one-character extension of <code>temp</code>. For example, <code>/tempa</code> and <code>/tempb</code>are excluded.</td>
-</tr>
-</tbody></table>
-<h2 id="指令解析"><a href="#指令解析" class="headerlink" title="指令解析"></a>指令解析</h2><h3 id="Dockerfile命令列表"><a href="#Dockerfile命令列表" class="headerlink" title="Dockerfile命令列表"></a>Dockerfile命令列表</h3><table>
-<thead>
-<tr>
-<th><strong>指令</strong></th>
-<th><strong>含义</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>FROM 镜像</td>
-<td>指定新镜像所基于的镜像，第一条指令必须为FROM指令，每创建一个镜像就需要一条FROM指令</td>
-</tr>
-<tr>
-<td>MAINTAINER 名字</td>
-<td>说明新镜像的维护人信息</td>
-</tr>
-<tr>
-<td>RUN命令</td>
-<td>在所基于的镜像上执行命令，并提交到新的镜像中</td>
-</tr>
-<tr>
-<td>CMD [“要运行的程序”,“参数1”,“参数2”]</td>
-<td>指令启动容器时要运行的命令或者脚本，Dockerfile只能有一条CMD命令，如果指定多条则只能最后一条被执行，</td>
-</tr>
-<tr>
-<td>EXPOSE 端口号</td>
-<td>指定新镜像加载到Docker时要开启的端口（EXPOSE暴露的是容器内部端口，需要再映射到一个外部端口上）</td>
-</tr>
-<tr>
-<td>ENV 环境变量 变量值</td>
-<td>设置一个环境变量的值，会被后面的RUN使用</td>
-</tr>
-<tr>
-<td>ADD 源文件/目录 目标文件/目录</td>
-<td>将源文件复制到目标文件（与COPY的区别是将本地tar文件解压到镜像中）</td>
-</tr>
-<tr>
-<td>COPY 源文件/目录 目标文件/目录</td>
-<td>将本地主机上的文件/目录复制到目标地点，源文件/目录要与Dockerfile在相同的目录中</td>
-</tr>
-<tr>
-<td>VOLUME [“目录”]</td>
-<td>在容器中创建一个挂载点（VOLUME是宿主机中的某一个目录挂载到容器中）</td>
-</tr>
-<tr>
-<td>USER 用户名/UID</td>
-<td>指定运行容器时的用户</td>
-</tr>
-<tr>
-<td>WORKDIR 路径</td>
-<td>为后续的RUN、CMD、ENTRYPOINT指定工作目录（WORKDIR类似于cd，但是只切换目录一次，后续的RUN命令就可以写相对路径了）</td>
-</tr>
-<tr>
-<td>ONBUILD 命令</td>
-<td>指定所生成的镜像作为一个基础镜像时所要运行的命令</td>
-</tr>
-<tr>
-<td>HEALTHCHECK</td>
-<td>健康检查</td>
-</tr>
-<tr>
-<td>ENTRYPOINT</td>
-<td>指令和CMD类似，它也是用户指定容器启动时要执行的命令，但如果dockerfile中也有CMD指令，CMD中的参数会被附加到ENTRYPOINT指令的后面。 如果这时docker run命令带了参数，这个参数会覆盖掉CMD指令的参数，并也会附加到ENTRYPOINT 指令的后面。优先级：ENTRYPOINT&gt;CMD&gt;docker run</td>
-</tr>
-</tbody></table>
-<h3 id="启动执行脚本-ENTRYPOINT-CMD"><a href="#启动执行脚本-ENTRYPOINT-CMD" class="headerlink" title="启动执行脚本 ENTRYPOINT CMD"></a>启动执行脚本 ENTRYPOINT CMD</h3><p><img src="https://img.jbzj.com/file_images/article/201803/2018031211363722.png" alt="img"></p>
-<p><strong>shell 模式</strong></p>
-<p>使用 shell 模式时，docker 会以 <code>/bin/sh -c &quot;task command&quot;</code> 的方式执行任务命令</p>
-<p><strong>exec 模式</strong></p>
-<p>使用 exec 模式时，容器中的任务进程就是容器内的 1 号进程</p>
-<p>我们大概可以总结出下面几条规律：</p>
-<p>   • 如果 ENTRYPOINT 使用了 shell 模式，CMD 指令会被忽略。</p>
-<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 指定的内容被追加为 ENTRYPOINT 指定命令的参数。</p>
-<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 也应该使用 exec 模式。</p>
-<h3 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt; [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]</span><br></pre></td></tr></table></figure>
-
-<p> Dockerfile必须是以FROM指令开始</p>
-<p><code>ARG</code> 是唯一一个优先于 地位高于 FROM指令的，</p>
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ARG</span> VERSION=latest</span><br><span class="line"><span class="keyword">FROM</span> busybox:$VERSION</span><br><span class="line"><span class="keyword">ARG</span> VERSION</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="variable">$VERSION</span> &gt; image_version</span></span><br></pre></td></tr></table></figure>
-
-<p>–platform，指定镜像能被使用的平台信息，默认情况下是执行build request的平台信息被作为platform，如：linux/amd64<code>, </code>linux/arm64，windows/amd64</p>
-<p><code>as name</code>通查是可选的，他可以指定自定义构建步骤的名称</p>
-<h3 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h3><p>RUN指令执行有两种形式</p>
-<p>shell形式  RUN  <command>，此指令执行在shell上下文环境中，默认是 /bin/sh -c  ’code‘</p>
-<p>exec 形式 RUN  [“executable”, “param1”, “param2”]，exec 模式会将后续的参数解析成json 数组，也就是说我们的参数需要用双引号包括，而不是单引号。</p>
-<p>run命令的每次执行在当前镜像的最顶层生成新的层，并提交结果，并且将在下一个步骤中使用，也就是说每层之间是独立的，shell环境也是独立的。我们可以使用  <code>\</code> 来使用多行单指令 如：</p>
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; \</span></span></span><br><span class="line"><span class="string"><span class="language-bash">echo $HOME&#x27;</span></span></span><br><span class="line"><span class="comment">#两者含义相同</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; echo $HOME&#x27;</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><ul>
-<li><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code> exec模式</li>
-<li><code>CMD [&quot;param1&quot;,&quot;param2&quot;] 作为</code>ENTRYPOINT 的默认参数</li>
-<li><code>CMD command param1 param2</code> <em>shell</em> 模式</li>
-</ul>
-<p>不可将run与cmd指令混淆，run指令会执行命令，并提交结果，cmd并不执行任何东西，在构建的过程当中，他只指定镜像启动预期指令</p>
-<h3 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; </span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> <span class="string">&quot;com.example.vendor&quot;</span>=<span class="string">&quot;ACME Incorporated&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> com.example.label-with-value=<span class="string">&quot;foo&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;1.0&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;This text illustrates \</span></span></span><br><span class="line"><span class="string"><span class="language-bash">that label-values can span multiple lines.&quot;</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> multi.label1=<span class="string">&quot;value1&quot;</span> multi.label2=<span class="string">&quot;value2&quot;</span> other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> multi.label1=<span class="string">&quot;value1&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      multi.label2=<span class="string">&quot;value2&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
-
-<h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]</span><br></pre></td></tr></table></figure>
-
-<p>默认情况下expose 使用的tcp协议，也可以显示指定</p>
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/tcp</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/udp</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="language-bash"> -p 80:80/tcp -p 80:80/udp ...</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ENV</span> &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
-
-<p>env指令设置环境变量信息，那么环境变量信息，将存在于后续构建的各个阶段，</p>
-<p>可以通过运行镜像，并指定环境变零的方式对镜像中设置的环境变量进行变更<code>docker run --env &lt;key&gt;=&lt;value&gt;</code>.</p>
-<h3 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
-
-<p>–chown指令只支持linux系统上构建的镜像，在windows环境中并不工作，如果不指定用户或者用户组，默认使用 a UID and GID of 0</p>
-<p>src： 可使用通配符，并且路径都是相对于Context的相对路径</p>
-<p>​         网络上的远程文件url，如果url不是以斜线结尾，那么将被报错在dest目录下，如果是以斜线结尾，那么问题名称将被推理出来，</p>
-<p>​          如 ADD <a href="http://example.com/foobar/">http://example.com/foobar/</a>  将创建问文件  /foobar，URL必须有一个非平凡的路径，这样才能找到适当的文件名。<a href="http://example.com/">http://example.com</a> 不会工作</p>
-<p>​          文件必须存在于Context中，不能使用../ 因为build第一步是发送context到docker daemon程 序</p>
-<p>​          如果src是一个目录，那么目录的整个内容将被复制，COPY jdk /app/jdk</p>
-<p>​          如果src是一个压缩文件(identity, gzip, bzip2 or xz) ，那么src将被解压到目标目录</p>
-<p>dest： 目标路径如果不是以 / 开头的话是以WORKDIR为目录的相对路径</p>
-<p>​        如果dest不存在，那么整个路径将被创建</p>
-<p>​        如果dest不是以斜线结尾，那么dest将被认为是一个常规文件，src的内容将被写入到文件</p>
-<p>​        如果src是多个资源，或者使用了通配符，那么dest必须要以斜线结尾</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ADD hom* /mydir/</span><br><span class="line">ADD hom?.txt /mydir/</span><br><span class="line">ADD test.txt relativeDir/</span><br><span class="line">ADD test.txt /absoluteDir/</span><br><span class="line"></span><br><span class="line">ADD --chown=55:mygroup files* /somedir/</span><br><span class="line">ADD --chown=bin files* /somedir/</span><br><span class="line">ADD --chown=1 files* /somedir/</span><br><span class="line">ADD --chown=10:11 files* /somedir/</span><br></pre></td></tr></table></figure>
-
-<h3 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="language-bash"> [--<span class="built_in">chown</span>=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> [--<span class="built_in">chown</span>=&lt;user&gt;:&lt;group&gt;] [<span class="string">&quot;&lt;src&gt;&quot;</span>,... <span class="string">&quot;&lt;dest&gt;&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<p>src : 文件必须存在于Context中</p>
-<p>​        如果src是一个目录，那么他的内容和元数据信息将被拷贝到目标目录 COPY jdk /app/jdk</p>
-<p>​        如果src是一个文件，并且dest 是以斜线结尾，那么文件将被拷贝到目录下，如 dest/src </p>
-<p>dest: 如果目录不存在，那么整个文件目录将被创建</p>
-<p>​         如果dest没有是以斜杠结尾，那么他将被看做事一个普通文件，并且src将被写入到dest</p>
-<p>​          如果src是多资源文件，那么dest必须是以斜杠结尾</p>
-<h3 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a>ENTRYPOINT</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;executable&quot;</span>, <span class="string">&quot;param1&quot;</span>, <span class="string">&quot;param2&quot;</span>]   <span class="comment">#exec模式</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> <span class="built_in">command</span> param1 param2                <span class="comment">#shell模式</span></span></span><br></pre></td></tr></table></figure>
-
-<ol>
-<li>Dockerfile 最少需要制定一个CMD或者ENTRYPOINT指令</li>
-<li>当容器是可执行的情况下，应该定义ENTRYPOINT</li>
-<li>CMD应该被用来定义ENTRYPOINT 的默认参数，</li>
-<li>CMD参数可以在容器运行的时候被替换掉，ENTRYPOINT则不行</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="left"></th>
-<th align="left"><strong>No ENTRYPOINT</strong></th>
-<th align="left"><strong>ENTRYPOINT exec_entry p1_entry</strong></th>
-<th><strong>ENTRYPOINT [“exec_entry”, “p1_entry”]</strong></th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left"><strong>No CMD</strong></td>
-<td align="left"><em>error, not allowed</em></td>
-<td align="left">/bin/sh -c exec_entry p1_entry</td>
-<td>exec_entry p1_entry</td>
-</tr>
-<tr>
-<td align="left"><strong>CMD [“exec_cmd”, “p1_cmd”]</strong></td>
-<td align="left">exec_cmd p1_cmd</td>
-<td align="left">/bin/sh -c exec_entry p1_entry</td>
-<td>exec_entry p1_entry exec_cmd p1_cmd</td>
-</tr>
-<tr>
-<td align="left"><strong>CMD [“p1_cmd”, “p2_cmd”]</strong></td>
-<td align="left">p1_cmd p2_cmd</td>
-<td align="left">/bin/sh -c exec_entry p1_entry</td>
-<td>exec_entry p1_entry p1_cmd p2_cmd</td>
-</tr>
-<tr>
-<td align="left"><strong>CMD exec_cmd p1_cmd</strong></td>
-<td align="left">/bin/sh -c exec_cmd p1_cmd</td>
-<td align="left">/bin/sh -c exec_entry p1_entry</td>
-<td>exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd</td>
-</tr>
-</tbody></table>
-<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">VOLUME</span><span class="language-bash"> [<span class="string">&quot;/data&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<p>VOLUME指令将从本地主机或者其他的容器创建一个挂载点并使用给定的名称，他的值可以是一个json数组VOLUME [“/var/log/“]，或者是一个字符串 VOLUME /var/log。 或者是多个VOLUME /var/log /var/db。</p>
-<p>如果是基于windows的容器，那么这数据卷必须是一个不存在的或者是一个空的目录，并且是C盘以外的数据驱动</p>
-<p>volume在声明之后，如果在build的过程中的每一个步骤对volume内容的修改都将被忽略，</p>
-<p>声明的时候如果是json数据，必须是以双引号进行包括，而不是单引号</p>
-<p>VOLUME指令挂在的目录，并不能通过host_dir来指定映射到主机那个目录，他是在运行容器的时候才确定的，你必须指定一个挂载点，当你创建或者启动一个容器的时候，</p>
-<h3 id="USER"><a href="#USER" class="headerlink" title="USER"></a>USER</h3><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">USER</span> &lt;<span class="keyword">user</span>&gt;[:&lt;group&gt;]</span><br><span class="line"><span class="keyword">USER</span> &lt;UID&gt;[:&lt;GID&gt;]</span><br></pre></td></tr></table></figure>
-
-<h3 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ARG &lt;name&gt;[=&lt;default value&gt;]</span><br></pre></td></tr></table></figure>
-
-<p>ARG指令可以在构建的过程中定义一些参数，并设置一些默认值，并且在build的时候可以指定</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
-
-<p><strong>默认值；</strong>如果build的时候没有指定–build-arg user1=what_user 那么someuser将被作为默认值</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">ARG user1=someuser</span><br><span class="line">ARG buildno=1</span><br></pre></td></tr></table></figure>
-
-<p><strong>作用域：</strong>以下示例，第二行将使用some_user来作为值来使用，第四行将使用what_user，ARG指令定义的变量是从他定义的行开始生效的</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">USER $&#123;user:-some_user&#125;</span><br><span class="line">ARG user</span><br><span class="line">USER $user</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用ARG变量：</strong>ENV指令将会覆盖ARG同名参数，如下将使用v1.0.0，</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM ubuntu</span><br><span class="line">ARG CONT_IMG_VER</span><br><span class="line">ENV CONT_IMG_VER=v1.0.0</span><br><span class="line">RUN echo $CONT_IMG_VER</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg CONT_IMG_VER=v2.0.1 .</span><br></pre></td></tr></table></figure>
-
-<p><strong>ENV和ARG</strong>：ARG变量并不能像EVN环境变量那样保存在镜像之中</p>
-<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu</span><br><span class="line"><span class="keyword">ARG</span> CONT_IMG_VER</span><br><span class="line"><span class="keyword">ENV</span> CONT_IMG_VER=$&#123;CONT_IMG_VER:-v1.<span class="number">0.0</span>&#125;   <span class="comment">#可带有默认值</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="variable">$CONT_IMG_VER</span></span></span><br></pre></td></tr></table></figure>
-
-<p>Docker中包含一些默认的ARG参数，可以不用再Dockerfile中生命</p>
-<ul>
-<li><p><code>HTTP_PROXY</code></p>
-</li>
-<li><p><code>http_proxy</code></p>
-</li>
-<li><p><code>HTTPS_PROXY</code></p>
-</li>
-<li><p><code>https_proxy</code></p>
-</li>
-<li><p><code>FTP_PROXY</code></p>
-</li>
-<li><p><code>ftp_proxy</code></p>
-</li>
-<li><p><code>NO_PROXY</code></p>
-</li>
-<li><p><code>no_proxy</code></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">docker build --build-arg HTTPS_PROXY=https://my-proxy.example.com .</span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>Docker默认的ARG全局范围内的平台参数，这些参数是在全局范围中定义的，因此在构建阶段或运行命令中不自动可用。要在构建阶段中公开这些参数之一，请在没有值的情况下重新定义它</p>
-<ul>
-<li><p><code>TARGETPLATFORM</code> - platform of the build result. Eg <code>linux/amd64</code>, <code>linux/arm/v7</code>, <code>windows/amd64</code>.</p>
-</li>
-<li><p><code>TARGETOS</code> - OS component of TARGETPLATFORM</p>
-</li>
-<li><p><code>TARGETARCH</code> - architecture component of TARGETPLATFORM</p>
-</li>
-<li><p><code>TARGETVARIANT</code> - variant component of TARGETPLATFORM</p>
-</li>
-<li><p><code>BUILDPLATFORM</code> - platform of the node performing the build.</p>
-</li>
-<li><p><code>BUILDOS</code> - OS component of BUILDPLATFORM</p>
-</li>
-<li><p><code>BUILDARCH</code> - architecture component of BUILDPLATFORM</p>
-</li>
-<li><p><code>BUILDVARIANT</code> - variant component of BUILDPLATFORM</p>
-<p>如：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM alpine</span><br><span class="line">ARG TARGETPLATFORM</span><br><span class="line">RUN echo &quot;I&#x27;m building for $TARGETPLATFORM&quot;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="ONBUILD"><a href="#ONBUILD" class="headerlink" title="ONBUILD"></a>ONBUILD</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ONBUILD &lt;INSTRUCTION&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这是一个触发器指令，镜像构建时候定义，当别的镜像基于当前镜像进行构建的时候 ONBUILD指令将在FROM指令后首先触发基础镜像的ONBUILD指令，</p>
-<p>他注册了一个超前指令，并在之后运行，运行环境是构建容器的Context，如果有一个指令失败，那么FROM指令将是失败的</p>
-<p>他能在docker inspect指令中被观察到</p>
-<p>ONBUILD 只在直接FROM Dockerfile中生效，也就是多级A FROM B FROM C ,那么c的ONBILD 不会再A中生效</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ONBUILD ADD . /app/src</span><br><span class="line">ONBUILD RUN /usr/local/bin/python-build --dir /app/src</span><br></pre></td></tr></table></figure>
-
-<p>ONBUILD不支持连续使用，ONBUILD ONBUILD</p>
-<p>ONBUILD不会触发FROM 和 MAINTAINER指令</p>
-<h3 id="STOPSIGNAL"><a href="#STOPSIGNAL" class="headerlink" title="STOPSIGNAL"></a>STOPSIGNAL</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">STOPSIGNAL signal</span><br></pre></td></tr></table></figure>
-
-<p>默认的STOPSIGNAL 可以使用–stop-signal 标记，在docker run 和docker create 的时候修改掉</p>
-<h3 id="HEALTHCHECK"><a href="#HEALTHCHECK" class="headerlink" title="HEALTHCHECK"></a>HEALTHCHECK</h3><ul>
-<li><p><code>HEALTHCHECK [OPTIONS] CMD command</code> (check container health by running a command inside the container)</p>
-</li>
-<li><p><code>HEALTHCHECK NONE</code> (disable any healthcheck inherited from the base image)</p>
-<p>HEALTHCHECK 指令告诉Docker如何测试容器是否在工作。</p>
-<p>当指定了HEALTHCHECK 那么容器除了正常的状态，会添加一些健康状态，初始化是starting，当健康检查通过，状态为healthy，当经理了一系列的故障之后，将变更为unhealthy</p>
-<ul>
-<li><code>--interval=DURATION</code> (default: <code>30s</code>)</li>
-<li><code>--timeout=DURATION</code> (default: <code>30s</code>)</li>
-<li><code>--start-period=DURATION</code> (default: <code>0s</code>)</li>
-<li><code>--retries=N</code> (default: <code>3</code>)</li>
-</ul>
-</li>
-<li><p>0: success - the container is healthy and ready for use</p>
-</li>
-<li><p>1: unhealthy - the container is not working correctly</p>
-</li>
-<li><p>2: reserved - do not use this exit code 预留的状态</p>
-</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1</span><br></pre></td></tr></table></figure>
-
-<h3 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h3><p>shell指令运行将默认的shell进行调整，默认的linux shell 是[“/bin/sh”, “-c”] Windows 是<code>[&quot;cmd&quot;, &quot;/S&quot;, &quot;/C&quot;]</code></p>
-<p>shell ，在Dockerfile中必须是json模式的</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>链接Docker守护进程认证</title>
-    <url>/2021/11/07/docker/logindmauth/</url>
-    <content><![CDATA[<p><a href="https://docs.docker.com/engine/security/protect-access/">https://docs.docker.com/engine/security/protect-access/</a></p>
-<p>SSH保护</p>
-<p>TLS保护</p>
-<p>CA,SERVER和client keys</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>OpenSSL命令</title>
-    <url>/2022/05/30/tool/opensslcommon/</url>
-    <content><![CDATA[<p>查看ca证书的内容<br>openssl x509 -in ca.crt -noout -text</p>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>openssl</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自签名证书</title>
-    <url>/2022/05/30/tool/opensslzqm/</url>
-    <content><![CDATA[<h1 id="Centos7-环境下生成自签名SSL证书的具体过程："><a href="#Centos7-环境下生成自签名SSL证书的具体过程：" class="headerlink" title="Centos7 环境下生成自签名SSL证书的具体过程："></a>Centos7 环境下生成自签名SSL证书的具体过程：</h1><ol>
-<li><p>修改 openssl 配置文件<br>vi /etc/pki/tls/openssl.cnf<br>match 表示后续生成的子证书的对应项必须和创建根证书时填的值一样，否则报错。以下配置只规定子证书的 countryName 必须和根证书一致。<br>[policy_match] 段配置改成如下：<br>countryName = match<br>stateOrProvinceName = optional<br>organizationName = optional<br>organizationalUnitName = optional<br>commonName = supplied<br>emailAddress = optional</p>
-</li>
-<li><p>在服务器 pki 的 CA 目录下新建两个文件<br>cd /etc/pki/CA &amp;&amp; touch index.txt serial &amp;&amp; echo 01 &gt; serial</p>
-</li>
-<li><p>生成CA根证书密钥<br>cd /etc/pki/CA/ &amp;&amp; openssl genrsa -out private/cakey.pem 2048 &amp;&amp; chmod 400 private/cakey.pem</p>
-</li>
-<li><p>生成根证书（根据提示输入信息，除了 Country Name 选项需要记住的，后面的随便填）<br>openssl req -new -x509 -key private/cakey.pem -out cacert.pem</p>
-</li>
-<li><p>生成密钥文件<br>openssl genrsa -out nginx.key 2048</p>
-</li>
-<li><p>生成证书请求文件（CSR）:<br>A.根据提示输入信息，除了 Country Name 与前面根证书一致外，其他随便填写<br>B.Common Name 填写要保护的域名，比如：*.qhh.me<br>openssl req -new -key nginx.key -out nginx.csr</p>
-</li>
-<li><p>使用 openssl 签署 CSR 请求，生成证书<br>openssl ca -in nginx.csr -cert /etc/pki/CA/cacert.pem -keyfile /etc/pki/CA/private/cakey.pem -days 365 -out nginx.crt</p>
-</li>
-</ol>
-<blockquote>
-<p>参数项说明：</p>
-</blockquote>
-<ol>
-<li>-in: CSR 请求文件</li>
-<li>-cert: 用于签发的根 CA 证书</li>
-<li>-keyfile: 根 CA 的私钥文件</li>
-<li>-days: 生成的证书的有效天数</li>
-<li>-out: 生成证书的文件名</li>
-</ol>
-<p>至此自签名证书生成完成，最终需要：nginx.key 和 nginx.crt<br>8. 配置Nginx使用自签名证书</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen  80;</span><br><span class="line">  server_name     domain;</span><br><span class="line">  return  301     https://$host$request_uri;  # 表示强制将http请求重定向到https端口</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen  443 ssl;</span><br><span class="line">    ssl_certificate       ssl/nginx.crt; # 前面生成的 crt 证书文件</span><br><span class="line">    ssl_certificate_key   ssl/nginx.key; # 前面生成的证书私钥</span><br><span class="line">    server_name     domain;</span><br><span class="line">    location / &#123;</span><br><span class="line">    root /var/www-html;</span><br><span class="line">    index  index.html;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>openssl</tag>
       </tags>
   </entry>
   <entry>
@@ -2929,7 +2959,7 @@
 <p>jstat -gcutil 21891 250 7 #gc统计信息</p>
 </blockquote>
 <blockquote>
-<p>jstat -gcutil <a href="mailto:&#52;&#x30;&#x34;&#57;&#x36;&#64;&#x72;&#x65;&#109;&#x6f;&#x74;&#x65;&#x2e;&#100;&#x6f;&#109;&#97;&#105;&#x6e;">&#52;&#x30;&#x34;&#57;&#x36;&#64;&#x72;&#x65;&#109;&#x6f;&#x74;&#x65;&#x2e;&#100;&#x6f;&#109;&#97;&#105;&#x6e;</a> 1000 #监控远程服务</p>
+<p>jstat -gcutil <a href="mailto:&#x34;&#48;&#52;&#x39;&#54;&#64;&#x72;&#x65;&#109;&#x6f;&#116;&#101;&#46;&#100;&#111;&#x6d;&#97;&#x69;&#x6e;">&#x34;&#48;&#52;&#x39;&#54;&#64;&#x72;&#x65;&#109;&#x6f;&#116;&#101;&#46;&#100;&#111;&#x6d;&#97;&#x69;&#x6e;</a> 1000 #监控远程服务</p>
 </blockquote>
 <ol>
 <li>generalOption（常规命令行选项 statOption）</li>
@@ -2970,7 +3000,7 @@
 <p>在远端主机上，执行jsadebugd -J-Djava.rmi.server.hostname=12.3.10.105 pid serviceID 命令开启RMI Server（同时开启rmiregistry服务），并使用“remoteObject1”名称向rmiregistry服务注册所生成的Remote Object实例</p>
 </blockquote>
 <blockquote>
-<p>在本地主机上，执行jinfo/jmap/jstack <a href="mailto:&#115;&#101;&#x72;&#x76;&#x69;&#x63;&#101;&#73;&#x44;&#64;&#114;&#x65;&#109;&#111;&#116;&#101;&#115;&#x65;&#114;&#x76;&#x65;&#114;&#x2e;&#x68;&#x6f;&#115;&#x74;">&#115;&#101;&#x72;&#x76;&#x69;&#x63;&#101;&#73;&#x44;&#64;&#114;&#x65;&#109;&#111;&#116;&#101;&#115;&#x65;&#114;&#x76;&#x65;&#114;&#x2e;&#x68;&#x6f;&#115;&#x74;</a> 命令作为RMI Client与远端主机上的rmiregistry服务和RMI Server进行交互，而达到监控远端主机上相应JVM进程的目标。执行jinfo，jmap，jstack命令时可使用的选项参数可具体参考这些命令的“本地模式”用法</p>
+<p>在本地主机上，执行jinfo/jmap/jstack <a href="mailto:&#115;&#x65;&#114;&#x76;&#x69;&#x63;&#101;&#x49;&#68;&#x40;&#x72;&#x65;&#109;&#x6f;&#x74;&#x65;&#x73;&#x65;&#114;&#118;&#101;&#114;&#46;&#104;&#111;&#x73;&#116;">&#115;&#x65;&#114;&#x76;&#x69;&#x63;&#101;&#x49;&#68;&#x40;&#x72;&#x65;&#109;&#x6f;&#x74;&#x65;&#x73;&#x65;&#114;&#118;&#101;&#114;&#46;&#104;&#111;&#x73;&#116;</a> 命令作为RMI Client与远端主机上的rmiregistry服务和RMI Server进行交互，而达到监控远端主机上相应JVM进程的目标。执行jinfo，jmap，jstack命令时可使用的选项参数可具体参考这些命令的“本地模式”用法</p>
 </blockquote>
 <ul>
 <li><h3 id="jstack"><a href="#jstack" class="headerlink" title="jstack"></a>jstack</h3>打印给定进程或核心文件或远程调试服务器的线程堆栈跟踪。</li>
@@ -3018,6 +3048,65 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">jrunscript</span><br><span class="line">js&gt; print(&#x27;Hello World\n&#x27;);</span><br><span class="line">Hello World</span><br><span class="line">js&gt; 34 + 55</span><br><span class="line">89.0</span><br><span class="line">js&gt; t = new java.lang.Thread(function() &#123; print(&#x27;Hello World\n&#x27;); &#125;)</span><br><span class="line">Thread[Thread-0,5,main]</span><br><span class="line">js&gt; t.start()</span><br><span class="line">js&gt; Hello World</span><br><span class="line"></span><br><span class="line">js&gt;</span><br></pre></td></tr></table></figure>
 
 <p> <a href="https://docs.oracle.com/javase/7/docs/technotes/tools/share/jrunscript.html">参考文档</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+      </categories>
+      <tags>
+        <tag>jvm</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jprofiler</title>
+    <url>/2022/07/18/java/jvm/jprofiler/</url>
+    <content><![CDATA[<h1 id="1-核心组件"><a href="#1-核心组件" class="headerlink" title="1. 核心组件"></a>1. 核心组件</h1><p>JProfiler 包含用于采集目标 JVM 分析数据的 JProfiler agent、用于可视化分析数据的 JProfiler UI、提供各种功能的命令行工具.</p>
+<p>它们之间的关系如下图所示:</p>
+<img src="/2022/07/18/java/jvm/jprofiler/JPROFILER.png" class="" title="JPROFILER架构图">
+
+<h3 id="JProfiler-agent"><a href="#JProfiler-agent" class="headerlink" title="JProfiler agent"></a>JProfiler agent</h3><p>JProfiler agent 是一个本地库，它可以在 JVM 启动时通过参数-agentpath:<path to native library>进行加载或者在程序运行时通过 JVM Attach 机制进行加载。Agent 被成功加载后，会设置 JVMTI 环境，监听虚拟机产生的事件，如类加载、线程创建等。例如，当它监听到类加载事件后，会给这些类注入用于执行度量操作的字节码。</p>
+<h3 id="JProfiler-UI"><a href="#JProfiler-UI" class="headerlink" title="JProfiler UI"></a>JProfiler UI</h3><p>JProfiler UI 是一个可独立部署的组件，它通过 socket 和 agent 建立连接。这意味着不论目标 JVM 运行在本地还是远端，JProfiler UI 和 agent 间的通信机制都是一样的。</p>
+<p>JProfiler UI 的主要功能是展示通过 agent 采集上来的分析数据，此外还可以通过它控制 agent 的采集行为，将快照保存至磁盘，展示保存的快照。</p>
+<h3 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h3><p>JProfiler 提供了一系列命令行工具以实现不同的功能。</p>
+<p>jpcontroller - 用于控制 agent 的采集行为。它通过 agent 注册的 JProfiler MBean 向 agent 传递命令。</p>
+<p>jpenable - 用于将 agent 加载到一个正在运行的 JVM 上。</p>
+<p>jpdump - 用于获取正在运行的 JVM 的堆快照。</p>
+<p>jpexport &amp; jpcompare - 用于从保存的快照中提取数据并创建 HTML 报告。</p>
+<p>要想对一个JVM进行分析，JProfiler的分析代理必须被加载到该JVM中。这可以通过两种不同的方式实现： 通过在启动脚本中指定一个-agentpath VM参数，或者通过Attach API将代理加载到已经运行的JVM中</p>
+<p>两种模式JProfiler都支持。添加VM参数是分析的首选方式，集成向导、IDE插件和从JProfiler内启动JVM的会话配置都使用这种方式。 Attach既可在本地使用，也可通过SSH远程使用。</p>
+<h1 id="2-JProfiler-设置"><a href="#2-JProfiler-设置" class="headerlink" title="2. JProfiler 设置"></a>2. JProfiler 设置</h1><h2 id="数据采集模式"><a href="#数据采集模式" class="headerlink" title="数据采集模式"></a>数据采集模式</h2><p>JProfier 提供两种数据采集模式 Sampling 和 Instrumentation。</p>
+<ol>
+<li><p>Sampling（采样） - 适合于不要求数据完全精确的场景。优点是对系统性能的影响较小，缺点是某些特性不支持（如方法级别的统计信息）</p>
+</li>
+<li><p>Instrumentation（仪表） - 完整功能模式，统计信息也是精确的。缺点是如果需要分析的类比较多，对应用性能影响较大。为了降低影响，往往需要和 Filter 一起使用</p>
+</li>
+</ol>
+<h2 id="应用启动模式"><a href="#应用启动模式" class="headerlink" title="应用启动模式"></a>应用启动模式</h2><p>通过为 JProfiler agent 指定不同的参数可以控制应用的启动模式。</p>
+<ol>
+<li><p>等待模式 - 只有在 Jprofiler GUI 和 agent 建立连接并完成分析配置设置后，应用才会真正启动。在这种模式下，您能够获取应用启动时期的分析数据。对应的命令为-agentpath:<path to native library>=port=8849</p>
+</li>
+<li><p>立即启动模式 - 应用会立即启动，Jprofiler GUI 会在需要时和 agent 建立连接并设置分析配置。这种模式相对灵活，但会丢失应用启动初期的分析数据。对应的命令为-agentpath:<path to native library>=port=8849,nowait。</p>
+</li>
+</ol>
+<h1 id="3-agentpath-VM参数-启动profiler-agent"><a href="#3-agentpath-VM参数-启动profiler-agent" class="headerlink" title="3. -agentpath VM参数 启动profiler agent"></a>3. -agentpath VM参数 启动profiler agent</h1><p>-agentpath是JVM提供的一个通用VM参数，用于加载任何一种使用JVMTI接口的本地库。 由于分析接口JVMTI是一个本地接口，所以分析代理必须是一个本地库。这意味着你只能在 明确支持的平台上进行分析。 32位和64位JVM也需要不同的本地库。另外，Java代理是用-javaagent VM参数加载的，并且只能访问有限的功能。</p>
+<p>在-agentpath: 后面附加本地库的完整路径名。有一个等效参数-agentlib:， 你只需要指定特定平台的库名，但必须确保库路径中包含该库。在库的路径之后，你可以添加一个等号，并向代理传递选项，用逗号隔开。例如，在Linux上，整个参数看起来可能像这样：</p>
+<blockquote>
+<p>-agentpath:/opt/jprofiler10/bin/linux-x64/libjprofilerti.so=port=8849,nowait</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># jprofiler agent配置</span><br><span class="line">nohup java -agentpath:/usr/local/src/jprofiler12.0.4/bin/linux-x64/libjprofilerti.so=port=8849,nowait -jar -Xms256m -Xmx256m  ./$RESOURCE_NAME id.properties  &gt;/dev/null 2&gt;&amp;1  &amp;</span><br></pre></td></tr></table></figure>
+
+<p>第一个等号将路径名与参数分开，第二个等号是参数port=8849 的一部分。 这个常用参数定义了分析代理监听来自JProfiler GUI连接的端口，实际上8849是默认端口，所以也可以省略这个参数。 如果你想在同一台机器上分析多个JVM，必须分配不同端口， 不过IDE插件和本地启动的会话会自动分配这个端口，对于集成向导，你必须显式选择端口。</p>
+<p>第二个参数nowait告诉分析代理不要在启动时为了等待JProfiler GUI连接而阻塞JVM。 启动时的阻塞是默认的，因为分析代理不是以命令行参数的形式接收其分析设置，而是从JProfiler GUI或配置文件接收。 命令行参数仅用于引导分析代理，告诉它如何启动和传递调试标记。</p>
+<p>默认情况下，JProfiler代理将通信Socket绑定到所有可用的网络接口。如果出于安全原因不希望这样做， 你可以添加选项address=[IP地址]以便选择指定接口，或loopback 只监听来自本地机器的请求。对于通过JProfiler UI启动的或通过IDE集成的JVM，会自动添加loopback</p>
+<h1 id="4-jpenable-将-agent-加载到一个正在运行的-JVM-上"><a href="#4-jpenable-将-agent-加载到一个正在运行的-JVM-上" class="headerlink" title="4. jpenable 将 agent 加载到一个正在运行的 JVM 上"></a>4. jpenable 将 agent 加载到一个正在运行的 JVM 上</h1><ol>
+<li><p>服务器运行 jpenable</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">[root@localhost bin]# ./jpenable </span><br><span class="line">选择一个 JVM:</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [6221] [1]</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [9791] [2]</span><br><span class="line">org.elasticsearch.bootstrap.Elasticsearch -d [11417] [3]</span><br><span class="line">agentManageInternetCard-dubbo.jar [11778] [4]</span><br><span class="line">agentManageKafka-dubbo.jar [19613] [5]</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [20276] [6]</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [22974] [7]</span><br><span class="line">./agentManageJob.jar [24583] [8]</span><br><span class="line">./account-Job-1.0-SNAPSHOT.jar /us...project/job/id.properties [26293] [9]</span><br><span class="line">agentManageJobOrder-dubbo.jar [26438] [10]</span><br><span class="line">sun.tools.jstatd.Jstatd -p 10000 [27456] [11]</span><br><span class="line">agentManageAccount-dubbo.jar [27463] [12]</span><br><span class="line"></span><br><span class="line">8  # 选择添加agnet的进程</span><br><span class="line"></span><br><span class="line">请选择分析模式:</span><br><span class="line">GUI模式(与 JProfiler GUI Attach) [1, 回车(Enter)]</span><br><span class="line">离线模式(使用配置文件去设置分析设置) [2]</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">请输入分析端口</span><br><span class="line">[39923]</span><br><span class="line">1234</span><br><span class="line">你现在可以使用 JProfiler GUI 连接端口 1234</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p>Jprofiler ui Attach 到远程agnet</p>
+</li>
+</ol>
+<img src="/2022/07/18/java/jvm/jprofiler/jenable.png" class="" title="jenable">
+
+<p><a href="https://zhuanlan.zhihu.com/p/54274894">参考文档</a></p>
+<p><a href="https://www.ej-technologies.com/resources/jprofiler/help_zh_CN/doc/main/architecture.html">官方帮助文档</a></p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -3233,65 +3322,6 @@
 </ul>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line">rmiregistry&amp;</span><br><span class="line">jstatd -J-Djava.security.policy=all.policy</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这个例子演示了在端口2020上用外部RMI注册服务器启动jstatd。</span></span><br><span class="line">rmiregistry 2020&amp;</span><br><span class="line">jstatd -J-Djava.security.policy=all.policy -p 2020</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这个例子演示了在端口2020上用一个外部RMI注册表启动jstatd，绑定到名为AlternateJstatdServerName。</span></span><br><span class="line">rmiregistry 2020&amp;</span><br><span class="line">jstatd -J-Djava.security.policy=all.policy -p 2020 -n AlternateJstatdServerName</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这个例子演示了如何启动jstatd，如果没有找到RMI注册表，它就不会创建RMI注册表。这个例子假设RMI注册表已经在运行。如果不是，则会发出适当的错误消息。</span></span><br><span class="line">jstatd -J-Djava.security.policy=all.policy -nr</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">这个例子演示了在启用RMI日志功能的情况下启动jstatd。这项技术有助于故障排除或监控服务器活动</span></span><br><span class="line">jstatd -J-Djava.security.policy=all.policy -J-Djava.rmi.server.logCalls=true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>技术</category>
-      </categories>
-      <tags>
-        <tag>jvm</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jprofiler</title>
-    <url>/2022/07/18/java/jvm/jprofiler/</url>
-    <content><![CDATA[<h1 id="1-核心组件"><a href="#1-核心组件" class="headerlink" title="1. 核心组件"></a>1. 核心组件</h1><p>JProfiler 包含用于采集目标 JVM 分析数据的 JProfiler agent、用于可视化分析数据的 JProfiler UI、提供各种功能的命令行工具.</p>
-<p>它们之间的关系如下图所示:</p>
-<img src="/2022/07/18/java/jvm/jprofiler/JPROFILER.png" class="" title="JPROFILER架构图">
-
-<h3 id="JProfiler-agent"><a href="#JProfiler-agent" class="headerlink" title="JProfiler agent"></a>JProfiler agent</h3><p>JProfiler agent 是一个本地库，它可以在 JVM 启动时通过参数-agentpath:<path to native library>进行加载或者在程序运行时通过 JVM Attach 机制进行加载。Agent 被成功加载后，会设置 JVMTI 环境，监听虚拟机产生的事件，如类加载、线程创建等。例如，当它监听到类加载事件后，会给这些类注入用于执行度量操作的字节码。</p>
-<h3 id="JProfiler-UI"><a href="#JProfiler-UI" class="headerlink" title="JProfiler UI"></a>JProfiler UI</h3><p>JProfiler UI 是一个可独立部署的组件，它通过 socket 和 agent 建立连接。这意味着不论目标 JVM 运行在本地还是远端，JProfiler UI 和 agent 间的通信机制都是一样的。</p>
-<p>JProfiler UI 的主要功能是展示通过 agent 采集上来的分析数据，此外还可以通过它控制 agent 的采集行为，将快照保存至磁盘，展示保存的快照。</p>
-<h3 id="命令行工具"><a href="#命令行工具" class="headerlink" title="命令行工具"></a>命令行工具</h3><p>JProfiler 提供了一系列命令行工具以实现不同的功能。</p>
-<p>jpcontroller - 用于控制 agent 的采集行为。它通过 agent 注册的 JProfiler MBean 向 agent 传递命令。</p>
-<p>jpenable - 用于将 agent 加载到一个正在运行的 JVM 上。</p>
-<p>jpdump - 用于获取正在运行的 JVM 的堆快照。</p>
-<p>jpexport &amp; jpcompare - 用于从保存的快照中提取数据并创建 HTML 报告。</p>
-<p>要想对一个JVM进行分析，JProfiler的分析代理必须被加载到该JVM中。这可以通过两种不同的方式实现： 通过在启动脚本中指定一个-agentpath VM参数，或者通过Attach API将代理加载到已经运行的JVM中</p>
-<p>两种模式JProfiler都支持。添加VM参数是分析的首选方式，集成向导、IDE插件和从JProfiler内启动JVM的会话配置都使用这种方式。 Attach既可在本地使用，也可通过SSH远程使用。</p>
-<h1 id="2-JProfiler-设置"><a href="#2-JProfiler-设置" class="headerlink" title="2. JProfiler 设置"></a>2. JProfiler 设置</h1><h2 id="数据采集模式"><a href="#数据采集模式" class="headerlink" title="数据采集模式"></a>数据采集模式</h2><p>JProfier 提供两种数据采集模式 Sampling 和 Instrumentation。</p>
-<ol>
-<li><p>Sampling（采样） - 适合于不要求数据完全精确的场景。优点是对系统性能的影响较小，缺点是某些特性不支持（如方法级别的统计信息）</p>
-</li>
-<li><p>Instrumentation（仪表） - 完整功能模式，统计信息也是精确的。缺点是如果需要分析的类比较多，对应用性能影响较大。为了降低影响，往往需要和 Filter 一起使用</p>
-</li>
-</ol>
-<h2 id="应用启动模式"><a href="#应用启动模式" class="headerlink" title="应用启动模式"></a>应用启动模式</h2><p>通过为 JProfiler agent 指定不同的参数可以控制应用的启动模式。</p>
-<ol>
-<li><p>等待模式 - 只有在 Jprofiler GUI 和 agent 建立连接并完成分析配置设置后，应用才会真正启动。在这种模式下，您能够获取应用启动时期的分析数据。对应的命令为-agentpath:<path to native library>=port=8849</p>
-</li>
-<li><p>立即启动模式 - 应用会立即启动，Jprofiler GUI 会在需要时和 agent 建立连接并设置分析配置。这种模式相对灵活，但会丢失应用启动初期的分析数据。对应的命令为-agentpath:<path to native library>=port=8849,nowait。</p>
-</li>
-</ol>
-<h1 id="3-agentpath-VM参数-启动profiler-agent"><a href="#3-agentpath-VM参数-启动profiler-agent" class="headerlink" title="3. -agentpath VM参数 启动profiler agent"></a>3. -agentpath VM参数 启动profiler agent</h1><p>-agentpath是JVM提供的一个通用VM参数，用于加载任何一种使用JVMTI接口的本地库。 由于分析接口JVMTI是一个本地接口，所以分析代理必须是一个本地库。这意味着你只能在 明确支持的平台上进行分析。 32位和64位JVM也需要不同的本地库。另外，Java代理是用-javaagent VM参数加载的，并且只能访问有限的功能。</p>
-<p>在-agentpath: 后面附加本地库的完整路径名。有一个等效参数-agentlib:， 你只需要指定特定平台的库名，但必须确保库路径中包含该库。在库的路径之后，你可以添加一个等号，并向代理传递选项，用逗号隔开。例如，在Linux上，整个参数看起来可能像这样：</p>
-<blockquote>
-<p>-agentpath:/opt/jprofiler10/bin/linux-x64/libjprofilerti.so=port=8849,nowait</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># jprofiler agent配置</span><br><span class="line">nohup java -agentpath:/usr/local/src/jprofiler12.0.4/bin/linux-x64/libjprofilerti.so=port=8849,nowait -jar -Xms256m -Xmx256m  ./$RESOURCE_NAME id.properties  &gt;/dev/null 2&gt;&amp;1  &amp;</span><br></pre></td></tr></table></figure>
-
-<p>第一个等号将路径名与参数分开，第二个等号是参数port=8849 的一部分。 这个常用参数定义了分析代理监听来自JProfiler GUI连接的端口，实际上8849是默认端口，所以也可以省略这个参数。 如果你想在同一台机器上分析多个JVM，必须分配不同端口， 不过IDE插件和本地启动的会话会自动分配这个端口，对于集成向导，你必须显式选择端口。</p>
-<p>第二个参数nowait告诉分析代理不要在启动时为了等待JProfiler GUI连接而阻塞JVM。 启动时的阻塞是默认的，因为分析代理不是以命令行参数的形式接收其分析设置，而是从JProfiler GUI或配置文件接收。 命令行参数仅用于引导分析代理，告诉它如何启动和传递调试标记。</p>
-<p>默认情况下，JProfiler代理将通信Socket绑定到所有可用的网络接口。如果出于安全原因不希望这样做， 你可以添加选项address=[IP地址]以便选择指定接口，或loopback 只监听来自本地机器的请求。对于通过JProfiler UI启动的或通过IDE集成的JVM，会自动添加loopback</p>
-<h1 id="4-jpenable-将-agent-加载到一个正在运行的-JVM-上"><a href="#4-jpenable-将-agent-加载到一个正在运行的-JVM-上" class="headerlink" title="4. jpenable 将 agent 加载到一个正在运行的 JVM 上"></a>4. jpenable 将 agent 加载到一个正在运行的 JVM 上</h1><ol>
-<li><p>服务器运行 jpenable</p>
-<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">[root@localhost bin]# ./jpenable </span><br><span class="line">选择一个 JVM:</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [6221] [1]</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [9791] [2]</span><br><span class="line">org.elasticsearch.bootstrap.Elasticsearch -d [11417] [3]</span><br><span class="line">agentManageInternetCard-dubbo.jar [11778] [4]</span><br><span class="line">agentManageKafka-dubbo.jar [19613] [5]</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [20276] [6]</span><br><span class="line">org.apache.catalina.startup.Bootstrap start [22974] [7]</span><br><span class="line">./agentManageJob.jar [24583] [8]</span><br><span class="line">./account-Job-1.0-SNAPSHOT.jar /us...project/job/id.properties [26293] [9]</span><br><span class="line">agentManageJobOrder-dubbo.jar [26438] [10]</span><br><span class="line">sun.tools.jstatd.Jstatd -p 10000 [27456] [11]</span><br><span class="line">agentManageAccount-dubbo.jar [27463] [12]</span><br><span class="line"></span><br><span class="line">8  # 选择添加agnet的进程</span><br><span class="line"></span><br><span class="line">请选择分析模式:</span><br><span class="line">GUI模式(与 JProfiler GUI Attach) [1, 回车(Enter)]</span><br><span class="line">离线模式(使用配置文件去设置分析设置) [2]</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">请输入分析端口</span><br><span class="line">[39923]</span><br><span class="line">1234</span><br><span class="line">你现在可以使用 JProfiler GUI 连接端口 1234</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
-<li><p>Jprofiler ui Attach 到远程agnet</p>
-</li>
-</ol>
-<img src="/2022/07/18/java/jvm/jprofiler/jenable.png" class="" title="jenable">
-
-<p><a href="https://zhuanlan.zhihu.com/p/54274894">参考文档</a></p>
-<p><a href="https://www.ej-technologies.com/resources/jprofiler/help_zh_CN/doc/main/architecture.html">官方帮助文档</a></p>
 ]]></content>
       <categories>
         <category>技术</category>

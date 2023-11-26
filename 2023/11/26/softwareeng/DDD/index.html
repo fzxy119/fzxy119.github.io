@@ -4,23 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>如何做规划 | 别来无恙</title>
+  <title>保持模型的完整性 | 别来无恙</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="做事先规划是做事的一种方式 应该学会规划 由于早起工作的态度问题，在接到任务后就总是凑齐技术要素，知道别人要什么就着手开始做，并能很快的完成并交付任务，这是一种被动接受的心态，有时也做规划，但是规划的层次比较低，面向的都是结果。时间如梭，多年后发现，高层次规划是提升和锻炼自己很有效的方法，思考问题的方式从如何完成目标任务，到了解事件背景，解决什么问题，再到深层次目标，输入的问题更多，你做的规划方案">
+  <meta name="description" content="界限上下文之间的集成策略（界限上下文之间的关系）限界上下文定义领域边界，以确保每个上下文含义在它特定的边界内都具有唯一的含义，领域模型则存在于这个边界之内。不同的上下文之间出现相同含义的领域模型该如何保持每个上下文中的模型完整？新系统与老系统之间的集成该如何保证模型的完成？多个子系统集成该用那种策略？ 1. 共享内核模式(Shared Kernel)   提高服用能力，减少持续集成和模型转换所带来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何做规划">
-<meta property="og:url" content="http://example.com/2021/09/15/Knowledge/guihua/index.html">
+<meta property="og:title" content="保持模型的完整性">
+<meta property="og:url" content="http://example.com/2023/11/26/softwareeng/DDD/index.html">
 <meta property="og:site_name" content="别来无恙">
-<meta property="og:description" content="做事先规划是做事的一种方式 应该学会规划 由于早起工作的态度问题，在接到任务后就总是凑齐技术要素，知道别人要什么就着手开始做，并能很快的完成并交付任务，这是一种被动接受的心态，有时也做规划，但是规划的层次比较低，面向的都是结果。时间如梭，多年后发现，高层次规划是提升和锻炼自己很有效的方法，思考问题的方式从如何完成目标任务，到了解事件背景，解决什么问题，再到深层次目标，输入的问题更多，你做的规划方案">
+<meta property="og:description" content="界限上下文之间的集成策略（界限上下文之间的关系）限界上下文定义领域边界，以确保每个上下文含义在它特定的边界内都具有唯一的含义，领域模型则存在于这个边界之内。不同的上下文之间出现相同含义的领域模型该如何保持每个上下文中的模型完整？新系统与老系统之间的集成该如何保证模型的完成？多个子系统集成该用那种策略？ 1. 共享内核模式(Shared Kernel)   提高服用能力，减少持续集成和模型转换所带来">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2021/09/15/Knowledge/guihua/640.webp">
-<meta property="og:image" content="http://example.com/2021/09/15/Knowledge/guihua/641.webp">
-<meta property="article:published_time" content="2021-09-15T01:56:08.000Z">
-<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:published_time" content="2023-11-26T06:50:55.000Z">
+<meta property="article:modified_time" content="2023-11-26T09:18:28.206Z">
 <meta property="article:author" content="晓">
-<meta property="article:tag" content="Design">
+<meta property="article:tag" content="DDD">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2021/09/15/Knowledge/guihua/640.webp">
   
     <link rel="alternate" href="/atom.xml" title="别来无恙" type="application/atom+xml">
   
@@ -83,14 +80,14 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-Knowledge/guihua" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-softwareeng/DDD" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/09/15/Knowledge/guihua/" class="article-date">
-  <time class="dt-published" datetime="2021-09-15T01:56:08.000Z" itemprop="datePublished">2021-09-15</time>
+    <a href="/2023/11/26/softwareeng/DDD/" class="article-date">
+  <time class="dt-published" datetime="2023-11-26T06:50:55.000Z" itemprop="datePublished">2023-11-26</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E7%9F%A5%E8%AF%86/">知识</a>
+    <a class="article-category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/">软件工程</a>
   </div>
 
   </div>
@@ -101,7 +98,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      如何做规划
+      保持模型的完整性
     </h1>
   
 
@@ -109,51 +106,34 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><u><em><strong>做事先规划是做事的一种方式</strong></em></u></p>
-<h2 id="应该学会规划"><a href="#应该学会规划" class="headerlink" title="应该学会规划"></a>应该学会规划</h2><p style="text-indent:2em">
-由于早起工作的态度问题，在接到任务后就总是凑齐技术要素，知道别人要什么就着手开始做，并能很快的完成并交付任务，这是一种被动接受的心态，有时也做规划，但是规划的层次比较低，面向的都是结果。时间如梭，多年后发现，高层次规划是提升和锻炼自己很有效的方法，思考问题的方式从如何完成目标任务，到了解事件背景，解决什么问题，再到深层次目标，输入的问题更多，你做的规划方案也就不一样，技术选型也不一样，架构设计也不一样。
-</p>
-<p style="text-indent:2em">
-规划是输入问题经过思考后并给出解决问题实行方案的过程的结果，这个过程是通用的，是需要经过低层次规划到高层次规划锻炼才能熟练的，并且可以适用到大事小事，个人或者团队的事。
-</p>
-<span id="more"></span>
-
-<h2 id="规划具有重要的意义"><a href="#规划具有重要的意义" class="headerlink" title="规划具有重要的意义"></a>规划具有重要的意义</h2><h4 id="聚焦目标"><a href="#聚焦目标" class="headerlink" title="聚焦目标"></a>聚焦目标</h4><p style="text-indent:2em">
-规划的一个最为重要的作用就是让目标更清晰。团队里的人知道要做什么，有一部分人觉得迷茫，很大程度是目标不清楚，好像知道要做什么事，又不知道如何下手。这个目标可大可小，小的方面就是要完成一个项目或一个需求，大的方面就是要建立一套体系。笔者曾经就有这样的切身经历，有一段时间显得非常迷茫，不知道自己要做什么，人一迷茫就会焦虑。一旦有这样的状态，就要思考是不是目标不够清晰，目标度量是不是不够细。当目标明确之后，大家"心向一处想，劲往一处使"，这样的工作状态效率是非常高的，团队的氛围也是非常好的。
-</p>
-
-<h4 id="洞察背后逻辑"><a href="#洞察背后逻辑" class="headerlink" title="洞察背后逻辑"></a>洞察背后逻辑</h4><p style="text-indent:2em">
-规划出来的内容是结果，最为重要的是思考为什么要做这些事，背后的逻辑才是核心。分析当前的现状、痛点、业界发展状况……结合业务本身，去做一些决策、取舍。不同的人思考出发点不一样，大家在一起碰撞时，会有一些想法闪现出来，也是思想的交流。我们做事不仅仅要懂得how，更要懂得why，当把why讲清楚之后，how也就是水到渠成的事，往往我们的一个困惑是不知道why。
-</p>
-
-<h4 id="知晓未来方向"><a href="#知晓未来方向" class="headerlink" title="知晓未来方向"></a>知晓未来方向</h4><p style="text-indent:2em">
-规划有短期规划，也有长期规划，一般笔者是先思考长期规划，思考3年之后，我们要具备怎样的能力，再回到短期上，我们当下这个阶段要做到怎样的程度。有些事不紧急，但很重要，可以放晚一点做；有的事非常重要，又非常紧急，优先级就要提高。当我们知道了方向之后，即使当下没有去做一些事，也知道将来我们要做成什么样。以笔者的过往经历，一个团队有一两年的长远规划，团队里的成员达成共识之后，这个团队在一两年内是稳定的，因为大家知道两年之后我们会做成什么样，远方一直有一个目标在照亮着我们，大家一起努力不断逼近那个目标。
-</p>
-<img src="/2021/09/15/Knowledge/guihua/640.webp" class="" title="规划">
-
-
-<h2 id="规划的两种思维"><a href="#规划的两种思维" class="headerlink" title="规划的两种思维"></a>规划的两种思维</h2><h4 id="归纳思维"><a href="#归纳思维" class="headerlink" title="归纳思维"></a>归纳思维</h4><p style="text-indent:2em">规划使用的第一种思维是归纳法。这是大家最常用的方法，一般是从现状出发，思考当下有哪些问题、业界是怎么做的，从这些输入中去归纳我们需要去做什么。比如当下工单咨询比较多，那么就需要对工单进行分类，如归纳成产品设计问题、程序代码问题、依赖方问题、交互设计问题，针对每类问题，再去思考我们应该要做到哪些工作。在店铺平台建设中的规划中，我们就梳理了当下的一些痛点问题，如平台只有一些基础的能力，没有给业务方提供强大的能力支撑，那么接下来就要加强店铺能力建设，丰富店铺能力。</p>
-<p style="text-indent:2em">归纳思维有一个缺点就是就事论事，解决了表层的问题，比如竞品有什么，我们没有该项能力，是不是我们就要去做同样的事。归纳思维要配合深度思考一起做规划设计，真正挖掘出我们当下的痛点是什么，比如一个工单，用户只会提出他遇到了什么问题，此时就要深入分析它的root cause，有的时候只需要一个清晰的提示文案就可能解决用户的问题。</p>
-
-<h4 id="演绎思维"><a href="#演绎思维" class="headerlink" title="演绎思维"></a>演绎思维</h4><p style="text-indent:2em">规划使用的第二种思维是演绎思维。演绎思维是一种更高级的思维模式，它需要一个人对事物有非常深刻的认识，当洞察出了底层的规律之后，再去思考我们要做什么。一般的人并不习惯用这种思维模式，它对人的要求非常高，一旦掌握之后，规划也就容易得多，很多科学家更偏向使用演绎思维。</p>
-<p style="text-indent:2em">在店铺规划中，笔者就运用了演绎的思维。比如在规划之前，笔者就思考两个问题：店铺的本质是什么、店铺要提供的商业价值是什么。当把这两个问题想清楚之后，沿着价值方向去思考我们应该要给用户提供怎样的能力，这是一步一步推导出来的。店铺的本质是一个"场"，它连接了卖家和买家。针对这两种角色，卖家最为关注的是怎么使用得好店铺，包含使用得爽、店铺转化好；买家最为关注的是怎么通过最少的钱、最少的时间买到心仪的商品。沿着卖家和买家关注点，继续思考我们怎么让卖家用得爽、用得好呢？其中一个点是我们要知道卖家现在有哪些不好的体验，一定要能度量得出来，而不是定性地去分析，当定量地度量出体验指标之后，这样就可以非常有针对性地去做一些体验优化工作。站在买家的角度，可以给买家一些优惠，让他更愿意购物，这也即是我们规划店铺营销的初衷。</p>
-
-<img src="/2021/09/15/Knowledge/guihua/641.webp" class="" title="规划">
-
-
-
-
-
-<blockquote><footer><strong>阿里技术</strong><cite><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/LILm--w9vj_K7qjI4EakBw">如何做规划？分享2种思维和4个方法</a></cite></footer></blockquote>
+        <h2 id="界限上下文之间的集成策略（界限上下文之间的关系）"><a href="#界限上下文之间的集成策略（界限上下文之间的关系）" class="headerlink" title="界限上下文之间的集成策略（界限上下文之间的关系）"></a>界限上下文之间的集成策略（界限上下文之间的关系）</h2><p>限界上下文定义领域边界，以确保每个上下文含义在它特定的边界内都具有唯一的含义，领域模型则存在于这个边界之内。<br>不同的上下文之间出现相同含义的领域模型该如何保持每个上下文中的模型完整？新系统与老系统之间的集成该如何保证模型的完成？多个子系统集成该用那种策略？</p>
+<h3 id="1-共享内核模式-Shared-Kernel"><a href="#1-共享内核模式-Shared-Kernel" class="headerlink" title="1. 共享内核模式(Shared Kernel)"></a>1. 共享内核模式(Shared Kernel)</h3><p>   提高服用能力，减少持续集成和模型转换所带来的开销，是共享内核模式主要目的</p>
+<p>   当不同的团队开发一些紧密相关的应用程序时，如果团队之间不进行协调，即使短时间内能够有快速的进展，但是他们开发出来的产品可能也无法结合到一起，最后可能不得不耗费大量精力进行模型转换，这也是持续集成的必要性。</p>
+<p>   在很多项目中，不同的团队能够共享基础设施，领域工作也可以采用类似的方式，以得到很好的效果。因为保持模型和代码的完全同步的开销可能太高了，但从系统中仔细挑选出一部分保持同步，就能以较小的代价获得较大的收益。</p>
+<p>   因此<br>   从领域模型中挑选出两个团队都同意共享的子集，除了模型还有代码子集，数据库设计子集，来作为共享的基础设施，这部分明确共享的内容具有特殊的地位，团队之间如果没有商量好的情况下事不应擅自更改。<br>   这要求两个团队之间需要紧密的合作关系</p>
+<h3 id="2-客户供应商模式（Customer-Supplier）"><a href="#2-客户供应商模式（Customer-Supplier）" class="headerlink" title="2. 客户供应商模式（Customer/Supplier）"></a>2. 客户供应商模式（Customer/Supplier）</h3><p>   明确客户供应商关系是关键</p>
+<p>   在很多项目中，如果下游团队对比变更具有否决权，或请求并更的程序爱太复杂，那么上游团队的开发自由度就会很受限制。由于担心破坏下系统，上游团队甚至会受到抑制。同时由于上游团队掌握优先权，下游团队有时候也无能为力。（下游团队依赖上游团队，但是上游团队却不负责下游团队的产品交付）</p>
+<p>   因此<br>   在两个团队之间建立一个明确的客户供应商关系，在计划会议中，下游团队相当于上游团队的客户。根据下游团队的需求来协商需要执行的任务。<br>   两个团队需要归属于同一个管理者指挥</p>
+<h3 id="3-追随者模式（Conformist）"><a href="#3-追随者模式（Conformist）" class="headerlink" title="3. 追随者模式（Conformist）"></a>3. 追随者模式（Conformist）</h3><p>   当两个团队并不归属于同一管理者指挥，两个团队在管理层次中相各很远，或者主管不关心两个团队之间的关系，客户供应商模式将无法达到其效果。<br>   也许上游团队成员做出承诺，但他们可能不会履行承诺。下游团队项目只能被搁置，直到最终学会利用现有条件自力更生。</p>
+<p>   有三种解决途径<br>   1). 完全放弃上游，<br>       做这种选择时候，绝不要假定上游会满足下游系统需求，有时候我们会高估这种依赖的价值，低估他的成本。<br>   2). 上游模型设计难用，自行设计模型，并负责模型转换<br>   3). 上游设计质量不是很差，而且风格也能兼容，最好不要再次开发独立模型，可采用追随者模式</p>
+<p>   因此<br>   通过严格遵从上游团队的模型，可以消除在上下文之间进行转换的复杂性，尽管这会限制下游设计人员的风格，而且不会得到很理想的模型，但他简化了集成。</p>
+<h3 id="4-防腐层模式（Anti-corruption-layer）"><a href="#4-防腐层模式（Anti-corruption-layer）" class="headerlink" title="4. 防腐层模式（Anti-corruption layer）"></a>4. 防腐层模式（Anti-corruption layer）</h3><p>   新系统集成遗留系统或与其他系统集成，这些系统都有自己的模型，当把参与集成的界限上下文实际完善并且团队相互合作时，转换层可能很简单，甚至很优雅。而且当边界那侧发生渗透<br>   时，转换层就要承担起更多的防护职责。</p>
+<blockquote>
+<p>①遗留系统模型偏弱，②模型转换简单，③团队相互配合，防腐层还有防止模型侵入的优点</p>
+</blockquote>
+<p>   因此<br>   创建一个隔离层，以便根据客户自己的领域模型为客户相关功能，这个层通过另一个系统现有接口与其进行对话，而只需要对那个系统做出少量修改甚至无需修改。在内部这个层在两个模型之间进行必要的双向转换。</p>
+<p>   实现：门面模式（Facade） 适配器模式(Adapter)</p>
+<h3 id="5-开放主机模式-（OPENHOST）"><a href="#5-开放主机模式-（OPENHOST）" class="headerlink" title="5. 开放主机模式 （OPENHOST）"></a>5. 开放主机模式 （OPENHOST）</h3><p>   一次性集成可以采用防腐层的方式开发对应的模型转换，但是当遇到子系统要与大量的其他系统集成的时候，为每个集成都定制一个转换层可能会减慢团队的工作进度。<br>   团队可能正在反复坐着同样的事情，如果一个子系统有某种内聚性，那么或者可以把他描述为一组Service,这组Service满足了其他子系统的公共需求。</p>
+<p>   因此<br>   定义一个协议，把子系统作为一组service供其他系统访问（可通过某种配置定位服务），开放协议，以便所有需要与你的子系统集成的人都可以使用它。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/09/15/Knowledge/guihua/" data-id="clpfb6uh60003toqwcd0h9tsn" data-title="如何做规划" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2023/11/26/softwareeng/DDD/" data-id="clpfb6uhn0022toqwee0m4ie5" data-title="保持模型的完整性" class="article-share-link">分享</a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/" rel="tag">Design</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDD/" rel="tag">DDD</a></li></ul>
 
     </footer>
   </div>
@@ -161,19 +141,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2021/09/15/java/Interviewquestions/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          问题归类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2021/09/13/java/Designprinciples/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">面向对象设计中的要素与原则有哪些</div>
+      <div class="article-nav-title">软件过程模型之RUP</div>
     </a>
   
 </nav>
