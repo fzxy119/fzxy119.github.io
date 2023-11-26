@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="[TOC]   Docker镜像的创建方法基于Dockerfile进行创建，docker build . 基于容器进行创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="镜像构建">
+<meta property="og:url" content="http://example.com/2021/10/28/docker/imagebuild/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="[TOC]   Docker镜像的创建方法基于Dockerfile进行创建，docker build . 基于容器进行创建">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/10/28/docker/imagebuild/576507.png">
+<meta property="og:image" content="https://img.jbzj.com/file_images/article/201803/2018031211363722.png">
+<meta property="article:published_time" content="2021-10-28T10:04:19.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/10/28/docker/imagebuild/576507.png">
+
+
+<link rel="canonical" href="http://example.com/2021/10/28/docker/imagebuild/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/10/28/docker/imagebuild/","path":"2021/10/28/docker/imagebuild/","title":"镜像构建"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>镜像构建 | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E9%95%9C%E5%83%8F%E7%9A%84%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">Docker镜像的创建方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8EDockerfile%E5%88%9B%E5%BB%BA"><span class="nav-number">2.</span> <span class="nav-text">基于Dockerfile创建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile%E6%9E%84%E5%BB%BA%E9%9C%80%E8%A6%81%E7%9A%84%E4%BF%A1%E6%81%AF%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">Dockerfile构建需要的信息：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%B8%AADockerfile%E4%BE%8B%E5%AD%90"><span class="nav-number">2.2.</span> <span class="nav-text">一个Dockerfile例子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8Cdocker%E5%91%BD%E4%BB%A4%E6%9D%A5%E5%88%9B%E5%BB%BAdocker%E9%95%9C%E5%83%8F"><span class="nav-number">2.3.</span> <span class="nav-text">执行docker命令来创建docker镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dockerignore"><span class="nav-number">2.4.</span> <span class="nav-text">.dockerignore</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">指令解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dockerfile%E5%91%BD%E4%BB%A4%E5%88%97%E8%A1%A8"><span class="nav-number">3.1.</span> <span class="nav-text">Dockerfile命令列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC-ENTRYPOINT-CMD"><span class="nav-number">3.2.</span> <span class="nav-text">启动执行脚本 ENTRYPOINT CMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FROM"><span class="nav-number">3.3.</span> <span class="nav-text">FROM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RUN"><span class="nav-number">3.4.</span> <span class="nav-text">RUN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMD"><span class="nav-number">3.5.</span> <span class="nav-text">CMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LABEL"><span class="nav-number">3.6.</span> <span class="nav-text">LABEL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#EXPOSE"><span class="nav-number">3.7.</span> <span class="nav-text">EXPOSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ENV"><span class="nav-number">3.8.</span> <span class="nav-text">ENV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ADD"><span class="nav-number">3.9.</span> <span class="nav-text">ADD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#COPY"><span class="nav-number">3.10.</span> <span class="nav-text">COPY</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ENTRYPOINT"><span class="nav-number">3.11.</span> <span class="nav-text">ENTRYPOINT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VOLUME"><span class="nav-number">3.12.</span> <span class="nav-text">VOLUME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#USER"><span class="nav-number">3.13.</span> <span class="nav-text">USER</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ARG"><span class="nav-number">3.14.</span> <span class="nav-text">ARG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ONBUILD"><span class="nav-number">3.15.</span> <span class="nav-text">ONBUILD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#STOPSIGNAL"><span class="nav-number">3.16.</span> <span class="nav-text">STOPSIGNAL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HEALTHCHECK"><span class="nav-number">3.17.</span> <span class="nav-text">HEALTHCHECK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SHELL"><span class="nav-number">3.18.</span> <span class="nav-text">SHELL</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/28/docker/imagebuild/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="镜像构建 | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          镜像构建
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-28 18:04:19" itemprop="dateCreated datePublished" datetime="2021-10-28T18:04:19+08:00">2021-10-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>[TOC]</p>
+<img src="/2021/10/28/docker/imagebuild/576507.png" class="" title="docker架构图">
+
+<h2 id="Docker镜像的创建方法"><a href="#Docker镜像的创建方法" class="headerlink" title="Docker镜像的创建方法"></a>Docker镜像的创建方法</h2><p>基于Dockerfile进行创建，docker build .</p>
+<p>基于容器进行创建</p>
+<span id="more"></span>
+
+
+
+<h2 id="基于Dockerfile创建"><a href="#基于Dockerfile创建" class="headerlink" title="基于Dockerfile创建"></a>基于Dockerfile创建</h2><h3 id="Dockerfile构建需要的信息："><a href="#Dockerfile构建需要的信息：" class="headerlink" title="Dockerfile构建需要的信息："></a>Dockerfile构建需要的信息：</h3><p><strong>Dockerfile、Context 和 .dockerignore</strong>，build指令的执行时在Dorker daemon程序中，第一步就是地递归的将环境Context发送到daemon段，通常情况下会采用一个空的目录作为Context,并将Dockerfile文件至于Context目录中</p>
+<p>通常情况下Context下要有一个名称为Dockerfile的文件，可以通过-f 指定任意位置的Dockerfile 文件</p>
+<p>我们可以通过.dockerignore文件忽略上下文环境下的文件和目录</p>
+<p>我们可以通过-t 来指定新的镜像的repository和标签信息,可以指定多个 -t 来对多个repository仓库的镜像image进行打标签</p>
+<p>如：docker build -t shykes/myapp:1.0.2 -t shykes/myapp:latest .</p>
+<h3 id="一个Dockerfile例子"><a href="#一个Dockerfile例子" class="headerlink" title="一个Dockerfile例子"></a>一个Dockerfile例子</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> centos:<span class="number">7</span></span><br><span class="line"><span class="keyword">MAINTAINER</span> chenxiao@ruiyinxin.com</span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;0.2&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;测试创建sentinel&quot;</span></span></span><br><span class="line"><span class="keyword">VOLUME</span><span class="language-bash"> [<span class="string">&quot;/home/tomcat/log/&quot;</span>]</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">mkdir</span> -p /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> jdk /app/jdk</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> sentinel-dashboard.jar /app/</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> run.sh /app</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">chmod</span> 777 /app/run.sh</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="string">&#x27;Asia/Shanghai&#x27;</span> &gt;/etc/timezone</span></span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /app/jdk</span><br><span class="line"><span class="keyword">ENV</span> PATH $PATH:$JAVA_HOME/bin</span><br><span class="line"><span class="keyword">ENV</span> CLASSPATH .:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8088</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"><span class="comment">#CMD [&quot;sh&quot;,&quot;run.sh&quot;]</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;./run.sh&quot;</span>]</span></span><br><span class="line"><span class="comment">#ENTRYPOINT [&quot;./run.sh&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">! /bin/sh</span></span><br><span class="line">java -jar -Dspring.profiles.active=test sentinel-dashboard.jar</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行docker命令来创建docker镜像"><a href="#执行docker命令来创建docker镜像" class="headerlink" title="执行docker命令来创建docker镜像"></a>执行docker命令来创建docker镜像</h3><p>命令格式为 docker build -t ImageName:TagName    Dir</p>
+<ul>
+<li><code>-t</code> − 给镜像加一个Tag</li>
+<li><code>ImageName</code> − 给镜像起的名称</li>
+<li><code>TagName</code> − 给镜像的Tag名</li>
+<li><code>Dir</code> − Dockerfile所在目录</li>
+</ul>
+<p>docker build -t bd/sentineld  .</p>
+<ul>
+<li><code>.</code> 表示当前目录，即Dockerfile所在目录</li>
+</ul>
+<h3 id="dockerignore"><a href="#dockerignore" class="headerlink" title=".dockerignore"></a>.dockerignore</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># comment</span><br><span class="line">*/temp*</span><br><span class="line">*/*/temp*</span><br><span class="line">temp?</span><br></pre></td></tr></table></figure>
+
+
+
+<table>
+<thead>
+<tr>
+<th><code># comment</code></th>
+<th>Ignored.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>*/temp*</code></td>
+<td>Exclude files and directories whose names start with <code>temp</code> in any immediate subdirectory of the root. For example, the plain file <code>/somedir/temporary.txt</code> is excluded, as is the directory <code>/somedir/temp</code>.</td>
+</tr>
+<tr>
+<td><code>*/*/temp*</code></td>
+<td>Exclude files and directories starting with <code>temp</code> from any subdirectory that is two levels below the root. For example, <code>/somedir/subdir/temporary.txt</code> is excluded.</td>
+</tr>
+<tr>
+<td><code>temp?</code></td>
+<td>Exclude files and directories in the root directory whose names are a one-character extension of <code>temp</code>. For example, <code>/tempa</code> and <code>/tempb</code>are excluded.</td>
+</tr>
+</tbody></table>
+<h2 id="指令解析"><a href="#指令解析" class="headerlink" title="指令解析"></a>指令解析</h2><h3 id="Dockerfile命令列表"><a href="#Dockerfile命令列表" class="headerlink" title="Dockerfile命令列表"></a>Dockerfile命令列表</h3><table>
+<thead>
+<tr>
+<th><strong>指令</strong></th>
+<th><strong>含义</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>FROM 镜像</td>
+<td>指定新镜像所基于的镜像，第一条指令必须为FROM指令，每创建一个镜像就需要一条FROM指令</td>
+</tr>
+<tr>
+<td>MAINTAINER 名字</td>
+<td>说明新镜像的维护人信息</td>
+</tr>
+<tr>
+<td>RUN命令</td>
+<td>在所基于的镜像上执行命令，并提交到新的镜像中</td>
+</tr>
+<tr>
+<td>CMD [“要运行的程序”,“参数1”,“参数2”]</td>
+<td>指令启动容器时要运行的命令或者脚本，Dockerfile只能有一条CMD命令，如果指定多条则只能最后一条被执行，</td>
+</tr>
+<tr>
+<td>EXPOSE 端口号</td>
+<td>指定新镜像加载到Docker时要开启的端口（EXPOSE暴露的是容器内部端口，需要再映射到一个外部端口上）</td>
+</tr>
+<tr>
+<td>ENV 环境变量 变量值</td>
+<td>设置一个环境变量的值，会被后面的RUN使用</td>
+</tr>
+<tr>
+<td>ADD 源文件/目录 目标文件/目录</td>
+<td>将源文件复制到目标文件（与COPY的区别是将本地tar文件解压到镜像中）</td>
+</tr>
+<tr>
+<td>COPY 源文件/目录 目标文件/目录</td>
+<td>将本地主机上的文件/目录复制到目标地点，源文件/目录要与Dockerfile在相同的目录中</td>
+</tr>
+<tr>
+<td>VOLUME [“目录”]</td>
+<td>在容器中创建一个挂载点（VOLUME是宿主机中的某一个目录挂载到容器中）</td>
+</tr>
+<tr>
+<td>USER 用户名/UID</td>
+<td>指定运行容器时的用户</td>
+</tr>
+<tr>
+<td>WORKDIR 路径</td>
+<td>为后续的RUN、CMD、ENTRYPOINT指定工作目录（WORKDIR类似于cd，但是只切换目录一次，后续的RUN命令就可以写相对路径了）</td>
+</tr>
+<tr>
+<td>ONBUILD 命令</td>
+<td>指定所生成的镜像作为一个基础镜像时所要运行的命令</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>健康检查</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>指令和CMD类似，它也是用户指定容器启动时要执行的命令，但如果dockerfile中也有CMD指令，CMD中的参数会被附加到ENTRYPOINT指令的后面。 如果这时docker run命令带了参数，这个参数会覆盖掉CMD指令的参数，并也会附加到ENTRYPOINT 指令的后面。优先级：ENTRYPOINT&gt;CMD&gt;docker run</td>
+</tr>
+</tbody></table>
+<h3 id="启动执行脚本-ENTRYPOINT-CMD"><a href="#启动执行脚本-ENTRYPOINT-CMD" class="headerlink" title="启动执行脚本 ENTRYPOINT CMD"></a>启动执行脚本 ENTRYPOINT CMD</h3><p><img src="https://img.jbzj.com/file_images/article/201803/2018031211363722.png" alt="img"></p>
+<p><strong>shell 模式</strong></p>
+<p>使用 shell 模式时，docker 会以 <code>/bin/sh -c &quot;task command&quot;</code> 的方式执行任务命令</p>
+<p><strong>exec 模式</strong></p>
+<p>使用 exec 模式时，容器中的任务进程就是容器内的 1 号进程</p>
+<p>我们大概可以总结出下面几条规律：</p>
+<p>   • 如果 ENTRYPOINT 使用了 shell 模式，CMD 指令会被忽略。</p>
+<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 指定的内容被追加为 ENTRYPOINT 指定命令的参数。</p>
+<p>   • 如果 ENTRYPOINT 使用了 exec 模式，CMD 也应该使用 exec 模式。</p>
+<h3 id="FROM"><a href="#FROM" class="headerlink" title="FROM"></a>FROM</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt; [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[:&lt;tag&gt;] [AS &lt;name&gt;]</span><br><span class="line"><span class="keyword">FROM</span> [--platform=&lt;platform&gt;] &lt;image&gt;[@&lt;digest&gt;] [AS &lt;name&gt;]</span><br></pre></td></tr></table></figure>
+
+<p> Dockerfile必须是以FROM指令开始</p>
+<p><code>ARG</code> 是唯一一个优先于 地位高于 FROM指令的，</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ARG</span> VERSION=latest</span><br><span class="line"><span class="keyword">FROM</span> busybox:$VERSION</span><br><span class="line"><span class="keyword">ARG</span> VERSION</span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="variable">$VERSION</span> &gt; image_version</span></span><br></pre></td></tr></table></figure>
+
+<p>–platform，指定镜像能被使用的平台信息，默认情况下是执行build request的平台信息被作为platform，如：linux/amd64<code>, </code>linux/arm64，windows/amd64</p>
+<p><code>as name</code>通查是可选的，他可以指定自定义构建步骤的名称</p>
+<h3 id="RUN"><a href="#RUN" class="headerlink" title="RUN"></a>RUN</h3><p>RUN指令执行有两种形式</p>
+<p>shell形式  RUN  <command>，此指令执行在shell上下文环境中，默认是 /bin/sh -c  ’code‘</p>
+<p>exec 形式 RUN  [“executable”, “param1”, “param2”]，exec 模式会将后续的参数解析成json 数组，也就是说我们的参数需要用双引号包括，而不是单引号。</p>
+<p>run命令的每次执行在当前镜像的最顶层生成新的层，并提交结果，并且将在下一个步骤中使用，也就是说每层之间是独立的，shell环境也是独立的。我们可以使用  <code>\</code> 来使用多行单指令 如：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; \</span></span></span><br><span class="line"><span class="string"><span class="language-bash">echo $HOME&#x27;</span></span></span><br><span class="line"><span class="comment">#两者含义相同</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> /bin/bash -c <span class="string">&#x27;source $HOME/.bashrc; echo $HOME&#x27;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD"></a>CMD</h3><ul>
+<li><code>CMD [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code> exec模式</li>
+<li><code>CMD [&quot;param1&quot;,&quot;param2&quot;] 作为</code>ENTRYPOINT 的默认参数</li>
+<li><code>CMD command param1 param2</code> <em>shell</em> 模式</li>
+</ul>
+<p>不可将run与cmd指令混淆，run指令会执行命令，并提交结果，cmd并不执行任何东西，在构建的过程当中，他只指定镜像启动预期指令</p>
+<h3 id="LABEL"><a href="#LABEL" class="headerlink" title="LABEL"></a>LABEL</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; </span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> <span class="string">&quot;com.example.vendor&quot;</span>=<span class="string">&quot;ACME Incorporated&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> com.example.label-with-value=<span class="string">&quot;foo&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> version=<span class="string">&quot;1.0&quot;</span></span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> description=<span class="string">&quot;This text illustrates \</span></span></span><br><span class="line"><span class="string"><span class="language-bash">that label-values can span multiple lines.&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> multi.label1=<span class="string">&quot;value1&quot;</span> multi.label2=<span class="string">&quot;value2&quot;</span> other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> multi.label1=<span class="string">&quot;value1&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      multi.label2=<span class="string">&quot;value2&quot;</span> \</span></span><br><span class="line"><span class="language-bash">      other=<span class="string">&quot;value3&quot;</span></span></span><br></pre></td></tr></table></figure>
+
+<h3 id="EXPOSE"><a href="#EXPOSE" class="headerlink" title="EXPOSE"></a>EXPOSE</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> &lt;port&gt; [&lt;port&gt;/&lt;protocol&gt;...]</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下expose 使用的tcp协议，也可以显示指定</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/tcp</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">80</span>/udp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">run</span><span class="language-bash"> -p 80:80/tcp -p 80:80/udp ...</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="ENV"><a href="#ENV" class="headerlink" title="ENV"></a>ENV</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ENV</span> &lt;key&gt;=&lt;value&gt; ...</span><br></pre></td></tr></table></figure>
+
+<p>env指令设置环境变量信息，那么环境变量信息，将存在于后续构建的各个阶段，</p>
+<p>可以通过运行镜像，并指定环境变零的方式对镜像中设置的环境变量进行变更<code>docker run --env &lt;key&gt;=&lt;value&gt;</code>.</p>
+<h3 id="ADD"><a href="#ADD" class="headerlink" title="ADD"></a>ADD</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span><br><span class="line">ADD [--chown=&lt;user&gt;:&lt;group&gt;] [&quot;&lt;src&gt;&quot;,... &quot;&lt;dest&gt;&quot;]</span><br></pre></td></tr></table></figure>
+
+<p>–chown指令只支持linux系统上构建的镜像，在windows环境中并不工作，如果不指定用户或者用户组，默认使用 a UID and GID of 0</p>
+<p>src： 可使用通配符，并且路径都是相对于Context的相对路径</p>
+<p>​         网络上的远程文件url，如果url不是以斜线结尾，那么将被报错在dest目录下，如果是以斜线结尾，那么问题名称将被推理出来，</p>
+<p>​          如 ADD <a href="http://example.com/foobar/">http://example.com/foobar/</a>  将创建问文件  /foobar，URL必须有一个非平凡的路径，这样才能找到适当的文件名。<a href="http://example.com/">http://example.com</a> 不会工作</p>
+<p>​          文件必须存在于Context中，不能使用../ 因为build第一步是发送context到docker daemon程 序</p>
+<p>​          如果src是一个目录，那么目录的整个内容将被复制，COPY jdk /app/jdk</p>
+<p>​          如果src是一个压缩文件(identity, gzip, bzip2 or xz) ，那么src将被解压到目标目录</p>
+<p>dest： 目标路径如果不是以 / 开头的话是以WORKDIR为目录的相对路径</p>
+<p>​        如果dest不存在，那么整个路径将被创建</p>
+<p>​        如果dest不是以斜线结尾，那么dest将被认为是一个常规文件，src的内容将被写入到文件</p>
+<p>​        如果src是多个资源，或者使用了通配符，那么dest必须要以斜线结尾</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ADD hom* /mydir/</span><br><span class="line">ADD hom?.txt /mydir/</span><br><span class="line">ADD test.txt relativeDir/</span><br><span class="line">ADD test.txt /absoluteDir/</span><br><span class="line"></span><br><span class="line">ADD --chown=55:mygroup files* /somedir/</span><br><span class="line">ADD --chown=bin files* /somedir/</span><br><span class="line">ADD --chown=1 files* /somedir/</span><br><span class="line">ADD --chown=10:11 files* /somedir/</span><br></pre></td></tr></table></figure>
+
+<h3 id="COPY"><a href="#COPY" class="headerlink" title="COPY"></a>COPY</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">COPY</span><span class="language-bash"> [--<span class="built_in">chown</span>=&lt;user&gt;:&lt;group&gt;] &lt;src&gt;... &lt;dest&gt;</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> [--<span class="built_in">chown</span>=&lt;user&gt;:&lt;group&gt;] [<span class="string">&quot;&lt;src&gt;&quot;</span>,... <span class="string">&quot;&lt;dest&gt;&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>src : 文件必须存在于Context中</p>
+<p>​        如果src是一个目录，那么他的内容和元数据信息将被拷贝到目标目录 COPY jdk /app/jdk</p>
+<p>​        如果src是一个文件，并且dest 是以斜线结尾，那么文件将被拷贝到目录下，如 dest/src </p>
+<p>dest: 如果目录不存在，那么整个文件目录将被创建</p>
+<p>​         如果dest没有是以斜杠结尾，那么他将被看做事一个普通文件，并且src将被写入到dest</p>
+<p>​          如果src是多资源文件，那么dest必须是以斜杠结尾</p>
+<h3 id="ENTRYPOINT"><a href="#ENTRYPOINT" class="headerlink" title="ENTRYPOINT"></a>ENTRYPOINT</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;executable&quot;</span>, <span class="string">&quot;param1&quot;</span>, <span class="string">&quot;param2&quot;</span>]   <span class="comment">#exec模式</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> <span class="built_in">command</span> param1 param2                <span class="comment">#shell模式</span></span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>Dockerfile 最少需要制定一个CMD或者ENTRYPOINT指令</li>
+<li>当容器是可执行的情况下，应该定义ENTRYPOINT</li>
+<li>CMD应该被用来定义ENTRYPOINT 的默认参数，</li>
+<li>CMD参数可以在容器运行的时候被替换掉，ENTRYPOINT则不行</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left"><strong>No ENTRYPOINT</strong></th>
+<th align="left"><strong>ENTRYPOINT exec_entry p1_entry</strong></th>
+<th><strong>ENTRYPOINT [“exec_entry”, “p1_entry”]</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>No CMD</strong></td>
+<td align="left"><em>error, not allowed</em></td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD [“exec_cmd”, “p1_cmd”]</strong></td>
+<td align="left">exec_cmd p1_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry exec_cmd p1_cmd</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD [“p1_cmd”, “p2_cmd”]</strong></td>
+<td align="left">p1_cmd p2_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry p1_cmd p2_cmd</td>
+</tr>
+<tr>
+<td align="left"><strong>CMD exec_cmd p1_cmd</strong></td>
+<td align="left">/bin/sh -c exec_cmd p1_cmd</td>
+<td align="left">/bin/sh -c exec_entry p1_entry</td>
+<td>exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd</td>
+</tr>
+</tbody></table>
+<h3 id="VOLUME"><a href="#VOLUME" class="headerlink" title="VOLUME"></a>VOLUME</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">VOLUME</span><span class="language-bash"> [<span class="string">&quot;/data&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>VOLUME指令将从本地主机或者其他的容器创建一个挂载点并使用给定的名称，他的值可以是一个json数组VOLUME [“/var/log/“]，或者是一个字符串 VOLUME /var/log。 或者是多个VOLUME /var/log /var/db。</p>
+<p>如果是基于windows的容器，那么这数据卷必须是一个不存在的或者是一个空的目录，并且是C盘以外的数据驱动</p>
+<p>volume在声明之后，如果在build的过程中的每一个步骤对volume内容的修改都将被忽略，</p>
+<p>声明的时候如果是json数据，必须是以双引号进行包括，而不是单引号</p>
+<p>VOLUME指令挂在的目录，并不能通过host_dir来指定映射到主机那个目录，他是在运行容器的时候才确定的，你必须指定一个挂载点，当你创建或者启动一个容器的时候，</p>
+<h3 id="USER"><a href="#USER" class="headerlink" title="USER"></a>USER</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">USER</span> &lt;<span class="keyword">user</span>&gt;[:&lt;group&gt;]</span><br><span class="line"><span class="keyword">USER</span> &lt;UID&gt;[:&lt;GID&gt;]</span><br></pre></td></tr></table></figure>
+
+<h3 id="ARG"><a href="#ARG" class="headerlink" title="ARG"></a>ARG</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ARG &lt;name&gt;[=&lt;default value&gt;]</span><br></pre></td></tr></table></figure>
+
+<p>ARG指令可以在构建的过程中定义一些参数，并设置一些默认值，并且在build的时候可以指定</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
+
+<p><strong>默认值；</strong>如果build的时候没有指定–build-arg user1=what_user 那么someuser将被作为默认值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">ARG user1=someuser</span><br><span class="line">ARG buildno=1</span><br></pre></td></tr></table></figure>
+
+<p><strong>作用域：</strong>以下示例，第二行将使用some_user来作为值来使用，第四行将使用what_user，ARG指令定义的变量是从他定义的行开始生效的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM busybox</span><br><span class="line">USER $&#123;user:-some_user&#125;</span><br><span class="line">ARG user</span><br><span class="line">USER $user</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg user=what_user .</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用ARG变量：</strong>ENV指令将会覆盖ARG同名参数，如下将使用v1.0.0，</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu</span><br><span class="line">ARG CONT_IMG_VER</span><br><span class="line">ENV CONT_IMG_VER=v1.0.0</span><br><span class="line">RUN echo $CONT_IMG_VER</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg CONT_IMG_VER=v2.0.1 .</span><br></pre></td></tr></table></figure>
+
+<p><strong>ENV和ARG</strong>：ARG变量并不能像EVN环境变量那样保存在镜像之中</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> ubuntu</span><br><span class="line"><span class="keyword">ARG</span> CONT_IMG_VER</span><br><span class="line"><span class="keyword">ENV</span> CONT_IMG_VER=$&#123;CONT_IMG_VER:-v1.<span class="number">0.0</span>&#125;   <span class="comment">#可带有默认值</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="variable">$CONT_IMG_VER</span></span></span><br></pre></td></tr></table></figure>
+
+<p>Docker中包含一些默认的ARG参数，可以不用再Dockerfile中生命</p>
+<ul>
+<li><p><code>HTTP_PROXY</code></p>
+</li>
+<li><p><code>http_proxy</code></p>
+</li>
+<li><p><code>HTTPS_PROXY</code></p>
+</li>
+<li><p><code>https_proxy</code></p>
+</li>
+<li><p><code>FTP_PROXY</code></p>
+</li>
+<li><p><code>ftp_proxy</code></p>
+</li>
+<li><p><code>NO_PROXY</code></p>
+</li>
+<li><p><code>no_proxy</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --build-arg HTTPS_PROXY=https://my-proxy.example.com .</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>Docker默认的ARG全局范围内的平台参数，这些参数是在全局范围中定义的，因此在构建阶段或运行命令中不自动可用。要在构建阶段中公开这些参数之一，请在没有值的情况下重新定义它</p>
+<ul>
+<li><p><code>TARGETPLATFORM</code> - platform of the build result. Eg <code>linux/amd64</code>, <code>linux/arm/v7</code>, <code>windows/amd64</code>.</p>
+</li>
+<li><p><code>TARGETOS</code> - OS component of TARGETPLATFORM</p>
+</li>
+<li><p><code>TARGETARCH</code> - architecture component of TARGETPLATFORM</p>
+</li>
+<li><p><code>TARGETVARIANT</code> - variant component of TARGETPLATFORM</p>
+</li>
+<li><p><code>BUILDPLATFORM</code> - platform of the node performing the build.</p>
+</li>
+<li><p><code>BUILDOS</code> - OS component of BUILDPLATFORM</p>
+</li>
+<li><p><code>BUILDARCH</code> - architecture component of BUILDPLATFORM</p>
+</li>
+<li><p><code>BUILDVARIANT</code> - variant component of BUILDPLATFORM</p>
+<p>如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine</span><br><span class="line">ARG TARGETPLATFORM</span><br><span class="line">RUN echo &quot;I&#x27;m building for $TARGETPLATFORM&quot;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="ONBUILD"><a href="#ONBUILD" class="headerlink" title="ONBUILD"></a>ONBUILD</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ONBUILD &lt;INSTRUCTION&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个触发器指令，镜像构建时候定义，当别的镜像基于当前镜像进行构建的时候 ONBUILD指令将在FROM指令后首先触发基础镜像的ONBUILD指令，</p>
+<p>他注册了一个超前指令，并在之后运行，运行环境是构建容器的Context，如果有一个指令失败，那么FROM指令将是失败的</p>
+<p>他能在docker inspect指令中被观察到</p>
+<p>ONBUILD 只在直接FROM Dockerfile中生效，也就是多级A FROM B FROM C ,那么c的ONBILD 不会再A中生效</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ONBUILD ADD . /app/src</span><br><span class="line">ONBUILD RUN /usr/local/bin/python-build --dir /app/src</span><br></pre></td></tr></table></figure>
+
+<p>ONBUILD不支持连续使用，ONBUILD ONBUILD</p>
+<p>ONBUILD不会触发FROM 和 MAINTAINER指令</p>
+<h3 id="STOPSIGNAL"><a href="#STOPSIGNAL" class="headerlink" title="STOPSIGNAL"></a>STOPSIGNAL</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">STOPSIGNAL signal</span><br></pre></td></tr></table></figure>
+
+<p>默认的STOPSIGNAL 可以使用–stop-signal 标记，在docker run 和docker create 的时候修改掉</p>
+<h3 id="HEALTHCHECK"><a href="#HEALTHCHECK" class="headerlink" title="HEALTHCHECK"></a>HEALTHCHECK</h3><ul>
+<li><p><code>HEALTHCHECK [OPTIONS] CMD command</code> (check container health by running a command inside the container)</p>
+</li>
+<li><p><code>HEALTHCHECK NONE</code> (disable any healthcheck inherited from the base image)</p>
+<p>HEALTHCHECK 指令告诉Docker如何测试容器是否在工作。</p>
+<p>当指定了HEALTHCHECK 那么容器除了正常的状态，会添加一些健康状态，初始化是starting，当健康检查通过，状态为healthy，当经理了一系列的故障之后，将变更为unhealthy</p>
+<ul>
+<li><code>--interval=DURATION</code> (default: <code>30s</code>)</li>
+<li><code>--timeout=DURATION</code> (default: <code>30s</code>)</li>
+<li><code>--start-period=DURATION</code> (default: <code>0s</code>)</li>
+<li><code>--retries=N</code> (default: <code>3</code>)</li>
+</ul>
+</li>
+<li><p>0: success - the container is healthy and ready for use</p>
+</li>
+<li><p>1: unhealthy - the container is not working correctly</p>
+</li>
+<li><p>2: reserved - do not use this exit code 预留的状态</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HEALTHCHECK --interval=5m --timeout=3s CMD curl -f http://localhost/ || exit 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="SHELL"><a href="#SHELL" class="headerlink" title="SHELL"></a>SHELL</h3><p>shell指令运行将默认的shell进行调整，默认的linux shell 是[“/bin/sh”, “-c”] Windows 是<code>[&quot;cmd&quot;, &quot;/S&quot;, &quot;/C&quot;]</code></p>
+<p>shell ，在Dockerfile中必须是json模式的</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"><i class="fa fa-tag"></i> Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/22/java/redisha/" rel="prev" title="Redis高可用">
+                  <i class="fa fa-angle-left"></i> Redis高可用
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/11/05/spring/sentinel/" rel="next" title="Sentinel">
+                  Sentinel <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

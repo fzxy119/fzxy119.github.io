@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JAVA 自带工具 监控工具 故障排除工具 Java故障排除、分析、监控和管理工具 程方法调用(RMI)工具 国际化工具 基础工具 安全 脚本工具  一. 监控工具 jps   JVM进程状态工具——列出目标系统上已检测的HotSpot Java虚拟机    jps [ options ] [ hostid ]    hostid -&gt; ([protocol:][[&#x2F;&#x2F;]hostname][">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA自带工具命令">
+<meta property="og:url" content="http://example.com/2022/07/18/java/jvm/javatoll/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="JAVA 自带工具 监控工具 故障排除工具 Java故障排除、分析、监控和管理工具 程方法调用(RMI)工具 国际化工具 基础工具 安全 脚本工具  一. 监控工具 jps   JVM进程状态工具——列出目标系统上已检测的HotSpot Java虚拟机    jps [ options ] [ hostid ]    hostid -&gt; ([protocol:][[&#x2F;&#x2F;]hostname][">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-18T01:46:01.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="jvm">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/07/18/java/jvm/javatoll/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/18/java/jvm/javatoll/","path":"2022/07/18/java/jvm/javatoll/","title":"JAVA自带工具命令"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>JAVA自带工具命令 | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-%E8%87%AA%E5%B8%A6%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">JAVA 自带工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-%E7%9B%91%E6%8E%A7%E5%B7%A5%E5%85%B7"><span class="nav-number">1.1.</span> <span class="nav-text">一. 监控工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jps"><span class="nav-number">1.1.1.</span> <span class="nav-text">jps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jstat"><span class="nav-number">1.1.2.</span> <span class="nav-text">jstat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jstatd"><span class="nav-number">1.1.3.</span> <span class="nav-text">jstatd</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C-%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E5%B7%A5%E5%85%B7"><span class="nav-number">1.2.</span> <span class="nav-text">二. 故障排除工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#jinfo"><span class="nav-number">1.2.1.</span> <span class="nav-text">jinfo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jhat"><span class="nav-number">1.2.2.</span> <span class="nav-text">jhat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jmap"><span class="nav-number">1.2.3.</span> <span class="nav-text">jmap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsadebugd"><span class="nav-number">1.2.4.</span> <span class="nav-text">jsadebugd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jstack"><span class="nav-number">1.2.5.</span> <span class="nav-text">jstack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89-Java%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4%E3%80%81%E5%88%86%E6%9E%90%E3%80%81%E7%9B%91%E6%8E%A7%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="nav-number">1.3.</span> <span class="nav-text">三. Java故障排除、分析、监控和管理工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B-%E7%A8%8B%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8-RMI-%E5%B7%A5%E5%85%B7"><span class="nav-number">1.4.</span> <span class="nav-text">四. 程方法调用(RMI)工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94-%E5%9B%BD%E9%99%85%E5%8C%96%E5%B7%A5%E5%85%B7"><span class="nav-number">1.5.</span> <span class="nav-text">五. 国际化工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD-%E5%9F%BA%E7%A1%80%E5%B7%A5%E5%85%B7"><span class="nav-number">1.6.</span> <span class="nav-text">六. 基础工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83-%E5%AE%89%E5%85%A8"><span class="nav-number">1.7.</span> <span class="nav-text">七. 安全</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB-%E8%84%9A%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="nav-number">1.8.</span> <span class="nav-text">八. 脚本工具</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/18/java/jvm/javatoll/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="JAVA自带工具命令 | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JAVA自带工具命令
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-18 09:46:01" itemprop="dateCreated datePublished" datetime="2022-07-18T09:46:01+08:00">2022-07-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="JAVA-自带工具"><a href="#JAVA-自带工具" class="headerlink" title="JAVA 自带工具"></a>JAVA 自带工具</h1><ol>
+<li>监控工具</li>
+<li>故障排除工具</li>
+<li>Java故障排除、分析、监控和管理工具</li>
+<li>程方法调用(RMI)工具</li>
+<li>国际化工具</li>
+<li>基础工具</li>
+<li>安全</li>
+<li>脚本工具</li>
+</ol>
+<h2 id="一-监控工具"><a href="#一-监控工具" class="headerlink" title="一. 监控工具"></a>一. 监控工具</h2><ul>
+<li><h3 id="jps"><a href="#jps" class="headerlink" title="jps"></a>jps</h3></li>
+</ul>
+<blockquote>
+<p>JVM进程状态工具——列出目标系统上已检测的HotSpot Java虚拟机    jps [ options ] [ hostid ] </p>
+</blockquote>
+<blockquote>
+<p>hostid -&gt; ([protocol:][[//]hostname][:port][/servername])  </p>
+</blockquote>
+<blockquote>
+<p>protocol 默认为rmi</p>
+</blockquote>
+<blockquote>
+<p>servername 此参数的处理取决于实现。对于优化的本地协议，该字段被忽略。对于rmi协议，该参数是一个字符串，表示远程主机上RMI远程对象的名称。请参见jstatd命令的-n选项</p>
+</blockquote>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出传递给main方法的参数。对于嵌入式JVM，输出可能为空</span></span><br><span class="line">jps -m</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出传递给JVM的参数。</span></span><br><span class="line">jps -v</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">服务器上启动jstatd 链接远程服务器</span></span><br><span class="line">jps -v rmi://12.3.10.105:10000</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出应用程序主类的完整包名或应用程序JAR文件的完整路径名。</span></span><br><span class="line">jps -l</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="jstat"><a href="#jstat" class="headerlink" title="jstat"></a>jstat</h3></li>
+</ul>
+<blockquote>
+<p>jstat [ generalOption | outputOptions vmid [interval[s|ms] [count]] ]</p>
+</blockquote>
+<blockquote>
+<p>vmid  =&gt;  [protocol:][//]lvmid[@hostname[:port]/servername]</p>
+</blockquote>
+<p>一些常用的工具</p>
+<blockquote>
+<p>jstat -gcnew -h 3 21891 250 #年轻代统计</p>
+</blockquote>
+<blockquote>
+<p>jstat -gcutil 21891 250 7 #gc统计信息</p>
+</blockquote>
+<blockquote>
+<p>jstat -gcutil <a href="mailto:&#52;&#x30;&#x34;&#57;&#x36;&#64;&#x72;&#x65;&#109;&#x6f;&#x74;&#x65;&#x2e;&#100;&#x6f;&#109;&#97;&#105;&#x6e;">&#52;&#x30;&#x34;&#57;&#x36;&#64;&#x72;&#x65;&#109;&#x6f;&#x74;&#x65;&#x2e;&#100;&#x6f;&#109;&#97;&#105;&#x6e;</a> 1000 #监控远程服务</p>
+</blockquote>
+<ol>
+<li>generalOption（常规命令行选项 statOption）</li>
+</ol>
+<p> 一个常规命令行选项(-help或-options)  jstat -options<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-class</span><br><span class="line">-compiler</span><br><span class="line">-gc</span><br><span class="line">-gccapacity</span><br><span class="line">-gccause</span><br><span class="line">-gcnew</span><br><span class="line">-gcnewcapacity</span><br><span class="line">-gcold</span><br><span class="line">-gcoldcapacity</span><br><span class="line">-gcpermcapacity</span><br><span class="line">-gcutil</span><br><span class="line">-printcompilation</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>outputOptions （输出格式选项）<br>一个或多个输出选项，由单个statOption加上-t、-h和-J选项组成。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-h n</span><br><span class="line"></span><br><span class="line">每n个样本(输出行)显示一个列标题，其中n是正整数。默认值为0，表示在第一行数据上方显示列标题</span><br><span class="line"></span><br><span class="line">如：jstat -gcutil -h 2 24583 1000 10 （每两行输出一下标题）</span><br><span class="line"></span><br><span class="line">-t</span><br><span class="line"></span><br><span class="line">将时间戳列显示为输出的第一列。时间戳是自目标JVM启动以来的时间。</span><br><span class="line"></span><br><span class="line">-JjavaOption</span><br><span class="line">将javaOption传递给java应用程序启动器。例如，-J-Xms48m将启动内存设置为48兆字节。有关选项的完整列表，请参见Java-Java应用程序启动器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+下表总结了jstat为每个statOption输出的列。<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">-class Option  类加载统计</span><br><span class="line">Column	Description</span><br><span class="line">Loaded	Number of classes loaded.</span><br><span class="line">Bytes	Number of Kbytes loaded.</span><br><span class="line">Unloaded	Number of classes unloaded.</span><br><span class="line">Bytes	Number of Kbytes unloaded.</span><br><span class="line">Time	Time spent performing class load and unload operations.</span><br><span class="line"></span><br><span class="line">-compiler Option  HotSpot Just-In-Time Compiler Statistics JIT编译统计</span><br><span class="line">Column	Description</span><br><span class="line">Compiled	Number of compilation tasks performed.</span><br><span class="line">Failed	Number of compilation tasks that failed.</span><br><span class="line">Invalid	Number of compilation tasks that were invalidated.</span><br><span class="line">Time	Time spent performing compilation tasks.</span><br><span class="line">FailedType	Compile type of the last failed compilation.</span><br><span class="line">FailedMethod	Class name and method for the last failed compilation.</span><br><span class="line"></span><br><span class="line">-gc Option 垃圾收集的堆统计信息</span><br><span class="line">Column	Description</span><br><span class="line">S0C	Current survivor space 0 capacity (KB).</span><br><span class="line">S1C	Current survivor space 1 capacity (KB).</span><br><span class="line">S0U	Survivor space 0 utilization (KB).</span><br><span class="line">S1U	Survivor space 1 utilization (KB).</span><br><span class="line">EC	Current eden space capacity (KB).</span><br><span class="line">EU	Eden space utilization (KB).</span><br><span class="line">OC	Current old space capacity (KB).</span><br><span class="line">OU	Old space utilization (KB).</span><br><span class="line">PC	Current permanent space capacity (KB).</span><br><span class="line">PU	Permanent space utilization (KB).</span><br><span class="line">YGC	Number of young generation GC Events.</span><br><span class="line">YGCT	Young generation garbage collection time.</span><br><span class="line">FGC	Number of full GC events.</span><br><span class="line">FGCT	Full garbage collection time.</span><br><span class="line">GCT	Total garbage collection time.</span><br><span class="line"></span><br><span class="line">-gccapacity Option  各代内存池和空间容量</span><br><span class="line">Column	Description</span><br><span class="line">NGCMN	Minimum new generation capacity (KB).</span><br><span class="line">NGCMX	Maximum new generation capacity (KB).</span><br><span class="line">NGC	Current new generation capacity (KB).</span><br><span class="line">S0C	Current survivor space 0 capacity (KB).</span><br><span class="line">S1C	Current survivor space 1 capacity (KB).</span><br><span class="line">EC	Current eden space capacity (KB).</span><br><span class="line">OGCMN	Minimum old generation capacity (KB).</span><br><span class="line">OGCMX	Maximum old generation capacity (KB).</span><br><span class="line">OGC	Current old generation capacity (KB).</span><br><span class="line">OC	Current old space capacity (KB).</span><br><span class="line">PGCMN	Minimum permanent generation capacity (KB).</span><br><span class="line">PGCMX	Maximum Permanent generation capacity (KB).</span><br><span class="line">PGC	Current Permanent generation capacity (KB).</span><br><span class="line">PC	Current Permanent space capacity (KB).</span><br><span class="line">YGC	Number of Young generation GC Events.</span><br><span class="line">FGC	Number of Full GC Events.</span><br><span class="line"></span><br><span class="line">-gccause Option  该选项显示与-gcutil选项相同的垃圾收集统计信息摘要，但包括上次垃圾收集事件的原因和(如果适用)当前垃圾收集事件。除了为-gcutil列出的列之外，该选项还添加了以下列:</span><br><span class="line"></span><br><span class="line">Garbage Collection Statistics, Including GC Events</span><br><span class="line">Column	Description</span><br><span class="line">LGCC	Cause of last Garbage Collection.</span><br><span class="line">GCC	Cause of current Garbage Collection.</span><br><span class="line"></span><br><span class="line">-gcnew Option 年轻代统计信息</span><br><span class="line">Column	Description</span><br><span class="line">S0C	Current survivor space 0 capacity (KB).</span><br><span class="line">S1C	Current survivor space 1 capacity (KB).</span><br><span class="line">S0U	Survivor space 0 utilization (KB).</span><br><span class="line">S1U	Survivor space 1 utilization (KB).</span><br><span class="line">TT	Tenuring threshold.</span><br><span class="line">MTT	Maximum tenuring threshold.</span><br><span class="line">DSS	Desired survivor size (KB).</span><br><span class="line">EC	Current eden space capacity (KB).</span><br><span class="line">EU	Eden space utilization (KB).</span><br><span class="line">YGC	Number of young generation GC events.</span><br><span class="line">YGCT	Young generation garbage collection time.</span><br><span class="line"></span><br><span class="line">-gcnewcapacity Option  年轻代空间统计</span><br><span class="line">Column	Description</span><br><span class="line">NGCMN</span><br><span class="line">Minimum new generation capacity (KB).</span><br><span class="line">NGCMX	Maximum new generation capacity (KB).</span><br><span class="line">NGC	Current new generation capacity (KB).</span><br><span class="line">S0CMX	Maximum survivor space 0 capacity (KB).</span><br><span class="line">S0C	Current survivor space 0 capacity (KB).</span><br><span class="line">S1CMX	Maximum survivor space 1 capacity (KB).</span><br><span class="line">S1C	Current survivor space 1 capacity (KB).</span><br><span class="line">ECMX	Maximum eden space capacity (KB).</span><br><span class="line">EC	Current eden space capacity (KB).</span><br><span class="line">YGC	Number of young generation GC events.</span><br><span class="line">FGC	Number of Full GC Events.</span><br><span class="line"></span><br><span class="line">-gcold Option 来年代和永久代统计信息</span><br><span class="line">Column	Description</span><br><span class="line">PC	Current permanent space capacity (KB).</span><br><span class="line">PU	Permanent space utilization (KB).</span><br><span class="line">OC	Current old space capacity (KB).</span><br><span class="line">OU	old space utilization (KB).</span><br><span class="line">YGC	Number of young generation GC events.</span><br><span class="line">FGC	Number of full GC events.</span><br><span class="line">FGCT	Full garbage collection time.</span><br><span class="line">GCT	Total garbage collection time.</span><br><span class="line"></span><br><span class="line">-gcoldcapacity Option 老年代统计</span><br><span class="line">Column	Description</span><br><span class="line">OGCMN	Minimum old generation capacity (KB).</span><br><span class="line">OGCMX	Maximum old generation capacity (KB).</span><br><span class="line">OGC	Current old generation capacity (KB).</span><br><span class="line">OC	Current old space capacity (KB).</span><br><span class="line">YGC	Number of young generation GC events.</span><br><span class="line">FGC	Number of full GC events.</span><br><span class="line">FGCT	Full garbage collection time.</span><br><span class="line">GCT	Total garbage collection time.</span><br><span class="line"></span><br><span class="line">-gcpermcapacity Option 永久代统计</span><br><span class="line">Column	Description</span><br><span class="line">PGCMN	Minimum permanent generation capacity (KB).</span><br><span class="line">PGCMX	Maximum permanent generation capacity (KB).</span><br><span class="line">PGC	Current permanent generation capacity (KB).</span><br><span class="line">PC	Current permanent space capacity (KB).</span><br><span class="line">YGC	Number of young generation GC events.</span><br><span class="line">FGC	Number of full GC events.</span><br><span class="line">FGCT	Full garbage collection time.</span><br><span class="line">GCT	Total garbage collection time.</span><br><span class="line"></span><br><span class="line">-gcutil Option 垃圾收集统计信息摘要</span><br><span class="line">Column	Description</span><br><span class="line">S0	Survivor space 0 utilization as a percentage of the space&#x27;s current capacity.</span><br><span class="line">S1	Survivor space 1 utilization as a percentage of the space&#x27;s current capacity.</span><br><span class="line">E	Eden space utilization as a percentage of the space&#x27;s current capacity.</span><br><span class="line">O	Old space utilization as a percentage of the space&#x27;s current capacity.</span><br><span class="line">P	Permanent space utilization as a percentage of the space&#x27;s current capacity.</span><br><span class="line">YGC	Number of young generation GC events.</span><br><span class="line">YGCT	Young generation garbage collection time.</span><br><span class="line">FGC	Number of full GC events.</span><br><span class="line">FGCT	Full garbage collection time.</span><br><span class="line">GCT	Total garbage collection time.</span><br><span class="line"></span><br><span class="line">-printcompilation Option HotSpot Compiler Method Statistics 方法统计</span><br><span class="line">Column	Description</span><br><span class="line">Compiled	Number of compilation tasks performed by the most recently compiled method.</span><br><span class="line">Size	Number of bytes of bytecode of the most recently compiled method.</span><br><span class="line">Type	Compilation type of the most recently compiled method.</span><br><span class="line">Method	Class name and method name identifying the most recently compiled method. Class name uses &quot;/&quot; instead of &quot;.&quot; as namespace separator. Method name is the method within the given class. The format for these two fields is consistent with the HotSpot - XX:+PrintComplation option.</span><br></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li><h3 id="jstatd"><a href="#jstatd" class="headerlink" title="jstatd"></a>jstatd</h3></li>
+</ul>
+<p>JVM jstat Daemon——启动RMI服务器应用程序，该应用程序监视被检测的HotSpot Java虚拟机的创建和终止，并提供一个接口，允许远程监视工具连接到在本地系统上运行的Java虚拟机。</p>
+<h2 id="二-故障排除工具"><a href="#二-故障排除工具" class="headerlink" title="二. 故障排除工具"></a>二. 故障排除工具</h2><ul>
+<li><h3 id="jinfo"><a href="#jinfo" class="headerlink" title="jinfo"></a>jinfo</h3></li>
+</ul>
+<p>jinfo打印给定Java进程或核心文件或远程调试服务器的Java配置信息。配置信息包括Java系统属性和Java虚拟机命令行标志。</p>
+<p>如果给定的进程在64位虚拟机上运行，您可能需要指定-J-d64选项，例如: jinfo -J-d64 -sysprops pid</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost bin]# ./jinfo -flags 27463</span><br><span class="line">Attaching to process ID 27463, please wait...</span><br><span class="line">Debugger attached successfully.</span><br><span class="line">Server compiler detected.</span><br><span class="line">JVM version is 25.172-b11</span><br><span class="line">Non-default VM flags: -XX:CICompilerCount=3 -XX:InitialHeapSize=268435456 -XX:MaxHeapSize=536870912 -XX:MaxNewSize=178782208 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=89128960 -XX:OldSize=179306496 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC </span><br><span class="line">Command line:  -Xms256m -Xmx512m</span><br><span class="line"></span><br><span class="line">#查看某个flag</span><br><span class="line">[root@localhost bin]# ./jinfo -flag CICompilerCount 27463</span><br><span class="line">-XX:CICompilerCount=3</span><br><span class="line"></span><br><span class="line">#修改某个配置项值</span><br><span class="line">[root@localhost bin]# ./jinfo -flag CICompilerCount=4 27463</span><br><span class="line">#将配置项修改为false 禁用配置</span><br><span class="line">[root@localhost bin]# ./jinfo -flag -UseParallelGC 27463</span><br><span class="line">#将配置项修改为true 启用配置</span><br><span class="line">[root@localhost bin]# ./jinfo -flag +UseParallelGC 27463</span><br><span class="line"></span><br><span class="line">#查看jvm配置信息， 环境配置，系统配置 </span><br><span class="line">[root@localhost bin]# ./jinfo 27463</span><br><span class="line">Attaching to process ID 27463, please wait...</span><br><span class="line">Debugger attached successfully.</span><br><span class="line">Server compiler detected.</span><br><span class="line">JVM version is 25.172-b11</span><br><span class="line">Java System Properties:</span><br><span class="line"></span><br><span class="line">java.runtime.name = Java(TM) SE Runtime Environment</span><br><span class="line">java.vm.version = 25.172-b11</span><br><span class="line">sun.boot.library.path = /usr/local/src/jdk/jre/lib/amd64</span><br><span class="line">java.vendor.url = http://java.oracle.com/</span><br><span class="line">java.vm.vendor = Oracle Corporation</span><br><span class="line">path.separator = :</span><br><span class="line">file.encoding.pkg = sun.io</span><br><span class="line">java.vm.name = Java HotSpot(TM) 64-Bit Server VM</span><br><span class="line">sun.os.patch.level = unknown</span><br><span class="line">sun.java.launcher = SUN_STANDARD</span><br><span class="line">user.country = CN</span><br><span class="line">user.dir = /usr/local/agentManageAccount-dubbo/releases/20220406-170930</span><br><span class="line">java.vm.specification.name = Java Virtual Machine Specification</span><br><span class="line">java.runtime.version = 1.8.0_172-b11</span><br><span class="line">java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment</span><br><span class="line">os.arch = amd64</span><br><span class="line">java.endorsed.dirs = /usr/local/src/jdk/jre/lib/endorsed</span><br><span class="line">java.io.tmpdir = /tmp</span><br><span class="line">line.separator = </span><br><span class="line"></span><br><span class="line">java.vm.specification.vendor = Oracle Corporation</span><br><span class="line">os.name = Linux</span><br><span class="line">sun.jnu.encoding = UTF-8</span><br><span class="line">java.library.path = /usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib</span><br><span class="line">java.specification.name = Java Platform API Specification</span><br><span class="line">java.class.version = 52.0</span><br><span class="line">sun.management.compiler = HotSpot 64-Bit Tiered Compilers</span><br><span class="line">os.version = 2.6.32-431.el6.x86_64</span><br><span class="line">user.home = /root</span><br><span class="line">user.timezone = PRC</span><br><span class="line">java.awt.printerjob = sun.print.PSPrinterJob</span><br><span class="line">file.encoding = UTF-8</span><br><span class="line">java.specification.version = 1.8</span><br><span class="line">user.name = root</span><br><span class="line">java.class.path = agentManageAccount-dubbo.jar</span><br><span class="line">java.vm.specification.version = 1.8</span><br><span class="line">sun.arch.data.model = 64</span><br><span class="line">sun.java.command = agentManageAccount-dubbo.jar</span><br><span class="line">java.home = /usr/local/src/jdk/jre</span><br><span class="line">user.language = zh</span><br><span class="line">java.specification.vendor = Oracle Corporation</span><br><span class="line">awt.toolkit = sun.awt.X11.XToolkit</span><br><span class="line">java.vm.info = mixed mode</span><br><span class="line">java.version = 1.8.0_172</span><br><span class="line">java.ext.dirs = /usr/local/src/jdk/jre/lib/ext:/usr/java/packages/lib/ext</span><br><span class="line">sun.boot.class.path = /usr/local/src/jdk/jre/lib/resources.jar:/usr/local/src/jdk/jre/lib/rt.jar:/usr/local/src/jdk/jre/lib/sunrsasign.jar:/usr/local/src/jdk/jre/lib/jsse.jar:/usr/local/src/jdk/jre/lib/jce.jar:/usr/local/src/jdk/jre/lib/charsets.jar:/usr/local/src/jdk/jre/lib/jfr.jar:/usr/local/src/jdk/jre/classes</span><br><span class="line">java.vendor = Oracle Corporation</span><br><span class="line">file.separator = /</span><br><span class="line">java.vendor.url.bug = http://bugreport.sun.com/bugreport/</span><br><span class="line">sun.io.unicode.encoding = UnicodeLittle</span><br><span class="line">sun.cpu.endian = little</span><br><span class="line">sun.cpu.isalist = </span><br><span class="line"></span><br><span class="line">VM Flags:</span><br><span class="line">Non-default VM flags: -XX:CICompilerCount=3 -XX:InitialHeapSize=268435456 -XX:MaxHeapSize=536870912 -XX:MaxNewSize=178782208 -XX:MinHeapDeltaBytes=524288 -XX:NewSize=89128960 -XX:OldSize=179306496 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseParallelGC </span><br><span class="line">Command line:  -Xms256m -Xmx512m</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><h3 id="jhat"><a href="#jhat" class="headerlink" title="jhat"></a>jhat</h3>堆转储浏览器-在堆转储文件(例如，由jmap -dump生成的文件)上启动web服务器，允许浏览堆。</li>
+</ul>
+<blockquote>
+<p>使用 jhat file 查看。</p>
+</blockquote>
+<ul>
+<li><h3 id="jmap"><a href="#jmap" class="headerlink" title="jmap"></a>jmap</h3><p>打印给定进程或核心文件或远程调试服务器的共享对象内存映射或堆内存细节。</p>
+</li>
+<li><h3 id="jsadebugd"><a href="#jsadebugd" class="headerlink" title="jsadebugd"></a>jsadebugd</h3></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jsadebugd pid [ server-id ]</span><br><span class="line">jsadebugd executable core [ server-id ]</span><br></pre></td></tr></table></figure>
+<p>Java可服务性代理调试守护进程——附加到进程或核心文件，并充当调试服务器。</p>
+<p>&nbsp;&nbsp;使用jinfo，jmap，jstack命令不仅可监控本地主机上的JVM进程，也可监控远端主机上的JVM进程，前者称为“本地模式”，后者称为“联网模式”。“联网模式”下的整个监控体系实质上是一个RMI应用程序。在“联网模式”下，一般情况下，远端主机上“运行rmiregistry服务，运行RMI Server”，本地主机上“运行RMI Client”，整个体系中“无需运行Web Server服务（因为所有相关类都可在本地获取）”。</p>
+<p>&nbsp;&nbsp;如果rmiregistry没有启动，jsadebugd将在标准(1099)端口内部启动rmiregistry。可以通过向调试服务器发送SIGINT(按Ctrl-C)来停止调试服务器。</p>
+<p>&nbsp;&nbsp;在远端主机上，通过运行jsadebugd命令开启RMI Server（需要注意的是，运行jsadebugd命令同时会自动运行rmiregistry服务，而无需手动运行），使用“PID”选项值指定远端主机上待被监控的JVM进程ID，使用“ServerId”选项值作为RMI Server内向rmiregistry服务注册所生成Remote Object实例的名称（如果未指定，则使用默认名称）；在本地主机上，运行jinfo，jmap，jstack命令作为RMI Client</p>
+<blockquote>
+<p>在远端主机上，执行jsadebugd -J-Djava.rmi.server.hostname=12.3.10.105 pid serviceID 命令开启RMI Server（同时开启rmiregistry服务），并使用“remoteObject1”名称向rmiregistry服务注册所生成的Remote Object实例</p>
+</blockquote>
+<blockquote>
+<p>在本地主机上，执行jinfo/jmap/jstack <a href="mailto:&#115;&#101;&#x72;&#x76;&#x69;&#x63;&#101;&#73;&#x44;&#64;&#114;&#x65;&#109;&#111;&#116;&#101;&#115;&#x65;&#114;&#x76;&#x65;&#114;&#x2e;&#x68;&#x6f;&#115;&#x74;">&#115;&#101;&#x72;&#x76;&#x69;&#x63;&#101;&#73;&#x44;&#64;&#114;&#x65;&#109;&#111;&#116;&#101;&#115;&#x65;&#114;&#x76;&#x65;&#114;&#x2e;&#x68;&#x6f;&#115;&#x74;</a> 命令作为RMI Client与远端主机上的rmiregistry服务和RMI Server进行交互，而达到监控远端主机上相应JVM进程的目标。执行jinfo，jmap，jstack命令时可使用的选项参数可具体参考这些命令的“本地模式”用法</p>
+</blockquote>
+<ul>
+<li><h3 id="jstack"><a href="#jstack" class="headerlink" title="jstack"></a>jstack</h3>打印给定进程或核心文件或远程调试服务器的线程堆栈跟踪。</li>
+</ul>
+<h2 id="三-Java故障排除、分析、监控和管理工具"><a href="#三-Java故障排除、分析、监控和管理工具" class="headerlink" title="三. Java故障排除、分析、监控和管理工具"></a>三. Java故障排除、分析、监控和管理工具</h2><ul>
+<li>###jcmd</li>
+</ul>
+<p>JVM诊断命令工具——向正在运行的Java虚拟机发送诊断命令请求。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jcmd [ options ]</span><br><span class="line"></span><br><span class="line">jcmd [ pid | main-class ] PerfCounter.print</span><br><span class="line"></span><br><span class="line">jcmd [ pid | main-class ] command [ arguments ]</span><br><span class="line"></span><br><span class="line">jcmd [ pid | main-class ] -f file</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>./jcmd -l #打印正在运行的Java进程及其进程id、主类和命令行参数的列表。<br>./jcmd 1055 help #查看进程1055可执行的命令 ，获取结果如下:</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">1055:</span><br><span class="line">The following commands are available:</span><br><span class="line">JFR.stop</span><br><span class="line">JFR.start</span><br><span class="line">JFR.dump</span><br><span class="line">JFR.check</span><br><span class="line">VM.native_memory</span><br><span class="line">VM.check_commercial_features</span><br><span class="line">VM.unlock_commercial_features</span><br><span class="line">ManagementAgent.stop</span><br><span class="line">ManagementAgent.start_local</span><br><span class="line">ManagementAgent.start</span><br><span class="line">VM.classloader_stats</span><br><span class="line">GC.rotate_log</span><br><span class="line">Thread.print</span><br><span class="line">GC.class_stats</span><br><span class="line">GC.class_histogram</span><br><span class="line">GC.heap_dump</span><br><span class="line">GC.finalizer_info</span><br><span class="line">GC.heap_info</span><br><span class="line">GC.run_finalization</span><br><span class="line">GC.run</span><br><span class="line">VM.uptime</span><br><span class="line">VM.dynlibs</span><br><span class="line">VM.flags</span><br><span class="line">VM.system_properties</span><br><span class="line">VM.command_line</span><br><span class="line">VM.version</span><br><span class="line">help</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>./jcmd 1055 GC.run #对进程1055 pid 执行GC.run 命令</p>
+</blockquote>
+<ul>
+<li>###jconsole</li>
+</ul>
+<p>一个符合JMX标准的图形化工具，用于监控Java虚拟机。它可以监控本地和远程JVM。它还可以监控和管理应用程序。 有关更多信息，请参见Java平台的监控和管理。</p>
+<ul>
+<li>###jmc</li>
+</ul>
+<p>Java Mission Control (JMC)客户端包括监控和管理Java应用程序的工具，而不会引入通常与这些类型的工具相关的性能开销。</p>
+<ul>
+<li>###jvisualvm</li>
+</ul>
+<p>一个图形工具，当基于Java技术的应用程序(Java应用程序)在Java虚拟机中运行时，它提供有关这些应用程序的详细信息。Java VisualVM提供内存和CPU分析、堆转储分析、内存泄漏检测、MBeans访问和垃圾收集。有关更多信息，请参见Java VisualVM。</p>
+<h2 id="四-程方法调用-RMI-工具"><a href="#四-程方法调用-RMI-工具" class="headerlink" title="四. 程方法调用(RMI)工具"></a>四. 程方法调用(RMI)工具</h2><h2 id="五-国际化工具"><a href="#五-国际化工具" class="headerlink" title="五. 国际化工具"></a>五. 国际化工具</h2><ul>
+<li>###native2ascii</li>
+</ul>
+<blockquote>
+<p>JAVA_HOME\bin\native2ascii -encoding GBK D:\src\resources.properties D:\classes\resources.properties</p>
+</blockquote>
+<p>native2ascii [options] [inputfile [outputfile]]</p>
+<p>options：</p>
+<p>-reverse</p>
+<p>执行相反的操作:将采用Unicode转义的ISO-8859-1编码的文件转换为Java运行时环境支持的任何字符编码的文件</p>
+<p>-encoding encoding_name</p>
+<p>指定转换过程要使用的字符编码的名称。如果该选项不存在，则使用默认的字符编码(由Java.nio.charset.charset.default charset方法确定)。encoding_name字符串必须是Java运行时环境支持的字符编码的名称，<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/7/docs/technotes/guides/intl/encoding.doc.html">请参见支持的编码文档。</a></p>
+<p>-Joption</p>
+<p>将option传递给java虚拟机，其中option是Java应用程序启动程序参考页上描述的选项之一。例如，-J-Xms48m将启动内存设置为48兆字节</p>
+<h2 id="六-基础工具"><a href="#六-基础工具" class="headerlink" title="六. 基础工具"></a>六. 基础工具</h2><h2 id="七-安全"><a href="#七-安全" class="headerlink" title="七. 安全"></a>七. 安全</h2><h2 id="八-脚本工具"><a href="#八-脚本工具" class="headerlink" title="八. 脚本工具"></a>八. 脚本工具</h2><p>jrunscript是一个命令行脚本shell。jrunscript支持交互式(读取-评估-打印)模式和批处理(-f选项)模式的脚本执行。这是一个脚本语言独立的外壳。默认情况下，JavaScript是使用的语言，但是-l选项可以用于指定不同的语言。通过Java到脚本语言的通信，jrunscript支持“探索性编程”风格</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">jrunscript</span><br><span class="line">js&gt; print(&#x27;Hello World\n&#x27;);</span><br><span class="line">Hello World</span><br><span class="line">js&gt; 34 + 55</span><br><span class="line">89.0</span><br><span class="line">js&gt; t = new java.lang.Thread(function() &#123; print(&#x27;Hello World\n&#x27;); &#125;)</span><br><span class="line">Thread[Thread-0,5,main]</span><br><span class="line">js&gt; t.start()</span><br><span class="line">js&gt; Hello World</span><br><span class="line"></span><br><span class="line">js&gt;</span><br></pre></td></tr></table></figure>
+
+<p> <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/7/docs/technotes/tools/share/jrunscript.html">参考文档</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/jvm/" rel="tag"><i class="fa fa-tag"></i> jvm</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/14/java/jvm/monitortool/" rel="prev" title="JVM监控工具">
+                  <i class="fa fa-angle-left"></i> JVM监控工具
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/18/java/jvm/jprofiler/" rel="next" title="Jprofiler">
+                  Jprofiler <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

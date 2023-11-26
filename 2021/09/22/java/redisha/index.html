@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Sentinel相关配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis高可用">
+<meta property="og:url" content="http://example.com/2021/09/22/java/redisha/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="Sentinel相关配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-09-22T13:11:51.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="redis">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/09/22/java/redisha/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/09/22/java/redisha/","path":"2021/09/22/java/redisha/","title":"Redis高可用"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Redis高可用 | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sentinel%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Sentinel相关配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sentinel%E5%8F%8A%E6%9C%8D%E5%8A%A1%E7%8A%B6%E6%80%81%E6%84%9F%E7%9F%A5%E8%83%BD%E5%8A%9B"><span class="nav-number">2.</span> <span class="nav-text">Sentinel及服务状态感知能力</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E6%A3%80%E6%B5%8B%EF%BC%9Asentinel%E4%B8%8E%E6%89%80%E6%9C%89%E6%9C%8D%E5%8A%A1%E5%8C%85%E6%8B%AC%E4%B8%BB%E4%BB%8E%E6%9C%8D%E5%8A%A1sentinel%E6%9C%8D%E5%8A%A1%E4%BF%9D%E6%8C%81%E5%91%BD%E4%BB%A4%E9%93%BE%E6%8E%A5"><span class="nav-number">3.</span> <span class="nav-text">状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BB%E8%A7%82%E4%B8%8B%E7%BA%BF%E7%8A%B6%E6%80%81%E7%9B%91%E6%B5%8B-PING"><span class="nav-number">3.1.</span> <span class="nav-text">主观下线状态监测 PING</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E8%A7%82%E4%B8%8B%E7%BA%BF%E7%8A%B6%E6%80%81%E7%9B%91%E6%B5%8B-SENTINEL-is-master-down-by-addr-%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">客观下线状态监测 SENTINEL  is-master-down-by-addr 命令:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E4%B8%BE%E9%A2%86%E5%A4%B4sentinel"><span class="nav-number">4.</span> <span class="nav-text">选举领头sentinel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E6%95%85%E9%9A%9C%E8%BD%AC%E7%A7%BB"><span class="nav-number">5.</span> <span class="nav-text">实现故障转移</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lua%E8%84%9A%E6%9C%AC"><span class="nav-number"></span> <span class="nav-text">Lua脚本</span></a></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/22/java/redisha/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Redis高可用 | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Redis高可用
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-22 21:11:51" itemprop="dateCreated datePublished" datetime="2021-09-22T21:11:51+08:00">2021-09-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Sentinel相关配置"><a href="#Sentinel相关配置" class="headerlink" title="Sentinel相关配置"></a>Sentinel相关配置</h2><span id="more"></span>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#绑定ip</span><br><span class="line">bind 12.3.10.222</span><br><span class="line">#sentinel 端口配置</span><br><span class="line">port 26377</span><br><span class="line">#默认情况下，Redis Sentinel不作为守护程序运行。 如果需要，可以设置为 yes。</span><br><span class="line">daemonize yes</span><br><span class="line"># 启用守护进程运行后，Redis将在/var/run/redis-sentinel.pid中写入一个pid文件</span><br><span class="line">pidfile /var/run/redis-sentinel.pid</span><br><span class="line"></span><br><span class="line"># sentinel monitor &lt;master-name&gt; &lt;ip&gt; &lt;redis-port&gt; &lt;quorum&gt;</span><br><span class="line">#</span><br><span class="line"># 告诉Sentinel监听指定主节点，并且只有在至少&lt;quorum&gt;哨兵达成一致的情况下才会判断它 O_DOWN 状态。</span><br><span class="line">#</span><br><span class="line"># 副本是自动发现的，因此您无需指定副本。</span><br><span class="line"># Sentinel本身将重写此配置文件，使用其他配置选项添加副本。另请注意，当副本升级为主副本时，将重写配置文件。</span><br><span class="line">#</span><br><span class="line"># 注意：主节点（master）名称不能包含特殊字符或空格。</span><br><span class="line"># 有效字符可以是 A-z 0-9 和这三个字符 &quot;.-_&quot;.</span><br><span class="line">sentinel monitor mymaster 12.3.10.222 6377 2</span><br><span class="line"># 如果redis配置了密码，那这里必须配置认证，否则不能自动切换</span><br><span class="line">sentinel auth-pass mymaster cx</span><br><span class="line"># 主节点或副本在指定时间内没有回复PING，便认为该节点为主观下线 S_DOWN 状态。</span><br><span class="line"># sentinel down-after-milliseconds &lt;master-name&gt; &lt;milliseconds&gt;</span><br><span class="line">sentinel down-after-milliseconds mymaster 30000</span><br><span class="line"># 在故障转移期间，多少个副本节点进行数据同步</span><br><span class="line"># sentinel parallel-syncs &lt;master-name&gt; &lt;numreplicas&gt;</span><br><span class="line">sentinel parallel-syncs mymaster 3</span><br><span class="line"># 指定故障转移超时（以毫秒为单位）。 默认3分钟</span><br><span class="line">sentinel failover-timeout mymaster 180000</span><br><span class="line"># 指定日志文件名。 如果值为空，将强制Sentinel日志标准输出。守护进程下，如果使用标准输出进行日志记录，则日志将发送到/dev/null</span><br><span class="line">loglevel debug    </span><br><span class="line">logfile &quot;/usr/redis/log/sentinel-26377.log&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># sentinel announce-ip &lt;ip&gt;</span><br><span class="line"># sentinel announce-port &lt;port&gt;</span><br><span class="line"></span><br><span class="line"># dir &lt;working-directory&gt;</span><br><span class="line"># 每个长时间运行的进程都应该有一个明确定义的工作目录。对于Redis Sentinel来说，/tmp就是自己的工作目录。</span><br><span class="line">dir /tmp</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>启动方式</p>
+<ol>
+<li><p>redis-sentinel /path/to/sentinel.conf</p>
+</li>
+<li><p>redis-server /path/to/sentinel.conf –sentinel</p>
+</li>
+</ol>
+<h2 id="Sentinel及服务状态感知能力"><a href="#Sentinel及服务状态感知能力" class="headerlink" title="Sentinel及服务状态感知能力"></a>Sentinel及服务状态感知能力</h2><p>环境内信息共享，sentinel与主服务从服务之间建立命令链接及频道订阅发布链接，用以感知从服务器加入，新的sentinel加入</p>
+<p>​    1. sentinel每10秒向主服务发送INFO命令收集信息，收集从服务信息，<strong>发现新的服务加入</strong>，并建立从服务数据结构，建立从服务命令及频道链接，</p>
+<p>​    2. 建立好从服务链接后每10秒发送INFO命令收集从服务状态信息，并更新数据结构中从服务的状态信息</p>
+<p>​    3. 向主服务器从服务器发布 __sentinel__:hello  频道  共享sentinel自身状态及主服务信息，所有sentinel发布信息到此频道</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PUBLISH  __sentinel__:hello &quot;s_ip s_port s_runid s_epoch m_name m_ip m_port m_epoch&quot;</span><br><span class="line">s_ip s_port s_runid s_epoch  发送消息的sentinel信息</span><br><span class="line">m_name m_ip m_port m_epoch   发送消息的sentinel监测的master信息</span><br></pre></td></tr></table></figure>
+
+<p>​    4. 订阅主服务器从服务器 __sentinel__:hello  频道  感知其他sentinel信息及主服务信息，所有sentinel订阅此频道，并接受消息</p>
+<h2 id="状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接"><a href="#状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接" class="headerlink" title="状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接"></a>状态检测：sentinel与所有服务包括主从服务sentinel服务保持命令链接</h2><p>​    sentinel除了和主服务从服务建立命令链接和频道链接外，还与其他sentinel建立命令链接，用于状态监测 PING命令执行</p>
+<h3 id="主观下线状态监测-PING"><a href="#主观下线状态监测-PING" class="headerlink" title="主观下线状态监测 PING"></a>主观下线状态监测 PING</h3><ol>
+<li><p>sentinel 和主从服务及其他sentinel建立连接后会以每秒一次的频率发送PING命令，并根据回复来判断实例是否下线，PING命令有固定的几个有效的回复，有效的回复有+PONG，-LOADING,-MASTERDOWN三种回复，除了三种回复的结果都是无效回复。</p>
+</li>
+<li><p>sentinel配置文件中 down-after-milliseconds 配置是sentinel判断主观下线所需的时间长度，在down-after-milliseconds毫秒内服务连续向sentinel返回无效回复，那么sentinel将实例结构中flags属性中打卡 SRI-S-DOWN标识，以此来表示实例进入主管下线状态。</p>
+</li>
+<li><p>down-after-milliseconds 配置不仅作用在判断主从服务下线检查，也作用在sentinel下线检查时长</p>
+<p>sentinel monitor mymaster host  port  quorum(客观下线所支持的投票数量)</p>
+<p>sentinel down-after-milliseconds mymaster  30000</p>
+</li>
+</ol>
+<h3 id="客观下线状态监测-SENTINEL-is-master-down-by-addr-命令"><a href="#客观下线状态监测-SENTINEL-is-master-down-by-addr-命令" class="headerlink" title="客观下线状态监测 SENTINEL  is-master-down-by-addr 命令:"></a>客观下线状态监测 SENTINEL  is-master-down-by-addr 命令:</h3><p>当sentinel判断主服务器为主观下线的时候，会向别的监视主服务的sentinel进行询问，看他们是否也认为主服务器已进入了下线状态（可已是主观也可以是客观），<strong>当接收到足够数量的下线判断</strong>（quorum）后，sentinel会将服务器判定为客观下线并进行故障转移</p>
+<p>询问是否已下线请求：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">发送：SENTINEL is-master-down-by-addr ip port current_epoch  runid</span><br><span class="line">ip 被sentinel判断为主观下次的主服务ip</span><br><span class="line">port 被sentinel判断为主观下次的主服务端口</span><br><span class="line">current_epoch sentinel当前的配置纪元，用于sentinel领头选举</span><br><span class="line">runid *或者是sentinel运行id</span><br><span class="line"></span><br><span class="line">回复：down_state leader_runid leader_epoch</span><br><span class="line">down_state 1 服务已下线 0 服务未下线</span><br><span class="line">leader_runid  *或者是sentinel运行id，用于sentinel领头选举，询问阶段返回*</span><br><span class="line">leader_epoch  配置纪元，用于sentinel领头选举 询问阶段返回0</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="选举领头sentinel"><a href="#选举领头sentinel" class="headerlink" title="选举领头sentinel"></a>选举领头sentinel</h2><ul>
+<li>当sentinel监测到主服务下线会进行leader选举，并由选举出的sentinel负责进行故障转移，选举的命令是通过SENTINEL is-master-down-by-addr 进行发送的，并根据返回结果进行收集，当超过半数的sentinel服务投票决定，那台sentinel将成为leader。</li>
+<li>当客观quorum达到后sentinel会向别的sentinel（目标）发送SENTINEL is-master-down-by-addr ip port current_epoch  runid 命令，并携带current_epoch  ，runid </li>
+<li>目标sentinel接收到is-master-down-by-addr  请求，如果当前sentinel未进行过投票，则返回发送自己的epoch  ，和请求投票的sentinel的runid表示投票，如果已经投过票，就拒绝请求</li>
+<li>源sentinel接受到回复后，会比对leader_epoch 纪元是否和自己的相等，如果相等判断leader_runid是否是自己的runid如果是，表明投票给自己。</li>
+<li>每个sentinel在每个纪元epoch内只能进行一次的投票，并且只能投票一次，根据请求到达的先后顺序，投票遵循先到先得，leader申请的sentinel根据的leader_runid，leader_epoch结果统计投票信息，并在过半后成为leader。</li>
+<li>每个sentinel都有机会成为leader，每次lead选举无论成功或者失败epoch纪元都会增1</li>
+<li>如果给定时限内没有一个sentinel被选举为leader，那么sentinel将在一段时间后再次进行选举，知道选举出leader为止。</li>
+</ul>
+<h2 id="实现故障转移"><a href="#实现故障转移" class="headerlink" title="实现故障转移"></a>实现故障转移</h2><p>在已下线的主服务器的从服务器里挑选一个从服务，并将其转换为主服务</p>
+<ol>
+<li>​     选择从服务规则（主服务中slaves列表）</li>
+<li>​      删除已经下线的从服务</li>
+<li>​      删除最近5秒内没有回复过leader的从服务</li>
+<li>​      删除与主服务断开连接超过 down-after-milliseconds * 10 毫秒的从服务</li>
+<li>​     根据从服务的优先级排序，选择优先级最高的从服务如果有多个，将按照复制偏移量最大的优先，如果优先级复制偏移量都一样，就按照runid进行排序 宣传runid最小的为主服务</li>
+<li><pre><code> 向从服务发送 SLAVEOF no one 命令，调整从服务未主服务
+</code></pre>
+</li>
+</ol>
+<p>将已下线的主服务下的所有从服务，改为复制挑选出的主服务</p>
+<ul>
+<li>​    向未被选择的从服务发送 SLAVEOF new_master new_master_por 进行复制新的主服务命令，并调整配置文件</li>
+</ul>
+<p>将已下线的主服务器设置为新选择的主服务的从服务，当就的主服务重新上线是，他会成为新的主服务的从服务</p>
+<ul>
+<li>调整配置文件</li>
+</ul>
+<!--所有被调整过的服务，redis.conf 复制服务配置将被调整-->
+
+<p>sentinel.c 关于sentinel的状态的数据结构</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Main state. */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sentinelState</span> &#123;</span></span><br><span class="line">    <span class="type">char</span> myid[CONFIG_RUN_ID_SIZE+<span class="number">1</span>]; <span class="comment">/* This sentinel ID. */</span></span><br><span class="line">    <span class="type">uint64_t</span> current_epoch;         <span class="comment">/* Current epoch. */</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 报错所有被这个sentinel监视的服务 结构是sentinelRedisInstances */</span></span><br><span class="line">    dict *masters;      <span class="comment">/* Dictionary of master sentinelRedisInstances.</span></span><br><span class="line"><span class="comment">                           Key is the instance name, value is the</span></span><br><span class="line"><span class="comment">                           sentinelRedisInstance structure pointer. */</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">int</span> tilt;           <span class="comment">/* Are we in TILT mode? */</span></span><br><span class="line">    <span class="type">int</span> running_scripts;    <span class="comment">/* Number of scripts in execution right now. */</span></span><br><span class="line">    <span class="type">mstime_t</span> tilt_start_time;       <span class="comment">/* When TITL started. */</span></span><br><span class="line">    <span class="type">mstime_t</span> previous_time;         <span class="comment">/* Last time we ran the time handler. */</span></span><br><span class="line">    <span class="built_in">list</span> *scripts_queue;            <span class="comment">/* Queue of user scripts to execute. */</span></span><br><span class="line">    <span class="type">char</span> *announce_ip;  <span class="comment">/* IP addr that is gossiped to other sentinels if</span></span><br><span class="line"><span class="comment">                           not NULL. */</span></span><br><span class="line">    <span class="type">int</span> announce_port;  <span class="comment">/* Port that is gossiped to other sentinels if</span></span><br><span class="line"><span class="comment">                           non zero. */</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> simfailure_flags; <span class="comment">/* Failures simulation. */</span></span><br><span class="line">&#125; sentinel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">sentinelRedisInstance</span> &#123;</span></span><br><span class="line">    <span class="type">int</span> flags;      <span class="comment">/* See SRI_... defines */</span></span><br><span class="line">    <span class="type">char</span> *name;     <span class="comment">/* Master name from the point of view of this sentinel. */</span></span><br><span class="line">    <span class="type">char</span> *runid;    <span class="comment">/* Run ID of this instance, or unique ID if is a Sentinel.*/</span></span><br><span class="line">    <span class="type">uint64_t</span> config_epoch;  <span class="comment">/* Configuration epoch. */</span></span><br><span class="line">    sentinelAddr *addr; <span class="comment">/* Master host. */</span></span><br><span class="line">    instanceLink *link; <span class="comment">/* Link to the instance, may be shared for Sentinels. */</span></span><br><span class="line">    <span class="type">mstime_t</span> last_pub_time;   <span class="comment">/* Last time we sent hello via Pub/Sub. */</span></span><br><span class="line">    <span class="type">mstime_t</span> last_hello_time; <span class="comment">/* Only used if SRI_SENTINEL is set. Last time</span></span><br><span class="line"><span class="comment">                                 we received a hello from this Sentinel</span></span><br><span class="line"><span class="comment">                                 via Pub/Sub. */</span></span><br><span class="line">    <span class="type">mstime_t</span> last_master_down_reply_time; <span class="comment">/* Time of last reply to</span></span><br><span class="line"><span class="comment">                                             SENTINEL is-master-down command. */</span></span><br><span class="line">    <span class="type">mstime_t</span> s_down_since_time; <span class="comment">/* Subjectively down since time. */</span></span><br><span class="line">    <span class="type">mstime_t</span> o_down_since_time; <span class="comment">/* Objectively down since time. */</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/* 配置 sentinel down-after-milliseconds mymaster 30000 */</span></span><br><span class="line">    <span class="type">mstime_t</span> down_after_period; <span class="comment">/* Consider it down after that period. */</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">mstime_t</span> info_refresh;  <span class="comment">/* Time at which we received INFO output from it. */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Role and the first time we observed it.</span></span><br><span class="line"><span class="comment">     * This is useful in order to delay replacing what the instance reports</span></span><br><span class="line"><span class="comment">     * with our own configuration. We need to always wait some time in order</span></span><br><span class="line"><span class="comment">     * to give a chance to the leader to report the new configuration before</span></span><br><span class="line"><span class="comment">     * we do silly things. */</span></span><br><span class="line">    <span class="type">int</span> role_reported;</span><br><span class="line">    <span class="type">mstime_t</span> role_reported_time;</span><br><span class="line">    <span class="type">mstime_t</span> slave_conf_change_time; <span class="comment">/* Last time slave master addr changed. */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Master specific. */</span></span><br><span class="line">    dict *sentinels;    <span class="comment">/* Other sentinels monitoring the same master. */</span></span><br><span class="line">    dict *slaves;       <span class="comment">/* Slaves for this master instance. */</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> quorum;<span class="comment">/* Number of sentinels that need to agree on failure. */</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/* 配置 sentinel parallel-syncs mymaster 3 */</span></span><br><span class="line">    <span class="type">int</span> parallel_syncs; <span class="comment">/* How many slaves to reconfigure at same time. */</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="type">char</span> *auth_pass;    <span class="comment">/* Password to use for AUTH against master &amp; slaves. */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Slave specific. */</span></span><br><span class="line">    <span class="type">mstime_t</span> master_link_down_time; <span class="comment">/* Slave replication link down time. */</span></span><br><span class="line">    <span class="type">int</span> slave_priority; <span class="comment">/* Slave priority according to its INFO output. */</span></span><br><span class="line">    <span class="type">mstime_t</span> slave_reconf_sent_time; <span class="comment">/* Time at which we sent SLAVE OF &lt;new&gt; */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sentinelRedisInstance</span> *<span class="title">master</span>;</span> <span class="comment">/* Master instance if it&#x27;s slave. */</span></span><br><span class="line">    <span class="type">char</span> *slave_master_host;    <span class="comment">/* Master host as reported by INFO */</span></span><br><span class="line">    <span class="type">int</span> slave_master_port;      <span class="comment">/* Master port as reported by INFO */</span></span><br><span class="line">    <span class="type">int</span> slave_master_link_status; <span class="comment">/* Master link status as reported by INFO */</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> slave_repl_offset; <span class="comment">/* Slave replication offset. */</span></span><br><span class="line">    <span class="comment">/* Failover */</span></span><br><span class="line">    <span class="type">char</span> *leader;       <span class="comment">/* If this is a master instance, this is the runid of</span></span><br><span class="line"><span class="comment">                           the Sentinel that should perform the failover. If</span></span><br><span class="line"><span class="comment">                           this is a Sentinel, this is the runid of the Sentinel</span></span><br><span class="line"><span class="comment">                           that this Sentinel voted as leader. */</span></span><br><span class="line">    <span class="type">uint64_t</span> leader_epoch; <span class="comment">/* Epoch of the &#x27;leader&#x27; field. */</span></span><br><span class="line">    <span class="type">uint64_t</span> failover_epoch; <span class="comment">/* Epoch of the currently started failover. */</span></span><br><span class="line">    <span class="type">int</span> failover_state; <span class="comment">/* See SENTINEL_FAILOVER_STATE_* defines. */</span></span><br><span class="line">    <span class="type">mstime_t</span> failover_state_change_time;</span><br><span class="line">    <span class="type">mstime_t</span> failover_start_time;   <span class="comment">/* Last failover attempt start time. */</span></span><br><span class="line">    </span><br><span class="line"><span class="comment">/*刷新故障迁移状态的最大时限 sentinel failover-timeout mymaster 180000 */</span></span><br><span class="line">    <span class="type">mstime_t</span> failover_timeout;      <span class="comment">/* Max time to refresh failover state. */</span></span><br><span class="line">    </span><br><span class="line">    <span class="type">mstime_t</span> failover_delay_logged; <span class="comment">/* For what failover_start_time value we</span></span><br><span class="line"><span class="comment">                                       logged the failover delay. */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">sentinelRedisInstance</span> *<span class="title">promoted_slave</span>;</span> <span class="comment">/* Promoted slave instance. */</span></span><br><span class="line">    <span class="comment">/* Scripts executed to notify admin or reconfigure clients: when they</span></span><br><span class="line"><span class="comment">     * are set to NULL no script is executed. */</span></span><br><span class="line">    <span class="type">char</span> *notification_script;</span><br><span class="line">    <span class="type">char</span> *client_reconfig_script;</span><br><span class="line">    sds info; <span class="comment">/* cached INFO output */</span></span><br><span class="line">&#125; sentinelRedisInstance;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**************************************************************** sentinel可执行的命令*/</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">redisCommand</span> <span class="title">sentinelcmds</span>[] =</span> &#123;</span><br><span class="line">    &#123;<span class="string">&quot;ping&quot;</span>,pingCommand,<span class="number">1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;sentinel&quot;</span>,sentinelCommand,<span class="number">-2</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;subscribe&quot;</span>,subscribeCommand,<span class="number">-2</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;unsubscribe&quot;</span>,unsubscribeCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;psubscribe&quot;</span>,psubscribeCommand,<span class="number">-2</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;punsubscribe&quot;</span>,punsubscribeCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;publish&quot;</span>,sentinelPublishCommand,<span class="number">3</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;info&quot;</span>,sentinelInfoCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;role&quot;</span>,sentinelRoleCommand,<span class="number">1</span>,<span class="string">&quot;l&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;client&quot;</span>,clientCommand,<span class="number">-2</span>,<span class="string">&quot;rs&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;shutdown&quot;</span>,shutdownCommand,<span class="number">-1</span>,<span class="string">&quot;&quot;</span>,<span class="number">0</span>,<span class="literal">NULL</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Lua脚本"><a href="#Lua脚本" class="headerlink" title="Lua脚本"></a>Lua脚本</h1><p>RedisServer中嵌入了Lua环境，Redis客户端可以使用lua脚本在服务器上执行多个redis命令。</p>
+<p>server在启动后初始了lua环境，lua环境初始化中载入了多个lua函数库,并创建redis全局表格（其中就包含了redis.call(),redis.pcall），并且创建给lua环境脚本执行辅助的工具，命令执行伪客户端和脚本字典（脚本字典是实现SCRIPT EXISTS和脚本复制功能根本），</p>
+<p>LUA脚本命令执行步骤： (EVAL)</p>
+<p>​    定义脚本函数( f_SHA1CODE)载入lua环境</p>
+<p>​    保存脚本到脚本字典lua_scripts（key:SHA1CODE,value:script）</p>
+<p>​    执行脚本函数(redis命令会通过，伪客户端来向server发送指令来执行，然后结果返回给伪客户端，伪客户端返回结果到lua环境)</p>
+<p>LUA环境脚本管理：</p>
+<p>​    SCRIPT FLUSH:清空lua环境脚本函数，并销毁并重新构建一个lua环境</p>
+<p>​    SCRIPT EXISTS：判断给定的SHA1值对应的脚本是否存在于lua环境</p>
+<p>​    SCRIPT LOAD：加载一个lua脚本并，创建脚本函数并加载到lua环境，并将脚本加入到脚本字典</p>
+<p>​    SCRIPT KILL：lua-time-limit 超时使用</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"><i class="fa fa-tag"></i> redis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/22/linux/userp/" rel="prev" title="linux用户及权限">
+                  <i class="fa fa-angle-left"></i> linux用户及权限
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/28/docker/imagebuild/" rel="next" title="镜像构建">
+                  镜像构建 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

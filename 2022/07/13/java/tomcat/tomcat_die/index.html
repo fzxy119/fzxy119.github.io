@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="#Tomcat 假死问题排查思路 Jvm内存问题及线程问题排查 JVM内存使用情况查看    jmap -heap pid   jmap -dump:live,format&#x3D;b,file&#x3D;&#x2F;home&#x2F;xxxx.hprof pid   jmap -histo:live 27151   jmap -histo 18230 | sort -n -r -k 2 | head -10  &#x2F;&#x2F;统计实例最多的类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一次tomcat假死问题排查">
+<meta property="og:url" content="http://example.com/2022/07/13/java/tomcat/tomcat_die/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="#Tomcat 假死问题排查思路 Jvm内存问题及线程问题排查 JVM内存使用情况查看    jmap -heap pid   jmap -dump:live,format&#x3D;b,file&#x3D;&#x2F;home&#x2F;xxxx.hprof pid   jmap -histo:live 27151   jmap -histo 18230 | sort -n -r -k 2 | head -10  &#x2F;&#x2F;统计实例最多的类">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-13T02:00:34.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="tomcat">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/07/13/java/tomcat/tomcat_die/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/13/java/tomcat/tomcat_die/","path":"2022/07/13/java/tomcat/tomcat_die/","title":"一次tomcat假死问题排查"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一次tomcat假死问题排查 | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Jvm%E5%86%85%E5%AD%98%E9%97%AE%E9%A2%98%E5%8F%8A%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5"><span class="nav-number">1.</span> <span class="nav-text">Jvm内存问题及线程问题排查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tomcat%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">Tomcat相关配置</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/13/java/tomcat/tomcat_die/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一次tomcat假死问题排查 | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一次tomcat假死问题排查
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-13 10:00:34" itemprop="dateCreated datePublished" datetime="2022-07-13T10:00:34+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>#Tomcat 假死问题排查思路</p>
+<h3 id="Jvm内存问题及线程问题排查"><a href="#Jvm内存问题及线程问题排查" class="headerlink" title="Jvm内存问题及线程问题排查"></a>Jvm内存问题及线程问题排查</h3><ol>
+<li>JVM内存使用情况查看 </li>
+</ol>
+<blockquote>
+<p>jmap -heap pid</p>
+</blockquote>
+<blockquote>
+<p>jmap -dump:live,format=b,file=/home/xxxx.hprof pid</p>
+</blockquote>
+<blockquote>
+<p>jmap -histo:live 27151</p>
+</blockquote>
+<blockquote>
+<p>jmap -histo 18230 | sort -n -r -k 2 | head -10  //统计实例最多的类 前十位有哪些</p>
+</blockquote>
+<blockquote>
+<p>jmap -histo 18230 | sort -n -r -k 3 | head -10  //统计合计容量前十的类有哪些  </p>
+</blockquote>
+<blockquote>
+<p>jstat -gcutil pid 1000 3 //监控gc 状态</p>
+</blockquote>
+<blockquote>
+<p>jinfo -flags pid // 查看tomcatJVM配置参数</p>
+</blockquote>
+<ol start="2">
+<li>线程栈问题提取 检查是否有锁问题</li>
+</ol>
+<blockquote>
+<p>./jstack pid |grep http-nio-8090-exec （请求处理线程，可以检查处理线程卡在了哪里）<br>./jstack -l pid</p>
+<blockquote>
+<p>打印关于锁的其他信息，比如拥有的java.util.concurrent ownable同步器的列表。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>jstack -F pid</p>
+<blockquote>
+<p>当 jstack [-l] pid 没有响应时，强制打印一个堆栈转储。</p>
+</blockquote>
+</blockquote>
+<ol start="3">
+<li>查看tomcat进程内线程</li>
+</ol>
+<blockquote>
+<p>ps -Lf –pid 16139 |wc -l</p>
+<blockquote>
+<p> 统计该tomcat进程内的线程个数 </p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>pstree -p 16139 |wc -l</p>
+<blockquote>
+<p>统计该tomcat进程内的线程个数 </p>
+</blockquote>
+</blockquote>
+<ol start="4">
+<li>查看进程打开的TCP链接的连接数</li>
+</ol>
+<blockquote>
+<p>netstat -anpt|grep pid  -c</p>
+</blockquote>
+<ol start="5">
+<li>查看端口的TCP连接数</li>
+</ol>
+<blockquote>
+<p>  netstat -anpt|grep port -c</p>
+</blockquote>
+<h3 id="Tomcat相关配置"><a href="#Tomcat相关配置" class="headerlink" title="Tomcat相关配置"></a>Tomcat相关配置</h3><ol>
+<li>catalina.sh 相关配置</li>
+</ol>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">JAVA_OPTS</span>=<span class="string">&quot;-server </span></span><br><span class="line"><span class="attr">-Dfile.encoding</span>=<span class="string">UTF-8 </span></span><br><span class="line"><span class="attr">-Xms2048m</span> <span class="string"></span></span><br><span class="line"><span class="attr">-Xmx2048m</span></span><br><span class="line"><span class="attr">-Xloggc</span>:<span class="string">/home/tomcat/images/gclogs/cms-gc-150.log</span></span><br><span class="line"><span class="attr">-verbose</span>:<span class="string">gc -XX:+PrintGCDetails</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">+PrintGCDateStamps</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">+UseGCLogFileRotation</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">+PrintGCApplicationStoppedTime</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">NumberOfGCLogFiles=10</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">GCLogFileSize=100M</span></span><br><span class="line"><span class="attr">-Dlog4j2.formatMsgNoLookups</span>=<span class="string">true</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">+UseConcMarkSweepGC</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">CMSInitiatingOccupancyFraction=75</span></span><br><span class="line"><span class="attr">-XX</span>:<span class="string">+UseCMSInitiatingOccupancyOnly</span></span><br><span class="line"><span class="attr">&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<ol start="2">
+<li>垃圾回收器</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-XX:+UseConcMarkSweepGC</span><br><span class="line">-XX:CMSInitiatingOccupancyFraction=<span class="number">75</span></span><br><span class="line">-XX:+UseCMSInitiatingOccupancyOnly </span><br></pre></td></tr></table></figure>
+
+<p>-XX:+UseConcMarkSweepGC<br>表示年轻代使用 ParNew，老年代的用 CMS 垃圾回收器</p>
+<p>-XX:CMSInitiatingOccupancyFraction=75 </p>
+<p>由于 CMS 在执行过程中，用户线程还需要运行，那就需要保证有充足的内存空间供用户使用。<br>如果等到老年代空间快满了，再开启这个回收过程，用户线程可能会产生“Concurrent Mode Failure”的错误，这时会临时启用 Serial Old 收集器来重新进行老年代的垃圾收集，<br>这样停顿时间就很长了（STW）。这部分空间预留，一般在 30% 左右即可，那么能用的大概只有 70%。参数 -XX:CMSInitiatingOccupancyFraction 用来配置这个比例，但它首先必须配置 -XX:+UseCMSInitiatingOccupancyOnly 参数。</p>
+<p>-XX:+UseCMSInitiatingOccupancyOnly</p>
+<ol start="3">
+<li>TomcatConnector</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tomcat.apache.org/tomcat-7.0-doc/config/http.html#Introduction">官网介绍</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Connector</span> <span class="attr">port</span>=<span class="string">&quot;8081&quot;</span> </span></span><br><span class="line"><span class="tag">               <span class="attr">protocol</span>=<span class="string">&quot;org.apache.coyote.http11.Http11NioProtocol&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">connectionTimeout</span>=<span class="string">&quot;20000&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">keepAliveTimeout</span>=<span class="string">&quot;20000&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">acceptorThreadCount</span>=<span class="string">&quot;1&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">maxThreads</span>=<span class="string">&quot;360&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">maxConnections</span>=<span class="string">&quot;1000&quot;</span></span></span><br><span class="line"><span class="tag">               <span class="attr">acceptCount</span>=<span class="string">&quot;200&quot;</span>       </span></span><br><span class="line"><span class="tag">               <span class="attr">redirectPort</span>=<span class="string">&quot;8445&quot;</span> </span></span><br><span class="line"><span class="tag">               <span class="attr">URIEncoding</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+ <Connector port="8081" protocol="HTTP/1.1" connectionTimeout="20000" redirectPort="8445" URIEncoding="UTF-8" />
+</blockquote>
+<ul>
+<li> protocol：</li>
+</ul>
+<p><em>一：BIO org.apache.coyote.http11.Http11Protocol - blocking Java connector</em> <br/><br><br/><br>一个线程处理一个请求。缺点：并发量高时，线程数较多，浪费资源。<br/><br>Tomcat7或以下，在Linux系统中默认使用这种方式。</p>
+<p><em>二：NIO  org.apache.coyote.http11.Http11NioProtocol - non blocking Java connector</em><br/><br><br/><br>利用Java的异步IO处理，可以通过少量的线程处理大量的请求。<br/><br>Tomcat8在Linux系统中默认使用这种方式。<br/><br>Tomcat7必须修改Connector配置来启动：<br/><br><Connector port="8080" protocol="org.apache.coyote.http11.Http11NioProtocol" connectionTimeout="20000" redirectPort="8443"/> </p>
+<p><em>三：APR org.apache.coyote.http11.Http11AprProtocol - the APR/native connector.</em><br/><br><br/><br>即Apache Portable Runtime，从操作系统层面解决io阻塞问题。<br/><br>Tomcat7或Tomcat8在Win7或以上的系统中启动默认使用这种方式。<br/><br>Linux如果安装了apr和native，Tomcat直接启动就支持apr。（安装方法：<a target="_blank" rel="noopener" href="http://www.cnblogs.com/nb-blog/p/5278502.html%EF%BC%89">http://www.cnblogs.com/nb-blog/p/5278502.html）</a></p>
+<ul>
+<li><p>URIEncoding：<br/><br>This specifies the character encoding used to decode the URI bytes, after %xx decoding the URL. If not specified, ISO-8859-1 will be used.</p>
+</li>
+<li><p>acceptorThreadCount：<br/><br>用于接受连接的线程数。在多CPU的机器上增加这个值，虽然你永远不会真的需要超过2。此外，对于许多非保持活动状态的连接，您可能也想增加该值。默认值为1。</p>
+</li>
+</ul>
+<ul>
+<li><p>connectionLinger<br/><br>此连接器使用的套接字在关闭时停留的秒数。默认值为-1，表示禁用套接字逗留</p>
+</li>
+<li><p>connectionUploadTimeout<br/><br>指定数据上载过程中使用的超时时间(以毫秒为单位)。这仅在disableUploadTimeout设置为false时生效</p>
+</li>
+<li><p>disableUploadTimeout<br/><br>该标志允许servlet容器在数据上传期间使用不同的、通常更长的连接超时。如果未指定，此属性将设置为true，从而禁用更长的超时</p>
+</li>
+<li><p>keepAliveTimeout<br/><br>此连接器在关闭连接之前等待另一个HTTP请求的毫秒数。默认值是使用为connectionTimeout属性设置的值。使用值-1表示没有(即无限)超时</p>
+</li>
+<li><p>maxConnections<br/><br>服务器在任何给定时间接受和处理的最大连接数。当达到这个数目时，服务器将接受，但不处理，一个进一步的连接。这个额外的连接将被阻塞，直到被处理的连接数低于最大连接数，<br>此时服务器将再次开始接受和处理新的连接。请注意，一旦达到限制，操作系统可能仍然会根据acceptCount设置接受连接。默认值因连接器类型而异。<br>对于BIO，默认值是maxThreads的值，除非使用了执行器，在这种情况下，默认值将是来自执行器的maxThreads的值。对于NIO，默认值为10000。对于APR/native，默认值为8192。<br>仅对于NIO，将该值设置为-1将禁用maxConnections功能，并且不会计算连接数。</p>
+</li>
+<li><p>maxThreads<br/><br>此连接器要创建的最大请求处理线程数，因此决定了可以处理的最大并发请求数。如果未指定，该属性将设置为200。如果一个执行器与这个连接器相关联，那么这个属性将被忽略，<br>因为连接器将使用执行器而不是内部线程池来执行任务。<br>注意，如果配置了executor，为该属性设置的任何值都将被正确记录，但它将被报告(例如通过JMX)为-1，以表明它未被使用。</p>
+</li>
+<li><p>acceptCount<br/><br>当所有可能的请求处理线程都在使用中时，传入连接请求的最大队列长度。队列已满时收到的任何请求都将被拒绝。默认值为100</p>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/tomcat/" rel="tag"><i class="fa fa-tag"></i> tomcat</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/06/05/softwareeng/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E5%AD%A6/" rel="prev" title="软件开发方法学">
+                  <i class="fa fa-angle-left"></i> 软件开发方法学
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/14/linux/limit/" rel="next" title="Linux limit">
+                  Linux limit <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

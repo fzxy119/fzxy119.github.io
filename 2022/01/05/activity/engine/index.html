@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="关键词：12345processDefinitionKey：流程定义keyprocessDefinitionId: 模型部署后生成流程定义IDbusinessKey：业务参数category：用户对自己模型、定义和实例做的分类；tenantId：租户概念，对应多个系统共享同一个数据库的数据。  数据库配置：123456databaseType：h2, mysql, oracle, postgres">
+<meta property="og:type" content="article">
+<meta property="og:title" content="activity5 engine">
+<meta property="og:url" content="http://example.com/2022/01/05/activity/engine/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="关键词：12345processDefinitionKey：流程定义keyprocessDefinitionId: 模型部署后生成流程定义IDbusinessKey：业务参数category：用户对自己模型、定义和实例做的分类；tenantId：租户概念，对应多个系统共享同一个数据库的数据。  数据库配置：123456databaseType：h2, mysql, oracle, postgres">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-05T11:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="activity">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/01/05/activity/engine/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/01/05/activity/engine/","path":"2022/01/05/activity/engine/","title":"activity5 engine"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>activity5 engine | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">关键词：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E9%85%8D%E7%BD%AE%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">数据库配置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%86%E5%8F%B2%E9%85%8D%E7%BD%AE%EF%BC%9Ahistory"><span class="nav-number">3.</span> <span class="nav-text">历史配置：history</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E7%BB%93%E6%9E%84%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">表结构：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E9%87%8F"><span class="nav-number">5.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">6.</span> <span class="nav-text">表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%A8%E6%89%80%E6%9C%89%E8%BF%9B%E7%A8%8B%E5%8F%98%E9%87%8F%E4%B9%8B%E4%B8%8A%EF%BC%8C%E6%9C%89%E4%B8%80%E4%BA%9B%E9%BB%98%E8%AE%A4%E5%AF%B9%E8%B1%A1%E5%8F%AF%E7%94%A8%E4%BA%8E%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%AD%E9%BB%98%E8%AE%A4%E6%83%85%E5%86%B5%E4%B8%8B"><span class="nav-number">6.1.</span> <span class="nav-text">在所有进程变量之上，有一些默认对象可用于表达式中默认情况下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java-Service-tasks"><span class="nav-number">6.2.</span> <span class="nav-text">Java Service tasks</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Execution-Listeners"><span class="nav-number">6.3.</span> <span class="nav-text">Execution Listeners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Task-Listeners"><span class="nav-number">6.4.</span> <span class="nav-text">Task Listeners</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Conditional-sequence-flows"><span class="nav-number">6.5.</span> <span class="nav-text">Conditional sequence flows</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E5%8D%95%E6%A6%82%E5%BF%B5"><span class="nav-number">7.</span> <span class="nav-text">表单概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%B5%81%E7%A8%8B%E5%8F%82%E4%B8%8E%E8%80%85"><span class="nav-number">8.</span> <span class="nav-text">设置流程参与者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#api"><span class="nav-number">9.</span> <span class="nav-text">api</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Activity%E4%B8%8Espring%E9%9B%86%E6%88%90"><span class="nav-number">10.</span> <span class="nav-text">Activity与spring集成:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E4%BE%9D%E8%B5%96"><span class="nav-number">10.1.</span> <span class="nav-text">相关依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">10.2.</span> <span class="nav-text">相关配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3BEAN%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">10.3.</span> <span class="nav-text">相关BEAN初始化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%B5%84%E6%BA%90%E9%83%A8%E7%BD%B2"><span class="nav-number">10.4.</span> <span class="nav-text">自动资源部署</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#deploymentResources%EF%BC%9A"><span class="nav-number">10.4.1.</span> <span class="nav-text">deploymentResources：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#deploymentMode%EF%BC%9A"><span class="nav-number">10.4.2.</span> <span class="nav-text">deploymentMode：</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/05/activity/engine/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="activity5 engine | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          activity5 engine
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-05 19:00:00" itemprop="dateCreated datePublished" datetime="2022-01-05T19:00:00+08:00">2022-01-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="关键词："><a href="#关键词：" class="headerlink" title="关键词："></a>关键词：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">processDefinitionKey：流程定义key</span><br><span class="line">processDefinitionId: 模型部署后生成流程定义ID</span><br><span class="line">businessKey：业务参数</span><br><span class="line">category：用户对自己模型、定义和实例做的分类；</span><br><span class="line">tenantId：租户概念，对应多个系统共享同一个数据库的数据。</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据库配置："><a href="#数据库配置：" class="headerlink" title="数据库配置："></a>数据库配置：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">databaseType：h2, mysql, oracle, postgres, mssql, db2</span><br><span class="line">databaseSchemaUpdate：</span><br><span class="line">	false （default）：在构建过程引擎是，检查数据库模式是否和包版本一致，如果不一致就抛出异常</span><br><span class="line">	true：在构建过程引擎是，如果有必要，将执行检查，并执行模式的更新。如果模式不存在就创建</span><br><span class="line">	create-drop：当创建引擎时候就创建数据库模式，当流程引擎关闭的时候就删除模式</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
+
+<h3 id="历史配置：history"><a href="#历史配置：history" class="headerlink" title="历史配置：history"></a>历史配置：history</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">none：跳过有所有历史数据的归档，此配置会使流程高性能执行，但是不会提供历史信息</span><br><span class="line">activity: 归档所有流程实例和活动实例。在流程实例的末尾，顶级流程实例变量的最新值将被复制到历史变量实例中。没有任何细节将被存档。</span><br><span class="line">audit：这是默认的。它存档所有流程实例、活动实例、不断保持变量值的同步以及提交的所有表单属性，以便所有通过表单进行的用户交互都是可跟踪的，并且可以进行审计</span><br><span class="line">full: 这是历史存档的最高水平，因此也是最慢的。此级别存储审计级别中的所有信息，以及所有其他可能的详细信息，主要是流程变量更新。</span><br></pre></td></tr></table></figure>
+
+<h3 id="表结构："><a href="#表结构：" class="headerlink" title="表结构："></a>表结构：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">ACT_RE_*: RE stands for repository，表记录着一些静态信息，如流程的定义，流程资源，如图片，规则等</span><br><span class="line">ACT_RU_*: RU stands for runtime，包含流程，任务，参数，任务等等运行时数据，Activity只存储执行中的流程运行时数据，并且当流程结束后将被删除，使运行时表不至于过大，并且执行快速</span><br><span class="line">ACT_ID_*: ID stands for identity  包含一些身份信息，如用户用户组</span><br><span class="line">ACT_HI_*: HI stands for history   包含过去的流程历史数据，如流程实例，任务实例，参数</span><br><span class="line">ACT_GE_*: general  存储多样化数据</span><br><span class="line"></span><br><span class="line">ACT_RU_EXECUTION：</span><br><span class="line">ID_：EXECUTION主键，这个主键有可能和PROC_INST_ID_相同，相同的情况表示这条记录为主实例记录。</span><br><span class="line">REV_：表示数据库表更新次数。</span><br><span class="line">PROC_INST_ID_：一个流程实例不管有多少条分支实例，这个ID都是一致的。</span><br><span class="line">BUSINESS_KEY_:这个为业务主键，主流程才会使用业务主键，另外这个业务主键字段在表中有唯一约束。</span><br><span class="line">PARENT_ID_：这个记录表示父实例ID，如上图，同步节点会产生两条执行记录，这两条记录的父ID为主线的ID。</span><br><span class="line">PROC_DEF_ID_ :流程定义ID</span><br><span class="line">SUPER_EXEC ： 这个如果存在表示这个实例记录为一个外部子流程记录，对应主流程的主键ID。</span><br><span class="line">ACT_ID_：表示流程运行到的节点，如上图主实例运行到的节点ID。</span><br><span class="line">IS_ACTIVE_ : 是否活动流程实例</span><br><span class="line">IS_CONCURRENT_:是否并发。上图同步节点后为并发，如果是并发多实例也是为1。</span><br><span class="line">IS_SCOPE_: 这个字段我跟踪了一下不同的流程实例，如会签，子流程，同步等情况，发现主实例的情况这个字段为1，子实例这个字段为0。</span><br><span class="line">TENANT_ID_ :  这个字段表示租户ID。可以应对多租户的设计。</span><br><span class="line">IS_EVENT_SCOPE: 没有使用到事件的情况下，一般都为0。</span><br><span class="line">SUSPENSION_STATE_： 这个表示是否暂停。</span><br><span class="line">CACHE_ENT_STATE :这个暂时还不明白有什么作用。</span><br><span class="line"></span><br><span class="line">------------------------------------------------------</span><br><span class="line">act_ge_bytearray:通用资源表</span><br><span class="line">act_re_model：模型表</span><br><span class="line">act_re_deployment：部署信息表</span><br><span class="line">act_re_procdef：流程定义表</span><br><span class="line"></span><br><span class="line">act_hi_procinst：启动的流程实例</span><br><span class="line">act_hi_actinst：启动的活动实例</span><br><span class="line"></span><br><span class="line">act_ru_execution：启动的执行记录</span><br></pre></td></tr></table></figure>
+
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#流程或执行相关参数设置 多条执行并行，通过 getVariableLocal setVariableLocal 来区分，非多执行情况下效果一样</span><br><span class="line">RuntimeService.getVariable</span><br><span class="line">RuntimeService.getVariableLocal</span><br><span class="line">RuntimeService.setVariable</span><br><span class="line">RuntimeService.setVariableLocal</span><br><span class="line"></span><br><span class="line">#任务参数设置，和任务相关，并行任务通过setVariableLocal getVariableLocal来区分，单执行任务效果一样</span><br><span class="line">TaskService.setVariable</span><br><span class="line">TaskService.setVariableLocal</span><br><span class="line">TaskService.getVariable</span><br><span class="line">TaskService.getVariableLocal</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="表达式"><a href="#表达式" class="headerlink" title="表达式"></a>表达式</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Expressions： Activiti使用UEL进行表达-解析。Uel表示统一表达式语言，是EE6规范的一部分</span><br><span class="line">Activiti uses UEL for expression-resolving，UEL stands for Unified Expression Language and is part of the EE6 specification</span><br><span class="line"></span><br><span class="line">有2中类型的表达式：value-expression and method-expression</span><br><span class="line"></span><br><span class="line">Value expression：值表达式</span><br><span class="line">解析为一个Value值，默认情况下，所有的流程变量是可以使用的，并且所有的springbean也是可以使用的</span><br><span class="line">resolves to a value. By default, all process variables are available to use. Also all spring-beans (if using Spring) are available to use in expressions. Some examples</span><br><span class="line">$&#123;myVar&#125;</span><br><span class="line">$&#123;myBean.myProperty&#125;</span><br><span class="line"></span><br><span class="line">Method expression:方法表达式</span><br><span class="line">调用带有或不带参数的方法。当调用没有参数的方法时，请确保在方法名称之后添加空括号(因为这将表达式与值表达式区分开来)。传递的参数可以是本身解析的文字值或表达式。</span><br><span class="line">invokes a method, with or without parameters. When invoking a method without parameters, be sure to add empty parentheses after the method-name (as this distinguishes the expression from a value expression). The passed parameters can be literal values or expressions that are resolved themselves</span><br><span class="line">$&#123;printer.print()&#125;</span><br><span class="line">$&#123;myBean.addNewOrder(&#x27;orderName&#x27;)&#125;</span><br><span class="line">$&#123;myBean.doSomething(myVar, execution)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这些表达式支持解析原语(包括比较它们)、bean、列表、数组和映射</p>
+<h4 id="在所有进程变量之上，有一些默认对象可用于表达式中默认情况下"><a href="#在所有进程变量之上，有一些默认对象可用于表达式中默认情况下" class="headerlink" title="在所有进程变量之上，有一些默认对象可用于表达式中默认情况下"></a>在所有进程变量之上，有一些默认对象可用于表达式中默认情况下</h4><p>（所有的流程变量是可以使用的，并且所有的springbean也是可以使用的）</p>
+<ul>
+<li><p><strong>execution</strong>：DelegateExecution，它保存有关正在执行的其他信息。</p>
+</li>
+<li><p><strong>task</strong>：包含有关当前任务的其他信息的DelegateTask。注意：只在任务侦听器计算的表达式中工作</p>
+</li>
+<li><p><strong>authenticatedUserId</strong>：当前已通过身份验证的用户的id。如果没有对用户进行身份验证，则变量不可用。</p>
+</li>
+</ul>
+<p><strong>Expressions可以在  Java Service tasks, Execution Listeners, Task Listeners and Conditional sequence flows 中使用</strong></p>
+<p>默认情况下，当使用ProcessEngineFactoryBean时，BPMN进程中的所有表达式也将看到所有Springbean。可以使用您可以配置的映射来限制要在表达式中公开的bean，甚至完全不公开bean。下面的示例公开一个bean(打印机)，可在键“打印机”下使用。若要完全不公开bean，只需将一个空列表作为SpringProcessEngineConfiguration上的Beans属性传递即可。当没有设置bean属性时，上下文中的所有Springbean都是可用的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.spring.SpringProcessEngineConfiguration&quot;&gt;</span><br><span class="line">  &lt;property name=&quot;beans&quot;&gt;</span><br><span class="line">    &lt;map&gt;</span><br><span class="line">      &lt;entry key=&quot;printer&quot; value-ref=&quot;printer&quot; /&gt;</span><br><span class="line">    &lt;/map&gt;</span><br><span class="line">  &lt;/property&gt;</span><br><span class="line">&lt;/bean&gt;</span><br><span class="line"></span><br><span class="line">&lt;bean id=&quot;printer&quot; class=&quot;org.activiti.examples.spring.Printer&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="Java-Service-tasks"><a href="#Java-Service-tasks" class="headerlink" title="Java Service tasks"></a>Java Service tasks</h4><ul>
+<li>activiti:delegateExpression 配置一个委派的Bean对象 通常这个bean在spring中，任务交给指定的对象来执行 对象实现了JavaDelegate</li>
+<li>activiti:class 配置一个类，任务交给指定的类来执行 类实现JavaDelegate</li>
+<li>activiti:expression 配置一个表达式，表达式的执行作为任务的内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">指定task执行类</span><br><span class="line">&lt;serviceTask id=&quot;javaService&quot;name=&quot;My Java Service Task&quot; activiti:class=&quot;org.activiti.MyJavaDelegate&quot; /&gt;</span><br><span class="line"></span><br><span class="line">指定task执行类，delegateExpressionBean 实现了JavaDelegate接口，并且定义在spring中</span><br><span class="line">&lt;serviceTask id=&quot;serviceTask&quot; activiti:delegateExpression=&quot;$&#123;delegateExpressionBean&#125;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">执行执行脚本方法</span><br><span class="line">&lt;serviceTask id=&quot;javaService&quot; name=&quot;My Java Service Task&quot; activiti:expression=&quot;#&#123;printer.printMessage()&#125;&quot; /&gt;</span><br><span class="line"></span><br><span class="line">执行带参数的脚本方法</span><br><span class="line">&lt;serviceTask id=&quot;javaService&quot;name=&quot;My Java Service Task&quot; activiti:expression=&quot;#&#123;printer.printMessage(execution, myVar)&#125;&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Execution-Listeners"><a href="#Execution-Listeners" class="headerlink" title="Execution Listeners"></a>Execution Listeners</h4><ul>
+<li>delegateExpression:配置一个委派的Bean对象，通常这个bean在spring中，任务交给指定的对象来执行 对象实现了<strong>org.activiti.engine.delegate.ExecutionListener</strong></li>
+<li>class:配置一个类，任务交给指定的类来执行 类实现ExecutionListener</li>
+<li>expression：配置一个表达式，表达式的执行作为任务的内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;activiti:executionListener event=&quot;start&quot; delegateExpression=&quot;$&#123;myExecutionListenerBean&#125;&quot; /&gt;</span><br><span class="line">&lt;activiti:executionListener expression=&quot;$&#123;myPojo.myMethod(execution.eventName)&#125;&quot; event=&quot;end&quot; /&gt;</span><br><span class="line">&lt;activiti:executionListener class=&quot;org.activiti.executionlistener.ExampleExecutionListenerOne&quot; event=&quot;start&quot; /&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="Task-Listeners"><a href="#Task-Listeners" class="headerlink" title="Task Listeners"></a>Task Listeners</h4><p><strong>event</strong> </p>
+<ul>
+<li>assignment:当任务分配给某人时发生。注意：当进程执行到达userTask时，首先会触发一个分配事件，然后再触发CREATE事件。        这似乎是一种不自然的顺序，但其原因是务实的：在接收创建事件时，我们通常希望检查任务的所有属性，包括受让人</li>
+<li>create:在已创建任务并设置了“所有任务”属性时发生</li>
+<li>complete:在任务完成时和任务从运行时数据中删除之前发生。</li>
+<li>delete:在删除任务之前发生。注意，当任务通常通过完全任务完成时，它也将被执行。</li>
+</ul>
+<p><strong>class</strong></p>
+<ul>
+<li>delegateExpression:配置一个委派的Bean对象，通常这个bean在spring中，任务交给指定的对象来执行 对象实现了<strong>org.activiti.engine.delegate.TaskListener</strong></li>
+<li>class:配置一个类，任务交给指定的类来执行 类实现ExecutionListener</li>
+<li>expression：配置一个表达式，表达式的执行作为任务的内容</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;activiti:taskListener event=&quot;create&quot; delegateExpression=&quot;$&#123;myTaskListenerBean&#125;&quot; /&gt;</span><br><span class="line">&lt;activiti:taskListener event=&quot;create&quot; expression=&quot;$&#123;myObject.callMethod(task, task.eventName)&#125;&quot; /&gt;</span><br><span class="line">&lt;activiti:taskListener event=&quot;create&quot; class=&quot;org.activiti.MyTaskCreateListener&quot; /&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="Conditional-sequence-flows"><a href="#Conditional-sequence-flows" class="headerlink" title="Conditional sequence flows"></a>Conditional sequence flows</h4><p>目前条件表达式只能与UEL一起使用，有关这些的详细信息可以在部分表达式中找到。使用的表达式应该解析为布尔值，否则在计算条件时会引发异常</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">下面的示例通过getter引用典型JavaBean样式中流程变量的数据</span><br><span class="line">&lt;conditionExpression xsi:type=&quot;tFormalExpression&quot;&gt;</span><br><span class="line">    &lt;![CDATA[$&#123;order.price &gt; 100 &amp;&amp; order.price &lt; 250&#125;]]&gt;</span><br><span class="line">&lt;/conditionExpression&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">此示例调用解析为布尔值的方法</span><br><span class="line">&lt;conditionExpression xsi:type=&quot;tFormalExpression&quot;&gt;</span><br><span class="line">  &lt;![CDATA[$&#123;order.isStandardOrder()&#125;]]&gt;</span><br><span class="line">&lt;/conditionExpression&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="表单概念"><a href="#表单概念" class="headerlink" title="表单概念"></a>表单概念</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">普通表单：每个节点的表单内容都写死在JSP或者HTML中。</span><br><span class="line"></span><br><span class="line">动态表单：表单内容存放在流程定义文件中（包含在启动事件以及每个用户任务中）。</span><br><span class="line"></span><br><span class="line">外置表单：每个用户任务对应一个单独的&lt;b&gt;.form&lt;/b&gt;文件，和流程定义文件同时部署（打包为zip/bar文件）。</span><br><span class="line"></span><br><span class="line">综合流程：可以查询到所有的流程（普通、动态、外置固定查询某些流程的表单，为了演示所以单独分开）；综合流程的目的在于可以启动用户上传或者设计    后部署的流程定义</span><br><span class="line"></span><br><span class="line">设置表单地址</span><br><span class="line"></span><br><span class="line">l 全局表单：新建流程时或活动元素上未设置表单标识时调用的表单，位于开始事件属性中“表单标识”字段，指定表单访问地址。</span><br><span class="line"></span><br><span class="line">l 活动表单：当前步骤使用的表单，使用活动节点属性“表单标识”字段。</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置流程参与者"><a href="#设置流程参与者" class="headerlink" title="设置流程参与者"></a>设置流程参与者</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">assignee：任务执行人，设置系统中的“登录名”（loginName）。            参与人类型ACT_IDENTITYLINK： participant， 发起人类型:starter</span><br><span class="line"></span><br><span class="line">candidateUsers：任务执行人，可以填写多个。                          候选人类型ACT_IDENTITYLINK：candidate   </span><br><span class="line"></span><br><span class="line">candidateGroups：任务执行组，可以填写多个，设置系统中的“角色英文名（enname）”。</span><br><span class="line"></span><br><span class="line">assignee和candidateUsers的区别是：assignee不需要签收任务，直接可执行任务；candidateUsers为竞争方式分配任务，被指定人待办中都有一条任务，谁先签收谁就获得任务的执行权。参与者可指定流程变量（EL表达式），动态指定参与者，如：$&#123;processer&#125;</span><br><span class="line"></span><br><span class="line">ASSIGNEE_（受理人）</span><br><span class="line">Task task=taskService.createTaskQuery().singleResult();</span><br><span class="line">//签收</span><br><span class="line">taskService.claim(task.getId(), &quot;billy&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">OWNER_（委托人）：受理人委托其他人操作该TASK的时候，受理人就成了委托人OWNER_，其他人就成了受理人ASSIGNEE_</span><br><span class="line">Task task=taskService.createTaskQuery().singleResult();</span><br><span class="line">//委托</span><br><span class="line">taskService.delegateTask(task.getId(), &quot;cc&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">当前线程使用申请用户id，并留存在审批流程中</span><br><span class="line">activiti:initiator </span><br><span class="line">申请用户</span><br><span class="line">try &#123;</span><br><span class="line">  identityService.setAuthenticatedUserId(&quot;bono&quot;);</span><br><span class="line">  runtimeService.startProcessInstanceByKey(&quot;someProcessKey&quot;);</span><br><span class="line">&#125; finally &#123;</span><br><span class="line">  identityService.setAuthenticatedUserId(null);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<pre><code> 任务操作流程：
+</code></pre>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">生成任务并设置候选执行人，候选执行组</span><br><span class="line"></span><br><span class="line">候选任或者候选组人进行任务签收</span><br><span class="line"></span><br><span class="line">签收人执行处理任务</span><br></pre></td></tr></table></figure>
+
+<h3 id="api"><a href="#api" class="headerlink" title="api"></a>api</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//设置部署记录类型，将联动部署相关的流程定义一并更新类型</span><br><span class="line">repositoryService.setDeploymentCategory(&quot;10001&quot;,&quot;JTDLS&quot;);</span><br><span class="line">//设置流程定义类型</span><br><span class="line">repositoryService.setProcessDefinitionCategory(&quot;process_test_finance:1:10004&quot;,&quot;JTDLS&quot;);</span><br><span class="line">//设置部署的租户信息</span><br><span class="line">repositoryService.changeDeploymentTenantId(&quot;10001&quot;,&quot;AGENT&quot;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="Activity与spring集成"><a href="#Activity与spring集成" class="headerlink" title="Activity与spring集成:"></a>Activity与spring集成:</h3><h4 id="相关依赖"><a href="#相关依赖" class="headerlink" title="相关依赖"></a>相关依赖</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;activiti-engine&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.22.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;activiti-spring&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.22.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;activiti-bpmn-model&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.22.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;activiti-bpmn-converter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.22.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.activiti&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;activiti-image-generator&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;5.22.0&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h4><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server.port</span>=<span class="string">80</span></span><br><span class="line"><span class="attr">spring.datasource.type</span>=<span class="string">com.alibaba.druid.pool.DruidDataSource</span></span><br><span class="line"><span class="attr">spring.datasource.url</span>=<span class="string">jdbc:mysql://127.0.0.1:3306/activity_local?useUnicode=true&amp;characterEncoding=utf8&amp;zeroDateTimeBehavior=convertToNull&amp;useSSL=true&amp;serverTimezone=GMT%2B8</span></span><br><span class="line"><span class="attr">spring.datasource.username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">spring.datasource.password</span>=<span class="string">CHENxiao1989119</span></span><br><span class="line"><span class="attr">spring.datasource.driver-class-name</span>=<span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line"></span><br><span class="line"><span class="attr">activity.deployment.deploymentResources[0]</span>=<span class="string">processes/*.bpmn20.xml</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="相关BEAN初始化"><a href="#相关BEAN初始化" class="headerlink" title="相关BEAN初始化"></a>相关BEAN初始化</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> SpringProcessEngineConfiguration <span class="title function_">springProcessEngineConfiguration</span><span class="params">(DataSource dataSource, PlatformTransactionManager transactionManager)</span>&#123;</span><br><span class="line">    <span class="type">SpringProcessEngineConfiguration</span> <span class="variable">springProcessEngineConfiguration</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SpringProcessEngineConfiguration</span>();</span><br><span class="line">    springProcessEngineConfiguration.setDataSource(dataSource);</span><br><span class="line">    springProcessEngineConfiguration.setTransactionManager(transactionManager);</span><br><span class="line">    springProcessEngineConfiguration.setDatabaseSchemaUpdate(<span class="string">&quot;true&quot;</span>);</span><br><span class="line">    springProcessEngineConfiguration.setDatabaseSchema(<span class="string">&quot;mysql&quot;</span>);</span><br><span class="line">    springProcessEngineConfiguration.setHistoryLevel(HistoryLevel.FULL);</span><br><span class="line">    <span class="keyword">return</span>  springProcessEngineConfiguration;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> ProcessEngineFactoryBean <span class="title function_">processEngineFactoryBean</span><span class="params">(SpringProcessEngineConfiguration springProcessEngineConfiguration)</span>&#123;</span><br><span class="line">    <span class="type">ProcessEngineFactoryBean</span> <span class="variable">processEngineFactoryBean</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ProcessEngineFactoryBean</span>();</span><br><span class="line">    processEngineFactoryBean.setProcessEngineConfiguration(springProcessEngineConfiguration);</span><br><span class="line">    <span class="keyword">return</span> processEngineFactoryBean;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> RepositoryService <span class="title function_">repositoryService</span><span class="params">(ProcessEngine processEngine)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> processEngine.getRepositoryService();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">        exception.printStackTrace();</span><br><span class="line">        <span class="keyword">throw</span> exception;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> RuntimeService <span class="title function_">runtimeService</span><span class="params">(ProcessEngine processEngine)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> processEngine.getRuntimeService();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">        exception.printStackTrace();</span><br><span class="line">        <span class="keyword">throw</span> exception;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> TaskService <span class="title function_">taskService</span><span class="params">(ProcessEngine processEngine)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> processEngine.getTaskService();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">        exception.printStackTrace();</span><br><span class="line">        <span class="keyword">throw</span> exception;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> HistoryService <span class="title function_">historyService</span><span class="params">(ProcessEngine processEngine)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> processEngine.getHistoryService();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">        exception.printStackTrace();</span><br><span class="line">        <span class="keyword">throw</span> exception;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> ManagementService <span class="title function_">managementService</span><span class="params">(ProcessEngine processEngine)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> processEngine.getManagementService();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">        exception.printStackTrace();</span><br><span class="line">        <span class="keyword">throw</span> exception;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> IdentityService <span class="title function_">identityService</span><span class="params">(ProcessEngine processEngine)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> processEngine.getIdentityService();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception exception) &#123;</span><br><span class="line">        exception.printStackTrace();</span><br><span class="line">        <span class="keyword">throw</span> exception;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="自动资源部署"><a href="#自动资源部署" class="headerlink" title="自动资源部署"></a>自动资源部署</h4><h5 id="deploymentResources："><a href="#deploymentResources：" class="headerlink" title="deploymentResources："></a>deploymentResources：</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.spring.SpringProcessEngineConfiguration&quot;&gt;</span><br><span class="line">&lt;property name=&quot;deploymentResources&quot;</span><br><span class="line">    value=&quot;classpath*:/org/activiti/spring/test/autodeployment/autodeploy.*.bpmn20.xml&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Component</span><br><span class="line">@ConfigurationProperties(&quot;activity.deployment&quot;)</span><br><span class="line">public class DeploymentResourceConfig &#123;</span><br><span class="line"></span><br><span class="line">    private String[] deploymentResources;</span><br><span class="line"></span><br><span class="line">    public Resource[] getDeploymentResources() &#123;</span><br><span class="line">        PathMatchingResourcePatternResolver pathMatchingResourcePatternResolver = new PathMatchingResourcePatternResolver();</span><br><span class="line">        List&lt;Resource&gt; resources = new ArrayList&lt;&gt;();</span><br><span class="line">        for (String deploymentResource : deploymentResources) &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">                Resource[] search_res =  pathMatchingResourcePatternResolver.getResources(deploymentResource);</span><br><span class="line">                resources.addAll(Arrays.asList(search_res));</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return resources.toArray(new Resource[]&#123;&#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setDeploymentResources(String[] deploymentResources) &#123;</span><br><span class="line">        this.deploymentResources = deploymentResources;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>默认情况下，上面的配置将匹配筛选的所有资源分组到Activiti引擎的单个部署中。防止重新部署未更改资源的重复筛选适用于整个部署。在某些情况下，这可能不是你想要的。例如，如果您以这种方式部署了一组流程资源，并且这些资源中只有一个流程定义已经更改，则整个部署将被视为新的，而部署中的所有流程定义都将被重新部署，从而生成每个流程定义的新版本，即使实际上只有一个被更改。</p>
+<p>为了能够自定义确定部署的方式，您可以在SpringProcessEngineConfiguration，DeploymentMode中指定一个附加属性。此属性定义从匹配筛选器的一组资源中确定部署的方式。对于此属性，默认情况下支持3个值。</p>
+<h5 id="deploymentMode："><a href="#deploymentMode：" class="headerlink" title="deploymentMode："></a>deploymentMode：</h5><ul>
+<li>default:将所有资源分组到单个部署中，并对该部署应用重复筛选。这是默认值，如果不指定值，将使用它</li>
+<li>single-resource:为每个单独的资源创建一个单独的部署，并对该部署应用重复筛选。此值用于将每个流程定义分别部署，并仅在更改后创建一个新的流程定义版本</li>
+<li>resource-parent-folder:为共享同一个父文件夹的资源创建单独的部署，并对该部署应用重复筛选。此值可用于为大多数资源创建单独的部署，但仍可以通过将它们放置在共享文件夹中对某些资源进行分组。下面是如何为部署模式指定单资源配置的示例</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=&quot;processEngineConfiguration&quot; class=&quot;org.activiti.spring.SpringProcessEngineConfiguration&quot;&gt;</span><br><span class="line">  &lt;property name=&quot;deploymentResources&quot; value=&quot;classpath*:/activiti/*.bpmn&quot; /&gt;</span><br><span class="line">  &lt;property name=&quot;deploymentMode&quot; value=&quot;single-resource&quot; /&gt;</span><br><span class="line">&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/activity/" rel="tag"><i class="fa fa-tag"></i> activity</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/25/Knowledge/xmglxmzh/" rel="prev" title="项目管理-项目整合管理">
+                  <i class="fa fa-angle-left"></i> 项目管理-项目整合管理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/06/Knowledge/xmglwenjian/" rel="next" title="项目管理相关文件">
+                  项目管理相关文件 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

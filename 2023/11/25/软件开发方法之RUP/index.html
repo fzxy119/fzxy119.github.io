@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&amp;emsp;&amp;emsp; RUP (Rational Unified Process).Rational 公司提出的统一软件过程，Unified 说RUP是最佳开发经验总结，Process说明 RUP是一个软件开发过程。 软件的生命周期： &amp;emsp;&amp;emsp; 软件的生命周期是一个软件从无到有再到消亡，经过的生命各个阶段，软件的生命周期有通用的生命周期，但是不同的场景，不同的开发方法可能会进行">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件过程模型之RUP">
+<meta property="og:url" content="http://example.com/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="&amp;emsp;&amp;emsp; RUP (Rational Unified Process).Rational 公司提出的统一软件过程，Unified 说RUP是最佳开发经验总结，Process说明 RUP是一个软件开发过程。 软件的生命周期： &amp;emsp;&amp;emsp; 软件的生命周期是一个软件从无到有再到消亡，经过的生命各个阶段，软件的生命周期有通用的生命周期，但是不同的场景，不同的开发方法可能会进行">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="过程模型">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/","path":"2023/11/25/软件开发方法之RUP/","title":"软件过程模型之RUP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>软件过程模型之RUP | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RUP%E5%B0%86%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%91%A8%E6%9C%9F%E4%BA%86%E5%9B%9B%E4%B8%AA%E9%98%B6%E6%AE%B5%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">RUP将软件开发周期了四个阶段：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="nav-number">1.1.</span> <span class="nav-text">初始化阶段</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%86%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="nav-number">1.2.</span> <span class="nav-text">细化阶段</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="软件过程模型之RUP | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          软件过程模型之RUP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-25 18:31:18" itemprop="dateCreated datePublished" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>&emsp;&emsp; RUP (Rational Unified Process).Rational 公司提出的统一软件过程，Unified 说RUP是最佳开发经验总结，Process说明 RUP是一个软件开发过程。</p>
+<p>软件的生命周期：</p>
+<p>&emsp;&emsp; 软件的生命周期是一个软件从无到有再到消亡，经过的生命各个阶段，软件的生命周期有通用的生命周期，但是不同的场景，不同的开发方法可能会进行不同的裁剪，一般情况下软件的生命周期有</p>
+<ol>
+<li>问题定义，</li>
+<li>可行性分析，</li>
+<li>需求分析，</li>
+<li>概要设计，</li>
+<li>详细设计，</li>
+<li>软件实现，</li>
+<li>测试验收部署，</li>
+<li>运行与维护，</li>
+<li>消亡。</li>
+</ol>
+<p>&emsp;&emsp;RUP是一种软件过程模型，定义了我们在开发周期内的不同阶段、及在各个阶段内参与的人，从事的活动及产出物，那么这种开发过程的总结是一种经验性方法总结，可以指导我们如何能够明确的、有条不紊、高效的软件开发。</p>
+<h3 id="RUP将软件开发周期了四个阶段："><a href="#RUP将软件开发周期了四个阶段：" class="headerlink" title="RUP将软件开发周期了四个阶段："></a>RUP将软件开发周期了四个阶段：</h3><blockquote>
+<p>1.初始化阶段：定义最终产品视图和业务模型，并确定系统范围</p>
+</blockquote>
+<blockquote>
+<p>2.细化阶段：设计及确定系统的体系结构，确定工作计划及资源要求。</p>
+</blockquote>
+<blockquote>
+<p>3.构建阶段：构造产品并继续演进需求，体系结构，计划直至产品提交。</p>
+</blockquote>
+<blockquote>
+<p>4.交付阶段：把产品交付给用户使用</p>
+</blockquote>
+<p><em>RUP定义的4个过程组成了一个周期，那么在整个软件开发过程中，RUP的4个过程是一直进行迭代增量的，每次迭代都会演化为产品的下一代产品。直至产品交付和消亡</em></p>
+<p>&emsp;&emsp;RUP有三个显著的特点：用例驱动，以系统架构为中心，迭代与增量。他们是RUP解决问题的方式及方法。</p>
+<h4 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h4><p>&emsp;&emsp;初始化阶段他包含了软件生命周期中问题的定义，需求的分析，并完成系统定位及范围，最终生成产品视图、业务模型、及系统范围。此阶段中我们一般从事 RUP中定义的 业务建模活动，需求分析活动，业务建模是理解待开发所在机构及其商业活动运作，确保所有参与人员对待开发系统所在的机构，有共同的认识，待开发系统对所在机构的影响。</p>
+<p><strong>&emsp;&emsp;在初始化阶段，必须识别出所有与系统交互的外部实体，定义系统与外部实体交互的特性，在这个阶段中所关注的是整个项目的业务和需求方面的主要风险，对建立在原有系统基础上的开发项目来说，初始化阶段可能很短。</strong></p>
+<p>此阶段我们需要完成<br>1：业务流程模型的建立，流程模型可以是文档描述，也可以使用图形表述，无论何种方式使大家能够对业务有一个清醒的统一的认识是主要目的:<br>2：完成系统与外部实体，交互关系图，及交互方式定义。<br>3：完成系统与外部系统职责，及确定系统的范围</p>
+<h4 id="细化阶段"><a href="#细化阶段" class="headerlink" title="细化阶段"></a>细化阶段</h4><p>&emsp;&emsp;设计及确定系统的体系结构，确定工作计划及资源要求。软件体系结构刻画了系统的整体结构，它去掉了细节部分，突出了系统的重要特征。<br>软件体系结构的设计与代码设计无关，不依赖于程序设计语言，软件体系结构是软件设计过程中的一个层次，体系结构的设计需要考虑多方面问题。<br>在功能性特征方面要考虑系统的功能，非功能性特征方面要考虑系统性能，安全性和可用性等。<br>软件开发有关的特征需要考虑可修改性，可移植性，可重用性，可集成性，可测试性<br>开发经济学有关的特征需要考虑，开发时间，费用，系统生命周期，</p>
+<p>&emsp;&emsp;设对于一个软件系统，不同人员所关心的内容是不一样的，因此软件的体系结构是一个多维的结构，也就是说会采用多个视图来描述软件体系结构。<br>如：对于一座大厦，对于大厦建设和维护人员来说，会用电线布线结构，有些人会用电梯布局结构，有些人会用水管布局结构。</p>
+<p>&emsp;&emsp;在RUP总采用4+1 视图模型来描述软件体系结构，用例图，逻辑图，实现图，进程图，部署图。<br>分析人员和测试人员关心的是系统行为，因此会侧重于用例视图，用户关心的是系统功能，会侧重于逻辑视图，程序人员关心的是系统配置和装配问题，侧重于实现视图，<br>系统集成人员关心系统的可伸缩性，吞吐率等问题，因此侧重于进程视图，系统工程师关心系统的发布，安装，拓扑，侧重于部署图。</p>
+<p>RUP定义的9中活动：业务建模，需求，分析设计，实现，测试，部署，配置与变更管理，项目管理，环境<br>RUP中的核心概念：角色 Role,活动 Activity 制品 Artifact 工作流 workflow</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 过程模型</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/08/31/db/oracl/sqlanalysi/" rel="prev" title="ORACLE sql 分析">
+                  <i class="fa fa-angle-left"></i> ORACLE sql 分析
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

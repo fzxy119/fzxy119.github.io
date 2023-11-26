@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="面向对象是基于万物皆是对象这个哲学观点，把一个对象抽象成类，具体就是把一个对象的静态特这和动态特征抽象成属性和方法，也就是把一类事物的数据结构及算法封装在一个类之中，程序是多个对象和互相之间的通信组成的。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象设计中的要素与原则有哪些">
+<meta property="og:url" content="http://example.com/2021/09/13/java/Designprinciples/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="面向对象是基于万物皆是对象这个哲学观点，把一个对象抽象成类，具体就是把一个对象的静态特这和动态特征抽象成属性和方法，也就是把一类事物的数据结构及算法封装在一个类之中，程序是多个对象和互相之间的通信组成的。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2021/09/13/java/Designprinciples/58e757d32da94.png">
+<meta property="article:published_time" content="2021-09-13T05:49:30.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="Design">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2021/09/13/java/Designprinciples/58e757d32da94.png">
+
+
+<link rel="canonical" href="http://example.com/2021/09/13/java/Designprinciples/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/09/13/java/Designprinciples/","path":"2021/09/13/java/Designprinciples/","title":"面向对象设计中的要素与原则有哪些"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>面向对象设计中的要素与原则有哪些 | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%A6%81%E7%B4%A0"><span class="nav-number">1.</span> <span class="nav-text">面向对象设计的三个基本要素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%81%E8%A3%85"><span class="nav-number">1.0.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF"><span class="nav-number">1.0.2.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E7%9A%84%E6%A6%82%E8%BF%B0"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">继承的概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%BB%A7%E6%89%BF%E6%97%B6%E9%9C%80%E8%A6%81%E8%AE%B0%E4%BD%8F%E4%B8%89%E5%8F%A5%E8%AF%9D"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">使用继承时需要记住三句话</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%B0%A8%E6%85%8E%E7%BB%A7%E6%89%BF"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">谨慎继承</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E6%80%81-%E5%A4%9A%E6%80%81%E5%88%86%E4%B8%BA%E7%BC%96%E8%AF%91%E6%97%B6%E5%A4%9A%E6%80%81%E5%92%8C%E8%BF%90%E8%A1%8C%E6%97%B6%E5%A4%9A%E6%80%81"><span class="nav-number">1.0.3.</span> <span class="nav-text">多态(多态分为编译时多态和运行时多态)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%E7%9A%84%E7%BB%BC%E8%BF%B0"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">多态的综述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%9A%E6%80%81%E5%AE%9E%E7%8E%B0%E7%9A%84%E6%9D%A1%E4%BB%B6%EF%BC%88%E7%BB%A7%E6%89%BF%E3%80%81%E9%87%8D%E5%86%99%E3%80%81%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%EF%BC%89"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">多态实现的条件（继承、重写、向上转型）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%BD%A2%E5%BC%8F"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">实现形式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a-%E5%9F%BA%E4%BA%8E%E7%BB%A7%E6%89%BF%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-number">1.0.3.3.1.</span> <span class="nav-text">a. 基于继承实现的多态</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#b-%E5%9F%BA%E4%BA%8E%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%A4%9A%E6%80%81"><span class="nav-number">1.0.3.3.2.</span> <span class="nav-text">b. 基于接口实现的多态</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%83%E7%A7%8D%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">面向对象七种设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">开闭原则：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">里氏替换原则：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9D%E6%87%92%E5%80%92%E7%BD%AE%E5%8E%9F%E5%88%99"><span class="nav-number">2.3.</span> <span class="nav-text">依懒倒置原则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99"><span class="nav-number">2.4.</span> <span class="nav-text">接口隔离原则</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/13/java/Designprinciples/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="面向对象设计中的要素与原则有哪些 | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面向对象设计中的要素与原则有哪些
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-13 13:49:30" itemprop="dateCreated datePublished" datetime="2021-09-13T13:49:30+08:00">2021-09-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>面向对象是基于万物皆是对象这个哲学观点，把一个对象抽象成类，具体就是把一个对象的静态特这和动态特征抽象成属性和方法，也就是把一类事物的数据结构及算法封装在一个类之中，程序是多个对象和互相之间的通信组成的。</p>
+<span id="more"></span>
+
+<h1 id="面向对象设计的三个基本要素"><a href="#面向对象设计的三个基本要素" class="headerlink" title="面向对象设计的三个基本要素"></a>面向对象设计的三个基本要素</h1><img src="/2021/09/13/java/Designprinciples/58e757d32da94.png" class="" title="面向对象设计的三个基本要素">
+
+<ul>
+<li><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>一种信息隐蔽技术，他体现于类的说明，是对象重要的特性。封装使得数据和操作数据的方法封装为一个整体，想成独立性很强的模块，使得用户只能看到对象的外部特性（对象可以接受拿些信息，可以进行何种处理），而对象的内部特性（内部私有属性和实现处理能力的算法）用户是看不到的。简而言之就是说，封装使对象的设计者与对象的使用者分开，使用者只要知道对象可以做什么就可以了，无需知道具体是怎么实现的。借助封装有助于提高类和系统的安全性。</p>
+</li>
+<li><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><h4 id="继承的概述"><a href="#继承的概述" class="headerlink" title="继承的概述"></a>继承的概述</h4><p>​    继承是使用已存在的类的定义作为基础建立新类的技术，新类的定义可以增加新的数据或新的功能，也可以用父类的功能，但不能选择性地继承父类。通过使用继承我们能够非常方便地复用以前的代码，能够大大的提高开发的效率。</p>
+<p>​    诚然，继承定义了类如何相互关联，共享特性。对于若干个相同或者相识的类，我们可以抽象出他们共有的行为或者属相并将其定义成一个父类或者超类，然后用这些类继承该父类，他们不仅可以拥有父类的属性、方法还可以定义自己独有的属性或者方法。</p>
+<h4 id="使用继承时需要记住三句话"><a href="#使用继承时需要记住三句话" class="headerlink" title="使用继承时需要记住三句话"></a>使用继承时需要记住三句话</h4><ol>
+<li><p>子类拥有父类非private的属性和方法。</p>
+</li>
+<li><p>子类可以拥有自己属性和方法，即子类可以对父类进行扩展。</p>
+</li>
+<li><p>子类可以用自己的方式实现父类的方法（重写）</p>
+</li>
+</ol>
+<p>  学习继承一定少不了这三个东西：<em><strong>构造器、protected关键字、向上转型</strong></em></p>
+<p>​    通过前面我们知道子类可以继承父类的属性和方法，除了那些private的外还有一样是子类继承不了的—构造器。对于构造器而言，它只能够被调用，而不能被继承。 调用父类的构造方法我们使用super()即可。</p>
+<p>​    构建过程是从父类“向外”扩散的，也就是从父类开始向子类一级一级地完成构建。而且我们并没有显示的引用父类的构造器，这就是java的聪明之处：编译器会默认给子类调用父类的构造器。</p>
+<p>​    但是，这个默认调用父类的构造器是有前提的：父类有默认构造器。如果父类没有默认构造器，我们就要必须显示的使用super()来调用父类构造器，否则编译器会报错：无法找到符合父类形式的构造器。</p>
+<p>​    对于子类而已,其构造器的正确初始化是非常重要的,而且当且仅当只有一个方法可以保证这点：在构造器中调用父类构造器来完成初始化，而父类构造器具有执行父类初始化所需要的所有知识和能力。</p>
+<p>​    对于继承而言，子类会默认调用父类的构造器，但是如果没有默认的父类构造器，子类必须要显示的指定父类的构造器，而且必须是在子类构造器中做的第一件事(第一行代码)。</p>
+<p>​    private访问修饰符，对于封装而言，是最好的选择，但这个只是基于理想的世界，有时候我们需要这样的需求：我们需要将某些事物尽可能地对这个世界隐藏，但是仍然允许子类的成员来访问它们。这个时候就需要使用到protected。</p>
+<p>​    对于protected而言，它指明就类用户而言，他是private，但是对于任何继承与此类的子类而言或者其他任何位于同一个包的类而言，他却是可以访问的。</p>
+<h4 id="谨慎继承"><a href="#谨慎继承" class="headerlink" title="谨慎继承"></a><strong>谨慎继承</strong></h4><p>在这里我们需要明确，继承存在如下缺陷：</p>
+<ol>
+<li><p>父类变，子类就必须变。</p>
+</li>
+<li><p>继承破坏了封装，对于父类而言，它的实现细节对与子类来说都是透明的。</p>
+</li>
+<li><p>继承是一种强耦合关系。</p>
+</li>
+</ol>
+<p>所以说当我们使用继承的时候，我们需要确信使用继承确实是有效可行的办法。那么到底要不要使用继承呢？《Think in java》中提供了解决办法：问一问自己是否需要从子类向父类进行向上转型。如果必须向上转型，则继承是必要的，但是如果不需要，则应当好好考虑自己是否需要继承。</p>
+<p>一般情况下我们通过抽象的类来定义模板方法，具体执行方法交由实现类来实现，不同的实现有不同的处理算法，但是具体的执行逻辑由抽象类来控制，如ApplicationContext 中AbstractApplicationContext的refresh方法</p>
+</li>
+<li><h3 id="多态-多态分为编译时多态和运行时多态"><a href="#多态-多态分为编译时多态和运行时多态" class="headerlink" title="多态(多态分为编译时多态和运行时多态)"></a>多态(<strong>多态分为编译时多态和运行时多态</strong>)</h3><ol>
+<li><h4 id="多态的综述"><a href="#多态的综述" class="headerlink" title="多态的综述"></a><strong>多态的综述</strong></h4></li>
+</ol>
+<p>​    所谓多态就是指程序中定义的引用变量所指向的具体类型和通过该引用变量发出的方法调用在编程时并不确定，而是在程序运行期间才确定，即一个引用变量倒底会指向哪个类的实例对象，该引用变量发出的方法调用到底是哪个类中实现的方法，必须在由程序运行期间才能决定。因为在程序运行时才确定具体的类，这样，不用修改源程序代码，就可以让引用变量绑定到各种不同的类实现上，从而导致该引用调用的具体方法随之改变，即不修改程序代码就可以改变程序运行时所绑定的具体代码，让程序可以选择多个运行状态，这就是多态性。</p>
+<p>​    所以对于多态我们可以总结如下：</p>
+<p>   指向子类的父类引用由于向上转型了，它只能访问父类中拥有的方法和属性，而对于子类中存在而父类中不存在的方法，该引用是不能使用的，尽管是重载该方法。若子类重写了父类中的某些方法，在调用该些方法的时候，必定是使用子类中定义的这些方法（动态连接、动态调用）。</p>
+<p>​    对于面向对象而言，多态分为编译时多态和运行时多态。其中编程时多态是静态的，主要是指方法的重载，它是根据参数列表的不同来区分不同的函数，通过编程之后会变成两个不同的函数，在运行时谈不上多态。而运行时多态是动态的，它是通过动态绑定来实现的，也就是我们所说的多态性。</p>
+<ol start="2">
+<li><h4 id="多态实现的条件（继承、重写、向上转型）"><a href="#多态实现的条件（继承、重写、向上转型）" class="headerlink" title="多态实现的条件（继承、重写、向上转型）"></a><strong>多态实现的条件</strong>（<em><strong>继承、重写、向上转型</strong></em>）</h4></li>
+</ol>
+<p>​    继承：在多态中必须存在有继承关系的子类和父类。<br>​    重写：子类对父类中某些方法进行重新定义，在调用这些方法时就会调用子类的方法。<br>​    向上转型：在多态中需要将子类的引用赋给父类对象，只有这样该引用才能够具备技能调用父类的方法和子类的方法。</p>
+<p>​    只有满足了上述三个条件，我们才能够在同一个继承结构中使用统一的逻辑实现代码处理不同的对象，从而达到执行不同的行为。</p>
+<p>​    对于Java而言，它多态的实现机制遵循一个原则：当超类对象引用变量引用子类对象时，被引用对象的类型而不是引用变量的类型决定了调用谁的成员方法，但是这个被调用的方法必须是在超类中定义过的，也就是说被子类覆盖的方法。</p>
+<ol start="3">
+<li><h4 id="实现形式"><a href="#实现形式" class="headerlink" title="实现形式"></a><strong>实现形式</strong></h4></li>
+</ol>
+<p>​    在Java中有两种形式可以实现多态：继承和接口</p>
+<h5 id="a-基于继承实现的多态"><a href="#a-基于继承实现的多态" class="headerlink" title="a. 基于继承实现的多态"></a><strong>a. 基于继承实现的多态</strong></h5><p>​     基于继承的实现机制主要表现在父类和继承该父类的一个或多个子类对某些方法的重写，多个子类对同一方法的重写可以表现出不同的行为,对于引用子类的父类类型，在处理该引用时，它适用于继承该父类的所有子类，子类对象的不同，对方法的实现也就不同，执行相同动作产生的行为也就不同。</p>
+<h5 id="b-基于接口实现的多态"><a href="#b-基于接口实现的多态" class="headerlink" title="b. 基于接口实现的多态"></a><strong>b. 基于接口实现的多态</strong></h5><p>​    在接口的多态中，指向接口的引用必须是指定这实现了该接口的一个类的实例程序，在运行时，根据对象引用的实际类型来执行对应的方法，继承都是单继承，只能为一组相关的类提供一致的服务接口。但是接口可以是多继承多实现，它能够利用一组相关或者不相关的接口进行组合与扩充，能够对外提供一致的服务接口。所以它相对于继承来说有更好的灵活性。</p>
+</li>
+</ul>
+<h1 id="面向对象七种设计原则"><a href="#面向对象七种设计原则" class="headerlink" title="面向对象七种设计原则"></a>面向对象七种设计原则</h1><p>一个好的系统设计应该有如下的性质</p>
+<ul>
+<li>可扩展性（Extensibility）：可以很容易的在系统中加入一个新的功能</li>
+<li>灵活性（Flexibility）：可以很容易的实现对某个代码的修改，而不担心对其他模块产生影响</li>
+<li>可插入性（Pluggability）：可以很容易的将一个类抽出去复用，或者将另一个有同样功能的接口的类加入到系统里</li>
+</ul>
+<p>面向对象的设计原则都是以可维护性、可复用性、扩展性为基础的，这些原则相互依赖，相互补充，遵循这些设计原则可以提高系统的复用性，扩展性，同时提高系统的可维护性。</p>
+<table>
+<thead>
+<tr>
+<th>原则</th>
+<th align="left">简称</th>
+<th>核心思想</th>
+<th align="left">概述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>单一功能原则</td>
+<td align="left">Single Responsibility Principle, SRP</td>
+<td>解耦和增强内聚性（高内聚，低耦      合）</td>
+<td align="left">类被修改的几率很大，因此应该专注于单一的功能。<br />如果你把多个功能放在同一个类中，功能之间就形成了关联，<br />改变其中一个功能，有可能中止另一个功能，这时就需要新一轮的测试来避免可能出现的问题</td>
+</tr>
+<tr>
+<td>开闭原则</td>
+<td align="left">Open-Closed Principle, OCP</td>
+<td>对扩展开放，对修改关闭</td>
+<td align="left">扩展开放：模块添加新功能，不改变原有的代码,<br />修改关闭：某模块被其他模块调用，<br />如果该模块的源代码不允许修改，则该模块修改关闭的</td>
+</tr>
+<tr>
+<td>里氏替换原则</td>
+<td align="left">Liskov Substitution Principle, LSP</td>
+<td>任何父类出现的地方，子类都可以替代出现</td>
+<td align="left">任何父类出现的地方，子类都可以替代出现，把基类替换成它的子类，程序将不会产生任务错误和异常，反过来则不成立，如果一个软件实体使用的是一个子类的话，那么它不一定能够使用基类</td>
+</tr>
+<tr>
+<td>依赖倒转原则</td>
+<td align="left">Dependence Inversion Principle, DIP</td>
+<td>要依赖于抽象，不要依赖于具体的实现</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>接口分离原则</td>
+<td align="left">Interface Segregation Principle, ISP</td>
+<td>不应该强迫客户程序依赖他们不需要使用的方法</td>
+<td align="left">一个接口不需要提供太多的行为，一个接口应该只提供一种对外的功能，不应该把所有的操作都封装到一个接口当中</td>
+</tr>
+<tr>
+<td>合成复用原则</td>
+<td align="left">Composite Reuse Principle, CRP</td>
+<td>尽量使用对象组合，而不是继承来达到复用的目的</td>
+<td align="left">继承关系是强耦合，组合关系是低耦合</td>
+</tr>
+<tr>
+<td>迪米特原则</td>
+<td align="left">Law of Demeter, LoD</td>
+<td>又称最少知识原则,一个对象应当对其他对象有尽可能少的了解,不和陌生人说话</td>
+<td align="left">降低各个对象之间的耦合，提高系统的可维护性</td>
+</tr>
+</tbody></table>
+<h2 id="开闭原则："><a href="#开闭原则：" class="headerlink" title="开闭原则："></a>开闭原则：</h2><p>开闭原则对扩展开放对修改关闭，并不意味着我们的代码不能做出任何变更，开闭原则是我们开发应用程序的目标，<strong>抽象化是开闭原则实现的关键，通过接口或者抽象类来完成对修改的封闭约束，不允许出现在接口中或者抽象类中不存在的public方法，采用抽象类的具体实现或者接口多实现类以及多态性的方式来完成业务功能的扩展，以实现对功能修改的关闭，对功能实现的扩展，里氏替换原则是实现开闭原则的重要方式之一。</strong></p>
+<h2 id="里氏替换原则："><a href="#里氏替换原则：" class="headerlink" title="里氏替换原则："></a>里氏替换原则：</h2><p>里氏替换原则主要是针对继承的设计原则，<strong>它为良好的继承定义了一个规范</strong>，当我们考虑使用继承的时候需要考虑里氏替换原则，并且里氏替换原则是实现开闭原则的重要方式之一</p>
+<ul>
+<li>子类可以实现父类的抽象方法，但不能覆盖父类的非抽象方法。</li>
+<li>子类可以增加自己特有的方法。</li>
+<li>当子类的方法重载父类的方法时，方法的前置条件（即方法的形参）可以放大（比父类方法的输入参数更宽松）</li>
+<li>当子类的方法实现父类的抽象方法时，方法的后置条件（即方法的返回值）可以被缩小（比父类更严格）</li>
+</ul>
+<p><strong>如果父类的某些方法在子类中已经不能使用，则建议断开父子继承关系，采用依懒，聚合，组合关系代替继承</strong></p>
+<h2 id="依懒倒置原则"><a href="#依懒倒置原则" class="headerlink" title="依懒倒置原则"></a>依懒倒置原则</h2><p>依赖倒置原则规定了我们编程的方式，要针对抽象层编程，而不是针对具体实现编程，搞层模块不应依赖底层实现模块，他们都应该依赖抽象，抽象不应该依赖袭击，细节应该依赖于抽象，换句话说，开闭原则是我们开发软件要实现的目标，依赖倒置原则规定了我们开发编程时候的开发方式。</p>
+<p>依赖倒置原则的常用实现方式之一是在代码中使用抽象类，而具体的实现可使用动态的特性，在运行时根据业务数据选择不同的执行策略，这些具体实现可以放入配置文件或者容器中，具体业务动态绑定到具体的实现，也是为了实现开闭原则目标的方式。</p>
+<p><strong>依懒的三种写法</strong></p>
+<p>构造函数传递依懒对象，也叫构造函数注入</p>
+<p>Setter方法传递依懒对象，也叫Setter依懒注入</p>
+<p>接口声明依懒对象，也叫接口注入，就是在接口的方法参数中声明依懒对象。</p>
+<h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><p>接口隔离原则要求我们不要建立功能丰富的庞大接口，使用多个专门的接口来取代一个统一的接口。<strong>每一个接口应该承担一种相对独立的角色，不多不少，不干不该干的事，该干的事都要干，在具体程序上，避免操作越界，通过接口的控制操作的界限，如使用依赖倒置原则，依赖接口进行开发，查询接口只提供查询功能，在查询逻辑中禁止修改逻辑，依赖单一功能接口可避免查询中进行修改这种越界操作提高系统安全性</strong>，接口隔离原则告诉我们：使用多个隔离的接口，比使用单个接口要好，尽量降低类之间的耦合度。</p>
+<ol>
+<li>一个接口就只代表一个角色，每个角色都有它特定的一个接口。 </li>
+<li>接口仅仅提供客户端需要的行为，即所需的方法，客户端不需要的行为则隐藏起来，应当为客户端提供尽可能小的单独的接口，而不要提供大的总接口。</li>
+<li>使用接口隔离原则拆分接口时，首先必须满足单一职责原则，将一组相关的操作定义在一个接口中，且在满足高内聚的前提下，接口中的方法越少越好。</li>
+</ol>
+<p>具体使用如BeanDefinitionRegistry，BeanFactory ，BeanFactory 定义获取bean的接口，BeanDefinitionRegistry定义注册beanDefinition的接口，是获取和注册功能拆分，在获取的时候依赖于BeanFactory ，在注册的时候依赖于BeanDefinitionRegistry，避免获取的时候进行注册等越界操作</p>
+<p><strong>综合各种面向对象的原则，都是从不同较多描述了 对 ”抽象“ 的使用，开闭原则是从开发目标的角度描述了抽象，替换原则从如何实现抽象的角度描述了抽象，依赖倒置原则从编程方式的角度描述了抽象，接口隔离原则从责任及安全的角度描述了抽象，总的来说都是对现实世界抽象的使用，以及抽象能带来的益处的总结。</strong></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Design/" rel="tag"><i class="fa fa-tag"></i> Design</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/09/08/spring/HandlerAdapter/" rel="prev" title="SpringWebMvc-HandlerAdapter">
+                  <i class="fa fa-angle-left"></i> SpringWebMvc-HandlerAdapter
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/15/Knowledge/guihua/" rel="next" title="如何做规划">
+                  如何做规划 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

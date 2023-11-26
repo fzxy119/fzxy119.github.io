@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="别来无恙">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="技术 生活 hexo 笔记 晓">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">别来无恙</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/25/%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%96%B9%E6%B3%95%E4%B9%8BRUP/" class="post-title-link" itemprop="url">软件过程模型之RUP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-11-25 18:31:18" itemprop="dateCreated datePublished" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">软件工程</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>&emsp;&emsp; RUP (Rational Unified Process).Rational 公司提出的统一软件过程，Unified 说RUP是最佳开发经验总结，Process说明 RUP是一个软件开发过程。</p>
+<p>软件的生命周期：</p>
+<p>&emsp;&emsp; 软件的生命周期是一个软件从无到有再到消亡，经过的生命各个阶段，软件的生命周期有通用的生命周期，但是不同的场景，不同的开发方法可能会进行不同的裁剪，一般情况下软件的生命周期有</p>
+<ol>
+<li>问题定义，</li>
+<li>可行性分析，</li>
+<li>需求分析，</li>
+<li>概要设计，</li>
+<li>详细设计，</li>
+<li>软件实现，</li>
+<li>测试验收部署，</li>
+<li>运行与维护，</li>
+<li>消亡。</li>
+</ol>
+<p>&emsp;&emsp;RUP是一种软件过程模型，定义了我们在开发周期内的不同阶段、及在各个阶段内参与的人，从事的活动及产出物，那么这种开发过程的总结是一种经验性方法总结，可以指导我们如何能够明确的、有条不紊、高效的软件开发。</p>
+<h3 id="RUP将软件开发周期了四个阶段："><a href="#RUP将软件开发周期了四个阶段：" class="headerlink" title="RUP将软件开发周期了四个阶段："></a>RUP将软件开发周期了四个阶段：</h3><blockquote>
+<p>1.初始化阶段：定义最终产品视图和业务模型，并确定系统范围</p>
+</blockquote>
+<blockquote>
+<p>2.细化阶段：设计及确定系统的体系结构，确定工作计划及资源要求。</p>
+</blockquote>
+<blockquote>
+<p>3.构建阶段：构造产品并继续演进需求，体系结构，计划直至产品提交。</p>
+</blockquote>
+<blockquote>
+<p>4.交付阶段：把产品交付给用户使用</p>
+</blockquote>
+<p><em>RUP定义的4个过程组成了一个周期，那么在整个软件开发过程中，RUP的4个过程是一直进行迭代增量的，每次迭代都会演化为产品的下一代产品。直至产品交付和消亡</em></p>
+<p>&emsp;&emsp;RUP有三个显著的特点：用例驱动，以系统架构为中心，迭代与增量。他们是RUP解决问题的方式及方法。</p>
+<h4 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h4><p>&emsp;&emsp;初始化阶段他包含了软件生命周期中问题的定义，需求的分析，并完成系统定位及范围，最终生成产品视图、业务模型、及系统范围。此阶段中我们一般从事 RUP中定义的 业务建模活动，需求分析活动，业务建模是理解待开发所在机构及其商业活动运作，确保所有参与人员对待开发系统所在的机构，有共同的认识，待开发系统对所在机构的影响。</p>
+<p><strong>&emsp;&emsp;在初始化阶段，必须识别出所有与系统交互的外部实体，定义系统与外部实体交互的特性，在这个阶段中所关注的是整个项目的业务和需求方面的主要风险，对建立在原有系统基础上的开发项目来说，初始化阶段可能很短。</strong></p>
+<p>此阶段我们需要完成<br>1：业务流程模型的建立，流程模型可以是文档描述，也可以使用图形表述，无论何种方式使大家能够对业务有一个清醒的统一的认识是主要目的:<br>2：完成系统与外部实体，交互关系图，及交互方式定义。<br>3：完成系统与外部系统职责，及确定系统的范围</p>
+<h4 id="细化阶段"><a href="#细化阶段" class="headerlink" title="细化阶段"></a>细化阶段</h4><p>&emsp;&emsp;设计及确定系统的体系结构，确定工作计划及资源要求。软件体系结构刻画了系统的整体结构，它去掉了细节部分，突出了系统的重要特征。<br>软件体系结构的设计与代码设计无关，不依赖于程序设计语言，软件体系结构是软件设计过程中的一个层次，体系结构的设计需要考虑多方面问题。<br>在功能性特征方面要考虑系统的功能，非功能性特征方面要考虑系统性能，安全性和可用性等。<br>软件开发有关的特征需要考虑可修改性，可移植性，可重用性，可集成性，可测试性<br>开发经济学有关的特征需要考虑，开发时间，费用，系统生命周期，</p>
+<p>&emsp;&emsp;设对于一个软件系统，不同人员所关心的内容是不一样的，因此软件的体系结构是一个多维的结构，也就是说会采用多个视图来描述软件体系结构。<br>如：对于一座大厦，对于大厦建设和维护人员来说，会用电线布线结构，有些人会用电梯布局结构，有些人会用水管布局结构。</p>
+<p>&emsp;&emsp;在RUP总采用4+1 视图模型来描述软件体系结构，用例图，逻辑图，实现图，进程图，部署图。<br>分析人员和测试人员关心的是系统行为，因此会侧重于用例视图，用户关心的是系统功能，会侧重于逻辑视图，程序人员关心的是系统配置和装配问题，侧重于实现视图，<br>系统集成人员关心系统的可伸缩性，吞吐率等问题，因此侧重于进程视图，系统工程师关心系统的发布，安装，拓扑，侧重于部署图。</p>
+<p>RUP定义的9中活动：业务建模，需求，分析设计，实现，测试，部署，配置与变更管理，项目管理，环境<br>RUP中的核心概念：角色 Role,活动 Activity 制品 Artifact 工作流 workflow</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/31/db/oracl/sqlanalysi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/31/db/oracl/sqlanalysi/" class="post-title-link" itemprop="url">ORACLE sql 分析</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-31 14:11:21" itemprop="dateCreated datePublished" datetime="2022-08-31T14:11:21+08:00">2022-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>EXPLAIN PLAN FOR select * from A_AGENT a where a.ID=’AG20181121000000000011525’;</p>
+<p>–SELECT plan_table_output FROM TABLE(DBMS_XPLAN.DISPLAY(‘PLAN_TABLE’));</p>
+<p>select * from table(dbms_xplan.display);</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/08/26/java/arthas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/08/26/java/arthas/" class="post-title-link" itemprop="url">vmtoll</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-08-26 17:09:06" itemprop="dateCreated datePublished" datetime="2022-08-26T17:09:06+08:00">2022-08-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>7490376  Approved<br>sc -d org.springframework.context.ApplicationContext<br>–线上执行代码</p>
+<p>vmtool –action getInstances -c  6981e5e3 –className org.springframework.context.ApplicationContext –express ‘instances[1].getBean(“snReturnService”).approveReject(“5020059”)’</p>
+<p>vmtool –action getInstances -c 2f9cd665 –className org.springframework.context.ApplicationContext –express ‘instances[1].getBean(“orderAdjustService”).approveFinishOrderAdjust(“4922565”,”reject_end”)’</p>
+<p>vmtool –action getInstances -c 5950a341 –className org.springframework.context.ApplicationContext –express ‘instances[1].getBean(“activityService”).single(“snreturn_single_reject”,”4735433”)’</p>
+<p>vmtool –action getInstances -c 5950a341 –className org.springframework.context.ApplicationContext –express ‘instances[1].getBean(“kfkCallBackEnterService”).dealMsg(“KM210317001134012”,”3”,”解冻完成”)’</p>
+<p>vmtool –action getInstances -c 5950a341 –className org.springframework.context.ApplicationContext –express ‘instances[1].getBean(“agentContractService”).queryRedisAgContractFreeze()’</p>
+<p>vmtool –action getInstances -c 2f9cd665 –className org.springframework.context.ApplicationContext –express ‘instances[1].getBean(“dataChangeActivityService”).compressColInfoDataChangeActivity(“4877809”,”Approved”)’</p>
+<p>vmtool –action getInstances -c   2af28f0e –className org.springframework.context.ApplicationContext –express ‘#arr = new java.util.ArrayList&lt;java.lang.String&gt;(), #arr.add(“5020059”), instances[1].getBean(“activityService”).deleteInstance(#arr)’</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/db/mysql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/26/db/mysql/" class="post-title-link" itemprop="url">Mysql数据类型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-26 17:53:21" itemprop="dateCreated datePublished" datetime="2022-07-26T17:53:21+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h1><img src="/2022/07/26/db/mysql/mysqlint.png" class="" title="jvmmap">
+
+<p>在整型类型中，有 signed 和 unsigned 属性，其表示的是整型的取值范围，默认为 signed</p>
+<h2 id="浮点类型-高精度"><a href="#浮点类型-高精度" class="headerlink" title="浮点类型 高精度"></a>浮点类型 高精度</h2><ul>
+<li>浮点类型  Float 和 Double</li>
+</ul>
+<p>MySQL 之前的版本中存在浮点类型 Float 和 Double，但这些类型因为不是高精度，也不是 SQL 标准的类型，所以在真实的生产环境中不推荐使用</p>
+<ul>
+<li>高精度类型 DECIMAL(8,2)</li>
+</ul>
+<blockquote>
+<p>整形类型与自增</p>
+<blockquote>
+<p>用 BIGINT 做主键，而不是 INT<br>自增值并不持久化，可能会有回溯现象（MySQL 8.0 版本前）,MySQL 8.0 版本前，自增不持久化，自增值可能会存在回溯问题<br>资金类字段设计 建议采用BIG INT（8字节定长）,以分为单位</p>
+</blockquote>
+</blockquote>
+<h1 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h1><p>MySQL 数据库的字符串类型有 CHAR、VARCHAR、BINARY、BLOB、TEXT、ENUM、SET。不同的类型在业务设计、数据库性能方面的表现完全不同，其中最常使用的是 CHAR、VARCHAR</p>
+<p>CHAR(N) 用来保存固定长度的字符，N 的范围是 0 ~ 255，请牢记，N 表示的是字符，而不是字节。</p>
+<p>VARCHAR(N) 用来保存变长字符，N 的范围为 0 ~ 65536， N 表示字符。</p>
+<p>在超出 65536 个字符的情况下，可以考虑使用更大的字符类型 TEXT 或 BLOB，两者最大存储长度为 4G，其区别是 BLOB 没有字符集属性，纯属二进制存储</p>
+<p>和 Oracle、Microsoft SQL Server 等传统关系型数据库不同的是，MySQL 数据库的 VARCHAR 字符类型，最大能够存储 65536 个字符，所以在 MySQL 数据库下，绝大部分场景使用类型 VARCHAR 就足够了</p>
+<h2 id="字符集"><a href="#字符集" class="headerlink" title="字符集"></a>字符集</h2><p>在表结构设计中，除了将列定义为 CHAR 和 VARCHAR 用以存储字符以外，还需要额外定义字符对应的字符集，因为每种字符在不同字符集编码下，对应着不同的二进制值。常见的字符集有 GBK、UTF8，通常推荐把默认字符集设置为 UTF8</p>
+<p>而且随着移动互联网的飞速发展，推荐把 MySQL 的默认字符集设置为 UTF8MB4,否则，某些 emoji 表情字符无法在 UTF8 字符集下存储，比如 emoji 笑脸表情，对应的字符编码为 0xF09F988E</p>
+<p>包括 MySQL 8.0 版本在内，字符集默认设置成 UTF8MB4，8.0 版本之前默认的字符集为 Latin1。因为不同版本默认字符集的不同，你要显式地在配置文件中进行相关参数的配置</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">character-set-server = utf8mb4</span><br></pre></td></tr></table></figure>
+
+<p>另外，不同的字符集，CHAR(N)、VARCHAR(N) 对应最长的字节也不相同。比如 GBK 字符集，1 个字符最大存储 2 个字节，UTF8MB4 字符集 1 个字符最大存储 4 个字节。所以从底层存储内核看，在多字节字符集下，CHAR 和 VARCHAR 底层的实现完全相同，都是变长存储</p>
+<ul>
+<li>正确设置字符集</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER TABLE emoji_test CHARSET utf8mb4;</span><br><span class="line">mysql&gt; ALTER TABLE emoji_test CONVERT TO CHARSET utf8mb4;</span><br></pre></td></tr></table></figure>
+
+<h2 id="排序规则"><a href="#排序规则" class="headerlink" title="排序规则"></a>排序规则</h2><p>排序规则（Collation）是比较和排序字符串的一种规则，每个字符集都会有默认的排序规则，你可以用命令 SHOW CHARSET 来查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW CHARSET LIKE &#x27;utf8%&#x27;;</span><br><span class="line"></span><br><span class="line">+---------+---------------+--------------------+--------+</span><br><span class="line"></span><br><span class="line">| Charset | Description   | Default collation  | Maxlen |</span><br><span class="line"></span><br><span class="line">+---------+---------------+--------------------+--------+</span><br><span class="line"></span><br><span class="line">| utf8    | UTF-8 Unicode | utf8_general_ci    |      3 |</span><br><span class="line"></span><br><span class="line">| utf8mb4 | UTF-8 Unicode | utf8mb4_0900_ai_ci |      4 |</span><br><span class="line"></span><br><span class="line">+---------+---------------+--------------------+--------+</span><br><span class="line"></span><br><span class="line">2 rows in set (0.01 sec)</span><br><span class="line"></span><br><span class="line">mysql&gt; SHOW COLLATION LIKE &#x27;utf8mb4%&#x27;;</span><br><span class="line"></span><br><span class="line">+----------------------------+---------+-----+---------+----------+---------+---------------+</span><br><span class="line"></span><br><span class="line">| Collation                  | Charset | Id  | Default | Compiled | Sortlen | Pad_attribute |</span><br><span class="line"></span><br><span class="line">+----------------------------+---------+-----+---------+----------+---------+---------------+</span><br><span class="line"></span><br><span class="line">| utf8mb4_0900_ai_ci         | utf8mb4 | 255 | Yes     | Yes      |       0 | NO PAD        |</span><br><span class="line"></span><br><span class="line">| utf8mb4_0900_as_ci         | utf8mb4 | 305 |         | Yes      |       0 | NO PAD        |</span><br><span class="line"></span><br><span class="line">| utf8mb4_0900_as_cs         | utf8mb4 | 278 |         | Yes      |       0 | NO PAD        |</span><br><span class="line"></span><br><span class="line">| utf8mb4_0900_bin           | utf8mb4 | 309 |         | Yes      |       1 | NO PAD        |</span><br><span class="line"></span><br><span class="line">| utf8mb4_bin                | utf8mb4 |  46 |         | Yes      |       1 | PAD SPACE     |</span><br></pre></td></tr></table></figure>
+
+<p>排序规则以 _ci 结尾，表示不区分大小写（Case Insentive），_cs 表示大小写敏感，_bin 表示通过存储字符的二进制进行比较。需要注意的是，比较 MySQL 字符串，默认采用不区分大小的排序规则</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/db/esbase/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/26/db/esbase/" class="post-title-link" itemprop="url">ES基础</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-26 14:11:34" itemprop="dateCreated datePublished" datetime="2022-07-26T14:11:34+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="Elasticsearch-是做什么的"><a href="#Elasticsearch-是做什么的" class="headerlink" title="Elasticsearch  是做什么的"></a>Elasticsearch  是做什么的</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Elasticsearch 是一个实时的分布式搜索分析引擎，它能让你以前所未有的速度和规模，去探索你的数据。 它被用作全文检索、结构化搜索、分析以及这三个功能的组合</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;通常情况下，我们从数据库中提取可用的知识出乎意料的低效，当然，你可以通过时间戳或精确值进行过滤，但是它们能够全文检索、处理同义词、通过相关性给文档评分么？ 它们能从同样的数据中生成分析与聚合数据吗？最重要的是，它们能实时地做到上述操作，而不经过大型批处理的任务么？</p>
+<h2 id="Elasticsearch-是用什么实现的"><a href="#Elasticsearch-是用什么实现的" class="headerlink" title="Elasticsearch  是用什么实现的"></a>Elasticsearch  是用什么实现的</h2><p>Elasticsearch 是一个开源的搜索引擎，建立在一个全文搜索引擎库 Apache Lucene™ 基础之上。 Lucene 可以说是当下最先进、高性能、全功能的搜索引擎库—​无论是开源还是私有。</p>
+<p>但是 Lucene 仅仅只是一个库。为了充分发挥其功能，你需要使用 Java 并将 Lucene 直接集成到应用程序中。 更糟糕的是，您可能需要获得信息检索学位才能了解其工作原理。Lucene 非常 复杂。</p>
+<p>Elasticsearch 也是使用 Java 编写的，它的内部使用 Lucene 做索引与搜索，但是它的目的是使全文检索变得简单， 通过隐藏 Lucene 的复杂性，取而代之的提供一套简单一致的 RESTful API。</p>
+<p>然而，Elasticsearch 不仅仅是 Lucene，并且也不仅仅只是一个全文搜索引擎。 它可以被下面这样准确的形容：</p>
+<ul>
+<li>一个分布式的实时文档存储，每个字段 可以被索引与搜索</li>
+<li>一个分布式实时分析搜索引擎</li>
+<li>能胜任上百个服务节点的扩展，并支持 PB 级别的结构化或者非结构化数据</li>
+</ul>
+<p>Elasticsearch 将所有的功能打包成一个单独的服务，这样你可以通过程序与它提供的简单的 RESTful API 进行通信， 可以使用自己喜欢的编程语言充当 web 客户端，甚至可以使用命令行（去充当这个客户端）</p>
+<h3 id="Elasticsearch-面向文档"><a href="#Elasticsearch-面向文档" class="headerlink" title="Elasticsearch 面向文档"></a>Elasticsearch 面向文档</h3><p>Elasticsearch 是 面向文档 的，意味着它存储整个对象或 文档。Elasticsearch 不仅存储文档，而且 索引 每个文档的内容，使之可以被检索。在 Elasticsearch 中，我们对文档进行索引、检索、排序和过滤—​而不是对行列数据。这是一种完全不同的思考数据的方式，也是 Elasticsearch 能支持复杂全文检索的原因</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/db/esapi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/26/db/esapi/" class="post-title-link" itemprop="url">Es RESTful Api</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-26 13:54:57" itemprop="dateCreated datePublished" datetime="2022-07-26T13:54:57+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="查询所有索引信息"><a href="#查询所有索引信息" class="headerlink" title="查询所有索引信息"></a>查询所有索引信息</h3><ul>
+<li>http:///_cat/indices</li>
+</ul>
+<h3 id="索引映射查看"><a href="#索引映射查看" class="headerlink" title="索引映射查看"></a>索引映射查看</h3><ul>
+<li>get http:///agent-info</li>
+</ul>
+<h3 id="索引设置查看"><a href="#索引设置查看" class="headerlink" title="索引设置查看"></a>索引设置查看</h3><ul>
+<li>get http:///agent-info/_settings</li>
+</ul>
+<h3 id="索引删除"><a href="#索引删除" class="headerlink" title="索引删除"></a>索引删除</h3><ul>
+<li>delete  http:///agent-info</li>
+</ul>
+<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><ul>
+<li>get  http:///agent-info/_search</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;:&#123;</span><br><span class="line">        &quot;match&quot;:&#123;</span><br><span class="line">            &quot;ag_name&quot;: &quot;大石桥市旺达水果蔬菜便利店&quot;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="索引全文检索"><a href="#索引全文检索" class="headerlink" title="索引全文检索"></a>索引全文检索</h3><ul>
+<li>get  http:///agent-info/_search</li>
+</ul>
+<h3 id="关键词分析"><a href="#关键词分析" class="headerlink" title="关键词分析"></a>关键词分析</h3><ul>
+<li>get http:///_analyze<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;739183800@qq.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="cat操作类表"><a href="#cat操作类表" class="headerlink" title="_cat操作类表"></a>_cat操作类表</h3><ul>
+<li>get http:///_cat</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">=^.^=</span><br><span class="line">/_cat/allocation</span><br><span class="line">/_cat/shards</span><br><span class="line">/_cat/shards/&#123;index&#125;</span><br><span class="line">/_cat/master</span><br><span class="line">/_cat/nodes</span><br><span class="line">/_cat/tasks</span><br><span class="line">/_cat/indices</span><br><span class="line">/_cat/indices/&#123;index&#125;</span><br><span class="line">/_cat/segments</span><br><span class="line">/_cat/segments/&#123;index&#125;</span><br><span class="line">/_cat/count</span><br><span class="line">/_cat/count/&#123;index&#125;</span><br><span class="line">/_cat/recovery</span><br><span class="line">/_cat/recovery/&#123;index&#125;</span><br><span class="line">/_cat/health</span><br><span class="line">/_cat/pending_tasks</span><br><span class="line">/_cat/aliases</span><br><span class="line">/_cat/aliases/&#123;alias&#125;</span><br><span class="line">/_cat/thread_pool</span><br><span class="line">/_cat/thread_pool/&#123;thread_pools&#125;</span><br><span class="line">/_cat/plugins</span><br><span class="line">/_cat/fielddata</span><br><span class="line">/_cat/fielddata/&#123;fields&#125;</span><br><span class="line">/_cat/nodeattrs</span><br><span class="line">/_cat/repositories</span><br><span class="line">/_cat/snapshots/&#123;repository&#125;</span><br><span class="line">/_cat/templates</span><br><span class="line">/_cat/ml/anomaly_detectors</span><br><span class="line">/_cat/ml/anomaly_detectors/&#123;job_id&#125;</span><br><span class="line">/_cat/ml/trained_models</span><br><span class="line">/_cat/ml/trained_models/&#123;model_id&#125;</span><br><span class="line">/_cat/ml/datafeeds</span><br><span class="line">/_cat/ml/datafeeds/&#123;datafeed_id&#125;</span><br><span class="line">/_cat/ml/data_frame/analytics</span><br><span class="line">/_cat/ml/data_frame/analytics/&#123;id&#125;</span><br><span class="line">/_cat/transforms</span><br><span class="line">/_cat/transforms/&#123;transform_id&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="健康检查"><a href="#健康检查" class="headerlink" title="健康检查"></a>健康检查</h3><ul>
+<li><p>get http:///_cat/health</p>
+<blockquote>
+<p>1658815275 06:01:15 ryx green 3 3 10 8 0 0 0 0 - 100.0%</p>
+</blockquote>
+<h3 id="查看集群信息"><a href="#查看集群信息" class="headerlink" title="查看集群信息"></a>查看集群信息</h3></li>
+<li><p>get http:///_cluster/health</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;cluster_name&quot;: &quot;ryx&quot;,</span><br><span class="line">    &quot;status&quot;: &quot;green&quot;,</span><br><span class="line">    &quot;timed_out&quot;: false,</span><br><span class="line">    &quot;number_of_nodes&quot;: 3,</span><br><span class="line">    &quot;number_of_data_nodes&quot;: 3,</span><br><span class="line">    &quot;active_primary_shards&quot;: 8,</span><br><span class="line">    &quot;active_shards&quot;: 10,</span><br><span class="line">    &quot;relocating_shards&quot;: 0,</span><br><span class="line">    &quot;initializing_shards&quot;: 0,</span><br><span class="line">    &quot;unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;delayed_unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;number_of_pending_tasks&quot;: 0,</span><br><span class="line">    &quot;number_of_in_flight_fetch&quot;: 0,</span><br><span class="line">    &quot;task_max_waiting_in_queue_millis&quot;: 0,</span><br><span class="line">    &quot;active_shards_percent_as_number&quot;: 100.0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群master"><a href="#查看集群master" class="headerlink" title="查看集群master"></a>查看集群master</h3></li>
+<li><p>get http:///_cat/master</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TzHcEWPTRW-D8vFqj0lTUQ 12.3.10.105 12.3.10.105 node-105</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群节点信息"><a href="#查看集群节点信息" class="headerlink" title="查看集群节点信息"></a>查看集群节点信息</h3></li>
+<li><p>get http:///_cat/nodes</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">12.3.10.205 65 97 3 0.02 0.11 0.17 cdfhilmrstw - node-205</span><br><span class="line">12.3.10.222 15 94 3 0.03 0.07 0.06 cdfhilmrstw - node-222</span><br><span class="line">12.3.10.105 51 98 2 0.06 0.08 0.02 cdfhilmrstw * node-105</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群分片信息"><a href="#查看集群分片信息" class="headerlink" title="查看集群分片信息"></a>查看集群分片信息</h3></li>
+<li><p>get http:///_cat/shards</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">agent-info       2 p STARTED 13569   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       1 p STARTED 13104   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       0 p STARTED 13476   1.8mb 12.3.10.222 node-222</span><br><span class="line">.security-7      0 r STARTED     7  25.7kb 12.3.10.205 node-205</span><br><span class="line">.security-7      0 p STARTED     7  25.7kb 12.3.10.222 node-222</span><br><span class="line">.geoip_databases 0 r STARTED     4     4mb 12.3.10.205 node-205</span><br><span class="line">.geoip_databases 0 p STARTED     4     4mb 12.3.10.222 node-222</span><br><span class="line">order-info       2 p STARTED   570 266.7kb 12.3.10.222 node-222</span><br><span class="line">order-info       1 p STARTED   508 249.2kb 12.3.10.205 node-205</span><br><span class="line">order-info       0 p STARTED   521   259kb 12.3.10.222 node-222</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/db/redis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/26/db/redis/" class="post-title-link" itemprop="url">Redis集群</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-26 13:34:35" itemprop="dateCreated datePublished" datetime="2022-07-26T13:34:35+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>cd redis/src<br>make MALLOC=libc</p>
+<p>cd redis<br>make &amp;&amp; make install</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">port 7001 # 客户端连接端口</span><br><span class="line">bind 12.3.10.222 #实例绑定的IP地址</span><br><span class="line">logfile &quot;usr/local/src/redis-5.0.14/logs/6479.log&quot;</span><br><span class="line">dir /usr/local/src/redis-5.0.14/datas_6479 # redis实例数据配置存储位置</span><br><span class="line">daemonize yes # 是否以后台进程的方式启动redis实例</span><br><span class="line">pidfile /var/run/redis_7001.pid # 指定该进程pidfile</span><br><span class="line"></span><br><span class="line">cluster-enabled yes # 开启集群模式</span><br><span class="line">cluster-config-file # 集群中该实例的配置文件，该文件会在data目录下生成</span><br><span class="line">appendonly yes # 开启aop日志</span><br><span class="line">protected-mode no # 关闭保护模式</span><br><span class="line">requirepass cx # master开启密码保护</span><br><span class="line">masterauth cx # replica同master交互密码</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> src/redis-server cluster/redis-6474.config  </span><br><span class="line"> src/redis-server cluster/redis-6475.config </span><br><span class="line"> src/redis-server cluster/redis-6476.config </span><br><span class="line"> src/redis-server cluster/redis-6477.config </span><br><span class="line"> src/redis-server cluster/redis-6478.config </span><br><span class="line"> src/redis-server cluster/redis-6479.config </span><br><span class="line"></span><br><span class="line">#文本替换</span><br><span class="line">:1,$s/6479/6474/gc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">src/redis-cli -p cx --cluster create 12.3.10.222:6479 12.3.10.222:6478 12.3.10.222:6477 12.3.10.222:6476 12.3.10.222:6475 12.3.10.222:6474 --cluster-replicas 1 -a cx</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> ps aux|grep redis|grep -v &#x27;grep&#x27;|awk &#x27;&#123;print $2&#125;&#x27;|xargs kill -15</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/25/java/jvm/parallel/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/25/java/jvm/parallel/" class="post-title-link" itemprop="url">jvm参数配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-25 10:42:36" itemprop="dateCreated datePublished" datetime="2022-07-25T10:42:36+08:00">2022-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <img src="/2022/07/25/java/jvm/parallel/jvmmap.png" class="" title="jvmmap">
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-XX:+UseConcMarkSweepGC</span><br><span class="line">-Xms1g</span><br><span class="line">-Xmx2g</span><br><span class="line">-XX:+UseCMSInitiatingOccupancyOnly</span><br><span class="line">-XX:CMSInitiatingOccupancyFraction=70</span><br><span class="line">-XX:CMSFullGCsBeforeCompaction=0</span><br><span class="line">-XX:+UseCMSCompactAtFullCollection</span><br><span class="line">-XX:ParallelGCThreads=4</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>Serial垃圾收集器（新生代） 新生代使用Serial  老年代则使用SerialOld     </p>
+<blockquote>
+<p>开启：-XX:+UseSerialGC 关闭：-XX:-UseSerialGC</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>SerialOld收集器(串行老年代) 搭配Parallel Scavenge使用  及  CMS发生Concurrent Mode Failure之后的预案</p>
+</blockquote>
+</blockquote>
+<p>ParNew垃圾收集器（新生代） 新生代使用功能ParNew 老年代则使用功能CMS</p>
+<blockquote>
+<p>开启 -XX:+UseParNewGC 关闭 -XX:-UseParNewGC</p>
+</blockquote>
+<p>Parallel Scavenge收集器（新生代） 新生代使用功能Parallel Scavenge 老年代将会使用Parallel Old收集器</p>
+<blockquote>
+<p>开启 -XX:+UseParallelGC 关闭 -XX:-UseParallelGC </p>
+</blockquote>
+<hr>
+<p>ParallelOld垃圾收集器（老年代） 新生代使用功能Parallel Scavenge 老年代将会使用Parallel Old收集器</p>
+<blockquote>
+<p>开启 -XX:+UseParallelOldGC 关闭 -XX:-UseParallelOldGC</p>
+</blockquote>
+<p>CMS垃圾收集器（老年代）  新生代使用功能ParNew 老年代则使用功能CMS 老年代担保失败 则采用SerialOld收集器串行收集</p>
+<blockquote>
+<p>开启 -XX:+UseConcMarkSweepGC 关闭 -XX:-UseConcMarkSweepGC</p>
+</blockquote>
+<p> G1垃圾收集器</p>
+<blockquote>
+<p>开启 -XX:+UseG1GC 关闭 -XX:-UseG1GC</p>
+</blockquote>
+<hr>
+<h3 id="对象的一些配置"><a href="#对象的一些配置" class="headerlink" title="对象的一些配置"></a>对象的一些配置</h3><ul>
+<li>-XX:+UseTLAB  开启本地线程预分配</li>
+<li>-XX:InitialTenuringThreshol=7  年轻代对象转换为老年代对象最小年龄值，默认值7</li>
+<li>-XX:MaxTenuringThreshold=15 进入老年代最大的GC年龄 年轻代对象转换为老年代对象最大年龄值，默认值15</li>
+</ul>
+<blockquote>
+<p>动态年龄判断：</p>
+<blockquote>
+<p>虚拟机不是永远要去对象的年龄必须达到MaxTenuringThreshold才能晋升老年代，如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代，无需等到MaxTenuringThreshold中要求的年龄</p>
+</blockquote>
+</blockquote>
+<ul>
+<li>-XX:PretenureSizeThreshold=1000000 新生代可容纳的最大对象，超过此值直接进入老年代</li>
+</ul>
+<h3 id="内存空间的配置"><a href="#内存空间的配置" class="headerlink" title="内存空间的配置"></a>内存空间的配置</h3><ul>
+<li>-Xms2g：初始堆空间内存 （默认为物理内存的1/64）</li>
+<li>-Xmx2g：最大堆空间内存（默认为物理内存的1/4）</li>
+<li>-Xmn512m：设置新生代的大小。(初始值及最大值)</li>
+<li>-Xss512k：线程堆栈大小</li>
+<li>-XX:MetaspaceSize ：初始化的Metaspace大小</li>
+<li>-XX:MaxMetaspaceSize：Metaspace最大值</li>
+<li>-XX:NewRatio=2：配置新生代与老年代在堆结构的占比 老年代:新生代 = 2:1 ，新生代占整个堆的1/3</li>
+<li>-XX:SurvivorRatio=8：设置新生代中Eden和S0/S1空间的比例 eden:S = 8:1</li>
+<li>-XX:MaxTenuringThreshold=15：设置新生代垃圾的最大年龄</li>
+<li>-XX:+PrintGCDetails：输出详细的GC处理日志</li>
+<li>打印gc简要信息：① -XX:+PrintGC   ② -verbose:gc</li>
+<li>-XX:HandlePromotionFailure=true：是否设置空间分配担保</li>
+<li>-XX:MaxDirectMemorySize=2g：堆外直内存配置</li>
+</ul>
+<blockquote>
+<p>空间分配担保：</p>
+<blockquote>
+<p>jdk6之前在发生minorGc之前，虚拟机会先检查老年代最大可用连续空间是否大于新生代所有对象总空间，如果这个条件成立，那么MinorGc可以确保安全，如果不成立，虚拟机会查看-XX:HandlePromotionFailure<br>jdk7及以后只要老年代的连续空间大于新生代对象的总大小或者历次晋升到老年代的对象的平均大小就进行MinorGC，否则FullGC，HandlePromotionFailure 不再使用</p>
+</blockquote>
+</blockquote>
+<h3 id="并发标记清除收集器相关配置"><a href="#并发标记清除收集器相关配置" class="headerlink" title="并发标记清除收集器相关配置"></a>并发标记清除收集器相关配置</h3><ul>
+<li>-XX:+UseConcMarkSweepGC ：打开CMS收集器 新生代默认使用ParNewGc, 担保失败使用SerialOld</li>
+<li>-XX:+UseCMSInitiatingOccupancyOnly ： 指定用设定的回收阈值(-XX:CMSInitiatingOccupancyFraction参数的值),如果不指定,JVM仅在第一次使用设定值,后续则会根据运行时采集的数据做自动调整，如果指定了该参数，那么每次JVM都会在到达规定设定值时才进行GC</li>
+<li>-XX:CMSInitiatingOccupancyFraction=75 ：老年代被使用的内存空间的阈值，达到该阈值则触发Full GC 75%</li>
+<li>-XX:CMSFullGCsBeforeCompaction=0 ：由于并发收集器不对内存空间进行压缩、整理，所以运行一段时间以后会产生“碎片”，使得运行效率降低。此值设置运行多少次GC以后对内存空间进行压缩、整理。</li>
+<li>-XX:+UseCMSCompactAtFullCollection ：在FullGc后进行整理压缩操作 打开压缩功能</li>
+</ul>
+<h3 id="垃圾收集线程"><a href="#垃圾收集线程" class="headerlink" title="垃圾收集线程"></a>垃圾收集线程</h3><ul>
+<li>-XX:ParallelGCThreads=20 ：并发收集线程数</li>
+</ul>
+<h3 id="Parallel-收集器-关注吞吐量"><a href="#Parallel-收集器-关注吞吐量" class="headerlink" title="Parallel 收集器 关注吞吐量"></a>Parallel 收集器 关注吞吐量</h3><p>-XX:+UseParallelGC 使用Parallel Scavenge + Serial Old组合收集器  新生代</p>
+<p>-XX:+UseParallelOldGC 使用Parallel Scavenge +Parallel Old组合收集器 老年代</p>
+<p>-XX:+UseAdaptiveSizePolicy  自适应调节策略 配合 -XX:MaxGCPauseMillis -XX:GCTimeRatio 使用,主要控制新生代收集</p>
+<p>-XX:MaxGCPauseMillis=100  控制最大垃圾收集停顿时间 值是一个大于0的毫秒数</p>
+<p>-XX:GCTimeRatio=99 直接设置吞吐量大小 大于0且小于100的整数 如果把此参数设置为19，那允许的最大GC时间就占总时间的5%（既1 /（1 + 19）），默认值为99，就是允许最大1%（既 1 /（1 + 99））的垃圾收集时间</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/21/java/jvm/gc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/21/java/jvm/gc/" class="post-title-link" itemprop="url">JVM G1</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-21 16:25:53" itemprop="dateCreated datePublished" datetime="2022-07-21T16:25:53+08:00">2022-07-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#堆</span><br><span class="line">-Xms/-Xmx</span><br><span class="line"></span><br><span class="line">#分区 Region</span><br><span class="line">-XX:G1HeapRegionSize=1048576(1m) #可指定分区大小(1MB~32MB，且必须是2的幂)，默认将整堆划分为2048个分区</span><br><span class="line"></span><br><span class="line">#卡片(Card) 和全局卡片 (Global Card Table) 和 记录卡片(Rset)</span><br><span class="line"></span><br><span class="line">-XX:+UseG1GC </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-XX:InitialHeapSize=1073741824 </span><br><span class="line">-XX:InitiatingHeapOccupancyPercent=35 </span><br><span class="line">-XX:+ManagementServer </span><br><span class="line">-XX:MarkStackSize=4194304 </span><br><span class="line">#GC与应用的耗费时间比 G1默认为9(10)，而CMS默认为99(100) CMS的设计原则是耗费在GC上的时间尽可能的少</span><br><span class="line">-XX:GCTimeRatio </span><br><span class="line">#目标暂停时间 默认200ms</span><br><span class="line">-XX:MaxGCPauseMillis=20 </span><br><span class="line">#最大的堆内存容量</span><br><span class="line">-XX:MaxHeapSize=1073741824</span><br><span class="line"></span><br><span class="line">####################################年轻代</span><br><span class="line">#年轻代配置固定大小 (固定值)</span><br><span class="line">-Xmn100m</span><br><span class="line">#年轻代比例 (固定值比例)</span><br><span class="line">-XX:NewRatio=1   </span><br><span class="line">#最大的年轻代容量 (固定值大小 可伸缩)</span><br><span class="line">-XX:NewSize=2m </span><br><span class="line">#最大的年轻代容量 (固定值大小 可伸缩)</span><br><span class="line">-XX:MaxNewSize=2m  </span><br><span class="line">#整个年轻代内存初始空间 (按比例配置 可伸缩)</span><br><span class="line">-XX:G1NewSizePercent=5</span><br><span class="line">#整个年轻代内存最大空间 (按比例配置 可伸缩)</span><br><span class="line">-XX:G1MaxNewSizePercent=60</span><br><span class="line"></span><br><span class="line">#####################垃圾回收</span><br><span class="line">#晋升到老年代的对象任期阈值 </span><br><span class="line">-XX:MaxTenuringThreshold=15 </span><br><span class="line"></span><br><span class="line">#老年代</span><br><span class="line">#每轮MixedGC回收的Region的最大比例 CSet对堆的总大小占比 10%</span><br><span class="line">-XX:G1OldCSetRegionThresholdPercent=10</span><br><span class="line"></span><br><span class="line">#候选老年代分区的CSet准入条件，活跃度阈值 85% 区域内存活的对象低于此值，那么该区将被纳入Cset,当GC时间过长时候，可适当调整低此值，过了此值就会被GC带走</span><br><span class="line">-XX:G1MixedGCLiveThresholdPercent=85</span><br><span class="line"></span><br><span class="line">#混合垃圾收集阈值   当老年代占用空间超过整堆比IHOP阈值(默认45%)时，Occupancy(占用) G1就会启动一次混合垃圾收集周期。</span><br><span class="line">#为了满足暂停目标，G1可能不能一口气将所有的候选分区收集掉，</span><br><span class="line">#因此G1可能会产生连续多次的混合收集与应用线程交替执行，每次STW的混合收集与年轻代收集过程相类似</span><br><span class="line">-XX:InitiatingHeapOccupancyPercent=45</span><br><span class="line"></span><br><span class="line">#通过候选老年代分区总数与混合周期最大总次数，确定每次包含到CSet的最小分区数量(确定加入混合Cset的分区数量)；根据堆废物百分比，当收集达到参数低于时5%，不再启动新的混合收集（确定是否MixGc）</span><br><span class="line">#混合周期的最大总次数(默认8)</span><br><span class="line">-XX:G1MixedGCCountTarget=8</span><br><span class="line">#堆废物百分比(默认5%)  垃圾占整个堆的百分比，如果超过5%，将触发多轮的MIXgc</span><br><span class="line">-XX:G1HeapWastePercent=5</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-XX:GCLogFileSize=104857600 </span><br><span class="line">-XX:MinHeapDeltaBytes=1048576 </span><br><span class="line">-XX:NumberOfGCLogFiles=10 </span><br><span class="line">-XX:+PrintGC </span><br><span class="line">-XX:+PrintGCDateStamps </span><br><span class="line">-XX:+PrintGCDetails </span><br><span class="line">-XX:+PrintGCTimeStamps </span><br><span class="line">-XX:+UnlockCommercialFeatures </span><br><span class="line">-XX:+UseCompressedClassPointers </span><br><span class="line">-XX:+UseCompressedOops </span><br><span class="line"></span><br><span class="line">-XX:+UseGCLogFileRotation </span><br></pre></td></tr></table></figure>
+
+<h1 id="分代模型"><a href="#分代模型" class="headerlink" title="分代模型"></a>分代模型</h1><p>分代模型的是将关注点放在最近被分配的对像上，因为大部分的对象是可以很快被回收的，只有少量的对象的生命周期是长的。分代可可以避免整堆扫描，避免长生命周期的对象的拷贝，同事独立收集可以降低响应时间。</p>
+<h2 id="分代-Generation"><a href="#分代-Generation" class="headerlink" title="分代 Generation"></a>分代 Generation</h2><p>G1将内存在逻辑上划分为年轻代和老年代Old，其中年轻代又划分为Eden空间和Survivor空间。但年轻代空间并不是固定不变的，当现有年轻代分区占满时，JVM会分配新的空闲分区加入到年轻代空间</p>
+<h2 id="本地分配缓冲-Local-allocation-buffer-TLAB"><a href="#本地分配缓冲-Local-allocation-buffer-TLAB" class="headerlink" title="本地分配缓冲 Local allocation buffer (TLAB)"></a>本地分配缓冲 Local allocation buffer (TLAB)</h2><p>解决对象在堆内存分配操作时候的并发情况。</p>
+<p>由于分区的思想，每个线程均可以”认领”某个分区用于线程本地的内存分配，而不需要顾及分区是否连续。因此，每个应用线程和GC线程都会独立的使用分区，进而减少同步时间，提升GC效率，这个分区称为本地分配缓冲区(Lab)。</p>
+<p>TLAB 应用线程本地缓冲区 应用线程可以独占一个本地缓冲区(TLAB)来创建的对象，而大部分都会落入Eden区域(巨型对象或分配失败除外)，因此TLAB的分区属于Eden空间</p>
+<p>GCLAB 每个GC线程同样可以独占一个本地缓冲区(GCLAB)用来转移对象，每次回收会将对象复制到Suvivor空间或老年代空间；对于从Eden/Survivor空间晋升(Promotion)到Survivor/老年代空间的对象，同样有GC独占的本地缓冲区进行操作，该部分称为晋升本地缓冲区(PLAB)。</p>
+<h2 id="分区模型"><a href="#分区模型" class="headerlink" title="分区模型"></a>分区模型</h2><ul>
+<li><h3 id="Region"><a href="#Region" class="headerlink" title="Region"></a>Region</h3><p>G1对内存的使用以分区(Region)为单位，而对对象的分配则以卡片(Card)为单位。</p>
+</li>
+<li><h3 id="Card-全局卡片Global-Card-Table"><a href="#Card-全局卡片Global-Card-Table" class="headerlink" title="Card/全局卡片Global Card Table"></a>Card/全局卡片Global Card Table</h3><p>每个分区内部又被分成了若干个大小为512 Byte卡片(Card)，标识堆内存最小可用粒度所有分区的卡片将会记录在全局卡片表(Global Card Table)中，分配的对象会占用物理上连续的若干个卡片，当查找对分区内对象的引用时便可通过记录卡片来查找该引用对象(见RSet)。每次对内存的回收，都是对指定分区的卡片进行处理</p>
+</li>
+<li><h3 id="记录卡片Rset"><a href="#记录卡片Rset" class="headerlink" title="记录卡片Rset"></a>记录卡片Rset</h3><blockquote>
+<p>Rset 记录了引用当前分区内对象的引用所在的卡片的索引，帮助确定分区内对象是否存活。</p>
+</blockquote>
+</li>
+</ul>
+<p>在串行和并行收集器中，GC通过整堆扫描，来确定对象是否处于可达路径中。然而G1为了避免STW式的整堆扫描，在每个分区记录了一个已记忆集合(RSet)，内部类似一个反向指针，记录引用分区内对象的卡片索引。当要回收该分区时，通过扫描分区的RSet，来确定引用本分区内的对象是否存活，进而确定本分区内的对象存活情况。</p>
+<p>事实上，并非所有的引用都需要记录在RSet中，如果一个分区确定需要扫描，那么无需RSet也可以无遗漏的得到引用关系。那么引用源自本分区的对象，当然不用落入RSet中；同时，G1 GC每次都会对年轻代进行整体收集，因此引用源自年轻代的对象，也不需要在RSet中记录。最后只有老年代的分区可能会有RSet记录，这些分区称为拥有RSet分区(an RSet’s owning region)</p>
+<ul>
+<li><h3 id="Per-Region-Table-PRT"><a href="#Per-Region-Table-PRT" class="headerlink" title="Per Region Table(PRT)"></a>Per Region Table(PRT)</h3>RSet在内部使用Per Region Table(PRT)记录分区的引用情况。由于RSet的记录要占用分区的空间，如果一个分区非常”受欢迎”(该分区内的对象很多都被别的对象引用)，那么RSet占用的空间会上升，从而降低分区的可用空间。G1应对这个问题采用了改变RSet的密度的方式，在PRT中将会以三种模式记录引用：</li>
+</ul>
+<ol>
+<li>稀少：直接记录引用对象的卡片索引</li>
+<li>细粒度：记录引用对象的分区索引</li>
+<li>粗粒度：只记录引用情况，每个分区对应一个比特位<br>由上可知，粗粒度的PRT只是记录了引用数量，需要通过整堆扫描才能找出所有引用，因此扫描速度也是最慢的</li>
+</ol>
+<ul>
+<li><h3 id="收集集合-CSet"><a href="#收集集合-CSet" class="headerlink" title="收集集合 CSet"></a>收集集合 CSet</h3></li>
+</ul>
+<p>收集集合(CSet)代表每次GC暂停时回收的一系列目标分区（待垃圾回收的分区记录集合表），任意一次收集暂停中，CSet所有分区都会被释放，内部存活的对象都会被转移到分配的空闲分区中。因此无论是年轻代收集，还是混合收集，工作的机制都是一致的。</p>
+<p>年轻代收集CSet只容纳年轻代分区，而混合收集会通过启发式算法，在老年代候选回收分区中，筛选出回收收益最高的分区添加到CSet中。候选老年代分区的CSet准入条件，可以通过活跃度阈值-XX:G1MixedGCLiveThresholdPercent(默认85%)进行设置（活跃度在85的分区不进入Cset），从而拦截那些回收开销巨大的对象；</p>
+<p>同时，每次混合收集时候可以包含候选老年代分区一同收集，可根据CSet对堆的总大小占比-XX:G1OldCSetRegionThresholdPercent(默认10%)设置数量上限,每轮MixedGC回收的Region的最大比例，最多10% ，控制回收时间，可限制候选区一同收集。</p>
+<p>由上述可知，G1的收集都是根据CSet进行操作的，年轻代收集与混合收集没有明显的不同，最大的区别在于两种收集的触发条件。</p>
+<h2 id="巨型对象-Humongous-Region"><a href="#巨型对象-Humongous-Region" class="headerlink" title="巨型对象 Humongous Region"></a>巨型对象 Humongous Region</h2><p>一个大小达到甚至超过分区大小一半的对象称为巨型对象(Humongous Object)。当线程为巨型分配空间时，不能简单在TLAB进行分配，因为巨型对象的移动成本很高，而且有可能一个分区不能容纳巨型对象。因此，巨型对象会直接在老年代分配，所占用的连续空间称为巨型分区(Humongous Region)。G1内部做了一个优化，一旦发现没有引用指向巨型对象，则可直接在年轻代收集周期中被回收。</p>
+<p>巨型对象会独占一个、或多个连续分区，其中第一个分区被标记为开始巨型(StartsHumongous)，相邻连续分区被标记为连续巨型(ContinuesHumongous)。由于无法享受Lab带来的优化，并且确定一片连续的内存空间需要扫描整堆，因此确定巨型对象开始位置的成本非常高，如果可以，应用程序应避免生成巨型对象</p>
+<h2 id="收集"><a href="#收集" class="headerlink" title="收集"></a>收集</h2><h3 id="年轻代收集-CSet-of-Young-Collection"><a href="#年轻代收集-CSet-of-Young-Collection" class="headerlink" title="年轻代收集  CSet of Young Collection"></a>年轻代收集  CSet of Young Collection</h3><p>应用线程不断活动后，年轻代空间会被逐渐填满。当JVM分配对象到Eden区域失败(Eden区已满)时，便会触发一次STW式的年轻代收集。在年轻代收集中，Eden分区存活的对象将被拷贝到Survivor分区；原有Survivor分区存活的对象，将根据任期阈值(tenuring threshold)分别晋升到PLAB中，新的survivor分区和老年代分区。而原有的年轻代分区将被整体回收掉。</p>
+<p>同时，年轻代收集还负责维护对象的年龄(存活次数)，辅助判断老化(tenuring)对象晋升的时候是到Survivor分区还是到老年代分区。年轻代收集首先先将晋升对象尺寸总和、对象年龄信息维护到年龄表中，再根据年龄表、Survivor尺寸、Survivor填充容量-XX:TargetSurvivorRatio(默认50%)、最大任期阈值-XX:MaxTenuringThreshold(默认15)，计算出一个恰当的任期阈值，凡是超过任期阈值的对象都会被晋升到老年代。</p>
+<h3 id="混合收集集合-CSet-of-Mixed-Collection"><a href="#混合收集集合-CSet-of-Mixed-Collection" class="headerlink" title="混合收集集合  CSet of Mixed Collection"></a>混合收集集合  CSet of Mixed Collection</h3><p>年轻代收集不断活动后，老年代的空间也会被逐渐填充。当老年代占用空间超过整堆比IHOP阈值-XX:InitiatingHeapOccupancyPercent(默认45%)时，G1就会启动一次混合垃圾收集周期。为了满足暂停目标，G1可能不能一口气将所有的候选分区收集掉，因此G1可能会产生连续多次的混合收集与应用线程交替执行，每次STW的混合收集与年轻代收集过程相类似。</p>
+<p>为了确定包含到年轻代收集集合CSet的老年代分区，JVM通过参数混合周期的最大总次数-XX:G1MixedGCCountTarget(默认8)、堆废物百分比-XX:G1HeapWastePercent(默认5%)。通过候选老年代分区总数与混合周期最大总次数，确定每次包含到CSet的最小分区数量；根据堆废物百分比，当收集达到参数时，不再启动新的混合收集。而每次添加到CSet的分区，则通过计算得到的GC效率进行安排</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/20/linux/shellif/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/20/linux/shellif/" class="post-title-link" itemprop="url">shell if 条件判断</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-20 14:19:38" itemprop="dateCreated datePublished" datetime="2022-07-20T14:19:38+08:00">2022-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Shell  语言中的if条件</p>
+<h1 id="一、if的基本语法"><a href="#一、if的基本语法" class="headerlink" title="一、if的基本语法:"></a>一、if的基本语法:</h1><p>if [ command ];then</p>
+<p>   符合该条件执行的语句</p>
+<p>elif [ command ];then</p>
+<p>   符合该条件执行的语句</p>
+<p>else</p>
+<p>   符合该条件执行的语句</p>
+<p>fi</p>
+<h1 id="二、文件-文件夹-目录-判断"><a href="#二、文件-文件夹-目录-判断" class="headerlink" title="二、文件/文件夹(目录)判断"></a>二、文件/文件夹(目录)判断</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">[ -b FILE ] 如果 FILE 存在且是一个块特殊文件则为真。</span><br><span class="line">[ -c FILE ] 如果 FILE 存在且是一个字特殊文件则为真。</span><br><span class="line">[ -d DIR ] 如果 FILE 存在且是一个目录则为真。</span><br><span class="line">[ -e FILE ] 如果 FILE 存在则为真。</span><br><span class="line">[ -f FILE ] 如果 FILE 存在且是一个普通文件则为真。</span><br><span class="line">[ -g FILE ] 如果 FILE 存在且已经设置了SGID则为真。</span><br><span class="line">[ -k FILE ] 如果 FILE 存在且已经设置了粘制位则为真。</span><br><span class="line">[ -p FILE ] 如果 FILE 存在且是一个名字管道(F如果O)则为真。</span><br><span class="line">[ -r FILE ] 如果 FILE 存在且是可读的则为真。</span><br><span class="line">[ -s FILE ] 如果 FILE 存在且大小不为0则为真。</span><br><span class="line">[ -t FD ] 如果文件描述符 FD 打开且指向一个终端则为真。</span><br><span class="line">[ -u FILE ] 如果 FILE 存在且设置了SUID (set user ID)则为真。</span><br><span class="line">[ -w FILE ] 如果 FILE存在且是可写的则为真。</span><br><span class="line">[ -x FILE ] 如果 FILE 存在且是可执行的则为真。</span><br><span class="line">[ -O FILE ] 如果 FILE 存在且属有效用户ID则为真。</span><br><span class="line">[ -G FILE ] 如果 FILE 存在且属有效用户组则为真。</span><br><span class="line">[ -L FILE ] 如果 FILE 存在且是一个符号连接则为真。</span><br><span class="line">[ -N FILE ] 如果 FILE 存在 and has been mod如果ied since it was last read则为真。</span><br><span class="line">[ -S FILE ] 如果 FILE 存在且是一个套接字则为真。</span><br><span class="line">[ FILE1 -nt FILE2 ] 如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。</span><br><span class="line">[ FILE1 -ot FILE2 ] 如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。</span><br><span class="line">[ FILE1 -ef FILE2 ] 如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="三、字符串判断"><a href="#三、字符串判断" class="headerlink" title="三、字符串判断"></a>三、字符串判断</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真；</span><br><span class="line">[ -n STRING ] 如果STRING的长度非零则为真 ，即判断是否为非空，非空即是真；</span><br><span class="line">[ STRING1 = STRING2 ] 如果两个字符串相同则为真 ；</span><br><span class="line">[ STRING1 != STRING2 ] 如果字符串不相同则为真 ；</span><br><span class="line">[ STRING1 ]　 如果字符串不为空则为真,与-n类似</span><br></pre></td></tr></table></figure>
+<h1 id="四、数值判断"><a href="#四、数值判断" class="headerlink" title="四、数值判断"></a>四、数值判断</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INT1 -eq INT2           INT1和INT2两数相等为真 ,=</span><br><span class="line">INT1 -ne INT2           INT1和INT2两数不等为真 ,&lt;&gt;</span><br><span class="line">INT1 -gt INT2            INT1大于INT1为真 ,&gt;</span><br><span class="line">INT1 -ge INT2           INT1大于等于INT2为真,&gt;=</span><br><span class="line">INT1 -lt INT2             INT1小于INT2为真 ,&lt;&lt;/div&gt;</span><br><span class="line">INT1 -le INT2             INT1小于等于INT2为真,&lt;=</span><br></pre></td></tr></table></figure>
+<p>#五、复杂逻辑判断</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># -a 与 &amp;&amp;</span><br><span class="line"># -o 或 ||</span><br><span class="line"># !  非</span><br></pre></td></tr></table></figure>
+<p>#六、举例</p>
+<h2 id="6-1-if利用read传参判断"><a href="#6-1-if利用read传参判断" class="headerlink" title="6.1 if利用read传参判断"></a>6.1 if利用read传参判断</h2><p>exp2:查看分数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">#echo -n &quot;please input your score:&quot;</span><br><span class="line">#read score</span><br><span class="line">#echo &quot;input score is $ score &quot;</span><br><span class="line">read -p &quot;please input a score:&quot; score</span><br><span class="line">echo -e &quot;your score [$score] is judging by sys now&quot;</span><br><span class="line">if [ &quot;$score&quot; -ge &quot;0&quot; ]&amp;&amp;[ &quot;$score&quot; -lt &quot;60&quot; ];then</span><br><span class="line">        echo &quot;sorry,you are lost!&quot;</span><br><span class="line">elif [ &quot;$score&quot; -ge &quot;60&quot; ]&amp;&amp;[ &quot;$score&quot; -lt &quot;85&quot; ];then</span><br><span class="line">        echo &quot;just soso!&quot;</span><br><span class="line">elif [ &quot;$score&quot; -le &quot;100&quot; ]&amp;&amp;[ &quot;$score&quot; -ge &quot;85&quot; ];then</span><br><span class="line">        echo &quot;good job!&quot;</span><br><span class="line">else</span><br><span class="line">        echo &quot;input score is wrong , the range is [0-100]!&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<h2 id="shell-if-和-区别-amp-amp"><a href="#shell-if-和-区别-amp-amp" class="headerlink" title="shell if [[ ]]和[ ]区别 || &amp;&amp;"></a>shell if [[ ]]和[ ]区别 || &amp;&amp;</h2><h3 id="和test"><a href="#和test" class="headerlink" title="[]和test"></a>[]和test</h3><p>两者是一样的，在命令行里test expr和[ expr ]的效果相同。</p>
+<p>test的三个基本作用是判断文件、判断字符串、判断整数。支持使用 ”与或非“ 将表达式连接起来。</p>
+<p>test中可用的比较运算符只有==和!=，两者都是用于字符串比较的，不可用于整数比较，整数比较只能使用-eq, -gt这种形式。</p>
+<p>无论是字符串比较还是整数比较都千万不要使用大于号小于号。当然，如果你实在想用也是可以的，对于字符串比较可以使用尖括号的转义形式， 如果比较”ab”和”bc”：[ ab &lt; bc ]，结果为真，也就是返回状态为0.</p>
+<h3 id=""><a href="#" class="headerlink" title="[[ ]]"></a>[[ ]]</h3><p>这是内置在shell中的一个命令，它就比刚才说的test强大的多了。支持字符串的模式匹配（使用=~操作符时甚至支持shell的正则表达 式）。逻辑组合可以不使用test的-a,-o而使用&amp;&amp; ||。<br>字符串比较时可以把右边的作为一个模式（这是右边的字符串不加双引号的情况下。如果右边的字符串加了双引号，则认为是一个文本字符串。），而不仅仅是一个字符串，比如[[ hello == hell? ]]，结果为真。</p>
+<p>注意：使用[]和[[]]的时候不要吝啬空格，每一项两边都要有空格，[[ 1 == 2 ]]的结果为“假”，但[[ 1==2 ]]的结果为“真”！<br>let和(())</p>
+<p>两者也是一样的(或者说基本上是一样的，双括号比let稍弱一些)。主要进行算术运算(上面的两个都不行)，也比较适合进 行整数比较，可以直接使用熟悉的&lt;,&gt;等比较运算符。可以直接使用变量名如var而不需要$var这样的形式。支持分号隔开的多个表达式</p>
+<hr>
+<ol>
+<li>首先，尽管很相似，但是从概念上讲，二者是不同层次的东西。</li>
+</ol>
+<p>“[[“，是关键字，许多shell(如ash bsh)并不支持这种方式。ksh, bash(据说从2.02起引入对[[的支持)等支持。</p>
+<p>“[“是一条命令， 与test等价，大多数shell都支持。在现代的大多数sh实现中，”[“与”test”是内部(builtin)命令，换句话说执行”test”/“[“时不会调用/some/path/to/test这样的外部命令(如果有这样的命令的话)。</p>
+<p>2.[[]]结构比Bash版本的[]更通用。在[[和]]之间的所有的字符都不会被文件扩展或是标记分割，但是会有参数引用和命令替换。</p>
+<p>用[[ … ]]测试结构比用[ … ]更能防止脚本里的许多逻辑错误。比如说，&amp;&amp;,||,&lt;和&gt;操作符能在一个[[]]测试里通过，但在[]结构会发生错误。</p>
+<p>3.(( ))结构扩展并计算一个算术表达式的值。如果表达式值为0，会返回1或假作为退出状态码。一个非零值的表达式返回一个0或真作为退出状态码。这个结构和先前test命令及[]结构的讨论刚好相反。</p>
+<p>4.[ … ]为shell命令，所以在其中的表达式应是它的命令行参数，所以串比较操作符”&gt;” 与”&lt;”必须转义，否则就变成IO改向操作符了(请参看上面2中的例子)。在[[中”&lt;”与”&gt;”不需转义；<br>由于”[[“是关键字，不会做命令行扩展，因而相对的语法就稍严格些。例如</p>
+<p>在[ … ]中可以用引号括起操作符，因为在做命令行扩展时会去掉这些引号，而在[[ … ]]则不允许这样做。</p>
+<p>5.[[ … ]]进行算术扩展，而[ … ]不做</p>
+<p>6.[[ … &amp;&amp; … &amp;&amp; …  ]] 和 [ … -a … -a …] 不一样，[[ ]] 是逻辑短路操作，而 [ ] 不会进行逻辑短路</p>
+<p>1）在ksh中的test</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">数字的运算可使用let、(( )) ，其中运算时不需要变量$符号，运算符为 +、-、*、/、% ，不建议使用expr</span><br><span class="line">数字的比较使用 (( )) ，其运算符 &gt;、&gt;=、&lt;、&lt;=、==、!=</span><br><span class="line">可以使用算术扩展，如：(( 99+1 &lt;= 101 ))</span><br><span class="line">字符表达式的比较使用 [[ ]] ，其运算符 =、!=、-n、-z</span><br><span class="line">文件表达式的测试使用 [[ ]] ，其运算符 -r、-l、-w、-x、-f、-d、-s、-nt、-ot</span><br><span class="line">逻辑表达式的测试使用 [[ ]] ，其运算符 !、&amp;&amp;、||</span><br><span class="line">数字比较、字符比较、逻辑测试可以组合，如$ [[ &quot;a&quot; != &quot;b&quot; &amp;&amp; 4 -gt 3 ]]</span><br><span class="line">支持bash中的通配符扩展，如：[[ hest = h??t ]] 、[ hest = h*t ]]</span><br><span class="line">使用 (( )) 时，不需要空格分隔各值和运算符，使用 [[ ]] 时需要用空格分隔各值和运算符。</span><br><span class="line">2）bash与ksh中的 [[ ]] 不同</span><br><span class="line"></span><br><span class="line">在redhat9的bash中也可以使用 [[ ]] 符号。但是建议严格按照上面的原则使用。</span><br><span class="line">在bash中，数字的比较最好使用 (( ))，虽说可以使用 [[ ]]，但若在其内使用运算符 &gt;、&gt;=、&lt;、&lt;=、==、!= 时，其结果经常是错误的，不过若在 [[ ]] 中使用 [ ] 中的运算符“-eq、-ne、-le、-lt、-gt、-ge”等，还尚未发现有错。因此诸如$ [[ &quot; a&quot; != “b” &amp;&amp; 4 &gt; 3 ]] 这类组合（见上）也不可以在bash中使用，其出错率很高。</span><br><span class="line">例：[[ &quot;a&quot; != &quot;b&quot; &amp;&amp; 10 &gt; 2 ]] 判断结果就不正常。</span><br><span class="line">诸如 [ 2 \&lt; 10 ]、[[ 2 &lt; 10 ]] 都是不要使用。使用算术扩展最好用 (( 99+1 == 100 )) ，而不要使用[[ 99+1 -eq 100 ]] 。</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="运算符-描述-示例"><a href="#运算符-描述-示例" class="headerlink" title="运算符 描述 示例"></a>运算符 描述 示例</h2><p>文件比较运算符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-e filename	如果 filename 存在，则为真	[ -e /var/log/syslog ]</span><br><span class="line">-d filename	如果 filename 为目录，则为真	[ -d /tmp/mydir ]</span><br><span class="line">-f filename	如果 filename 为常规文件，则为真	[ -f /usr/bin/grep ]</span><br><span class="line">-L filename	如果 filename 为符号链接，则为真	[ -L /usr/bin/grep ]</span><br><span class="line">-r filename	如果 filename 可读，则为真	[ -r /var/log/syslog ]</span><br><span class="line">-w filename	如果 filename 可写，则为真	[ -w /var/mytmp.txt ]</span><br><span class="line">-x filename	如果 filename 可执行，则为真	[ -L /usr/bin/grep ]</span><br><span class="line">filename1 -nt filename2	如果 filename1 比 filename2 新，则为真	[ /tmp/install/etc/services -nt /etc/services ]</span><br><span class="line">filename1 -ot filename2	如果 filename1 比 filename2 旧，则为真	[ /boot/bzImage -ot arch/i386/boot/bzImage ]</span><br></pre></td></tr></table></figure>
+<p>字符串比较运算符 （请注意引号的使用，这是防止空格扰乱代码的好方法）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-z string	如果 string 长度为零，则为真	[ -z &quot;$myvar&quot; ]</span><br><span class="line">-n string	如果 string 长度非零，则为真	[ -n &quot;$myvar&quot; ]</span><br><span class="line">string1 = string2	如果 string1 与 string2 相同，则为真	[ &quot;$myvar&quot; = &quot;one two three&quot; ]</span><br><span class="line">string1 != string2	如果 string1 与 string2 不同，则为真	[ &quot;$myvar&quot; != &quot;one two three&quot; ]</span><br></pre></td></tr></table></figure>
+<p>算术比较运算符</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">num1 -eq num2	等于	[ 3 -eq $mynum ]</span><br><span class="line">num1 -ne num2	不等于	[ 3 -ne $mynum ]</span><br><span class="line">num1 -lt num2	小于	[ 3 -lt $mynum ]</span><br><span class="line">num1 -le num2	小于或等于	[ 3 -le $mynum ]</span><br><span class="line">num1 -gt num2	大于	[ 3 -gt $mynum ]</span><br><span class="line">num1 -ge num2	大于或等于	[ 3 -ge $mynum ]</span><br></pre></td></tr></table></figure>
+<p>测试命令</p>
+<h1 id="test命令用于检查某个条件是否成立，它可以进行数值、字符和文件3个方面的测试，其测试符和相应的功能分别如下。"><a href="#test命令用于检查某个条件是否成立，它可以进行数值、字符和文件3个方面的测试，其测试符和相应的功能分别如下。" class="headerlink" title="test命令用于检查某个条件是否成立，它可以进行数值、字符和文件3个方面的测试，其测试符和相应的功能分别如下。"></a>test命令用于检查某个条件是否成立，它可以进行数值、字符和文件3个方面的测试，其测试符和相应的功能分别如下。</h1><p>##（1）数值测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-eq 等于则为真。</span><br><span class="line"></span><br><span class="line">-ne 不等于则为真。</span><br><span class="line"></span><br><span class="line">-gt 大于则为真。</span><br><span class="line"></span><br><span class="line">-ge 大于等于则为真。</span><br><span class="line"></span><br><span class="line">-lt 小于则为真。</span><br><span class="line"></span><br><span class="line">-le 小于等于则为真。</span><br></pre></td></tr></table></figure>
+<p>##（2）字串测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">= 等于则为真。</span><br><span class="line"></span><br><span class="line">!= 不相等则为真。</span><br><span class="line"></span><br><span class="line">-z字串 字串长度伪则为真。</span><br><span class="line"></span><br><span class="line">-n字串 字串长度不伪则为真。</span><br></pre></td></tr></table></figure>
+<p>##（3）文件测试：</p>
+<p>-e文件名 如果文件存在则为真。</p>
+<p>-r文件名 如果文件存在且可读则为真。</p>
+<p>-w文件名 如果文件存在且可写则为真。</p>
+<p>-x文件名 如果文件存在且可执行则为真。</p>
+<p>-s文件名 如果文件存在且至少有一个字符则为真。</p>
+<p>-d文件名 如果文件存在且为目录则为真。</p>
+<p>-f文件名 如果文件存在且为普通文件则为真。</p>
+<p>-c文件名 如果文件存在且为字符型特殊文件则为真。</p>
+<p>-b文件名 如果文件存在且为块特殊文件则为真</p>
+<p>条件变量替换:<br>Bash Shell可以进行变量的条件替换,既只有某种条件发生时才进行替换,替换条件放在{}中.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">(1) $&#123;value:-word&#125; </span><br><span class="line"></span><br><span class="line">当变量未定义或者值为空时,返回值为word的内容,否则返回变量的值. </span><br><span class="line"></span><br><span class="line">(2) $&#123;value:=word&#125; </span><br><span class="line"></span><br><span class="line">与前者类似,只是若变量未定义或者值为空时,在返回word的值的同时将word赋值给value </span><br><span class="line"></span><br><span class="line">(3) $&#123;value:?message&#125; </span><br><span class="line"></span><br><span class="line">若变量以赋值的话,正常替换.否则将消息message送到标准错误输出(若此替换出现在Shell程序中,那么该程序将终止运行) </span><br><span class="line"></span><br><span class="line">(4) $&#123;value:+word&#125; </span><br><span class="line">若变量以赋值的话,其值才用word替换,否则不进行任何替换 </span><br><span class="line"></span><br><span class="line">(5) $&#123;value:offset&#125; </span><br><span class="line">       $&#123;value:offset:length&#125;从变量中提取子串,这里offset和length可以是算术表达式. </span><br><span class="line"></span><br><span class="line">(6) $&#123;#value&#125; </span><br><span class="line"></span><br><span class="line">变量的字符个数 </span><br><span class="line"></span><br><span class="line">(7) $&#123;value#pattern&#125; 和 $&#123;value##pattern&#125; </span><br><span class="line">1. 去掉value中与pattern相匹配的部分,条件是value的开头与pattern相匹配</span><br><span class="line">2. ‘#’与‘##’的区别在于一个是最短匹配模式,一个是最长匹配模式. </span><br><span class="line"></span><br><span class="line">(8) $&#123;value%pattern&#125; 和 $&#123;value%%pattern&#125; </span><br><span class="line">于(7)类似,只是是从value的尾部于pattern相匹配,%与%%的区别与#与##一样 </span><br><span class="line"></span><br><span class="line">(9) $&#123;value/pattern/string&#125; 和 $&#123;value//pattern/string&#125; </span><br><span class="line">进行变量内容的替换,把与pattern匹配的部分替换为string的内容,/与//的区别与上同 </span><br><span class="line">注意: 上述条件变量替换中,除(2)外,其余均不影响变量本身的值 </span><br></pre></td></tr></table></figure>
+<p>示例集合</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">var1=&quot;1&quot;</span><br><span class="line">var2=&quot;2&quot;</span><br><span class="line"></span><br><span class="line">下面是并且的运算符-a，另外注意，用一个test命令就可以了，还有if条件后面的分号</span><br><span class="line"></span><br><span class="line">if test $var1 = &quot;1&quot;-a $var2 = &quot;2&quot; ; then</span><br><span class="line">   echo &quot;equal&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">下面是或运算符 -o，有一个为真就可以</span><br><span class="line"></span><br><span class="line">if test $var1 != &quot;1&quot; -o $var2 != &quot;3&quot; ; then</span><br><span class="line">   echo &quot;not equal&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">下面是非运算符 ！</span><br><span class="line">if条件是为真的时候执行，如果使用！运算符，那么原表达式必须为false</span><br><span class="line"></span><br><span class="line">if ! test $var1 != &quot;1&quot;; then</span><br><span class="line">   echo &quot;not 1&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>以上三个if都为真，所以三个echo都会打印</p>
+<p>在一个文档把这几个运算法说的一塌糊涂，于是自己动手实验了一下</p>
+<p>shell字符串比较、判断是否为数字</p>
+<p>二元比较操作符,比较变量或者比较数字.注意数字与字符串的区别.</p>
+<p>整数比较</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">-eq       等于,如:if [ &quot;$a&quot; -eq &quot;$b&quot; ]</span><br><span class="line">-ne       不等于,如:if [ &quot;$a&quot; -ne &quot;$b&quot; ]</span><br><span class="line">-gt       大于,如:if [ &quot;$a&quot; -gt &quot;$b&quot; ]</span><br><span class="line">-ge       大于等于,如:if [ &quot;$a&quot; -ge &quot;$b&quot; ]</span><br><span class="line">-lt       小于,如:if [ &quot;$a&quot; -lt &quot;$b&quot; ]</span><br><span class="line">-le       小于等于,如:if [ &quot;$a&quot; -le &quot;$b&quot; ]</span><br><span class="line">&lt;       小于(需要双括号),如:((&quot;$a&quot; &lt; &quot;$b&quot;))</span><br><span class="line">&lt;=       小于等于(需要双括号),如:((&quot;$a&quot; &lt;= &quot;$b&quot;))</span><br><span class="line">&gt;       大于(需要双括号),如:((&quot;$a&quot; &gt; &quot;$b&quot;))</span><br><span class="line">&gt;=       大于等于(需要双括号),如:((&quot;$a&quot; &gt;= &quot;$b&quot;))</span><br><span class="line">字符串比较</span><br><span class="line"></span><br><span class="line">=       等于,如:if [ &quot;$a&quot; = &quot;$b&quot; ]</span><br><span class="line">==       等于,如:if [ &quot;$a&quot; == &quot;$b&quot; ],与=等价</span><br><span class="line">       注意:==的功能在[[]]和[]中的行为是不同的,如下:</span><br><span class="line">       1 [[ $a == z* ]]    # 如果$a以&quot;z&quot;开头(模式匹配)那么将为true</span><br><span class="line">       2 [[ $a == &quot;z*&quot; ]] # 如果$a等于z*(字符匹配),那么结果为true</span><br><span class="line">       3</span><br><span class="line">       4 [ $a == z* ]      # File globbing 和word splitting将会发生</span><br><span class="line">       5 [ &quot;$a&quot; == &quot;z*&quot; ] # 如果$a等于z*(字符匹配),那么结果为true</span><br><span class="line">       一点解释,关于File globbing是一种关于文件的速记法,比如&quot;*.c&quot;就是,再如~也是.</span><br><span class="line">       但是file globbing并不是严格的正则表达式,虽然绝大多数情况下结构比较像.</span><br><span class="line">!=       不等于,如:if [ &quot;$a&quot; != &quot;$b&quot; ]</span><br><span class="line">       这个操作符将在[[]]结构中使用模式匹配.</span><br><span class="line">&lt;       小于,在ASCII字母顺序下.如:</span><br><span class="line">       if [[ &quot;$a&quot; &lt; &quot;$b&quot; ]]</span><br><span class="line">       if [ &quot;$a&quot; \&lt; &quot;$b&quot; ]</span><br><span class="line">       注意:在[]结构中&quot;&lt;&quot;需要被转义.</span><br><span class="line">&gt;       大于,在ASCII字母顺序下.如:</span><br><span class="line">       if [[ &quot;$a&quot; &gt; &quot;$b&quot; ]]</span><br><span class="line">       if [ &quot;$a&quot; \&gt; &quot;$b&quot; ]</span><br><span class="line">       注意:在[]结构中&quot;&gt;&quot;需要被转义.</span><br><span class="line">       具体参考Example 26-11来查看这个操作符应用的例子.</span><br><span class="line">-z       字符串为&quot;null&quot;.就是长度为0.</span><br><span class="line">-n       字符串不为&quot;null&quot;</span><br><span class="line">       注意:</span><br><span class="line">       使用-n在[]结构中测试必须要用&quot;&quot;把变量引起来.使用一个未被&quot;&quot;的字符串来使用! -z</span><br><span class="line">       或者就是未用&quot;&quot;引用的字符串本身,放到[]结构中。虽然一般情况下可</span><br><span class="line">       以工作,但这是不安全的.习惯于使用&quot;&quot;来测试字符串是一种好习惯.</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

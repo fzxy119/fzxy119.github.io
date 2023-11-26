@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="查询所有索引信息 http:&#x2F;&#x2F;&#x2F;_cat&#x2F;indices  索引映射查看 get http:&#x2F;&#x2F;&#x2F;agent-info  索引设置查看 get http:&#x2F;&#x2F;&#x2F;agent-info&#x2F;_settings  索引删除 delete  http:&#x2F;&#x2F;&#x2F;agent-info  精确匹配 get  http:&#x2F;&#x2F;&#x2F;agent-info&#x2F;_search  12345678&amp;#123;    &quot;qu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Es RESTful Api">
+<meta property="og:url" content="http://example.com/2022/07/26/db/esapi/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="查询所有索引信息 http:&#x2F;&#x2F;&#x2F;_cat&#x2F;indices  索引映射查看 get http:&#x2F;&#x2F;&#x2F;agent-info  索引设置查看 get http:&#x2F;&#x2F;&#x2F;agent-info&#x2F;_settings  索引删除 delete  http:&#x2F;&#x2F;&#x2F;agent-info  精确匹配 get  http:&#x2F;&#x2F;&#x2F;agent-info&#x2F;_search  12345678&amp;#123;    &quot;qu">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-26T05:54:57.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="ES">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/07/26/db/esapi/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/07/26/db/esapi/","path":"2022/07/26/db/esapi/","title":"Es RESTful Api"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Es RESTful Api | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E6%89%80%E6%9C%89%E7%B4%A2%E5%BC%95%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">查询所有索引信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E6%98%A0%E5%B0%84%E6%9F%A5%E7%9C%8B"><span class="nav-number">2.</span> <span class="nav-text">索引映射查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E8%AE%BE%E7%BD%AE%E6%9F%A5%E7%9C%8B"><span class="nav-number">3.</span> <span class="nav-text">索引设置查看</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%88%A0%E9%99%A4"><span class="nav-number">4.</span> <span class="nav-text">索引删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%BE%E7%A1%AE%E5%8C%B9%E9%85%8D"><span class="nav-number">5.</span> <span class="nav-text">精确匹配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B4%A2%E5%BC%95%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2"><span class="nav-number">6.</span> <span class="nav-text">索引全文检索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E8%AF%8D%E5%88%86%E6%9E%90"><span class="nav-number">7.</span> <span class="nav-text">关键词分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cat%E6%93%8D%E4%BD%9C%E7%B1%BB%E8%A1%A8"><span class="nav-number">8.</span> <span class="nav-text">_cat操作类表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5"><span class="nav-number">9.</span> <span class="nav-text">健康检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4%E4%BF%A1%E6%81%AF"><span class="nav-number">10.</span> <span class="nav-text">查看集群信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4master"><span class="nav-number">11.</span> <span class="nav-text">查看集群master</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4%E8%8A%82%E7%82%B9%E4%BF%A1%E6%81%AF"><span class="nav-number">12.</span> <span class="nav-text">查看集群节点信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%9B%86%E7%BE%A4%E5%88%86%E7%89%87%E4%BF%A1%E6%81%AF"><span class="nav-number">13.</span> <span class="nav-text">查看集群分片信息</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/07/26/db/esapi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Es RESTful Api | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Es RESTful Api
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-26 13:54:57" itemprop="dateCreated datePublished" datetime="2022-07-26T13:54:57+08:00">2022-07-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/DB/" itemprop="url" rel="index"><span itemprop="name">DB</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="查询所有索引信息"><a href="#查询所有索引信息" class="headerlink" title="查询所有索引信息"></a>查询所有索引信息</h3><ul>
+<li>http:///_cat/indices</li>
+</ul>
+<h3 id="索引映射查看"><a href="#索引映射查看" class="headerlink" title="索引映射查看"></a>索引映射查看</h3><ul>
+<li>get http:///agent-info</li>
+</ul>
+<h3 id="索引设置查看"><a href="#索引设置查看" class="headerlink" title="索引设置查看"></a>索引设置查看</h3><ul>
+<li>get http:///agent-info/_settings</li>
+</ul>
+<h3 id="索引删除"><a href="#索引删除" class="headerlink" title="索引删除"></a>索引删除</h3><ul>
+<li>delete  http:///agent-info</li>
+</ul>
+<h3 id="精确匹配"><a href="#精确匹配" class="headerlink" title="精确匹配"></a>精确匹配</h3><ul>
+<li>get  http:///agent-info/_search</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;query&quot;:&#123;</span><br><span class="line">        &quot;match&quot;:&#123;</span><br><span class="line">            &quot;ag_name&quot;: &quot;大石桥市旺达水果蔬菜便利店&quot;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="索引全文检索"><a href="#索引全文检索" class="headerlink" title="索引全文检索"></a>索引全文检索</h3><ul>
+<li>get  http:///agent-info/_search</li>
+</ul>
+<h3 id="关键词分析"><a href="#关键词分析" class="headerlink" title="关键词分析"></a>关键词分析</h3><ul>
+<li>get http:///_analyze<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot; : &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot; : &quot;739183800@qq.com&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="cat操作类表"><a href="#cat操作类表" class="headerlink" title="_cat操作类表"></a>_cat操作类表</h3><ul>
+<li>get http:///_cat</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">=^.^=</span><br><span class="line">/_cat/allocation</span><br><span class="line">/_cat/shards</span><br><span class="line">/_cat/shards/&#123;index&#125;</span><br><span class="line">/_cat/master</span><br><span class="line">/_cat/nodes</span><br><span class="line">/_cat/tasks</span><br><span class="line">/_cat/indices</span><br><span class="line">/_cat/indices/&#123;index&#125;</span><br><span class="line">/_cat/segments</span><br><span class="line">/_cat/segments/&#123;index&#125;</span><br><span class="line">/_cat/count</span><br><span class="line">/_cat/count/&#123;index&#125;</span><br><span class="line">/_cat/recovery</span><br><span class="line">/_cat/recovery/&#123;index&#125;</span><br><span class="line">/_cat/health</span><br><span class="line">/_cat/pending_tasks</span><br><span class="line">/_cat/aliases</span><br><span class="line">/_cat/aliases/&#123;alias&#125;</span><br><span class="line">/_cat/thread_pool</span><br><span class="line">/_cat/thread_pool/&#123;thread_pools&#125;</span><br><span class="line">/_cat/plugins</span><br><span class="line">/_cat/fielddata</span><br><span class="line">/_cat/fielddata/&#123;fields&#125;</span><br><span class="line">/_cat/nodeattrs</span><br><span class="line">/_cat/repositories</span><br><span class="line">/_cat/snapshots/&#123;repository&#125;</span><br><span class="line">/_cat/templates</span><br><span class="line">/_cat/ml/anomaly_detectors</span><br><span class="line">/_cat/ml/anomaly_detectors/&#123;job_id&#125;</span><br><span class="line">/_cat/ml/trained_models</span><br><span class="line">/_cat/ml/trained_models/&#123;model_id&#125;</span><br><span class="line">/_cat/ml/datafeeds</span><br><span class="line">/_cat/ml/datafeeds/&#123;datafeed_id&#125;</span><br><span class="line">/_cat/ml/data_frame/analytics</span><br><span class="line">/_cat/ml/data_frame/analytics/&#123;id&#125;</span><br><span class="line">/_cat/transforms</span><br><span class="line">/_cat/transforms/&#123;transform_id&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="健康检查"><a href="#健康检查" class="headerlink" title="健康检查"></a>健康检查</h3><ul>
+<li><p>get http:///_cat/health</p>
+<blockquote>
+<p>1658815275 06:01:15 ryx green 3 3 10 8 0 0 0 0 - 100.0%</p>
+</blockquote>
+<h3 id="查看集群信息"><a href="#查看集群信息" class="headerlink" title="查看集群信息"></a>查看集群信息</h3></li>
+<li><p>get http:///_cluster/health</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;cluster_name&quot;: &quot;ryx&quot;,</span><br><span class="line">    &quot;status&quot;: &quot;green&quot;,</span><br><span class="line">    &quot;timed_out&quot;: false,</span><br><span class="line">    &quot;number_of_nodes&quot;: 3,</span><br><span class="line">    &quot;number_of_data_nodes&quot;: 3,</span><br><span class="line">    &quot;active_primary_shards&quot;: 8,</span><br><span class="line">    &quot;active_shards&quot;: 10,</span><br><span class="line">    &quot;relocating_shards&quot;: 0,</span><br><span class="line">    &quot;initializing_shards&quot;: 0,</span><br><span class="line">    &quot;unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;delayed_unassigned_shards&quot;: 0,</span><br><span class="line">    &quot;number_of_pending_tasks&quot;: 0,</span><br><span class="line">    &quot;number_of_in_flight_fetch&quot;: 0,</span><br><span class="line">    &quot;task_max_waiting_in_queue_millis&quot;: 0,</span><br><span class="line">    &quot;active_shards_percent_as_number&quot;: 100.0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群master"><a href="#查看集群master" class="headerlink" title="查看集群master"></a>查看集群master</h3></li>
+<li><p>get http:///_cat/master</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TzHcEWPTRW-D8vFqj0lTUQ 12.3.10.105 12.3.10.105 node-105</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群节点信息"><a href="#查看集群节点信息" class="headerlink" title="查看集群节点信息"></a>查看集群节点信息</h3></li>
+<li><p>get http:///_cat/nodes</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">12.3.10.205 65 97 3 0.02 0.11 0.17 cdfhilmrstw - node-205</span><br><span class="line">12.3.10.222 15 94 3 0.03 0.07 0.06 cdfhilmrstw - node-222</span><br><span class="line">12.3.10.105 51 98 2 0.06 0.08 0.02 cdfhilmrstw * node-105</span><br></pre></td></tr></table></figure>
+<h3 id="查看集群分片信息"><a href="#查看集群分片信息" class="headerlink" title="查看集群分片信息"></a>查看集群分片信息</h3></li>
+<li><p>get http:///_cat/shards</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">agent-info       2 p STARTED 13569   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       1 p STARTED 13104   1.8mb 12.3.10.205 node-205</span><br><span class="line">agent-info       0 p STARTED 13476   1.8mb 12.3.10.222 node-222</span><br><span class="line">.security-7      0 r STARTED     7  25.7kb 12.3.10.205 node-205</span><br><span class="line">.security-7      0 p STARTED     7  25.7kb 12.3.10.222 node-222</span><br><span class="line">.geoip_databases 0 r STARTED     4     4mb 12.3.10.205 node-205</span><br><span class="line">.geoip_databases 0 p STARTED     4     4mb 12.3.10.222 node-222</span><br><span class="line">order-info       2 p STARTED   570 266.7kb 12.3.10.222 node-222</span><br><span class="line">order-info       1 p STARTED   508 249.2kb 12.3.10.205 node-205</span><br><span class="line">order-info       0 p STARTED   521   259kb 12.3.10.222 node-222</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ES/" rel="tag"><i class="fa fa-tag"></i> ES</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/26/db/redis/" rel="prev" title="Redis集群">
+                  <i class="fa fa-angle-left"></i> Redis集群
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/26/db/esbase/" rel="next" title="ES基础">
+                  ES基础 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

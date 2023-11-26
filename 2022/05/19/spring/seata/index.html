@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Seata 是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata 将为用户提供了 AT、TCC、SAGA 和 XA 事务模式，为用户打造一站式的分布式解决方案, 一:Seata术语TC (Transaction Coordinator) - 事务协调者维护全局和分支事务的状态，驱动全局事务提交或回滚。 TM (Transaction Manager) - 事务管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Seata安装">
+<meta property="og:url" content="http://example.com/2022/05/19/spring/seata/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="Seata 是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata 将为用户提供了 AT、TCC、SAGA 和 XA 事务模式，为用户打造一站式的分布式解决方案, 一:Seata术语TC (Transaction Coordinator) - 事务协调者维护全局和分支事务的状态，驱动全局事务提交或回滚。 TM (Transaction Manager) - 事务管理">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-19T11:47:29.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.301Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="Seata">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/05/19/spring/seata/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/05/19/spring/seata/","path":"2022/05/19/spring/seata/","title":"Seata安装"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Seata安装 | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80-Seata%E6%9C%AF%E8%AF%AD"><span class="nav-number">1.</span> <span class="nav-text">一:Seata术语</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TC-Transaction-Coordinator-%E4%BA%8B%E5%8A%A1%E5%8D%8F%E8%B0%83%E8%80%85"><span class="nav-number">1.0.1.</span> <span class="nav-text">TC (Transaction Coordinator) - 事务协调者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TM-Transaction-Manager-%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E5%99%A8"><span class="nav-number">1.0.2.</span> <span class="nav-text">TM (Transaction Manager) - 事务管理器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RM-Resource-Manager-%E8%B5%84%E6%BA%90%E7%AE%A1%E7%90%86%E5%99%A8"><span class="nav-number">1.0.3.</span> <span class="nav-text">RM (Resource Manager) - 资源管理器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%EF%BC%9A%E8%B5%84%E6%BA%90%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">二：资源介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#client"><span class="nav-number">2.0.1.</span> <span class="nav-text">client</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#config-center"><span class="nav-number">2.0.2.</span> <span class="nav-text">config-center</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#server"><span class="nav-number">2.0.3.</span> <span class="nav-text">server</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%EF%BC%9AServer%E5%AE%89%E8%A3%85%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">三：Server安装：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E9%85%8D%E7%BD%AE%E6%96%B9%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">文件配置方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.1.</span> <span class="nav-text">文件模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#file-config-%E9%85%8D%E7%BD%AE%E5%AD%98%E5%82%A8%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">file.config 配置存储模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#registry-conf-%E6%B3%A8%E5%86%8C%E5%8F%8A%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">registry.conf 注册及配置中心</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8nacos%E4%BD%9C%E4%B8%BA%E9%85%8D%E7%BD%AE%E4%B8%AD%E5%BF%83%E5%8F%8A%E6%9C%8D%E5%8A%A1%E6%B2%BB%E7%90%86%E4%B8%AD%E5%BF%83"><span class="nav-number">3.1.2.</span> <span class="nav-text">使用nacos作为配置中心及服务治理中心</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DBScript%E8%84%9A%E6%9C%AC"><span class="nav-number">3.2.</span> <span class="nav-text">DBScript脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Server%E7%AB%AF-MYSQL"><span class="nav-number">3.2.1.</span> <span class="nav-text">Server端 MYSQL</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Client%E7%AB%AFsql"><span class="nav-number">3.2.2.</span> <span class="nav-text">Client端sql</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#AT%E6%A8%A1%E5%BC%8F-MYSQL-AT%E6%A8%A1%E5%BC%8F%E6%94%AF%E6%8C%81%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%89%EF%BC%9AMySQL%E3%80%81Oracle%E3%80%81PostgreSQL%E3%80%81-TiDB%E3%80%81MariaDB%E3%80%82"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">AT模式 MYSQL AT模式支持的数据库有：MySQL、Oracle、PostgreSQL、 TiDB、MariaDB。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SAGE%E6%A8%A1%E5%BC%8F-MYSQL-Saga%E6%A8%A1%E5%BC%8F%E4%B8%8D%E4%BE%9D%E8%B5%96%E6%95%B0%E6%8D%AE%E6%BA%90%E3%80%82"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">SAGE模式 MYSQL Saga模式不依赖数据源。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TCC%E6%A8%A1%E5%BC%8Fmysql-TCC%E6%A8%A1%E5%BC%8F%E4%B8%8D%E4%BE%9D%E8%B5%96%E6%95%B0%E6%8D%AE%E6%BA%90-1-4-2%E7%89%88%E6%9C%AC%E5%8F%8A%E4%B9%8B%E5%89%8D-%EF%BC%8C1-4-2%E7%89%88%E6%9C%AC%E4%B9%8B%E5%90%8E%E5%A2%9E%E5%8A%A0%E4%BA%86TCC%E9%98%B2%E6%82%AC%E6%8C%82%E6%8E%AA%E6%96%BD%EF%BC%8C%E9%9C%80%E8%A6%81%E6%95%B0%E6%8D%AE%E6%BA%90%E6%94%AF%E6%8C%81%E3%80%82"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">TCC模式mysql   TCC模式不依赖数据源(1.4.2版本及之前)，1.4.2版本之后增加了TCC防悬挂措施，需要数据源支持。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#XA%E6%A8%A1%E5%BC%8F-XA%E6%A8%A1%E5%BC%8F%E5%8F%AA%E6%94%AF%E6%8C%81%E5%AE%9E%E7%8E%B0%E4%BA%86XA%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%82Seata%E6%94%AF%E6%8C%81MySQL%E3%80%81Oracle%E3%80%81PostgreSQL%E5%92%8CMariDB%E3%80%82"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">XA模式   XA模式只支持实现了XA协议的数据库。Seata支持MySQL、Oracle、PostgreSQL和MariDB。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%EF%BC%9A%E4%BA%8B%E5%8A%A1%E5%88%86%E7%BB%84"><span class="nav-number">4.</span> <span class="nav-text">四：事务分组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E8%B0%83%E7%94%A8XID%E7%9A%84%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">远程服务调用XID的事务传播：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E8%BE%B9%E7%95%8C%E5%AE%9A%E4%B9%89%E3%80%81%E6%8E%A7%E5%88%B6%E5%8F%8A%E4%BA%8B%E5%8A%A1%E7%8A%B6%E6%80%81%E6%9F%A5%E8%AF%A2%EF%BC%88%E9%AB%98%E9%98%B6api%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">事务边界定义、控制及事务状态查询（高阶api）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GlobalTransactionScanner-AbstractAutoProxyCreator-%EF%BC%88%E6%B3%A8%E8%A7%A3%E6%89%AB%E6%8F%8F%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">GlobalTransactionScanner(AbstractAutoProxyCreator),（注解扫描）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E4%BA%8E%E6%8E%A7%E5%88%B6%E4%BA%8B%E5%8A%A1%E4%B8%8A%E4%B8%8B%E6%96%87%E7%9A%84%E4%BC%A0%E6%92%AD-%E4%BD%8E%E9%98%B6api"><span class="nav-number">7.</span> <span class="nav-text">用于控制事务上下文的传播(低阶api)</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/19/spring/seata/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Seata安装 | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Seata安装
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-19 19:47:29" itemprop="dateCreated datePublished" datetime="2022-05-19T19:47:29+08:00">2022-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/SpringCloud/" itemprop="url" rel="index"><span itemprop="name">SpringCloud</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>Seata 是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata 将为用户提供了 AT、TCC、SAGA 和 XA 事务模式，为用户打造一站式的分布式解决方案,</p>
+<h2 id="一-Seata术语"><a href="#一-Seata术语" class="headerlink" title="一:Seata术语"></a>一:Seata术语</h2><h4 id="TC-Transaction-Coordinator-事务协调者"><a href="#TC-Transaction-Coordinator-事务协调者" class="headerlink" title="TC (Transaction Coordinator) - 事务协调者"></a>TC (Transaction Coordinator) - 事务协调者</h4><p>维护全局和分支事务的状态，驱动全局事务提交或回滚。</p>
+<h4 id="TM-Transaction-Manager-事务管理器"><a href="#TM-Transaction-Manager-事务管理器" class="headerlink" title="TM (Transaction Manager) - 事务管理器"></a>TM (Transaction Manager) - 事务管理器</h4><p>定义全局事务的范围：开始全局事务、提交或回滚全局事务。</p>
+<h4 id="RM-Resource-Manager-资源管理器"><a href="#RM-Resource-Manager-资源管理器" class="headerlink" title="RM (Resource Manager) - 资源管理器"></a>RM (Resource Manager) - 资源管理器</h4><p>管理分支事务处理的资源，与TC交谈以注册分支事务和报告分支事务的状态，并驱动分支事务提交或回滚。</p>
+<h2 id="二：资源介绍"><a href="#二：资源介绍" class="headerlink" title="二：资源介绍"></a>二：资源介绍</h2><p>Seata分TC、TM和RM三个角色，TC（Server端）为单独服务端部署，TM和RM（Client端）由业务系统集成。</p>
+<h4 id="client"><a href="#client" class="headerlink" title="client"></a>client</h4><p>存放client端sql脚本 (包含 <strong>undo_log</strong>表) </p>
+<h4 id="config-center"><a href="#config-center" class="headerlink" title="config-center"></a>config-center</h4><p>各个配置中心参数导入脚本，<strong>config.txt</strong>(包含server和client，原名nacos-config.txt)为通用参数文件</p>
+<h4 id="server"><a href="#server" class="headerlink" title="server"></a>server</h4><p>server端数据库脚本 (<strong>包含 lock_table、branch_table  global_table 与 distributed_lock</strong>) 及各个容器配置</p>
+<h2 id="三：Server安装："><a href="#三：Server安装：" class="headerlink" title="三：Server安装："></a>三：Server安装：</h2><p>Server端存储模式（store.mode）现有file、db、redis三种（后续将引入raft,mongodb），</p>
+<p>file模式无需改动，直接启动即可，注： file模式为单机模式，全局事务会话信息内存中读写并持久化本地文件root.data，性能较高;</p>
+<p>db模式为高可用模式，全局事务会话信息通过db共享，相应性能差些;</p>
+<p>redis模式Seata-Server 1.3及以上版本支持,性能较高,存在事务信息丢失风险,请提前配置合适当前场景的redis持久化配置.</p>
+<h3 id="文件配置方式"><a href="#文件配置方式" class="headerlink" title="文件配置方式"></a>文件配置方式</h3><h4 id="文件模式"><a href="#文件模式" class="headerlink" title="文件模式"></a>文件模式</h4><h5 id="file-config-配置存储模式"><a href="#file-config-配置存储模式" class="headerlink" title="file.config 配置存储模式"></a>file.config 配置存储模式</h5><p>此处配置了全局事务以何种方式来存储，配置mode = “db” 支持 file db redis</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">store <span class="punctuation">&#123;</span></span><br><span class="line">  ## store mode<span class="punctuation">:</span> file、db、redis</span><br><span class="line">  mode = <span class="string">&quot;db&quot;</span></span><br><span class="line">  ## rsa decryption public key</span><br><span class="line">  publicKey = <span class="string">&quot;&quot;</span></span><br><span class="line">  ## file store property</span><br><span class="line">  file <span class="punctuation">&#123;</span></span><br><span class="line">    ## store location dir</span><br><span class="line">    dir = <span class="string">&quot;sessionStore&quot;</span></span><br><span class="line">    # branch session size <span class="punctuation">,</span> if exceeded first try compress lockkey<span class="punctuation">,</span> still exceeded throws exceptions</span><br><span class="line">    maxBranchSessionSize = <span class="number">16384</span></span><br><span class="line">    # globe session size <span class="punctuation">,</span> if exceeded throws exceptions</span><br><span class="line">    maxGlobalSessionSize = <span class="number">512</span></span><br><span class="line">    # file buffer size <span class="punctuation">,</span> if exceeded allocate new buffer</span><br><span class="line">    fileWriteBufferCacheSize = <span class="number">16384</span></span><br><span class="line">    # when recover batch read size</span><br><span class="line">    sessionReloadReadSize = <span class="number">100</span></span><br><span class="line">    # async<span class="punctuation">,</span> sync</span><br><span class="line">    flushDiskMode = async</span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">  ## database store property</span><br><span class="line">  db <span class="punctuation">&#123;</span></span><br><span class="line">    ## the implement of javax.sql.DataSource<span class="punctuation">,</span> such as DruidDataSource(druid)/BasicDataSource(dbcp)/HikariDataSource(hikari) etc.</span><br><span class="line">    datasource = <span class="string">&quot;druid&quot;</span></span><br><span class="line">    ## mysql/oracle/postgresql/h2/oceanbase etc.</span><br><span class="line">    dbType = <span class="string">&quot;mysql&quot;</span></span><br><span class="line">    driverClassName = <span class="string">&quot;com.mysql.jdbc.Driver&quot;</span></span><br><span class="line">    ## if using mysql to store the data<span class="punctuation">,</span> recommend add rewriteBatchedStatements=<span class="literal"><span class="keyword">true</span></span> in jdbc connection param</span><br><span class="line">    url = <span class="string">&quot;jdbc:mysql://127.0.0.1:3306/seata?rewriteBatchedStatements=true&quot;</span></span><br><span class="line">    user = <span class="string">&quot;root&quot;</span></span><br><span class="line">    password = <span class="string">&quot;CHENxiao1989119&quot;</span></span><br><span class="line">    minConn = <span class="number">5</span></span><br><span class="line">    maxConn = <span class="number">100</span></span><br><span class="line">    globalTable = <span class="string">&quot;global_table&quot;</span></span><br><span class="line">    branchTable = <span class="string">&quot;branch_table&quot;</span></span><br><span class="line">    lockTable = <span class="string">&quot;lock_table&quot;</span></span><br><span class="line">    queryLimit = <span class="number">100</span></span><br><span class="line">    maxWait = <span class="number">5000</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"></span><br><span class="line">  ## redis store property</span><br><span class="line">  redis <span class="punctuation">&#123;</span></span><br><span class="line">    ## redis mode<span class="punctuation">:</span> single、sentinel</span><br><span class="line">    mode = <span class="string">&quot;single&quot;</span></span><br><span class="line">    ## single mode property</span><br><span class="line">    single <span class="punctuation">&#123;</span></span><br><span class="line">      host = <span class="string">&quot;127.0.0.1&quot;</span></span><br><span class="line">      port = <span class="string">&quot;6379&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    ## sentinel mode property</span><br><span class="line">    sentinel <span class="punctuation">&#123;</span></span><br><span class="line">      masterName = <span class="string">&quot;&quot;</span></span><br><span class="line">      ## such as <span class="string">&quot;10.28.235.65:26379,10.28.235.65:26380,10.28.235.65:26381&quot;</span></span><br><span class="line">      sentinelHosts = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">    password = <span class="string">&quot;&quot;</span></span><br><span class="line">    database = <span class="string">&quot;0&quot;</span></span><br><span class="line">    minConn = <span class="number">1</span></span><br><span class="line">    maxConn = <span class="number">10</span></span><br><span class="line">    maxTotal = <span class="number">100</span></span><br><span class="line">    queryLimit = <span class="number">100</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="registry-conf-注册及配置中心"><a href="#registry-conf-注册及配置中心" class="headerlink" title="registry.conf 注册及配置中心"></a>registry.conf 注册及配置中心</h5><p>此处配置seata的配置中心使用何种方式，及集群模式下的seata服务如何注册服务</p>
+<h4 id="使用nacos作为配置中心及服务治理中心"><a href="#使用nacos作为配置中心及服务治理中心" class="headerlink" title="使用nacos作为配置中心及服务治理中心"></a>使用nacos作为配置中心及服务治理中心</h4><p>注册中心type = “nacos”，seata服务将seataServer注册到注册中心</p>
+<p>配置中心type = “nacos”   seata服务将从nacos取得seata服务的配置信息，当采用file模式，将从file.conf文件中获取配置</p>
+<p>seata服务配置项可从config.txt,中获取，并上传至配置中心</p>
+<p>（1）下载config.txt,并自行对应的脚本nacos-config.sh 会到上层目录查找config.txt</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sh /d/softw/seata/seata-server-1.4.2/conf/nacos-config.sh -h localhost -p 8848 -g SEATA_GROUP -t 7dba3cc6-3805-4f3d-b89c-0519044013b7 -u username -w password</span><br><span class="line">-h -- nacos ip</span><br><span class="line">-p -- nacos 端口</span><br><span class="line">-g -- seata-server配置文件 分组名</span><br><span class="line">-t -- seata-server配置文件 命名空间ID</span><br><span class="line">-u -- nacos账号</span><br><span class="line">-w -- nacos密码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>（2）server可使用dataId = “seataServer.properties” cleant端使用上传配置 并拷贝参数到nacos</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">nacos <span class="punctuation">&#123;</span></span><br><span class="line">    serverAddr = <span class="string">&quot;127.0.0.1:8848&quot;</span></span><br><span class="line">    namespace = <span class="string">&quot;7dba3cc6-3805-4f3d-b89c-0519044013b7&quot;</span></span><br><span class="line">    group = <span class="string">&quot;SEATA_GROUP&quot;</span></span><br><span class="line">    username = <span class="string">&quot;&quot;</span></span><br><span class="line">    password = <span class="string">&quot;&quot;</span></span><br><span class="line">    #可指定dataId</span><br><span class="line">    dataId = <span class="string">&quot;seataServer.properties&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="DBScript脚本"><a href="#DBScript脚本" class="headerlink" title="DBScript脚本"></a>DBScript脚本</h3><h4 id="Server端-MYSQL"><a href="#Server端-MYSQL" class="headerlink" title="Server端 MYSQL"></a>Server端 MYSQL</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- -------------------------------- The script used when storeMode is &#x27;db&#x27; --------------------------------</span></span><br><span class="line"><span class="comment">-- the table to store GlobalSession data</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `global_table`</span><br><span class="line">(</span><br><span class="line">    `xid`                       <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `transaction_id`            <span class="type">BIGINT</span>,</span><br><span class="line">    `status`                    TINYINT      <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `application_id`            <span class="type">VARCHAR</span>(<span class="number">32</span>),</span><br><span class="line">    `transaction_service_group` <span class="type">VARCHAR</span>(<span class="number">32</span>),</span><br><span class="line">    `transaction_name`          <span class="type">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">    `timeout`                   <span class="type">INT</span>,</span><br><span class="line">    `begin_time`                <span class="type">BIGINT</span>,</span><br><span class="line">    `application_data`          <span class="type">VARCHAR</span>(<span class="number">2000</span>),</span><br><span class="line">    `gmt_create`                DATETIME,</span><br><span class="line">    `gmt_modified`              DATETIME,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`xid`),</span><br><span class="line">    KEY `idx_gmt_modified_status` (`gmt_modified`, `status`),</span><br><span class="line">    KEY `idx_transaction_id` (`transaction_id`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- the table to store BranchSession data</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `branch_table`</span><br><span class="line">(</span><br><span class="line">    `branch_id`         <span class="type">BIGINT</span>       <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `xid`               <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `transaction_id`    <span class="type">BIGINT</span>,</span><br><span class="line">    `resource_group_id` <span class="type">VARCHAR</span>(<span class="number">32</span>),</span><br><span class="line">    `resource_id`       <span class="type">VARCHAR</span>(<span class="number">256</span>),</span><br><span class="line">    `branch_type`       <span class="type">VARCHAR</span>(<span class="number">8</span>),</span><br><span class="line">    `status`            TINYINT,</span><br><span class="line">    `client_id`         <span class="type">VARCHAR</span>(<span class="number">64</span>),</span><br><span class="line">    `application_data`  <span class="type">VARCHAR</span>(<span class="number">2000</span>),</span><br><span class="line">    `gmt_create`        DATETIME(<span class="number">6</span>),</span><br><span class="line">    `gmt_modified`      DATETIME(<span class="number">6</span>),</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`branch_id`),</span><br><span class="line">    KEY `idx_xid` (`xid`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="comment">-- the table to store lock data</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `lock_table`</span><br><span class="line">(</span><br><span class="line">    `row_key`        <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `xid`            <span class="type">VARCHAR</span>(<span class="number">128</span>),</span><br><span class="line">    `transaction_id` <span class="type">BIGINT</span>,</span><br><span class="line">    `branch_id`      <span class="type">BIGINT</span>       <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `resource_id`    <span class="type">VARCHAR</span>(<span class="number">256</span>),</span><br><span class="line">    `table_name`     <span class="type">VARCHAR</span>(<span class="number">32</span>),</span><br><span class="line">    `pk`             <span class="type">VARCHAR</span>(<span class="number">36</span>),</span><br><span class="line">    `status`         TINYINT      <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;0&#x27;</span> COMMENT <span class="string">&#x27;0:locked ,1:rollbacking&#x27;</span>,</span><br><span class="line">    `gmt_create`     DATETIME,</span><br><span class="line">    `gmt_modified`   DATETIME,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`row_key`),</span><br><span class="line">    KEY `idx_status` (`status`),</span><br><span class="line">    KEY `idx_branch_id` (`branch_id`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `distributed_lock`</span><br><span class="line">(</span><br><span class="line">    `lock_key`       <span class="type">CHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `lock_value`     <span class="type">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    `expire`         <span class="type">BIGINT</span>,</span><br><span class="line">    <span class="keyword">primary</span> key (`lock_key`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8mb4;</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `distributed_lock` (lock_key, lock_value, expire) <span class="keyword">VALUES</span> (<span class="string">&#x27;AsyncCommitting&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `distributed_lock` (lock_key, lock_value, expire) <span class="keyword">VALUES</span> (<span class="string">&#x27;RetryCommitting&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `distributed_lock` (lock_key, lock_value, expire) <span class="keyword">VALUES</span> (<span class="string">&#x27;RetryRollbacking&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> `distributed_lock` (lock_key, lock_value, expire) <span class="keyword">VALUES</span> (<span class="string">&#x27;TxTimeoutCheck&#x27;</span>, <span class="string">&#x27; &#x27;</span>, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="Client端sql"><a href="#Client端sql" class="headerlink" title="Client端sql"></a>Client端sql</h4><h5 id="AT模式-MYSQL-AT模式支持的数据库有：MySQL、Oracle、PostgreSQL、-TiDB、MariaDB。"><a href="#AT模式-MYSQL-AT模式支持的数据库有：MySQL、Oracle、PostgreSQL、-TiDB、MariaDB。" class="headerlink" title="AT模式 MYSQL AT模式支持的数据库有：MySQL、Oracle、PostgreSQL、 TiDB、MariaDB。"></a>AT模式 MYSQL AT模式支持的数据库有：MySQL、Oracle、PostgreSQL、 TiDB、MariaDB。</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 注意此处0.7.0+ 增加字段 context</span></span><br><span class="line"><span class="comment">-- for AT mode you must to init this sql for you business database. the seata server not need it.</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `undo_log`</span><br><span class="line">(</span><br><span class="line">    `branch_id`     <span class="type">BIGINT</span>       <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;branch transaction id&#x27;</span>,</span><br><span class="line">    `xid`           <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;global transaction id&#x27;</span>,</span><br><span class="line">    `context`       <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;undo_log context,such as serialization&#x27;</span>,</span><br><span class="line">    `rollback_info` LONGBLOB     <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;rollback info&#x27;</span>,</span><br><span class="line">    `log_status`    <span class="type">INT</span>(<span class="number">11</span>)      <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;0:normal status,1:defense status&#x27;</span>,</span><br><span class="line">    `log_created`   DATETIME(<span class="number">6</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;create datetime&#x27;</span>,</span><br><span class="line">    `log_modified`  DATETIME(<span class="number">6</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;modify datetime&#x27;</span>,</span><br><span class="line">    <span class="keyword">UNIQUE</span> KEY `ux_undo_log` (`xid`, `branch_id`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  AUTO_INCREMENT <span class="operator">=</span> <span class="number">1</span></span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8 COMMENT <span class="operator">=</span><span class="string">&#x27;AT transaction mode undo table&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<h5 id="SAGE模式-MYSQL-Saga模式不依赖数据源。"><a href="#SAGE模式-MYSQL-Saga模式不依赖数据源。" class="headerlink" title="SAGE模式 MYSQL Saga模式不依赖数据源。"></a>SAGE模式 MYSQL Saga模式不依赖数据源。</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- -------------------------------- The script used for sage  --------------------------------</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `seata_state_machine_def`</span><br><span class="line">(</span><br><span class="line">    `id`               <span class="type">VARCHAR</span>(<span class="number">32</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">    `name`             <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;name&#x27;</span>,</span><br><span class="line">    `tenant_id`        <span class="type">VARCHAR</span>(<span class="number">32</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;tenant id&#x27;</span>,</span><br><span class="line">    `app_name`         <span class="type">VARCHAR</span>(<span class="number">32</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;application name&#x27;</span>,</span><br><span class="line">    `type`             <span class="type">VARCHAR</span>(<span class="number">20</span>)  COMMENT <span class="string">&#x27;state language type&#x27;</span>,</span><br><span class="line">    `comment_`         <span class="type">VARCHAR</span>(<span class="number">255</span>) COMMENT <span class="string">&#x27;comment&#x27;</span>,</span><br><span class="line">    `ver`              <span class="type">VARCHAR</span>(<span class="number">16</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;version&#x27;</span>,</span><br><span class="line">    `gmt_create`       DATETIME(<span class="number">3</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;create time&#x27;</span>,</span><br><span class="line">    `status`           <span class="type">VARCHAR</span>(<span class="number">2</span>)   <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;status(AC:active|IN:inactive)&#x27;</span>,</span><br><span class="line">    `content`          TEXT COMMENT <span class="string">&#x27;content&#x27;</span>,</span><br><span class="line">    `recover_strategy` <span class="type">VARCHAR</span>(<span class="number">16</span>) COMMENT <span class="string">&#x27;transaction recover strategy(compensate|retry)&#x27;</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `seata_state_machine_inst`</span><br><span class="line">(</span><br><span class="line">    `id`                  <span class="type">VARCHAR</span>(<span class="number">128</span>)            <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">    `machine_id`          <span class="type">VARCHAR</span>(<span class="number">32</span>)             <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;state machine definition id&#x27;</span>,</span><br><span class="line">    `tenant_id`           <span class="type">VARCHAR</span>(<span class="number">32</span>)             <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;tenant id&#x27;</span>,</span><br><span class="line">    `parent_id`           <span class="type">VARCHAR</span>(<span class="number">128</span>) COMMENT <span class="string">&#x27;parent id&#x27;</span>,</span><br><span class="line">    `gmt_started`         DATETIME(<span class="number">3</span>)             <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;start time&#x27;</span>,</span><br><span class="line">    `business_key`        <span class="type">VARCHAR</span>(<span class="number">48</span>) COMMENT <span class="string">&#x27;business key&#x27;</span>,</span><br><span class="line">    `start_params`        TEXT COMMENT <span class="string">&#x27;start parameters&#x27;</span>,</span><br><span class="line">    `gmt_end`             DATETIME(<span class="number">3</span>) COMMENT <span class="string">&#x27;end time&#x27;</span>,</span><br><span class="line">    `excep`               <span class="type">BLOB</span> COMMENT <span class="string">&#x27;exception&#x27;</span>,</span><br><span class="line">    `end_params`          TEXT COMMENT <span class="string">&#x27;end parameters&#x27;</span>,</span><br><span class="line">    `status`              <span class="type">VARCHAR</span>(<span class="number">2</span>) COMMENT <span class="string">&#x27;status(SU succeed|FA failed|UN unknown|SK skipped|RU running)&#x27;</span>,</span><br><span class="line">    `compensation_status` <span class="type">VARCHAR</span>(<span class="number">2</span>) COMMENT <span class="string">&#x27;compensation status(SU succeed|FA failed|UN unknown|SK skipped|RU running)&#x27;</span>,</span><br><span class="line">    `is_running`          TINYINT(<span class="number">1</span>) COMMENT <span class="string">&#x27;is running(0 no|1 yes)&#x27;</span>,</span><br><span class="line">    `gmt_updated`         DATETIME(<span class="number">3</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">    <span class="keyword">UNIQUE</span> KEY `unikey_buz_tenant` (`business_key`, `tenant_id`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `seata_state_inst`</span><br><span class="line">(</span><br><span class="line">    `id`                       <span class="type">VARCHAR</span>(<span class="number">48</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;id&#x27;</span>,</span><br><span class="line">    `machine_inst_id`          <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;state machine instance id&#x27;</span>,</span><br><span class="line">    `name`                     <span class="type">VARCHAR</span>(<span class="number">128</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;state name&#x27;</span>,</span><br><span class="line">    `type`                     <span class="type">VARCHAR</span>(<span class="number">20</span>)  COMMENT <span class="string">&#x27;state type&#x27;</span>,</span><br><span class="line">    `service_name`             <span class="type">VARCHAR</span>(<span class="number">128</span>) COMMENT <span class="string">&#x27;service name&#x27;</span>,</span><br><span class="line">    `service_method`           <span class="type">VARCHAR</span>(<span class="number">128</span>) COMMENT <span class="string">&#x27;method name&#x27;</span>,</span><br><span class="line">    `service_type`             <span class="type">VARCHAR</span>(<span class="number">16</span>) COMMENT <span class="string">&#x27;service type&#x27;</span>,</span><br><span class="line">    `business_key`             <span class="type">VARCHAR</span>(<span class="number">48</span>) COMMENT <span class="string">&#x27;business key&#x27;</span>,</span><br><span class="line">    `state_id_compensated_for` <span class="type">VARCHAR</span>(<span class="number">50</span>) COMMENT <span class="string">&#x27;state compensated for&#x27;</span>,</span><br><span class="line">    `state_id_retried_for`     <span class="type">VARCHAR</span>(<span class="number">50</span>) COMMENT <span class="string">&#x27;state retried for&#x27;</span>,</span><br><span class="line">    `gmt_started`              DATETIME(<span class="number">3</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;start time&#x27;</span>,</span><br><span class="line">    `is_for_update`            TINYINT(<span class="number">1</span>) COMMENT <span class="string">&#x27;is service for update&#x27;</span>,</span><br><span class="line">    `input_params`             TEXT COMMENT <span class="string">&#x27;input parameters&#x27;</span>,</span><br><span class="line">    `output_params`            TEXT COMMENT <span class="string">&#x27;output parameters&#x27;</span>,</span><br><span class="line">    `status`                   <span class="type">VARCHAR</span>(<span class="number">2</span>)   <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;status(SU succeed|FA failed|UN unknown|SK skipped|RU running)&#x27;</span>,</span><br><span class="line">    `excep`                    <span class="type">BLOB</span> COMMENT <span class="string">&#x27;exception&#x27;</span>,</span><br><span class="line">    `gmt_updated`              DATETIME(<span class="number">3</span>) COMMENT <span class="string">&#x27;update time&#x27;</span>,</span><br><span class="line">    `gmt_end`                  DATETIME(<span class="number">3</span>) COMMENT <span class="string">&#x27;end time&#x27;</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`id`, `machine_inst_id`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line">  <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br></pre></td></tr></table></figure>
+
+<h5 id="TCC模式mysql-TCC模式不依赖数据源-1-4-2版本及之前-，1-4-2版本之后增加了TCC防悬挂措施，需要数据源支持。"><a href="#TCC模式mysql-TCC模式不依赖数据源-1-4-2版本及之前-，1-4-2版本之后增加了TCC防悬挂措施，需要数据源支持。" class="headerlink" title="TCC模式mysql   TCC模式不依赖数据源(1.4.2版本及之前)，1.4.2版本之后增加了TCC防悬挂措施，需要数据源支持。"></a>TCC模式mysql   TCC模式不依赖数据源(1.4.2版本及之前)，1.4.2版本之后增加了TCC防悬挂措施，需要数据源支持。</h5><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- -------------------------------- The script use tcc fence  --------------------------------</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> IF <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> `tcc_fence_log`</span><br><span class="line">(</span><br><span class="line">    `xid`           <span class="type">VARCHAR</span>(<span class="number">128</span>)  <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;global id&#x27;</span>,</span><br><span class="line">    `branch_id`     <span class="type">BIGINT</span>        <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;branch id&#x27;</span>,</span><br><span class="line">    `action_name`   <span class="type">VARCHAR</span>(<span class="number">64</span>)   <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;action name&#x27;</span>,</span><br><span class="line">    `status`        TINYINT       <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;status(tried:1;committed:2;rollbacked:3;suspended:4)&#x27;</span>,</span><br><span class="line">    `gmt_create`    DATETIME(<span class="number">3</span>)   <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;create time&#x27;</span>,</span><br><span class="line">    `gmt_modified`  DATETIME(<span class="number">3</span>)   <span class="keyword">NOT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;update time&#x27;</span>,</span><br><span class="line">    <span class="keyword">PRIMARY</span> KEY (`xid`, `branch_id`),</span><br><span class="line">    KEY `idx_gmt_modified` (`gmt_modified`),</span><br><span class="line">    KEY `idx_status` (`status`)</span><br><span class="line">) ENGINE <span class="operator">=</span> InnoDB</span><br><span class="line"><span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8;</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="XA模式-XA模式只支持实现了XA协议的数据库。Seata支持MySQL、Oracle、PostgreSQL和MariDB。"><a href="#XA模式-XA模式只支持实现了XA协议的数据库。Seata支持MySQL、Oracle、PostgreSQL和MariDB。" class="headerlink" title="XA模式   XA模式只支持实现了XA协议的数据库。Seata支持MySQL、Oracle、PostgreSQL和MariDB。"></a>XA模式   XA模式只支持实现了XA协议的数据库。Seata支持MySQL、Oracle、PostgreSQL和MariDB。</h5><h2 id="四：事务分组"><a href="#四：事务分组" class="headerlink" title="四：事务分组"></a>四：事务分组</h2><ul>
+<li><p>每个Seata应用侧的RM、TM，都具有一个<strong>事务分组</strong>名</p>
+</li>
+<li><p>每个Seata协调器侧的TC，都具有一个<strong>集群名</strong>和<strong>Seata服务地址列表</strong> 映射</p>
+<p>​    应用侧连接协调器侧时，经历如下两步：</p>
+<p>​    通过事务分组的名称，从配置中获取到该应用侧对应的TC集群名</p>
+<p>​    过集群名称，可以从注册中心中获取TC集群的地址列表 </p>
+</li>
+</ul>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Client端配置事务分组</span></span><br><span class="line"><span class="attr">seata.tx-service-group</span>=<span class="string">$&#123;spring.application.name&#125;-tx-group</span></span><br><span class="line"><span class="comment">#Server端配置事务分组与集群的映射关系</span></span><br><span class="line"><span class="attr">service.vgroupMapping.default_tx_group</span>=<span class="string">default</span></span><br><span class="line"><span class="attr">service.vgroupMapping.seata-order-tx-group</span>=<span class="string">default</span></span><br><span class="line"><span class="attr">service.vgroupMapping.seata-store-tx-group</span>=<span class="string">default</span></span><br><span class="line"><span class="attr">service.vgroupMapping.seata-shop-tx-group</span>=<span class="string">default</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Seata集群名称是在SeataServer registry.conf配置文件中指定</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">registry <span class="punctuation">&#123;</span></span><br><span class="line">  # file 、nacos 、eureka、redis、zk、consul、etcd3、sofa</span><br><span class="line">  type = <span class="string">&quot;nacos&quot;</span></span><br><span class="line">  nacos <span class="punctuation">&#123;</span></span><br><span class="line">    application = <span class="string">&quot;seata-server&quot;</span></span><br><span class="line">    serverAddr = <span class="string">&quot;127.0.0.1:8848&quot;</span></span><br><span class="line">    group = <span class="string">&quot;SEATA_GROUP&quot;</span></span><br><span class="line">    namespace = <span class="string">&quot;7dba3cc6-3805-4f3d-b89c-0519044013b7&quot;</span></span><br><span class="line">    cluster = <span class="string">&quot;default&quot;</span></span><br><span class="line">    username = <span class="string">&quot;&quot;</span></span><br><span class="line">    password = <span class="string">&quot;&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="远程服务调用XID的事务传播："><a href="#远程服务调用XID的事务传播：" class="headerlink" title="远程服务调用XID的事务传播："></a>远程服务调用XID的事务传播：</h2><p>分布在网络上的服务如何感知并加入到分布式的事务过程中呢，事务属性如何传播的呢？</p>
+<p><strong>在spring-cloud-starter-alibaba-seata环境下调用方：</strong></p>
+<p>Seata集成了RestTemplet 并自动配了com.alibaba.cloud.seata.SeataRestTemplateAutoConfiguration</p>
+<p>Seata集成了RestTemplet 并自动配了com.alibaba.cloud.seata.feign.SeataFeignClientAutoConfiguration</p>
+<p>Seata集成了hystrix 并自动配了com.alibaba.cloud.seata.feign.hystrix.SeataHystrixAutoConfiguration</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">io.seata.integration.http.TransactionPropagationIntercepter&#123;</span><br><span class="line"><span class="keyword">public</span> ClientHttpResponse <span class="title function_">intercept</span><span class="params">(HttpRequest httpRequest, <span class="type">byte</span>[] bytes, ClientHttpRequestExecution clientHttpRequestExecution)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">HttpRequestWrapper</span> <span class="variable">requestWrapper</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HttpRequestWrapper</span>(httpRequest);</span><br><span class="line">        <span class="type">String</span> <span class="variable">xid</span> <span class="operator">=</span> RootContext.getXID();</span><br><span class="line">        <span class="keyword">if</span> (!StringUtils.isEmpty(xid)) &#123;</span><br><span class="line">            #将TX_XID 添加到请求头</span><br><span class="line">            requestWrapper.getHeaders().add(<span class="string">&quot;TX_XID&quot;</span>, xid);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> clientHttpRequestExecution.execute(requestWrapper, bytes);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">com.alibaba.cloud.seata.feign.SeataFeignClient&#123;</span><br><span class="line">    <span class="keyword">public</span> Response <span class="title function_">execute</span><span class="params">(Request request, Options options)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        #修改请求头</span><br><span class="line">        <span class="type">Request</span> <span class="variable">modifiedRequest</span> <span class="operator">=</span> <span class="built_in">this</span>.getModifyRequest(request);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.delegate.execute(modifiedRequest, options);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Request <span class="title function_">getModifyRequest</span><span class="params">(Request request)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">xid</span> <span class="operator">=</span> RootContext.getXID();</span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isEmpty(xid)) &#123;</span><br><span class="line">            <span class="keyword">return</span> request;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            Map&lt;String, Collection&lt;String&gt;&gt; headers = <span class="keyword">new</span> <span class="title class_">HashMap</span>(<span class="number">16</span>);</span><br><span class="line">            headers.putAll(request.headers());</span><br><span class="line">            List&lt;String&gt; seataXid = <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">            seataXid.add(xid);</span><br><span class="line">            #添加TX_XID到请求头</span><br><span class="line">            headers.put(<span class="string">&quot;TX_XID&quot;</span>, seataXid);</span><br><span class="line">            <span class="keyword">return</span> Request.create(request.method(), request.url(), headers, request.body(), request.charset());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>在spring-cloud-starter-alibaba-seata环境下接收方：</strong></p>
+<p>Seata集成了MvcHandlerInterceptor并自动配了com.alibaba.cloud.seata.SeataHandlerInterceptorConfiguration</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SeataHandlerInterceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">Logger</span> <span class="variable">log</span> <span class="operator">=</span> LoggerFactory.getLogger(SeataHandlerInterceptor.class);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">SeataHandlerInterceptor</span><span class="params">()</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">xid</span> <span class="operator">=</span> RootContext.getXID();</span><br><span class="line">        <span class="type">String</span> <span class="variable">rpcXid</span> <span class="operator">=</span> request.getHeader(<span class="string">&quot;TX_XID&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (log.isDebugEnabled()) &#123;</span><br><span class="line">            log.debug(<span class="string">&quot;xid in RootContext &#123;&#125; xid in RpcContext &#123;&#125;&quot;</span>, xid, rpcXid);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (StringUtils.isBlank(xid) &amp;&amp; rpcXid != <span class="literal">null</span>) &#123;</span><br><span class="line">            #从请求头中拿到TX_XID 并绑定rpcxid 达到事务传播功能</span><br><span class="line">            RootContext.bind(rpcXid);</span><br><span class="line">            <span class="keyword">if</span> (log.isDebugEnabled()) &#123;</span><br><span class="line">                log.debug(<span class="string">&quot;bind &#123;&#125; to RootContext&quot;</span>, rpcXid);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注：在seata-all包io.seata.integration中 集成了，dubbo,grpc,http,motan,sofa.rpc等事务传播功能：</strong></p>
+<h2 id="事务边界定义、控制及事务状态查询（高阶api）"><a href="#事务边界定义、控制及事务状态查询（高阶api）" class="headerlink" title="事务边界定义、控制及事务状态查询（高阶api）"></a>事务边界定义、控制及事务状态查询（高阶api）</h2><h3 id="GlobalTransactionScanner-AbstractAutoProxyCreator-（注解扫描）"><a href="#GlobalTransactionScanner-AbstractAutoProxyCreator-（注解扫描）" class="headerlink" title="GlobalTransactionScanner(AbstractAutoProxyCreator),（注解扫描）"></a>GlobalTransactionScanner(AbstractAutoProxyCreator),（注解扫描）</h3><p>代理对象创建过程,对Seata目标代理对象进行分析并创建合适的植入点。确定哪些类可以做TCC,,根据目标类配置是否是TCC模式 ，确定是否植入TccActionInterceptor拦截（如类上是否有@LocalTCC），根据类上是否有@GlobalTransactional 或者方法上是否有    @GlobalTransactional 或者@GlobalLock 来确定是否植入GlobalTransactionalInterceptor。</p>
+<p>TccActionInterceptor对指定@LocalTCC的类方法上有@TwoPhaseBusinessAction做拦截</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@LocalTCC</span><br><span class="line">public interface OrderTcc &#123;</span><br><span class="line">    @TwoPhaseBusinessAction(name = &quot;insertOrder&quot;,commitMethod = &quot;commit&quot;,rollbackMethod = &quot;cancel&quot;)</span><br><span class="line">    public Object insertOrder(@BusinessActionContextParameter(paramName = &quot;order&quot;) OrderInfo order);</span><br><span class="line">    public boolean commit(BusinessActionContext businessActionContext);</span><br><span class="line">    public boolean cancel(BusinessActionContext businessActionContext);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>GlobalTransactionalInterceptor(MethodInterceptor) 提供两种模板方法，根据注解的不同使用不同的模板方法</p>
+<p>​    1：TransactionalTemplate 请求全局锁，开启全局事务 模板方法</p>
+<p>​        通过GlobalTransactionContext GlobalTransaction  把一个业务服务的调用包装成带有分布式事务支持的服务。</p>
+<p>​    2：GlobalLockTemplate，请求全局锁</p>
+<p>​        通过RootContext 把一个业务服务的调用包装全局事务锁内进行的服务。</p>
+<h2 id="用于控制事务上下文的传播-低阶api"><a href="#用于控制事务上下文的传播-低阶api" class="headerlink" title="用于控制事务上下文的传播(低阶api)"></a>用于控制事务上下文的传播(低阶api)</h2><p>RootContext 事务的根上下文：负责在应用的运行时，维护 XID 。</p>
+<p>高阶API 的实现都是基于 RootContext 中维护的 XID 来做的。应用的当前运行的操作是否在一个全局事务的上下文中，就是看 RootContext 中是否有 XID，RootContext 的默认实现是基于 ThreadLocal 的，即 XID 保存在当前线程上下文中</p>
+<p>Seata管方文档:<a target="_blank" rel="noopener" href="https://seata.io/zh-cn/index.html">Seata</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Seata/" rel="tag"><i class="fa fa-tag"></i> Seata</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/19/db/es/" rel="prev" title="ES安装与运行">
+                  <i class="fa fa-angle-left"></i> ES安装与运行
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/19/spring/seataat/" rel="next" title="Seata-AT">
+                  Seata-AT <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

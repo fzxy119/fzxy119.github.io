@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="SpringWebMVC是构建在ServletAPI上的最初的Web框架，从一开始就包含在Spring框架中。正式名称“SpringWebMVC”来自其源模块(Spring-webmvc)的名称，但它更常见的名称是“SpringMVC”。与SpringWebMVC并行，SpringFramework5.0引入了一个反应性堆栈Web框架，它的名称“SpringWebFlux”也是基于它的源模块(Sp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringWebMvc">
+<meta property="og:url" content="http://example.com/2021/09/07/spring/springWebMvc/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="SpringWebMVC是构建在ServletAPI上的最初的Web框架，从一开始就包含在Spring框架中。正式名称“SpringWebMVC”来自其源模块(Spring-webmvc)的名称，但它更常见的名称是“SpringMVC”。与SpringWebMVC并行，SpringFramework5.0引入了一个反应性堆栈Web框架，它的名称“SpringWebFlux”也是基于它的源模块(Sp">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/mvc-context-hierarchy.png">
+<meta property="article:published_time" content="2021-09-07T08:31:18.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.301Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="java">
+<meta property="article:tag" content="springmvc">
+<meta property="article:tag" content="spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/mvc-context-hierarchy.png">
+
+
+<link rel="canonical" href="http://example.com/2021/09/07/spring/springWebMvc/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/09/07/spring/springWebMvc/","path":"2021/09/07/spring/springWebMvc/","title":"SpringWebMvc"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>SpringWebMvc | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8A%E4%B8%8B%E6%96%87%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">上下文层次结构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DispatcherServlet"><span class="nav-number">2.</span> <span class="nav-text">DispatcherServlet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#web-xml-%E6%96%B9%E5%BC%8F%E7%B1%BB%E9%93%BE%E6%8E%A5-DispatcherServlet"><span class="nav-number">2.1.</span> <span class="nav-text">web.xml 方式类链接 DispatcherServlet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebApplicationInitializer-%E6%96%B9%E5%BC%8F%E7%B1%BB%E9%93%BE%E6%8E%A5-DispatcherServlet"><span class="nav-number">2.2.</span> <span class="nav-text">WebApplicationInitializer 方式类链接 DispatcherServlet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E7%9A%84Bean"><span class="nav-number">3.</span> <span class="nav-text">特殊的Bean</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#doDispatch%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="nav-number">4.</span> <span class="nav-text">doDispatch执行流程:</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">问题：</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/07/spring/springWebMvc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="SpringWebMvc | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SpringWebMvc
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-09-07 16:31:18" itemprop="dateCreated datePublished" datetime="2021-09-07T16:31:18+08:00">2021-09-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>SpringWebMVC是构建在ServletAPI上的最初的Web框架，从一开始就包含在Spring框架中。正式名称“SpringWebMVC”来自其源模块(Spring-webmvc)的名称，但它更常见的名称是“SpringMVC”。与SpringWebMVC并行，SpringFramework5.0引入了一个反应性堆栈Web框架，它的名称“SpringWebFlux”也是基于它的源模块(SpringWebFlux)。</p>
+<p>与许多其他Web框架一样，SpringMVC是围绕前端控制器模式设计的，其中一个中心servlet DispatcherServlet为请求处理提供了一个共享算法，而实际工作则由可配置的委托组件执行。该模型具有灵活性，支持多种工作流。与任何servlet一样，DispatcherServlet需要使用Java配置或web.xml根据servlet规范进行声明和映射。反过来，DispatcherServlet使用Spring配置来发现请求映射、视图解析、异常处理等所需的委托组件。</p>
+<p>SpringBoot遵循不同的初始化顺序。SpringBoot没有连接到servlet容器的生命周期，而是使用Spring配置引导自身和嵌入式servlet容器。<code>Filter</code>和<code>Servlet</code>声明在Spring配置中,容器检测到并在servlet容器中注册. </p>
+<p>传统的Spring和Springmvc依赖于servlet容器的生命周期，通过org.springframework.web.context.ContextLoaderListener 容器监听器和org.springframework.web.servlet.DispatcherServlet 注册 来完成容器的启动 这与SpringBoot 通过容器初始化，通过工厂方式创建WebServer ，然后监听ServletContext ,并回调</p>
+<span id="more"></span>
+
+<h1 id="上下文层次结构"><a href="#上下文层次结构" class="headerlink" title="上下文层次结构"></a>上下文层次结构</h1><p>DispatcherServlet 可以直接与 ServletContext 进项关联 xml，或者借助 WebApplicationContext 与 ServletContext 进项关联(JavaConfig) ，如果应用程序想要获取WebApplicationContext，可通过RequestContextUtils 工具类获取到它.通常情况下WebApplicationContext 有一个上下文层次结构，应用程序环境有父子容器关系，根<code>ApplicationContext</code>通常包含基础设施bean（扫描service包）,这些bean实际上是继承的，可以在WebApplicationContext （扫描controller包）特定的子级中重写(即重新声明),下图显示了这种关系，</p>
+<p><img src="/images/mvc-context-hierarchy.png"></p>
+<h1 id="DispatcherServlet"><a href="#DispatcherServlet" class="headerlink" title="DispatcherServlet"></a>DispatcherServlet</h1><p>DispatcherServlet 就像Servlet 链接到ServletContext 有多重方式，支持web.xml,或者JAVA 配置方式 来进项链接.（Tomcat容器方式）</p>
+<h2 id="web-xml-方式类链接-DispatcherServlet"><a href="#web-xml-方式类链接-DispatcherServlet" class="headerlink" title="web.xml 方式类链接 DispatcherServlet"></a>web.xml 方式类链接 DispatcherServlet</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;web-app&gt;</span><br><span class="line">     &lt;!--ROOTApplicationContext--&gt;</span><br><span class="line">    &lt;listener&gt;</span><br><span class="line">        &lt;listener-class&gt;org.springframework.web.context.ContextLoaderListener&lt;/listener-class&gt;</span><br><span class="line">    &lt;/listener&gt;</span><br><span class="line">    &lt;context-param&gt;</span><br><span class="line">        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">        &lt;param-value&gt;classpath:spring.xml,classpath:dubbo-consumer.xml&lt;/param-value&gt;</span><br><span class="line">    &lt;/context-param&gt;</span><br><span class="line">      &lt;!--注册DispatcherServlet--&gt;</span><br><span class="line">    &lt;servlet&gt;</span><br><span class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</span><br><span class="line">        &lt;servlet-class&gt;org.springframework.web.servlet.DispatcherServlet&lt;/servlet-class&gt;</span><br><span class="line">        &lt;init-param&gt;</span><br><span class="line">            &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;</span><br><span class="line">            &lt;param-value&gt;classpath:spring-mvc.xml&lt;/param-value&gt;</span><br><span class="line">        &lt;/init-param&gt;</span><br><span class="line">        &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;</span><br><span class="line">    &lt;/servlet&gt;</span><br><span class="line">    &lt;servlet-mapping&gt;</span><br><span class="line">        &lt;servlet-name&gt;dispatcher&lt;/servlet-name&gt;</span><br><span class="line">        &lt;url-pattern&gt;/*&lt;/url-pattern&gt;</span><br><span class="line">    &lt;/servlet-mapping&gt;</span><br><span class="line"></span><br><span class="line">&lt;/web-app&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="WebApplicationInitializer-方式类链接-DispatcherServlet"><a href="#WebApplicationInitializer-方式类链接-DispatcherServlet" class="headerlink" title="WebApplicationInitializer 方式类链接 DispatcherServlet"></a>WebApplicationInitializer 方式类链接 DispatcherServlet</h2><p>现在JavaConfig配置方式在逐步取代xml配置方式。而WebApplicationInitializer可以看做是Web.xml的替代，它是一个接口。通过实现WebApplicationInitializer，在其中可以添加servlet，listener等，在加载Web项目的时候会加载这个接口实现类，从而起到web.xml相同的作用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class MyWebApplicationInitializer implements WebApplicationInitializer &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onStartup(ServletContext servletContext) &#123;</span><br><span class="line">    </span><br><span class="line">        // Load Spring web application configuration</span><br><span class="line">        AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();</span><br><span class="line">        //可采用注解的方式替代xml配置</span><br><span class="line">        context.register(AppConfig.class);</span><br><span class="line">        </span><br><span class="line">        // Create and register the DispatcherServlet</span><br><span class="line">        DispatcherServlet servlet = new DispatcherServlet(context);</span><br><span class="line">        ServletRegistration.Dynamic registration = servletContext.addServlet(&quot;app&quot;, servlet);</span><br><span class="line">        registration.setLoadOnStartup(1);</span><br><span class="line">        registration.addMapping(&quot;/*&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者 采用xml</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class MyWebApplicationInitializer implements WebApplicationInitializer &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void onStartup(ServletContext container) &#123;</span><br><span class="line">        XmlWebApplicationContext appContext = new XmlWebApplicationContext();</span><br><span class="line">        appContext.setConfigLocation(&quot;/WEB-INF/spring-mvc.xml&quot;);</span><br><span class="line"></span><br><span class="line">        ServletRegistration.Dynamic registration = container.addServlet(&quot;dispatcher&quot;, new DispatcherServlet(appContext));</span><br><span class="line">        registration.setLoadOnStartup(1);</span><br><span class="line">        registration.addMapping(&quot;/*&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="特殊的Bean"><a href="#特殊的Bean" class="headerlink" title="特殊的Bean"></a>特殊的Bean</h1><p>DispatcherServlet接受请求并强请求委派给SpringMvc中定义的相应功能Bean进项处理，这些Bean担任不同的角色，有者不同的处理能力，这些通常带有内置的契约，我们可以自定义他们的属性或者替换他们来完成我们的业务需求</p>
+<table>
+<thead>
+<tr>
+<th align="left">Bean</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">HandlerMapping</td>
+<td align="left">将请求映射到处理程序以及生成拦截器处理链。映射是基于一些标准，其细节取决于HandlerMapping实现。两主HandlerMapping实现是RequestMappingHandlerMapping(支持@RequestMapping)和SimpleUrlHandlerMapping(它维护对处理程序的URI路径模式的显式注册)。</td>
+</tr>
+<tr>
+<td align="left">HandlerAdapter</td>
+<td align="left">调用映射到请求的处理程序，可适配多种具体的执行方式，如处理程序为handlerMethod Controller HandlerFunction  Servlet HttpRequestHandler，HandlerAdapter主要目的是隐藏调用细节，简化DispatcherServlet，让DispatcherServlet专注于流程控制</td>
+</tr>
+<tr>
+<td align="left">HandlerExceptionResolver</td>
+<td align="left">mvc中解决异常的策略，可以将程序中的执行异常，映射到处理程序，HTML试图，或者其他结果，常见的HandlerExceptionResolver实现有，SimpleMappingExceptionResolver，DefaultHandlerExceptionResolver，ResponseStatusExceptionResolver，ExceptionHandlerExceptionResolver</td>
+</tr>
+<tr>
+<td align="left">ViewResolver</td>
+<td align="left">如果处理程序返回视图数据模型，那么ViewResolver负责对视图数据模型进行解析,可根据具体的请求接受类型，返回最适合的视图View，并由View进行视图的渲染</td>
+</tr>
+<tr>
+<td align="left">LocaleResolver,LocaleContextResolver</td>
+<td align="left">解析Locale客户端正在使用并可能使用他们的时区，以便能够提供国际化的视图</td>
+</tr>
+<tr>
+<td align="left">ThemeResolver</td>
+<td align="left">解决您的Web应用程序可以使用的主题</td>
+</tr>
+<tr>
+<td align="left">MultipartResolver</td>
+<td align="left">抽象用于解析多部分请求(例如，浏览器表单文件上传)</td>
+</tr>
+<tr>
+<td align="left">FlashMapManager</td>
+<td align="left">存储和检索“输入”和“输出”FlashMap它可以用于将属性从一个请求传递到另一个请求</td>
+</tr>
+</tbody></table>
+<h1 id="doDispatch执行流程"><a href="#doDispatch执行流程" class="headerlink" title="doDispatch执行流程:"></a>doDispatch执行流程:</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception &#123;</span><br><span class="line">         .....</span><br><span class="line">		try &#123;</span><br><span class="line">			ModelAndView mv = null;</span><br><span class="line">			Exception dispatchException = null;</span><br><span class="line">			try &#123;</span><br><span class="line">			    //-------MultipartResolver 解析并装饰 request</span><br><span class="line">				processedRequest = checkMultipart(request);</span><br><span class="line">				//-------遍历HandlerMapping 并找到匹配的 处理链 HandlerExecutionChain</span><br><span class="line">				mappedHandler = getHandler(processedRequest);</span><br><span class="line">				if (mappedHandler == null) &#123;noHandlerFound(processedRequest, response);return;&#125;</span><br><span class="line">				//-------遍历HandlerAdapter 找到支持执行程序的适配器</span><br><span class="line">				HandlerAdapter ha = getHandlerAdapter(mappedHandler.getHandler());</span><br><span class="line">				//-------applyPreHandle 拦截器前置处理执行</span><br><span class="line">				if (!mappedHandler.applyPreHandle(processedRequest, response)) &#123;return;&#125;</span><br><span class="line">				//-------执行器执行</span><br><span class="line">				mv = ha.handle(processedRequest, response, mappedHandler.getHandler());</span><br><span class="line">				 //-------applyPostHandle 拦截器后置处理执行</span><br><span class="line">				mappedHandler.applyPostHandle(processedRequest, response, mv);</span><br><span class="line">			&#125;</span><br><span class="line">			catch (Exception ex) &#123;dispatchException = ...;&#125;</span><br><span class="line">			catch (Throwable err) &#123;dispatchException =...;&#125;</span><br><span class="line">			 //-------异常解析，视图解析 ，视图渲染  拦截器afterCompletion处理执行</span><br><span class="line">			processDispatchResult(processedRequest, response, mappedHandler, mv, dispatchException);</span><br><span class="line">		&#125;</span><br><span class="line">		catch (Exception ex) &#123;</span><br><span class="line">		     //-------拦截器afterCompletion处理执行</span><br><span class="line">			triggerAfterCompletion</span><br><span class="line">		&#125;</span><br><span class="line">		catch (Throwable err) &#123;</span><br><span class="line">		   //-------拦截器afterCompletion处理执行</span><br><span class="line">			triggerAfterCompletion</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="问题："><a href="#问题：" class="headerlink" title="问题："></a>问题：</h1><ol>
+<li>HandlerMapping实现都有哪些，何时被初始化  如何使用扩展</li>
+<li>HandlerAdapter实现都有哪些，何时被初始化 如何使用扩展</li>
+<li>HandlerExceptionResolver 实现都有哪些，何时被初始化  如何使用扩展            </li>
+<li>ViewResolver   实现都有哪些，何时被初始化   如何使用扩展      </li>
+<li>LocaleResolver,LocaleContextResolver        实现都有哪些，何时被初始化 如何使用扩展            </li>
+<li>ThemeResolver 实现都有哪些，何时被初始化 如何使用扩展          </li>
+<li>MultipartResolver   实现都有哪些，何时被初始化 如何使用扩展          </li>
+<li>FlashMapManager 实现都有哪些，何时被初始化 如何使用扩展          </li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+              <a href="/tags/springmvc/" rel="tag"><i class="fa fa-tag"></i> springmvc</a>
+              <a href="/tags/spring/" rel="tag"><i class="fa fa-tag"></i> spring</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/09/08/spring/HandlerMapping/" rel="next" title="SpringWebMvc-HandlerMapping">
+                  SpringWebMvc-HandlerMapping <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

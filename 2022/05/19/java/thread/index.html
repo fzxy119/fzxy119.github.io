@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 5.4.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="JAVA Thread的状态：1234567891011121314151617181920212223242526272829public enum State &amp;#123;       &#x2F;&#x2F;新建线程但是未进行start方法调用的线程        NEW,       &#x2F;&#x2F;一个正在JVM中运行的线程状态，以下两种情况都是运行状态       &#x2F;&#x2F;1：获得cpu时间分配执行状态，2:失去cpu时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thread">
+<meta property="og:url" content="http://example.com/2022/05/19/java/thread/index.html">
+<meta property="og:site_name" content="别来无恙">
+<meta property="og:description" content="JAVA Thread的状态：1234567891011121314151617181920212223242526272829public enum State &amp;#123;       &#x2F;&#x2F;新建线程但是未进行start方法调用的线程        NEW,       &#x2F;&#x2F;一个正在JVM中运行的线程状态，以下两种情况都是运行状态       &#x2F;&#x2F;1：获得cpu时间分配执行状态，2:失去cpu时">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-05-19T11:51:35.000Z">
+<meta property="article:modified_time" content="2023-11-25T10:31:18.285Z">
+<meta property="article:author" content="二哥关羽">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/05/19/java/thread/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/05/19/java/thread/","path":"2022/05/19/java/thread/","title":"Thread"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Thread | 别来无恙</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">别来无恙</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">半心人</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-about"><a href="/about/me" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JAVA-Thread%E7%9A%84%E7%8A%B6%E6%80%81%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">JAVA Thread的状态：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaThread%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">JavaThread的操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%88%9B%E5%BB%BA%E7%9A%84%E5%92%8C%E4%BD%BF%E7%94%A8%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">3.</span> <span class="nav-text">线程创建的和使用的几种方式：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%A7%E6%89%BF%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">3.0.1.</span> <span class="nav-text">继承方式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%AF%B9%E8%B1%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">3.0.2.</span> <span class="nav-text">执行对象方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FutureTask%E6%96%B9%E5%BC%8F"><span class="nav-number">3.0.3.</span> <span class="nav-text">FutureTask方式:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="nav-number">3.0.4.</span> <span class="nav-text">线程池方式：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%94%81"><span class="nav-number">4.</span> <span class="nav-text">锁</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JMM"><span class="nav-number">5.</span> <span class="nav-text">JMM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8%E5%8F%8A%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%AD%96%E7%95%A5"><span class="nav-number">6.</span> <span class="nav-text">垃圾收集器及内存分配策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#AbstractQueuedSynchronizer"><span class="nav-number">7.</span> <span class="nav-text">AbstractQueuedSynchronizer</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="二哥关羽"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">二哥关羽</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="mailto:fzxy_119@sina.com" title="E-Mail → mailto:fzxy_119@sina.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/05/19/java/thread/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="二哥关羽">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Thread | 别来无恙">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Thread
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-05-19 19:51:35" itemprop="dateCreated datePublished" datetime="2022-05-19T19:51:35+08:00">2022-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-25 18:31:18" itemprop="dateModified" datetime="2023-11-25T18:31:18+08:00">2023-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tc/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="JAVA-Thread的状态："><a href="#JAVA-Thread的状态：" class="headerlink" title="JAVA Thread的状态："></a>JAVA Thread的状态：</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">State</span> &#123;</span><br><span class="line">       <span class="comment">//新建线程但是未进行start方法调用的线程</span></span><br><span class="line">        NEW,</span><br><span class="line">       <span class="comment">//一个正在JVM中运行的线程状态，以下两种情况都是运行状态</span></span><br><span class="line">       <span class="comment">//1：获得cpu时间分配执行状态，2:失去cpu时间分片后的就绪状态，等待系统资源的状态，如cpu处理器</span></span><br><span class="line">        RUNNABLE，</span><br><span class="line">       <span class="comment">//线程阻塞等待一个监视锁，获取锁后可再次执行</span></span><br><span class="line">       <span class="comment">// 1.如进入了synchronized 阻塞方法 </span></span><br><span class="line">       <span class="comment">// 2.在调用Object.wait后重入synchronized  </span></span><br><span class="line">            <span class="comment">//调用 wait 方法必须在同步块中，即是要先获取锁并进入同步块，这是第一次 enter</span></span><br><span class="line">            <span class="comment">//而调用 wait 之后则会释放该锁，并进入此锁的等待队列（wait set）中</span></span><br><span class="line">            <span class="comment">//当收到其它线程的 notify 或 notifyAll 通知之后，等待线程并不能立即恢复执行，因为停止的地方是在同步块内，而锁已               经释放了，所以它要重新获取锁才能再次进入（reenter）同步块，然后从上次 wait 的地方恢复执行。这是第二次 enter，               所以叫 reenter</span></span><br><span class="line">        BLOCKED,</span><br><span class="line">        <span class="comment">//线程处于等待其他线程的一个状态</span></span><br><span class="line">        	<span class="comment">//不带有等待时间的Object.wait，等待别的线程唤醒，Object.notify()，Object.notifyAll(),</span></span><br><span class="line">        	<span class="comment">//不带有时间的Thread.join，等待合并线程的执行完成</span></span><br><span class="line">    		<span class="comment">//或者LockSupport.park</span></span><br><span class="line">        WAITING，</span><br><span class="line">        <span class="comment">//线程处于有限期等待状态</span></span><br><span class="line">        <span class="comment">//带有等待时间的</span></span><br><span class="line">              <span class="comment">// Thread.sleep(long),</span></span><br><span class="line">    		 <span class="comment">// Object.wait(long),</span></span><br><span class="line">              <span class="comment">// Thread.join(long),</span></span><br><span class="line">    		 <span class="comment">// LockSupport.parkNanos,</span></span><br><span class="line">   			 <span class="comment">// LockSupport.parkUntil</span></span><br><span class="line">        TIMED_WAITING,</span><br><span class="line">        <span class="comment">//线程处于完成终止状态</span></span><br><span class="line">        TERMINATED;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="JavaThread的操作"><a href="#JavaThread的操作" class="headerlink" title="JavaThread的操作"></a>JavaThread的操作</h1><ul>
+<li><p>静态方法</p>
+<p>public static void sleep(long millis, int nanos) throws InterruptedException</p>
+<p>如果是临界区代码段，那么线程<strong>不会释放监视器锁资源</strong></p>
+</li>
+<li><p>成员方法<br>public final void join() throws InterruptedException<br>public final synchronized void join(long millis, int nanos)throws InterruptedException<br>public final synchronized void join(long millis) throws InterruptedException </p>
+<p>如果是临界区代码段，那么线程<strong>不会释放监视器锁资源</strong></p>
+<p>public void interrupt()<br>public boolean isInterrupted() </p>
+<p>对于正在执行的线程，终端操作只是将线程的终端标识设置为true，表示已中断，并不会做其他的操作，线程可在内部根据isInterrupted 来判断线程释放继续执行</p>
+<p>对于阻塞的线程，终端操作会直接使线程抛出InterruptedException 异常，线程根据情况判断是否继续进行线程操作</p>
+</li>
+<li><p>LockSupport：<br>LockSupport.park<br>LockSupport.unpark<br>LockSupport.parkNanos,<br>LockSupport.parkUntil</p>
+</li>
+<li><p>Object：<br>Object.wait(long)<br>Object.wait</p>
+<p>如果是临界区代码段，那么<strong>线程释放监视器锁资源</strong></p>
+</li>
+<li><p>Object.notify()，<br>Object.notifyAll(),</p>
+<p>通知其他等待线程，锁已释放，重新竞争锁资源</p>
+</li>
+</ul>
+<h1 id="线程创建的和使用的几种方式："><a href="#线程创建的和使用的几种方式：" class="headerlink" title="线程创建的和使用的几种方式："></a>线程创建的和使用的几种方式：</h1><h3 id="继承方式："><a href="#继承方式：" class="headerlink" title="继承方式："></a>继承方式：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">OThread</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">       log.info(<span class="string">&quot;线程运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">createThread</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">OThread</span> <span class="variable">ot</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">OThread</span>();</span><br><span class="line">	ot.start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="执行对象方式"><a href="#执行对象方式" class="headerlink" title="执行对象方式"></a>执行对象方式</h3><p>Runnable对象可作为线程的执行对象来传递到线程内部并执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Runnable</span> <span class="variable">targ</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        log.info(<span class="string">&quot;Runnable线程运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">Thread</span> <span class="variable">runTarget1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(targ);</span><br><span class="line"><span class="type">Thread</span> <span class="variable">runTarget2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(targ);</span><br><span class="line">runTarget1.start();</span><br><span class="line">runTarget2.start();</span><br></pre></td></tr></table></figure>
+
+<h3 id="FutureTask方式"><a href="#FutureTask方式" class="headerlink" title="FutureTask方式:"></a>FutureTask方式:</h3><p>Future接口支持我们获取异步执行的结果，并可以在执行的过程中进行cancel操作，但是无法作为线程的执行对象</p>
+<p>Runnable可以作为线程的执行对象，但是无法获取到执行的结果，</p>
+<p>那RunnableFuture就结合了Runnable和Future接口的对两者的功能进行了融合，既可以作为Thread的执行对象也可以获取到异步执行结果，FutureTask就是RunnableFuture的实现，来作为线程执行对象，并支持获取执行结果</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">FutureTask</span> <span class="variable">fttask</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FutureTask</span>&lt;String&gt;(<span class="keyword">new</span> <span class="title class_">Callable</span>&lt;String&gt;() &#123;</span><br><span class="line">     <span class="meta">@Override</span></span><br><span class="line">     <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="string">&quot;FutureTask result&quot;</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;);</span><br><span class="line"> <span class="type">Thread</span> <span class="variable">ft</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(fttask);</span><br><span class="line"> ft.start();</span><br><span class="line">log.info(<span class="string">&quot;FutureTask:&#123;&#125;&quot;</span>,fttask.get());</span><br></pre></td></tr></table></figure>
+
+<h3 id="线程池方式："><a href="#线程池方式：" class="headerlink" title="线程池方式："></a>线程池方式：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//单线程，无解队列线程池LinkedBlockingQueue</span></span><br><span class="line"><span class="comment">//队列无线，当任务无线大时会导致内存溢出，RejectedExecutionHandler</span></span><br><span class="line"><span class="type">ExecutorService</span> <span class="variable">executorServiceSingleThreadExecutor</span> <span class="operator">=</span>  Executors.newSingleThreadExecutor();</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//无限线程容量,SynchronousQueue队列，RejectedExecutionHandler</span></span><br><span class="line"><span class="comment">//对线程没有限制，有keepAliveTime60秒</span></span><br><span class="line"><span class="type">ExecutorService</span> <span class="variable">executorServiceCachedThreadPool</span> <span class="operator">=</span>  Executors.newCachedThreadPool();</span><br><span class="line"><span class="comment">//固定数量线程，无界队列线程池LinkedBlockingQueue</span></span><br><span class="line"><span class="comment">//队列无线，当任务无线大时会导致内存溢出，RejectedExecutionHandler</span></span><br><span class="line"><span class="type">ExecutorService</span> <span class="variable">executorServiceFixedThreadPool</span> <span class="operator">=</span>  Executors.newFixedThreadPool(<span class="number">3</span>);</span><br><span class="line"><span class="comment">//计划任务线程池 DelayedWorkQueue优先级队列</span></span><br><span class="line"><span class="type">ExecutorService</span> <span class="variable">executorServiceScheduledThreadPool</span> <span class="operator">=</span>  Executors.newScheduledThreadPool(<span class="number">2</span>);</span><br><span class="line"><span class="comment">//抢占式线程池</span></span><br><span class="line"><span class="type">ExecutorService</span> <span class="variable">executorWorkStealingPool</span> <span class="operator">=</span>  Executors.newWorkStealingPool();</span><br><span class="line"></span><br><span class="line">Future&lt;String&gt; poolF = executorServiceSingleThreadExecutor.submit(<span class="keyword">new</span> <span class="title class_">Callable</span>&lt;String&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">call</span><span class="params">()</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;executorServiceSingleThreadExecutor&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">log.info(<span class="string">&quot;executorServiceSingleThreadExecutor:&#123;&#125;&quot;</span>, poolF.get());</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h1><p>synchronized 内置锁</p>
+<ol>
+<li>无锁</li>
+<li>偏向锁,threadid</li>
+<li>轻量级自旋锁,cas,</li>
+<li>重量级锁 cxq,entrylist,waiteset,monitor</li>
+</ol>
+<p>原子性操作：</p>
+<ol>
+<li>unsafe cas volatile</li>
+<li>cas 优化 LongAddr 分段锁</li>
+</ol>
+<p>可见性与有序性：volatile</p>
+<p>as-is-Serial 保障单内核指令重排序后执行结果的正确性原则，不能保证多内核以及夸cpu指令重排序之后的执行结果正确性</p>
+<p>内存屏障     保障多核指令重排序之后程序结果正确性方法</p>
+<h1 id="JMM"><a href="#JMM" class="headerlink" title="JMM"></a>JMM</h1><p> 内存模型</p>
+<p>  对象的创建</p>
+<p>  堆内存分配 指针碰撞(Serial,ParNew)，空闲列表(CMS)</p>
+<p>  内存分配线程并发  同步锁，TLAB</p>
+<p>  对象引用：直接指针，引用句柄</p>
+<p>内存溢出：堆溢出 元数据区溢出，栈溢出 直接内存溢出</p>
+<h1 id="垃圾收集器及内存分配策略"><a href="#垃圾收集器及内存分配策略" class="headerlink" title="垃圾收集器及内存分配策略"></a>垃圾收集器及内存分配策略</h1><p>哪些内存需要回收</p>
+<ol>
+<li>   哪些区域需要回收？（堆，元数据区），（方法栈 本地方法栈 程序计数器）</li>
+<li>   哪些对象需要回收？</li>
+</ol>
+<ul>
+<li>​        对象已死么？引用计数法，可达性分析法</li>
+<li>​        可达性分析法</li>
+</ul>
+<p>​    对象已死么-GCRoot条件：</p>
+<ul>
+<li><p>​        虚拟机栈中引用的变量（栈帧中的本地变量）</p>
+</li>
+<li><p>​        元数据区中静态属性引用的对象</p>
+</li>
+<li><p>​        元数据区中常量引用的对象</p>
+</li>
+<li><p>​        本地方法栈JNI（native方法）引用的对象</p>
+<p> 对象已死么-可达性分析法-引用：</p>
+</li>
+<li><p>​        强引用</p>
+</li>
+<li><p>​        软引用</p>
+</li>
+<li><p>​        弱引用</p>
+</li>
+<li><p>​        虚引用</p>
+</li>
+</ul>
+<p>​    对象已死么-是否对象已死</p>
+<ul>
+<li>​        两次标记</li>
+<li>​        逃脱死亡的最后机会finalize</li>
+</ul>
+<p>​    回收元数据区：-Xnoclassgc</p>
+<p>垃圾回收算法：</p>
+<p>​            标记清除算法</p>
+<p>​            复制算法</p>
+<p>​            标记整理算法</p>
+<p>什么时候回收</p>
+<p>​    枚举根节点：</p>
+<p>​               类加载完成的时候对象内通过Oopmap数据结构记录引用信息,gc过程中直接遍历oopmap结构，解决因堆和元数据区内存比较大，导致root节点遍历时间过长。</p>
+<p>​     安全点：因为root节点的对象包含线程运行栈</p>
+<p>​     安全区域：修改oopmap结构的区域</p>
+<p>​    </p>
+<h1 id="AbstractQueuedSynchronizer"><a href="#AbstractQueuedSynchronizer" class="headerlink" title="AbstractQueuedSynchronizer"></a>AbstractQueuedSynchronizer</h1><p>模板方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"> private transient volatile Node head;</span><br><span class="line"> private transient volatile Node tail;</span><br><span class="line"> private volatile int state;</span><br><span class="line"></span><br><span class="line">public final void acquire(int arg)</span><br><span class="line">public final boolean tryAcquireNanos(int arg, long nanosTimeout)throws InterruptedException</span><br><span class="line">public final void acquireInterruptibly(int arg)throws InterruptedException</span><br><span class="line">public final boolean release(int arg) </span><br><span class="line"></span><br><span class="line">public final void acquireShared(int arg)</span><br><span class="line">public final boolean tryAcquireSharedNanos(int arg, long nanosTimeout)throws InterruptedException</span><br><span class="line">public final void acquireSharedInterruptibly(int arg)throws InterruptedException </span><br><span class="line">public final boolean releaseShared(int arg) </span><br><span class="line"></span><br><span class="line">protected boolean tryAcquire(int arg)</span><br><span class="line">protected boolean tryRelease(int arg)</span><br><span class="line">protected int tryAcquireShared(int arg)</span><br><span class="line">protected boolean tryReleaseShared(int arg)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.jpg">
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/05/19/spring/seataat/" rel="prev" title="Seata-AT">
+                  <i class="fa fa-angle-left"></i> Seata-AT
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/05/28/java/zk/" rel="next" title="zookeeper">
+                  zookeeper <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">二哥关羽</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
